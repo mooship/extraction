@@ -26,7 +26,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - name: Cache Vite cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: node_modules/.vite
           key: ${{ runner.os }}-node-${{ matrix.node-version }}-vite-${{ hashFiles('package-lock.json', 'vite.config.*', 'tsconfig*.json') }}
