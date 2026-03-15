@@ -506,10 +506,12 @@ nav {
 
 #capital-line {
 	transition: stroke-dashoffset 2s ease 0.5s;
+	stroke: var(--red);
 }
 
 #hist-line {
 	transition: stroke-dashoffset 3s ease 0.2s;
+	stroke: var(--red);
 }
 
 #wealth {
@@ -780,15 +782,16 @@ nav :focus-visible,
 	right: 0;
 	top: 0;
 	bottom: 0;
-	padding: 0 16px;
+	padding: 0 18px;
 	background: var(--red-dark);
 	border: none;
 	border-left: 2px solid var(--black);
 	color: var(--white);
-	font-family: "Bebas Neue", sans-serif;
-	font-size: 1rem;
 	cursor: pointer;
 	transition: background 0.2s;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .ticker-pause:hover {
@@ -922,11 +925,19 @@ nav :focus-visible,
 	}
 
 	.bar-fill::after {
-		font-size: 0.72rem;
+		font-size: 0.65rem;
+	}
+
+	.stat-box {
+		padding: 20px 14px;
+	}
+
+	.stat-box .num {
+		font-size: 2.6rem;
 	}
 
 	.mobile-chart .bar-label {
-		width: 98px;
+		width: 90px;
 		text-align: left;
 		text-transform: none;
 		letter-spacing: 0.4px;
@@ -937,7 +948,7 @@ nav :focus-visible,
 	}
 
 	.mobile-chart .bar-fill::after {
-		font-size: 0.68rem;
+		font-size: 0.65rem;
 	}
 }
 
@@ -995,6 +1006,18 @@ nav :focus-visible,
 		padding-left: 14px;
 		padding-right: 14px;
 		padding-bottom: 34px;
+	}
+
+	.stat-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.stat-box {
+		padding: 16px 14px;
+	}
+
+	.stat-box .num {
+		font-size: 2.2rem;
 	}
 
 	.chart-box {

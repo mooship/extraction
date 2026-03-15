@@ -15,6 +15,9 @@ window.addEventListener("load", () => {
 	initCounters();
 });
 
+const PAUSE_SVG = `<svg width="10" height="14" viewBox="0 0 10 14" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="3.5" height="14"/><rect x="6.5" y="0" width="3.5" height="14"/></svg>`;
+const PLAY_SVG = `<svg width="10" height="14" viewBox="0 0 10 14" fill="currentColor" aria-hidden="true"><polygon points="0,0 10,7 0,14"/></svg>`;
+
 function initTickerPause(): void {
 	const btn = document.querySelector<HTMLButtonElement>(".ticker-pause");
 	const ticker = document.querySelector<HTMLElement>(".ticker");
@@ -25,12 +28,12 @@ function initTickerPause(): void {
 		if (paused) {
 			ticker.style.animationPlayState = "running";
 			btn.setAttribute("aria-pressed", "false");
-			btn.textContent = "⏸";
+			btn.innerHTML = PAUSE_SVG;
 			btn.setAttribute("aria-label", "Pause ticker");
 		} else {
 			ticker.style.animationPlayState = "paused";
 			btn.setAttribute("aria-pressed", "true");
-			btn.textContent = "▶";
+			btn.innerHTML = PLAY_SVG;
 			btn.setAttribute("aria-label", "Play ticker");
 		}
 	});
