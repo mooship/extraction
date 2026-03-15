@@ -15,15 +15,15 @@ There are no tests. TypeScript type-checking is done via `tsc --noEmit` (runs as
 
 ## Architecture
 
-Single-page vanilla TypeScript site built with Vite. No framework. All HTML lives in `index.html`; `src/main.ts` is the entry point and imports `style.css` plus all modules.
+Single-page vanilla TypeScript site built with Vite. No framework. `index.html` defines page structure and chart mount points; `src/main.ts` is the entry point and imports `style.css` plus all modules.
 
 **Module responsibilities:**
 - `animations.ts` — `IntersectionObserver` scroll reveals. `.reveal` (translateY) and `.reveal-left` (translateX) elements start hidden; observer adds `.visible`. Hero elements are made visible immediately (100ms timeout). Checks `prefers-reduced-motion` and skips animation setup if set.
 - `counters.ts` — RAF-based counter animation on `.stat-box .num` elements. Reads `data-target`, `data-prefix`, `data-suffix`. Skips animation when `prefers-reduced-motion` is set.
-- `charts.ts` — Two concerns: (1) `.bar-fill` widths are set to `data-width + '%'` on first `.chart-box` entering the viewport; (2) Gini SVG bars (`.gini-bar`) start at `height=0` and are restored via `setAttribute` with a 120ms stagger.
+- `charts.ts` — Owns chart datasets and renders both desktop SVG and mobile bar chart variants into HTML containers. Also handles two animation concerns: (1) `.bar-fill` widths are set to `data-width + '%'` on first `.chart-box` entering the viewport; (2) Gini SVG bars (`.gini-bar`) start at `height=0` and are restored via `setAttribute` with a 120ms stagger.
 - `lines.ts` — Sets `strokeDashoffset = '0'` on SVG polylines (`#labor-line`, `#capital-line`, `#hist-line`) when their parent SVG enters the viewport. CSS transitions handle the draw animation.
 
-**SVG charts are hand-coded** — no D3, Chart.js, or Recharts. All coordinates are pre-calculated and hardcoded in `index.html`. Do not replace them with a library.
+**SVG charts are data-driven but still custom** — no D3, Chart.js, or Recharts. Desktop SVG geometry is generated in `charts.ts` and injected into mount points in `index.html`. Do not replace this with a charting library.
 
 **Animation contract:** CSS transitions/keyframes drive the actual motion. JS only toggles classes or sets properties; timing lives in CSS. The `prefers-reduced-motion` media query in `style.css` disables all transitions and keyframe animations.
 

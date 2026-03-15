@@ -15,11 +15,11 @@ No test framework. Validate changes with `npm run build` (catches type errors) a
 
 Single-page vanilla TypeScript site built with Vite. No framework.
 
-- `index.html` — all HTML content, including hand-coded SVG charts
+- `index.html` — all page structure and chart mount points; chart markup is injected at runtime
 - `src/main.ts` — entry point; imports CSS and initialises all modules
 - `src/animations.ts` — IntersectionObserver scroll reveals (`.reveal`, `.reveal-left`)
 - `src/counters.ts` — RAF-based counter animation on `.stat-box .num` elements
-- `src/charts.ts` — bar-fill widths and Gini SVG bar animations
+- `src/charts.ts` — chart datasets plus runtime rendering for desktop SVG and mobile bar variants; also handles bar-fill and Gini bar animations
 - `src/lines.ts` — SVG polyline stroke-draw animations
 - `src/style.css` — all styles; CSS custom properties in `:root`
 
@@ -29,7 +29,7 @@ CSS transitions/keyframes drive all motion. JS only toggles classes (`.visible`)
 
 ### SVG charts
 
-All SVG coordinates are pre-calculated and hardcoded in `index.html`. Never replace them with a charting library (no D3, Chart.js, etc.).
+Desktop SVG chart geometry is generated in `src/charts.ts` from in-file datasets and mounted into container elements in `index.html`. Never replace this with a charting library (no D3, Chart.js, etc.).
 
 ### Fonts
 
