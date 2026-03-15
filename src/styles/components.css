@@ -350,3 +350,22 @@ footer {
 	color: #808080;
 	line-height: 1.5;
 }
+
+.global-south-callout {
+	border-left: 3px solid var(--red);
+	background: #111;
+	padding: 2rem 2.5rem;
+	margin: 3rem 0 0;
+}
+
+.global-south-callout h3 {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 1.4rem;
+	letter-spacing: 3px;
+	color: var(--red);
+	margin-bottom: 1rem;
+}
+
+.global-south-callout p {
+	margin-bottom: 1rem;
+}
