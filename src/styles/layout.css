@@ -3,15 +3,16 @@ section {
 }
 
 .section-divider {
-	height: 4px;
-	background: repeating-linear-gradient(
+	height: 1px;
+	background: linear-gradient(
 		90deg,
-		var(--red) 0,
-		var(--red) 20px,
-		transparent 20px,
-		transparent 25px
+		transparent,
+		var(--red) 20%,
+		var(--red) 80%,
+		transparent
 	);
 	margin-bottom: 60px;
+	opacity: 0.6;
 }
 
 .section-intro {

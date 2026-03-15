@@ -125,7 +125,7 @@ nav {
 	font-size: 0.7rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color: #888;
+	color: #aaa;
 	margin-top: 8px;
 	display: block;
 }
@@ -191,6 +191,12 @@ nav {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	border-top: 2px solid transparent;
+	transition: border-color 0.2s;
+}
+
+.country-card:hover {
+	border-color: var(--red);
 }
 
 .country-name {

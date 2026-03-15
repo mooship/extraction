@@ -1,7 +1,7 @@
 p {
 	font-size: 0.95rem;
 	line-height: 1.75;
-	color: #9a9488;
+	color: #b5ae9f;
 }
 
 h1 {
@@ -32,7 +32,7 @@ h2 {
 	gap: 12px;
 	font-family: "Roboto Condensed Variable", sans-serif;
 	font-size: 0.7rem;
-	letter-spacing: 5px;
+	letter-spacing: 3px;
 	text-transform: uppercase;
 	color: var(--red);
 }
@@ -52,7 +52,7 @@ h2 {
 	gap: 12px;
 	font-family: "Roboto Condensed Variable", sans-serif;
 	font-size: 0.7rem;
-	letter-spacing: 5px;
+	letter-spacing: 3px;
 	text-transform: uppercase;
 	color: var(--black);
 }
@@ -68,9 +68,9 @@ h2 {
 
 .pull-quote {
 	border-left: 6px solid var(--red);
-	padding: 20px 30px;
+	padding: 28px 36px;
 	background: #0f0f0f;
-	margin: 24px 0;
+	margin: 32px 0;
 }
 
 .pull-quote blockquote {
@@ -92,7 +92,7 @@ h2 {
 }
 
 .source {
-	font-size: 0.65rem;
+	font-size: 0.72rem;
 	color: #808080;
 	letter-spacing: 0.5px;
 	line-height: 1.6;
