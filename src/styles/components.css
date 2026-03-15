@@ -1,0 +1,352 @@
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 40px;
+	height: 60px;
+	background: var(--red);
+	border-bottom: 3px solid var(--black);
+}
+
+.nav-logo {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 1.4rem;
+	letter-spacing: 4px;
+	color: var(--black);
+	text-decoration: none;
+}
+
+.nav-links {
+	display: flex;
+	gap: 28px;
+}
+
+.nav-links a {
+	font-family: "Roboto Condensed Variable", sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	color: var(--white);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.nav-links a:hover {
+	color: var(--black);
+}
+
+#hero {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	padding-top: 60px;
+	padding-left: 60px;
+	padding-right: 60px;
+	padding-bottom: 60px;
+	position: relative;
+}
+
+#hero::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 6px;
+	background: var(--red);
+}
+
+.hero-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 60px;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.hero-left {
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+}
+
+.hero-left p {
+	font-size: 1rem;
+	line-height: 1.7;
+	color: #b0aa9a;
+	max-width: 460px;
+}
+
+.stamp {
+	display: inline-block;
+	border: 4px solid var(--red);
+	padding: 14px 20px;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 1.1rem;
+	letter-spacing: 3px;
+	color: var(--red);
+	transform: rotate(-3deg);
+	box-shadow: 3px 3px 0 var(--red-dark);
+	animation: stamp-appear 0.4s 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+	align-self: flex-start;
+}
+
+.stat-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2px;
+	border: 2px solid var(--red);
+	background: var(--gray);
+}
+
+.stat-box {
+	background: var(--black);
+	padding: 28px 20px;
+	animation: flash-in 0.5s both;
+}
+
+.stat-box .num {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 3.2rem;
+	color: var(--red);
+	line-height: 1;
+	display: block;
+}
+
+.stat-box .label {
+	font-family: "Roboto Condensed Variable", sans-serif;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #888;
+	margin-top: 8px;
+	display: block;
+}
+
+.ticker-wrap {
+	background: var(--red);
+	overflow: hidden;
+	padding: 12px 0;
+	white-space: nowrap;
+	position: relative;
+}
+
+.ticker {
+	display: inline-flex;
+	animation: ticker-scroll 30s linear infinite;
+}
+
+.ticker span {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 1rem;
+	letter-spacing: 4px;
+	color: var(--white);
+	padding-right: 40px;
+}
+
+.ticker-pause {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 0 18px;
+	background: var(--red-dark);
+	border: none;
+	border-left: 2px solid var(--black);
+	color: var(--white);
+	cursor: pointer;
+	transition: background 0.2s;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ticker-pause:hover {
+	background: #6b0000;
+}
+
+.ticker-wrap:hover .ticker,
+.ticker-wrap:focus-within .ticker {
+	animation-play-state: paused;
+}
+
+.country-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2px;
+	background: var(--gray);
+	margin-top: 40px;
+}
+
+.country-card {
+	background: var(--black);
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.country-name {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 1.4rem;
+	color: var(--white);
+	letter-spacing: 2px;
+}
+
+.system-tag {
+	display: inline-block;
+	font-family: "Roboto Condensed Variable", sans-serif;
+	font-size: 0.6rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 3px 8px;
+	border: 1px solid;
+	align-self: flex-start;
+}
+
+.system-tag.socialist {
+	color: var(--red);
+	border-color: var(--red);
+}
+
+.system-tag.capitalist {
+	color: #555;
+	border-color: #333;
+}
+
+.metric-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	border-bottom: 1px solid #111;
+	padding-bottom: 6px;
+}
+
+.metric-label {
+	font-family: "Roboto Condensed Variable", sans-serif;
+	font-size: 0.65rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #808080;
+}
+
+.metric-val {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 1rem;
+	color: var(--white);
+	letter-spacing: 1px;
+}
+
+.metric-val.good {
+	color: #4caf4c;
+}
+
+.metric-val.bad {
+	color: var(--red);
+}
+
+#manifesto {
+	background: var(--red);
+	padding: 80px 60px;
+}
+
+.manifesto-title {
+	color: var(--black);
+	margin: 16px 0 24px;
+}
+
+.manifesto-intro {
+	color: rgba(0, 0, 0, 0.6);
+	max-width: 680px;
+	margin-bottom: 50px;
+}
+
+.demands {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2px;
+	background: var(--black);
+}
+
+.demand {
+	background: var(--red);
+	padding: 32px 28px;
+	cursor: crosshair;
+	transition: background 0.2s;
+	position: relative;
+	overflow: hidden;
+}
+
+.demand:hover {
+	background: #b80f0f;
+}
+
+.demand-num {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 4rem;
+	color: rgba(0, 0, 0, 0.15);
+	line-height: 1;
+	position: absolute;
+	top: 12px;
+	right: 16px;
+}
+
+.demand-text {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 1.5rem;
+	color: var(--black);
+	line-height: 1.1;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.demand-sub {
+	font-family: "Roboto Condensed Variable", sans-serif;
+	font-size: 0.72rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: rgba(0, 0, 0, 0.6);
+	line-height: 1.5;
+	position: relative;
+}
+
+footer {
+	background: var(--black);
+	border-top: 4px solid #222;
+	padding: 30px 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 40px;
+}
+
+.footer-logo {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 1.6rem;
+	letter-spacing: 4px;
+	color: var(--red);
+	flex-shrink: 0;
+}
+
+.footer-right {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	text-align: right;
+}
+
+.footer-right p {
+	font-family: "Roboto Condensed Variable", sans-serif;
+	font-size: 0.65rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #808080;
+	line-height: 1.5;
+}

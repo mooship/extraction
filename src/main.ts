@@ -1,13 +1,16 @@
-import "./style.css";
-import { initAnimations } from "./animations";
+import "./styles/base.css";
+import "./styles/typography.css";
+import "./styles/layout.css";
+import "./styles/components.css";
+import "./styles/charts.css";
+import "./styles/animations.css";
+import "./styles/accessibility.css";
+import "./styles/responsive.css";
 import { initCharts } from "./charts";
 import { initCounters } from "./counters";
-import { initLines } from "./lines";
 
 document.addEventListener("DOMContentLoaded", () => {
-	initAnimations();
 	initCharts();
-	initLines();
 	initTickerPause();
 });
 

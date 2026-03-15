@@ -1,0 +1,65 @@
+section {
+	padding: 80px 60px;
+}
+
+.section-divider {
+	height: 4px;
+	background: repeating-linear-gradient(
+		90deg,
+		var(--red) 0,
+		var(--red) 20px,
+		transparent 20px,
+		transparent 25px
+	);
+	margin-bottom: 60px;
+}
+
+.section-intro {
+	max-width: 680px;
+	margin-bottom: 50px;
+}
+
+.two-col {
+	display: grid;
+	gap: 80px;
+}
+
+.wealth-layout {
+	grid-template-columns: 1fr 1.4fr;
+}
+
+.labor-layout {
+	grid-template-columns: 1.3fr 1fr;
+}
+
+.col-text {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.col-charts {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+#wealth {
+	border-top: 4px solid var(--red);
+}
+
+#labor {
+	background: #0d0d0d;
+}
+
+#public {
+	border-top: 4px solid var(--red);
+}
+
+#history {
+	background: #0d0d0d;
+}
+
+#history .chart-box {
+	margin-top: 40px;
+}
