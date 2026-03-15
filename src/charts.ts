@@ -43,6 +43,7 @@ const giniDesktopData: GiniItem[] = [
 	{ label: "BR", value: 0.78, color: "#883333" },
 	{ label: "UK", value: 0.81, color: "#aa2222" },
 	{ label: "USA", value: 0.85, color: "var(--red)", highlight: true },
+	{ label: "ZA", value: 0.91, color: "#ff6b6b", highlight: true },
 ];
 
 const laborSeriesData: LaborPoint[] = [
@@ -147,7 +148,7 @@ function renderGiniDesktopChart(): void {
 		})
 		.join("");
 
-	container.innerHTML = `<svg id="gini-svg" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><title>Wealth Gini Coefficient by Country</title><line x1="18" y1="10" x2="390" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="50" x2="390" y2="50" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="90" x2="390" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="130" x2="390" y2="130" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="170" x2="390" y2="170" stroke="#333" stroke-width="1"/><text x="14" y="13" fill="#888" font-size="8" text-anchor="end">1.0</text><text x="14" y="53" fill="#888" font-size="8" text-anchor="end">0.9</text><text x="14" y="93" fill="#888" font-size="8" text-anchor="end">0.8</text><text x="14" y="133" fill="#888" font-size="8" text-anchor="end">0.7</text><text x="14" y="173" fill="#888" font-size="8" text-anchor="end">0.6</text>${bars}</svg>`;
+	container.innerHTML = `<svg id="gini-svg" viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg"><title>Wealth Gini Coefficient by Country</title><line x1="18" y1="10" x2="450" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="50" x2="450" y2="50" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="90" x2="450" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="130" x2="450" y2="130" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="170" x2="450" y2="170" stroke="#333" stroke-width="1"/><text x="14" y="13" fill="#888" font-size="8" text-anchor="end">1.0</text><text x="14" y="53" fill="#888" font-size="8" text-anchor="end">0.9</text><text x="14" y="93" fill="#888" font-size="8" text-anchor="end">0.8</text><text x="14" y="133" fill="#888" font-size="8" text-anchor="end">0.7</text><text x="14" y="173" fill="#888" font-size="8" text-anchor="end">0.6</text>${bars}</svg>`;
 }
 
 function laborY(percent: number): number {
