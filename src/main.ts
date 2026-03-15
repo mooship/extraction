@@ -1,4 +1,11 @@
-import "./style.css";
+import "./styles/base.css";
+import "./styles/typography.css";
+import "./styles/layout.css";
+import "./styles/components.css";
+import "./styles/charts.css";
+import "./styles/animations.css";
+import "./styles/accessibility.css";
+import "./styles/responsive.css";
 import { initAnimations } from "./animations";
 import { initCharts } from "./charts";
 import { initCounters } from "./counters";

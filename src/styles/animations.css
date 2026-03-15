@@ -1,0 +1,54 @@
+@keyframes stamp-appear {
+	from {
+		transform: rotate(-3deg) scale(2);
+		opacity: 0;
+	}
+	to {
+		transform: rotate(-3deg) scale(1);
+		opacity: 0.85;
+	}
+}
+
+@keyframes flash-in {
+	0% {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	60% {
+		opacity: 1;
+		transform: scale(1.03);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes ticker-scroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	.stamp {
+		animation: none;
+		opacity: 0.85;
+	}
+
+	.stat-box {
+		animation: none;
+		opacity: 1;
+	}
+
+	.ticker {
+		animation: none;
+	}
+}
