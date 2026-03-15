@@ -122,32 +122,6 @@ section {
 	margin-bottom: 60px;
 }
 
-.reveal {
-	opacity: 0;
-	transform: translateY(40px);
-	transition:
-		opacity 0.7s ease,
-		transform 0.7s ease;
-}
-
-.reveal.visible {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-.reveal-left {
-	opacity: 0;
-	transform: translateX(-60px);
-	transition:
-		opacity 0.7s ease,
-		transform 0.7s ease;
-}
-
-.reveal-left.visible {
-	opacity: 1;
-	transform: translateX(0);
-}
-
 @keyframes stamp-appear {
 	from {
 		transform: rotate(-3deg) scale(2);
@@ -500,17 +474,11 @@ nav {
 	display: none;
 }
 
-#labor-line {
-	transition: stroke-dashoffset 2s ease 0.3s;
-}
-
 #capital-line {
-	transition: stroke-dashoffset 2s ease 0.5s;
 	stroke: var(--red);
 }
 
 #hist-line {
-	transition: stroke-dashoffset 3s ease 0.2s;
 	stroke: var(--red);
 }
 
@@ -1042,13 +1010,6 @@ nav :focus-visible,
 		scroll-behavior: auto;
 	}
 
-	.reveal,
-	.reveal-left {
-		opacity: 1;
-		transform: none;
-		transition: none;
-	}
-
 	.stamp {
 		animation: none;
 		opacity: 0.85;
@@ -1057,16 +1018,6 @@ nav :focus-visible,
 	.stat-box {
 		animation: none;
 		opacity: 1;
-	}
-
-	.bar-fill {
-		transition: none;
-	}
-
-	#labor-line,
-	#capital-line,
-	#hist-line {
-		transition: none;
 	}
 
 	.ticker {
