@@ -6,15 +6,11 @@ import "./styles/charts.css";
 import "./styles/animations.css";
 import "./styles/accessibility.css";
 import "./styles/responsive.css";
-import { initAnimations } from "./animations";
 import { initCharts } from "./charts";
 import { initCounters } from "./counters";
-import { initLines } from "./lines";
 
 document.addEventListener("DOMContentLoaded", () => {
-	initAnimations();
 	initCharts();
-	initLines();
 	initTickerPause();
 });
 
