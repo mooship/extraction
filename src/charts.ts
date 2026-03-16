@@ -144,7 +144,7 @@ function renderGiniDesktopChart(): void {
 			const labelColor = item.highlight ? "var(--red)" : "#888";
 			const fontWeight = item.highlight ? ' font-weight="bold"' : "";
 
-			return `<rect class="gini-bar" x="${x}" y="${fullY}" width="${width}" height="${fullH}" style="fill: ${item.color}"/><text x="${labelX}" y="185" style="fill: ${labelColor}" font-size="7"${fontWeight} text-anchor="middle">${item.label}</text>`;
+			return `<rect class="gini-bar" data-index="${i}" x="${x}" y="${fullY}" width="${width}" height="${fullH}" style="fill: ${item.color}"/><text x="${labelX}" y="185" style="fill: ${labelColor}" font-size="7"${fontWeight} text-anchor="middle">${item.label}</text>`;
 		})
 		.join("");
 
@@ -279,9 +279,67 @@ export function initCharts(): void {
 	renderMobileBarChart("labor-mobile-chart", mobileData.labor);
 	renderMobileBarChart("history-mobile-chart", mobileData.history);
 
-	const barFills = document.querySelectorAll<HTMLElement>(".bar-fill");
-	for (const fill of barFills) {
-		const w = fill.dataset.width ?? "0";
-		fill.style.width = `${w}%`;
+	const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	if (reduced) {
+		for (const fill of document.querySelectorAll<HTMLElement>(".bar-fill")) {
+			fill.style.width = `${fill.dataset.width ?? "0"}%`;
+		}
+		for (const bar of document.querySelectorAll<SVGRectElement>(".gini-bar")) {
+			bar.style.transform = "scaleY(1)";
+		}
+		return;
+	}
+
+	for (const bar of document.querySelectorAll<SVGRectElement>(".gini-bar")) {
+		bar.style.transformBox = "fill-box";
+		bar.style.transformOrigin = "center bottom";
+		bar.style.transform = "scaleY(0)";
+	}
+
+	const barObserver = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) {
+					continue;
+				}
+				for (const fill of entry.target.querySelectorAll<HTMLElement>(
+					".bar-fill",
+				)) {
+					fill.style.width = `${fill.dataset.width ?? "0"}%`;
+				}
+				barObserver.unobserve(entry.target);
+			}
+		},
+		{ threshold: 0.2 },
+	);
+
+	const giniObserver = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) {
+					continue;
+				}
+				for (const bar of entry.target.querySelectorAll<SVGRectElement>(
+					".gini-bar",
+				)) {
+					const i = Number(bar.dataset.index ?? 0);
+					setTimeout(() => {
+						bar.style.transform = "scaleY(1)";
+					}, i * 120);
+				}
+				giniObserver.unobserve(entry.target);
+			}
+		},
+		{ threshold: 0.2 },
+	);
+
+	for (const box of document.querySelectorAll<HTMLElement>(".chart-box")) {
+		barObserver.observe(box);
+	}
+
+	const giniSvg = document.getElementById("gini-svg");
+	if (giniSvg) {
+		giniObserver.observe(giniSvg);
 	}
 }
