@@ -41,6 +41,10 @@ nav {
 	color: var(--black);
 }
 
+.nav-toggle {
+	display: none;
+}
+
 #hero {
 	min-height: 100vh;
 	display: flex;

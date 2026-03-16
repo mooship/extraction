@@ -73,37 +73,49 @@
 	}
 
 	nav {
-		height: auto;
-		padding: 10px 16px;
-		flex-direction: column;
-		align-items: stretch;
-		justify-content: flex-start;
-		gap: 10px;
+		height: 56px;
+		padding: 0 16px;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
 	}
 
-	.nav-logo {
-		font-size: 1.25rem;
-		letter-spacing: 3px;
-		line-height: 1;
+	.nav-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: none;
+		border: none;
+		color: var(--white);
+		cursor: pointer;
+		padding: 4px;
 	}
 
 	.nav-links {
-		width: 100%;
-		overflow-x: visible;
-		white-space: normal;
-		flex-wrap: wrap;
-		column-gap: 16px;
-		row-gap: 8px;
-		padding-bottom: 2px;
+		display: none;
+		position: fixed;
+		top: 56px;
+		left: 0;
+		right: 0;
+		background: var(--red);
+		border-bottom: 3px solid var(--black);
+		flex-direction: column;
+		gap: 0;
+		padding: 8px 0;
+	}
+
+	nav.nav-open .nav-links {
+		display: flex;
 	}
 
 	.nav-links a {
+		padding: 12px 16px;
+		font-size: 0.8rem;
 		letter-spacing: 2px;
-		font-size: 0.68rem;
 	}
 
 	#hero {
-		padding-top: 166px;
+		padding-top: 96px;
 		padding-left: 16px;
 		padding-right: 16px;
 		padding-bottom: 40px;
@@ -183,22 +195,13 @@
 		padding: 48px 14px;
 	}
 
-	nav {
-		padding: 8px 14px;
-	}
-
 	.nav-logo {
 		font-size: 1.1rem;
 		letter-spacing: 2px;
 	}
 
-	.nav-links a {
-		font-size: 0.64rem;
-		letter-spacing: 1.5px;
-	}
-
 	#hero {
-		padding-top: 182px;
+		padding-top: 90px;
 		padding-left: 14px;
 		padding-right: 14px;
 		padding-bottom: 34px;

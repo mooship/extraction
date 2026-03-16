@@ -14,6 +14,7 @@ import { initLines } from "./lines";
 document.addEventListener("DOMContentLoaded", () => {
 	initCharts();
 	initTickerPause();
+	initNavToggle();
 	initAnimations();
 });
 
@@ -24,6 +25,29 @@ window.addEventListener("load", () => {
 
 const PAUSE_SVG = `<svg width="10" height="14" viewBox="0 0 10 14" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="3.5" height="14"/><rect x="6.5" y="0" width="3.5" height="14"/></svg>`;
 const PLAY_SVG = `<svg width="10" height="14" viewBox="0 0 10 14" fill="currentColor" aria-hidden="true"><polygon points="0,0 10,7 0,14"/></svg>`;
+
+function initNavToggle(): void {
+	const nav = document.querySelector<HTMLElement>("nav");
+	const btn = document.querySelector<HTMLButtonElement>(".nav-toggle");
+	if (!nav || !btn) return;
+
+	btn.addEventListener("click", () => {
+		const open = nav.classList.toggle("nav-open");
+		btn.setAttribute("aria-expanded", String(open));
+		btn.setAttribute(
+			"aria-label",
+			open ? "Close navigation" : "Open navigation",
+		);
+	});
+
+	for (const link of nav.querySelectorAll<HTMLAnchorElement>(".nav-links a")) {
+		link.addEventListener("click", () => {
+			nav.classList.remove("nav-open");
+			btn.setAttribute("aria-expanded", "false");
+			btn.setAttribute("aria-label", "Open navigation");
+		});
+	}
+}
 
 function initTickerPause(): void {
 	const btn = document.querySelector<HTMLButtonElement>(".ticker-pause");
