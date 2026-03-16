@@ -1,3 +1,25 @@
+.reveal {
+	opacity: 0;
+	transform: translateY(32px);
+	transition:
+		opacity 0.7s ease-out,
+		transform 0.7s ease-out;
+}
+
+.reveal-left {
+	opacity: 0;
+	transform: translateX(-32px);
+	transition:
+		opacity 0.7s ease-out,
+		transform 0.7s ease-out;
+}
+
+.reveal.visible,
+.reveal-left.visible {
+	opacity: 1;
+	transform: none;
+}
+
 @keyframes stamp-appear {
 	from {
 		transform: rotate(-3deg) scale(2);
@@ -50,5 +72,26 @@
 
 	.ticker {
 		animation: none;
+	}
+
+	.reveal,
+	.reveal-left {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+
+	.bar-fill {
+		transition: none;
+	}
+
+	.gini-bar {
+		transition: none;
+	}
+
+	#labor-line,
+	#capital-line,
+	#hist-line {
+		transition: none;
 	}
 }

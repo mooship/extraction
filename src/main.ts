@@ -8,14 +8,18 @@ import "./styles/accessibility.css";
 import "./styles/responsive.css";
 import { initCharts } from "./charts";
 import { initCounters } from "./counters";
+import { initAnimations } from "./animations";
+import { initLines } from "./lines";
 
 document.addEventListener("DOMContentLoaded", () => {
 	initCharts();
 	initTickerPause();
+	initAnimations();
 });
 
 window.addEventListener("load", () => {
 	initCounters();
+	initLines();
 });
 
 const PAUSE_SVG = `<svg width="10" height="14" viewBox="0 0 10 14" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="3.5" height="14"/><rect x="6.5" y="0" width="3.5" height="14"/></svg>`;
