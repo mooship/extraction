@@ -94,7 +94,9 @@ function renderBarChart(
 	options: BarChartRenderOptions = {},
 ): void {
 	const container = document.getElementById(containerId);
-	if (!container) return;
+	if (!container) {
+		return;
+	}
 
 	const outsideValueThreshold = options.outsideValueThreshold ?? 0;
 
@@ -118,7 +120,9 @@ function renderMobileBarChart(
 	items: MobileBarItem[],
 ): void {
 	const container = document.getElementById(containerId);
-	if (!container) return;
+	if (!container) {
+		return;
+	}
 
 	const rows = items
 		.map(
@@ -132,7 +136,9 @@ function renderMobileBarChart(
 
 function renderGiniDesktopChart(): void {
 	const container = document.getElementById("gini-desktop-chart");
-	if (!container) return;
+	if (!container) {
+		return;
+	}
 
 	const yTop = 10;
 	const yBase = 170;
@@ -164,7 +170,9 @@ function laborY(percent: number): number {
 
 function renderLaborDesktopChart(): void {
 	const container = document.getElementById("labor-desktop-chart");
-	if (!container) return;
+	if (!container) {
+		return;
+	}
 
 	const laborPoints = laborSeriesData
 		.map((point) => `${point.x},${laborY(point.labor)}`)
@@ -188,7 +196,9 @@ function historyY(share: number): number {
 
 function renderHistoryDesktopChart(): void {
 	const container = document.getElementById("history-desktop-chart");
-	if (!container) return;
+	if (!container) {
+		return;
+	}
 
 	const trendPoints = historySeriesData
 		.map((point) => `${point.x},${historyY(point.share)}`)
@@ -205,7 +215,9 @@ function renderHistoryDesktopChart(): void {
 	const crash = historySeriesData.find((point) => point.year === 1929);
 	const peak = historySeriesData.find((point) => point.year === 1970);
 	const recent = historySeriesData.find((point) => point.year === 2023);
-	if (!crash || !peak || !recent) return;
+	if (!crash || !peak || !recent) {
+		return;
+	}
 
 	container.innerHTML = `<svg id="history-svg" viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg"><title>Top 1% Income Share, USA 1913-2023</title><rect x="50" y="10" width="212" height="215" fill="rgba(204,17,17,0.06)"/><rect x="262" y="10" width="233" height="215" fill="rgba(76,175,76,0.05)"/><rect x="495" y="10" width="285" height="215" fill="rgba(204,17,17,0.10)"/><text x="60" y="25" fill="rgba(204,17,17,0.4)" font-size="8">GILDED AGE</text><text x="270" y="25" fill="rgba(76,175,76,0.4)" font-size="8">POST-WAR EGALITARIAN ERA</text><text x="505" y="25" fill="rgba(204,17,17,0.5)" font-size="8">NEOLIBERAL ASCENT</text><line x1="50" y1="45" x2="780" y2="45" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="90" x2="780" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="135" x2="780" y2="135" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="180" x2="780" y2="180" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="225" x2="780" y2="225" stroke="#333" stroke-width="1"/><text x="44" y="48" fill="#888" font-size="8" text-anchor="end">30%</text><text x="44" y="93" fill="#888" font-size="8" text-anchor="end">25%</text><text x="44" y="138" fill="#888" font-size="8" text-anchor="end">20%</text><text x="44" y="183" fill="#888" font-size="8" text-anchor="end">15%</text><text x="44" y="228" fill="#888" font-size="8" text-anchor="end">10%</text>${yearLabels}<polygon points="${areaPoints}" fill="rgba(204,17,17,0.08)"/><polyline id="hist-line" points="${trendPoints}" fill="none" stroke="#cc1111" stroke-width="2.5"/><circle cx="${crash.x}" cy="${historyY(crash.share)}" r="5" style="fill: var(--red)"/><text x="${crash.x + 6}" y="${historyY(crash.share) - 8}" style="fill: var(--red)" font-size="7">1929 Crash</text><circle cx="${peak.x}" cy="${historyY(peak.share)}" r="5" fill="#4caf4c"/><text x="${peak.x + 6}" y="${historyY(peak.share) - 7}" fill="#4caf4c" font-size="7">Peak Equality</text><circle cx="${recent.x}" cy="${historyY(recent.share)}" r="5" style="fill: var(--red)"/><text x="${recent.x - 38}" y="${historyY(recent.share) - 8}" style="fill: var(--red)" font-size="7">${recent.share}% (2023)</text></svg>`;
 }
