@@ -23,7 +23,7 @@ nav {
 
 .nav-links {
 	display: flex;
-	gap: 28px;
+	gap: 20px;
 }
 
 .nav-links a {
@@ -31,7 +31,7 @@ nav {
 	font-size: 0.75rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	letter-spacing: 3px;
+	letter-spacing: 2px;
 	color: var(--white);
 	text-decoration: none;
 	transition: color 0.2s;
