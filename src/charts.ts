@@ -81,6 +81,13 @@ const ceoPayData: BarChartItem[] = [
 	{ label: "2023", width: 100, value: "399:1", color: "var(--red)" },
 ];
 
+const emissionsData: BarChartItem[] = [
+	{ label: "Top 1%", width: 16, value: "16%", color: "var(--red)" },
+	{ label: "Next 9%", width: 34, value: "34%", color: "#aa2222" },
+	{ label: "Middle 40%", width: 42, value: "42%", color: "#444" },
+	{ label: "Bottom 50%", width: 8, value: "8%", color: "#2a2a2a" },
+];
+
 function renderBarChart(
 	containerId: string,
 	items: BarChartItem[],
@@ -269,6 +276,7 @@ export function initCharts(): void {
 	renderBarChart("ceo-pay-chart", ceoPayData, {
 		outsideValueThreshold: 20,
 	});
+	renderBarChart("emissions-chart", emissionsData);
 
 	renderGiniDesktopChart();
 	renderLaborDesktopChart();

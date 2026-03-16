@@ -16,7 +16,8 @@
 
 	.two-col,
 	.wealth-layout,
-	.labor-layout {
+	.labor-layout,
+	.ecology-layout {
 		grid-template-columns: 1fr;
 		gap: 40px;
 	}

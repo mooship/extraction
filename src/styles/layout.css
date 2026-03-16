@@ -33,6 +33,10 @@ section {
 	grid-template-columns: 1.3fr 1fr;
 }
 
+.ecology-layout {
+	grid-template-columns: 1fr 1.3fr;
+}
+
 .col-text {
 	display: flex;
 	flex-direction: column;
@@ -50,6 +54,10 @@ section {
 }
 
 #labor {
+	background: #0d0d0d;
+}
+
+#ecology {
 	background: #0d0d0d;
 }
 
