@@ -53,9 +53,6 @@ section {
 	background: #0d0d0d;
 }
 
-#public {
-	border-top: 4px solid var(--red);
-}
 
 #history {
 	background: #0d0d0d;
