@@ -29,7 +29,7 @@ const PLAY_SVG = `<svg width="10" height="14" viewBox="0 0 10 14" fill="currentC
 function initNavToggle(): void {
 	const nav = document.querySelector<HTMLElement>("nav");
 	const btn = document.querySelector<HTMLButtonElement>(".nav-toggle");
-	if (!nav || !btn) return;
+	if (!nav || !btn) { return; }
 
 	btn.addEventListener("click", () => {
 		const open = nav.classList.toggle("nav-open");
@@ -52,7 +52,7 @@ function initNavToggle(): void {
 function initTickerPause(): void {
 	const btn = document.querySelector<HTMLButtonElement>(".ticker-pause");
 	const ticker = document.querySelector<HTMLElement>(".ticker");
-	if (!btn || !ticker) return;
+	if (!btn || !ticker) { return; }
 
 	btn.addEventListener("click", () => {
 		const paused = btn.getAttribute("aria-pressed") === "true";
