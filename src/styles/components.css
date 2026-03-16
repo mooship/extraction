@@ -7,7 +7,7 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 40px;
+	padding: 0 24px;
 	height: 60px;
 	background: var(--red);
 	border-bottom: 3px solid var(--black);
@@ -23,7 +23,7 @@ nav {
 
 .nav-links {
 	display: flex;
-	gap: 28px;
+	gap: 16px;
 }
 
 .nav-links a {
@@ -31,7 +31,7 @@ nav {
 	font-size: 0.75rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	letter-spacing: 3px;
+	letter-spacing: 2px;
 	color: var(--white);
 	text-decoration: none;
 	transition: color 0.2s;
@@ -39,6 +39,10 @@ nav {
 
 .nav-links a:hover {
 	color: var(--black);
+}
+
+.nav-toggle {
+	display: none;
 }
 
 #hero {
@@ -140,7 +144,7 @@ nav {
 
 .ticker {
 	display: inline-flex;
-	animation: ticker-scroll 30s linear infinite;
+	animation: ticker-scroll 60s linear infinite;
 }
 
 .ticker span {
