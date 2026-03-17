@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
 const PAUSE_SVG = `<svg width="10" height="14" viewBox="0 0 10 14" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="3.5" height="14"/><rect x="6.5" y="0" width="3.5" height="14"/></svg>`;
 const PLAY_SVG = `<svg width="10" height="14" viewBox="0 0 10 14" fill="currentColor" aria-hidden="true"><polygon points="0,0 10,7 0,14"/></svg>`;
 
-function initNavToggle(): void {
+export function initNavToggle(): void {
 	const nav = document.querySelector<HTMLElement>("nav");
 	const btn = document.querySelector<HTMLButtonElement>(".nav-toggle");
 	if (!nav || !btn) {
@@ -89,7 +89,7 @@ function initNavToggle(): void {
 	}
 }
 
-function initTickerPause(): void {
+export function initTickerPause(): void {
 	const btn = document.querySelector<HTMLButtonElement>(".ticker-pause");
 	const ticker = document.querySelector<HTMLElement>(".ticker");
 	if (!btn || !ticker) {
