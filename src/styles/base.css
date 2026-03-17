@@ -63,7 +63,6 @@ body {
 	background: var(--black);
 	color: var(--white);
 	font-family: "Special Elite", serif;
-	cursor: crosshair;
 	overflow-x: hidden;
 }
 

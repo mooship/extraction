@@ -6,9 +6,9 @@ import "./styles/charts.css";
 import "./styles/animations.css";
 import "./styles/accessibility.css";
 import "./styles/responsive.css";
+import { initAnimations } from "./animations";
 import { initCharts } from "./charts";
 import { initCounters } from "./counters";
-import { initAnimations } from "./animations";
 import { initLines } from "./lines";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -33,6 +33,18 @@ function initNavToggle(): void {
 		return;
 	}
 
+	let keydownHandler: ((e: KeyboardEvent) => void) | null = null;
+
+	const closeNav = () => {
+		nav.classList.remove("nav-open");
+		btn.setAttribute("aria-expanded", "false");
+		btn.setAttribute("aria-label", "Open navigation");
+		if (keydownHandler) {
+			document.removeEventListener("keydown", keydownHandler);
+			keydownHandler = null;
+		}
+	};
+
 	btn.addEventListener("click", () => {
 		const open = nav.classList.toggle("nav-open");
 		btn.setAttribute("aria-expanded", String(open));
@@ -40,14 +52,40 @@ function initNavToggle(): void {
 			"aria-label",
 			open ? "Close navigation" : "Open navigation",
 		);
+		if (open) {
+			const links = Array.from(
+				nav.querySelectorAll<HTMLAnchorElement>(".nav-links a"),
+			);
+			const lastLink = links[links.length - 1];
+			keydownHandler = (e: KeyboardEvent) => {
+				if (e.key === "Escape") {
+					closeNav();
+					btn.focus();
+				} else if (
+					e.key === "Tab" &&
+					!e.shiftKey &&
+					document.activeElement === lastLink
+				) {
+					e.preventDefault();
+					btn.focus();
+				} else if (
+					e.key === "Tab" &&
+					e.shiftKey &&
+					document.activeElement === btn
+				) {
+					e.preventDefault();
+					lastLink?.focus();
+				}
+			};
+			document.addEventListener("keydown", keydownHandler);
+		} else if (keydownHandler) {
+			document.removeEventListener("keydown", keydownHandler);
+			keydownHandler = null;
+		}
 	});
 
 	for (const link of nav.querySelectorAll<HTMLAnchorElement>(".nav-links a")) {
-		link.addEventListener("click", () => {
-			nav.classList.remove("nav-open");
-			btn.setAttribute("aria-expanded", "false");
-			btn.setAttribute("aria-label", "Open navigation");
-		});
+		link.addEventListener("click", closeNav);
 	}
 }
 

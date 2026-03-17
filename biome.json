@@ -23,6 +23,14 @@
 			"quoteStyle": "double"
 		}
 	},
+	"html": {
+		"formatter": {
+			"enabled": true
+		},
+		"linter": {
+			"enabled": true
+		}
+	},
 	"assist": {
 		"enabled": true,
 		"actions": {

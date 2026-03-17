@@ -161,6 +161,8 @@ nav {
 	top: 0;
 	bottom: 0;
 	padding: 0 18px;
+	min-width: 44px;
+	min-height: 44px;
 	background: var(--red-dark);
 	border: none;
 	border-left: 2px solid var(--black);
@@ -213,7 +215,7 @@ nav {
 .system-tag {
 	display: inline-block;
 	font-family: "Roboto Condensed Variable", sans-serif;
-	font-size: 0.6rem;
+	font-size: 0.7rem;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	padding: 3px 8px;
@@ -227,7 +229,7 @@ nav {
 }
 
 .system-tag.capitalist {
-	color: #555;
+	color: #888;
 	border-color: #333;
 }
 
@@ -244,7 +246,7 @@ nav {
 	font-size: 0.65rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color: #808080;
+	color: #999;
 }
 
 .metric-val {
@@ -322,7 +324,7 @@ nav {
 	font-size: 0.72rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color: rgba(0, 0, 0, 0.6);
+	color: rgba(0, 0, 0, 0.75);
 	line-height: 1.5;
 	position: relative;
 }

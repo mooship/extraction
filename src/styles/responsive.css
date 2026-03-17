@@ -84,11 +84,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		min-width: 44px;
+		min-height: 44px;
 		background: none;
 		border: none;
 		color: var(--white);
 		cursor: pointer;
-		padding: 4px;
+		padding: 0;
 	}
 
 	.nav-links {
@@ -159,11 +161,6 @@
 
 	.bar-label {
 		width: 62px;
-		font-size: 0.66rem;
-	}
-
-	.bar-fill::after {
-		font-size: 0.65rem;
 	}
 
 	.stat-box {
