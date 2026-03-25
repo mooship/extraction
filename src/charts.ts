@@ -57,7 +57,7 @@ const historySeriesData: HistoryPoint[] = [
 	{ year: 2000, share: 21, x: 627 },
 	{ year: 2007, share: 24, x: 674 },
 	{ year: 2018, share: 19, x: 760 },
-	{ year: 2023, share: 22, x: 780 },
+	{ year: 2023, share: 21, x: 780 },
 ];
 
 const wealthDistributionData: BarChartItem[] = [
