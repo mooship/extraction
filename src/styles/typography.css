@@ -26,26 +26,7 @@ h2 {
 	margin: 16px 0 24px;
 }
 
-.section-label {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	font-family: "Roboto Condensed Variable", sans-serif;
-	font-size: 0.7rem;
-	letter-spacing: 3px;
-	text-transform: uppercase;
-	color: var(--red);
-}
-
-.section-label::before {
-	content: "";
-	display: block;
-	width: 30px;
-	height: 2px;
-	background: var(--red);
-	flex-shrink: 0;
-}
-
+.section-label,
 .section-label-black {
 	display: flex;
 	align-items: center;
@@ -54,16 +35,31 @@ h2 {
 	font-size: 0.7rem;
 	letter-spacing: 3px;
 	text-transform: uppercase;
-	color: var(--black);
 }
 
+.section-label::before,
 .section-label-black::before {
 	content: "";
 	display: block;
 	width: 30px;
 	height: 2px;
-	background: var(--black);
 	flex-shrink: 0;
+}
+
+.section-label {
+	color: var(--red);
+}
+
+.section-label::before {
+	background: var(--red);
+}
+
+.section-label-black {
+	color: var(--black);
+}
+
+.section-label-black::before {
+	background: var(--black);
 }
 
 .pull-quote {

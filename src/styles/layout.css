@@ -53,14 +53,8 @@ section {
 	border-top: 4px solid var(--red);
 }
 
-#labor {
-	background: #0d0d0d;
-}
-
-#ecology {
-	background: #0d0d0d;
-}
-
+#labor,
+#ecology,
 #history {
 	background: #0d0d0d;
 }

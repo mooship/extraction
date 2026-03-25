@@ -1,0 +1,6 @@
+pre-commit:
+  jobs:
+    - name: biome check
+      glob: "*.{ts,js,json,css,html}"
+      run: npx biome check --write {staged_files}
+      stage_fixed: true

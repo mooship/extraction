@@ -34,6 +34,10 @@ export function initNavToggle(): void {
 	}
 
 	let keydownHandler: ((e: KeyboardEvent) => void) | null = null;
+	const links = Array.from(
+		nav.querySelectorAll<HTMLAnchorElement>(".nav-links a"),
+	);
+	const lastLink = links[links.length - 1];
 
 	const closeNav = () => {
 		nav.classList.remove("nav-open");
@@ -53,10 +57,6 @@ export function initNavToggle(): void {
 			open ? "Close navigation" : "Open navigation",
 		);
 		if (open) {
-			const links = Array.from(
-				nav.querySelectorAll<HTMLAnchorElement>(".nav-links a"),
-			);
-			const lastLink = links[links.length - 1];
 			keydownHandler = (e: KeyboardEvent) => {
 				if (e.key === "Escape") {
 					closeNav();
@@ -84,7 +84,7 @@ export function initNavToggle(): void {
 		}
 	});
 
-	for (const link of nav.querySelectorAll<HTMLAnchorElement>(".nav-links a")) {
+	for (const link of links) {
 		link.addEventListener("click", closeNav);
 	}
 }
@@ -96,18 +96,19 @@ export function initTickerPause(): void {
 		return;
 	}
 
+	let paused = false;
 	btn.addEventListener("click", () => {
-		const paused = btn.getAttribute("aria-pressed") === "true";
+		paused = !paused;
 		if (paused) {
-			ticker.style.animationPlayState = "running";
-			btn.setAttribute("aria-pressed", "false");
-			btn.innerHTML = PAUSE_SVG;
-			btn.setAttribute("aria-label", "Pause ticker");
-		} else {
 			ticker.style.animationPlayState = "paused";
 			btn.setAttribute("aria-pressed", "true");
 			btn.innerHTML = PLAY_SVG;
 			btn.setAttribute("aria-label", "Play ticker");
+		} else {
+			ticker.style.animationPlayState = "running";
+			btn.setAttribute("aria-pressed", "false");
+			btn.innerHTML = PAUSE_SVG;
+			btn.setAttribute("aria-label", "Pause ticker");
 		}
 	});
 }

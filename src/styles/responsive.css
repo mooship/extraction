@@ -117,10 +117,7 @@
 	}
 
 	#hero {
-		padding-top: 96px;
-		padding-left: 16px;
-		padding-right: 16px;
-		padding-bottom: 40px;
+		padding: 96px 16px 40px;
 	}
 
 	h1 {
@@ -198,10 +195,7 @@
 	}
 
 	#hero {
-		padding-top: 90px;
-		padding-left: 14px;
-		padding-right: 14px;
-		padding-bottom: 34px;
+		padding: 90px 14px 34px;
 	}
 
 	.stat-grid {

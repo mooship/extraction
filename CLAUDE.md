@@ -11,7 +11,7 @@ npm run preview      # Preview production build
 npm run biome:fix    # Auto-fix all formatting and lint issues
 ```
 
-There are no tests. TypeScript type-checking is done via `tsc --noEmit` (runs as part of `build`). Run Biome checks before committing with `npx biome check src/ index.html`.
+There are tests — run with `npx vitest run`. TypeScript type-checking is done via `tsc --noEmit` (runs as part of `build`). Lefthook runs `biome check --write` on staged files automatically on pre-commit. Run Biome checks manually with `npx biome check src/ index.html`.
 
 ## Architecture
 
@@ -25,7 +25,7 @@ Single-page vanilla TypeScript site built with Vite. No framework. `index.html` 
 
 **SVG charts are data-driven but still custom** — no D3, Chart.js, or Recharts. Desktop SVG geometry is generated in `charts.ts` and injected into mount points in `index.html`. Do not replace this with a charting library.
 
-**Animation contract:** CSS transitions/keyframes drive the actual motion. JS only toggles classes or sets properties; timing lives in CSS. The `prefers-reduced-motion` media query in `style.css` disables all transitions and keyframe animations.
+**Animation contract:** CSS transitions/keyframes drive the actual motion. JS only toggles classes or sets properties; timing lives in CSS. The `prefers-reduced-motion` media query in `animations.css` disables all transitions and keyframe animations.
 
 **Fonts** are served from `@fontsource` npm packages (not Google CDN). `vite.config.ts` runs Fontaine to inject computed `@font-face` fallback rules at build time, eliminating layout shift. The three fonts are Bebas Neue (display/headings), Special Elite (body), and Roboto Condensed Variable (labels/UI).
 
@@ -36,5 +36,5 @@ Single-page vanilla TypeScript site built with Vite. No framework. `index.html` 
 - **British English** in all user-visible copy (`labour`, `organised`, `programme`, etc.). Technical identifiers (IDs, class names, variables) remain in American English.
 - **No comments** anywhere — not in HTML, CSS, or TypeScript.
 - Biome enforces tabs, double quotes (JS), and recommended lint rules. Run `npm run biome:fix` after edits.
-- CSS custom properties are defined in `:root` in `style.css`. Core palette: `--black #0a0a0a`, `--white #f0ece0`, `--red #cc1111`, `--red-dark #8b0000`.
+- CSS custom properties are defined in `:root` in `src/styles/base.css`. Core palette: `--black #0a0a0a`, `--white #f0ece0`, `--red #cc1111`, `--red-dark #8b0000`.
 - All scroll animations use `IntersectionObserver` — no scroll event listeners.

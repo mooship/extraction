@@ -19,6 +19,7 @@ A data-driven, interactive web experience making a visual case against wealth co
 | TypeScript | Application logic |
 | CSS | Styling (no framework) |
 | [Biome](https://biomejs.dev/) | Linting and formatting |
+| [Lefthook](https://github.com/evilmartians/lefthook) | Git hooks (runs Biome on pre-commit) |
 | [Fontaine](https://github.com/unjs/fontaine) | Font fallback metrics (reduces CLS) |
 
 ## Getting Started
@@ -43,15 +44,25 @@ npm run preview
 
 ```
 src/
-  main.ts         # Entry point — wires up all modules
-  animations.ts   # Intersection Observer-based scroll reveals
-  charts.ts       # Animated bar charts and SVG Gini chart
-  counters.ts     # Animated stat counters on page load
-  lines.ts        # Animated SVG polylines (labour/history graphs)
-  style.css       # All styles
+  main.ts              # Entry point — wires up all modules
+  animations.ts        # Intersection Observer-based scroll reveals
+  charts.ts            # Animated bar charts and SVG Gini chart
+  counters.ts          # Animated stat counters on page load
+  lines.ts             # Animated SVG polylines (labour/history graphs)
+  styles/
+    base.css           # CSS custom properties, reset, fonts
+    typography.css     # Headings, body text, section labels
+    layout.css         # Section layout, two-column grids
+    components.css     # Nav, hero, stat boxes, ticker, cards
+    charts.css         # Bar chart and chart-box styles
+    animations.css     # Reveal transitions, keyframes, reduced-motion
+    accessibility.css  # Focus styles, skip link
+    responsive.css     # Breakpoint overrides
 ```
 
 ## Code Quality
+
+Biome runs automatically on staged files via Lefthook before every commit. To run manually:
 
 ```bash
 # Auto-fix formatting and lint issues

@@ -16,7 +16,7 @@ export function initAnimations(): void {
 	);
 
 	for (const el of document.querySelectorAll<HTMLElement>(
-		".reveal, .reveal-left",
+		".reveal:not(#hero *), .reveal-left:not(#hero *)",
 	)) {
 		observer.observe(el);
 	}

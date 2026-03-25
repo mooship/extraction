@@ -1,10 +1,3 @@
-type MobileBarItem = {
-	label: string;
-	width: number;
-	value: string;
-	color: string;
-};
-
 type BarChartItem = {
 	label: string;
 	width: number;
@@ -117,7 +110,7 @@ function renderBarChart(
 
 function renderMobileBarChart(
 	containerId: string,
-	items: MobileBarItem[],
+	items: BarChartItem[],
 ): void {
 	const container = document.getElementById(containerId);
 	if (!container) {
@@ -223,9 +216,9 @@ function renderHistoryDesktopChart(): void {
 }
 
 function buildMobileData(): {
-	gini: MobileBarItem[];
-	labor: MobileBarItem[];
-	history: MobileBarItem[];
+	gini: BarChartItem[];
+	labor: BarChartItem[];
+	history: BarChartItem[];
 } {
 	const gini = giniDesktopData.map((item) => ({
 		label: item.label,
@@ -268,10 +261,13 @@ function buildMobileData(): {
 		.filter((point) => historyYears.includes(point.year))
 		.map((point) => {
 			const width = Math.round((point.share / 30) * 100);
-			let color = "#aa2222";
-			if (point.year === 1913) color = "#7a2a2a";
-			if (point.year === 1929) color = "var(--red)";
-			if (point.year === 1970) color = "#4caf4c";
+			const colorMap: Record<number, string> = {
+				1913: "#7a2a2a",
+				1929: "var(--red)",
+				1970: "#4caf4c",
+				2023: "#aa2222",
+			};
+			const color = colorMap[point.year];
 			return {
 				label: `${point.year}`,
 				width,
