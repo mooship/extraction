@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://extraction.timothybrits.co.za/sitemap.xml
