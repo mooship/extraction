@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## About
+
+Extraction is a data visualization site exploring wealth extraction and inequality, built with vanilla TypeScript and Vite. All charts are custom SVG — no charting libraries.
+
 ## Commands
 
 ```bash
@@ -11,7 +15,11 @@ npm run preview      # Preview production build
 npm run biome:fix    # Auto-fix all formatting and lint issues
 ```
 
-There are tests — run with `npx vitest run`. TypeScript type-checking is done via `tsc --noEmit` (runs as part of `build`). Lefthook runs `biome check --write` on staged files automatically on pre-commit. Run Biome checks manually with `npx biome check src/ index.html`.
+There are tests — run with `npx vitest run`. Run a single test file with `npx vitest run src/charts.test.ts`. TypeScript type-checking is done via `tsc --noEmit` (runs as part of `build`). Lefthook runs `biome check --write` on staged files automatically on pre-commit (fixed files are re-staged). Run `npx lefthook install` after cloning to activate hooks. Run Biome checks manually with `npx biome check src/ index.html`.
+
+## Safety
+
+- **Never deploy to production without explicit permission from the user.** Always ask first and wait for confirmation.
 
 ## Architecture
 
@@ -34,7 +42,7 @@ Single-page vanilla TypeScript site built with Vite. No framework. `index.html` 
 ## Conventions
 
 - **British English** in all user-visible copy (`labour`, `organised`, `programme`, etc.). Technical identifiers (IDs, class names, variables) remain in American English.
-- **No comments** anywhere — not in HTML, CSS, or TypeScript.
+- **No inline comments** — never use trailing `//` comments on the same line as code. No block comments in HTML or CSS either. JSDoc block comments (`/** */`) are fine where genuinely useful.
 - Biome enforces tabs, double quotes (JS), and recommended lint rules. Run `npm run biome:fix` after edits.
 - CSS custom properties are defined in `:root` in `src/styles/base.css`. Core palette: `--black #0a0a0a`, `--white #f0ece0`, `--red #cc1111`, `--red-dark #8b0000`.
 - All scroll animations use `IntersectionObserver` — no scroll event listeners.
