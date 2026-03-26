@@ -17,9 +17,16 @@
 	.two-col,
 	.wealth-layout,
 	.labor-layout,
-	.ecology-layout {
+	.ecology-layout,
+	.tax-layout,
+	.housing-layout,
+	.imperialism-layout {
 		grid-template-columns: 1fr;
 		gap: 40px;
+	}
+
+	.action-grid {
+		grid-template-columns: 1fr;
 	}
 
 	.country-grid {

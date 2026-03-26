@@ -94,4 +94,16 @@
 	#hist-line {
 		transition: none;
 	}
+
+	.donut-segment {
+		transition: none;
+	}
+
+	.treemap-rect {
+		transition: none;
+	}
+
+	.sankey-path {
+		transition: none;
+	}
 }

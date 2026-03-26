@@ -37,6 +37,18 @@ section {
 	grid-template-columns: 1fr 1.3fr;
 }
 
+.tax-layout {
+	grid-template-columns: 1.3fr 1fr;
+}
+
+.housing-layout {
+	grid-template-columns: 1fr 1.4fr;
+}
+
+.imperialism-layout {
+	grid-template-columns: 1fr 1.3fr;
+}
+
 .col-text {
 	display: flex;
 	flex-direction: column;
@@ -53,9 +65,10 @@ section {
 	border-top: 4px solid var(--red);
 }
 
+#history,
 #labor,
-#ecology,
-#history {
+#imperialism,
+#public {
 	background: #0d0d0d;
 }
 

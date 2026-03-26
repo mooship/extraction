@@ -6,9 +6,9 @@ A data-driven, interactive web experience making a visual case against wealth co
 
 - Scroll-triggered animations revealing statistics and data visualisations
 - Animated counters for key inequality metrics
-- Interactive bar charts and SVG line graphs (wealth share, Gini coefficients, labour vs. capital trends)
+- Interactive bar charts, SVG line graphs, donut chart, treemap, and Sankey flow diagram — all hand-built SVG, no charting libraries
 - Marquee ticker cycling through key economic facts
-- Sections covering Wealth, Labour, Public Services, and History
+- Sections covering Wealth, Tax Avoidance, Labour, Housing, Public Services, Global South & Imperialism, Ecology, History, Policy Demands, and Action
 - Fully responsive layout
 
 ## Tech Stack
@@ -46,9 +46,9 @@ npm run preview
 src/
   main.ts              # Entry point — wires up all modules
   animations.ts        # Intersection Observer-based scroll reveals
-  charts.ts            # Animated bar charts and SVG Gini chart
+  charts.ts            # All chart types: bar, Gini, donut, treemap, Sankey
   counters.ts          # Animated stat counters on page load
-  lines.ts             # Animated SVG polylines (labour/history graphs)
+  lines.ts             # Animated SVG polylines and paths (labour, history, Sankey)
   styles/
     base.css           # CSS custom properties, reset, fonts
     typography.css     # Headings, body text, section labels

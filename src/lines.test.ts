@@ -33,6 +33,22 @@ function buildLinesFixture() {
 	histLine.setAttribute("points", "50,200 780,100");
 	historySvg.appendChild(histLine);
 	document.body.appendChild(historySvg);
+
+	const sankeySvg = document.createElementNS(SVG_NS, "svg");
+	sankeySvg.id = "sankey-svg";
+	sankeySvg.setAttribute("viewBox", "0 0 600 280");
+	for (const id of [
+		"sankey-unequal-exchange",
+		"sankey-debt-service",
+		"sankey-illicit-flows",
+		"sankey-aid",
+	]) {
+		const path = document.createElementNS(SVG_NS, "path");
+		path.id = id;
+		path.setAttribute("d", "M 80,60 C 250,60 350,40 520,40");
+		sankeySvg.appendChild(path);
+	}
+	document.body.appendChild(sankeySvg);
 }
 
 describe("initLines", () => {
@@ -40,7 +56,7 @@ describe("initLines", () => {
 		mockMatchMedia(false);
 		clearObservers();
 		buildLinesFixture();
-		for (const el of document.querySelectorAll("polyline")) {
+		for (const el of document.querySelectorAll("polyline, path")) {
 			Object.defineProperty(el, "getTotalLength", {
 				configurable: true,
 				value: vi.fn(() => 500),
@@ -48,20 +64,29 @@ describe("initLines", () => {
 		}
 	});
 
-	it("sets strokeDasharray and strokeDashoffset on all three polylines", () => {
+	it("sets strokeDasharray and strokeDashoffset on all polylines and sankey paths", () => {
 		initLines();
-		for (const id of ["labor-line", "capital-line", "hist-line"]) {
+		for (const id of [
+			"labor-line",
+			"capital-line",
+			"hist-line",
+			"sankey-unequal-exchange",
+			"sankey-debt-service",
+			"sankey-illicit-flows",
+			"sankey-aid",
+		]) {
 			const el = document.getElementById(id) as unknown as SVGElement;
 			expect(el.style.strokeDasharray).toBe("500");
 			expect(el.style.strokeDashoffset).toBe("500");
 		}
 	});
 
-	it("registers #labor-svg and #history-svg with the IntersectionObserver", () => {
+	it("registers #labor-svg, #history-svg, and #sankey-svg with the IntersectionObserver", () => {
 		initLines();
 		const targets = getObservers().flatMap((obs) => obs.targets);
 		expect(targets).toContain(document.getElementById("labor-svg"));
 		expect(targets).toContain(document.getElementById("history-svg"));
+		expect(targets).toContain(document.getElementById("sankey-svg"));
 	});
 
 	it("sets strokeDashoffset to 0 on labor polylines when observer fires on #labor-svg", () => {
@@ -88,6 +113,24 @@ describe("initLines", () => {
 			(document.getElementById("hist-line") as unknown as SVGElement).style
 				.strokeDashoffset,
 		).toBe("0");
+	});
+
+	it("sets strokeDashoffset to 0 on sankey paths when observer fires on #sankey-svg", () => {
+		initLines();
+		const sankeySvg = document.getElementById("sankey-svg") as Element;
+		const obs = getObservers().find((o) => o.targets.includes(sankeySvg));
+		triggerIntersection(obs as NonNullable<typeof obs>, sankeySvg);
+		for (const id of [
+			"sankey-unequal-exchange",
+			"sankey-debt-service",
+			"sankey-illicit-flows",
+			"sankey-aid",
+		]) {
+			expect(
+				(document.getElementById(id) as unknown as SVGElement).style
+					.strokeDashoffset,
+			).toBe("0");
+		}
 	});
 
 	it("unobserves the SVG after the animation fires", () => {

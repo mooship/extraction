@@ -17,6 +17,15 @@ const CHART_IDS = [
 	"emissions-chart",
 	"history-desktop-chart",
 	"history-mobile-chart",
+	"tax-rates-chart",
+	"tax-donut-desktop-chart",
+	"tax-donut-mobile-chart",
+	"homeownership-chart",
+	"asset-treemap-desktop-chart",
+	"asset-treemap-mobile-chart",
+	"debt-service-chart",
+	"flows-sankey-desktop-chart",
+	"flows-sankey-mobile-chart",
 ];
 
 function buildChartFixture() {
@@ -74,6 +83,59 @@ describe("initCharts – rendering", () => {
 			document.querySelector("#ceo-pay-chart .bar-val-outside"),
 		).not.toBeNull();
 	});
+
+	it("renders .bar-fill elements into #tax-rates-chart", () => {
+		const fills = document.querySelectorAll("#tax-rates-chart .bar-fill");
+		expect(fills.length).toBeGreaterThan(0);
+	});
+
+	it("renders #tax-donut-svg into #tax-donut-desktop-chart", () => {
+		expect(document.getElementById("tax-donut-svg")).not.toBeNull();
+	});
+
+	it("renders .donut-segment elements inside #tax-donut-svg", () => {
+		const segments = document.querySelectorAll("#tax-donut-svg .donut-segment");
+		expect(segments.length).toBe(6);
+	});
+
+	it("renders .bar-fill elements into #homeownership-chart", () => {
+		const fills = document.querySelectorAll("#homeownership-chart .bar-fill");
+		expect(fills.length).toBeGreaterThan(0);
+	});
+
+	it("renders #treemap-svg into #asset-treemap-desktop-chart", () => {
+		expect(document.getElementById("treemap-svg")).not.toBeNull();
+	});
+
+	it("renders .treemap-rect elements inside #treemap-svg", () => {
+		const rects = document.querySelectorAll("#treemap-svg .treemap-rect");
+		expect(rects.length).toBe(4);
+	});
+
+	it("renders #sankey-svg into #flows-sankey-desktop-chart", () => {
+		expect(document.getElementById("sankey-svg")).not.toBeNull();
+	});
+
+	it("renders .sankey-path elements inside #sankey-svg", () => {
+		const paths = document.querySelectorAll("#sankey-svg .sankey-path");
+		expect(paths.length).toBe(4);
+	});
+
+	it("renders .bar-fill elements into #debt-service-chart", () => {
+		const fills = document.querySelectorAll("#debt-service-chart .bar-fill");
+		expect(fills.length).toBeGreaterThan(0);
+	});
+
+	it("renders .bar-fill elements into each new mobile chart container", () => {
+		for (const id of [
+			"tax-donut-mobile-chart",
+			"asset-treemap-mobile-chart",
+			"flows-sankey-mobile-chart",
+		]) {
+			const fills = document.querySelectorAll(`#${id} .bar-fill`);
+			expect(fills.length).toBeGreaterThan(0);
+		}
+	});
 });
 
 describe("initCharts – bar animation", () => {
@@ -117,6 +179,57 @@ describe("initCharts – bar animation", () => {
 		expect(fill.style.width).toMatch(/^\d+(\.\d+)?%$/);
 	});
 
+	it(".treemap-rect elements start with scaleY(0)", () => {
+		const rects = document.querySelectorAll<HTMLElement>(".treemap-rect");
+		expect(rects.length).toBeGreaterThan(0);
+		for (const rect of rects) {
+			expect(rect.style.transform).toBe("scaleY(0)");
+		}
+	});
+
+	it("sets .treemap-rect to scaleY(1) after treemapObserver fires and stagger completes", () => {
+		const treemapSvg = document.getElementById("treemap-svg") as Element;
+		const treemapObserver = getObservers().find((obs) =>
+			obs.targets.includes(treemapSvg),
+		);
+		expect(treemapObserver).toBeDefined();
+		triggerIntersection(
+			treemapObserver as NonNullable<typeof treemapObserver>,
+			treemapSvg,
+		);
+		vi.advanceTimersByTime(4 * 150);
+		const rects = document.querySelectorAll<HTMLElement>(".treemap-rect");
+		for (const rect of rects) {
+			expect(rect.style.transform).toBe("scaleY(1)");
+		}
+	});
+
+	it("sets .donut-segment dasharray to 0 initially", () => {
+		const segments =
+			document.querySelectorAll<SVGCircleElement>(".donut-segment");
+		expect(segments.length).toBeGreaterThan(0);
+		for (const seg of segments) {
+			expect(seg.style.strokeDasharray).toContain("0");
+		}
+	});
+
+	it("restores .donut-segment dasharray when donutObserver fires", () => {
+		const donutSvg = document.getElementById("tax-donut-svg") as Element;
+		const donutObserver = getObservers().find((obs) =>
+			obs.targets.includes(donutSvg),
+		);
+		expect(donutObserver).toBeDefined();
+		triggerIntersection(
+			donutObserver as NonNullable<typeof donutObserver>,
+			donutSvg,
+		);
+		const segments =
+			document.querySelectorAll<SVGCircleElement>(".donut-segment");
+		for (const seg of segments) {
+			expect(seg.style.strokeDasharray).not.toBe(`0 ${2 * Math.PI * 100}`);
+		}
+	});
+
 	it("sets .gini-bar to scaleY(1) after giniObserver fires and stagger completes", () => {
 		const giniSvg = document.getElementById("gini-svg") as Element;
 		const giniObserver = getObservers().find((obs) =>
@@ -155,6 +268,14 @@ describe("initCharts – prefers-reduced-motion", () => {
 		expect(bars.length).toBeGreaterThan(0);
 		for (const bar of bars) {
 			expect(bar.style.transform).toBe("scaleY(1)");
+		}
+	});
+
+	it("sets .treemap-rect to scaleY(1) immediately without waiting for an observer", () => {
+		const rects = document.querySelectorAll<HTMLElement>(".treemap-rect");
+		expect(rects.length).toBeGreaterThan(0);
+		for (const rect of rects) {
+			expect(rect.style.transform).toBe("scaleY(1)");
 		}
 	});
 });
