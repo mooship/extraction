@@ -68,6 +68,7 @@ const laborSeriesData: LaborPoint[] = [
 	{ year: 2000, labor: 63, capital: 57, x: 310 },
 	{ year: 2015, labor: 61, capital: 59, x: 388 },
 	{ year: 2023, labor: 58, capital: 62, x: 430 },
+	{ year: 2025, labor: 57, capital: 63, x: 445 },
 ];
 
 const historySeriesData: HistoryPoint[] = [
@@ -80,6 +81,7 @@ const historySeriesData: HistoryPoint[] = [
 	{ year: 2007, share: 24, x: 674 },
 	{ year: 2018, share: 19, x: 760 },
 	{ year: 2023, share: 21, x: 780 },
+	{ year: 2025, share: 21, x: 795 },
 ];
 
 const wealthDistributionData: BarChartItem[] = [
@@ -180,13 +182,13 @@ const taxRatesData: BarChartItem[] = [
 
 const homeownershipData: BarChartItem[] = [
 	{ label: "25–34 (1997)", width: 59, value: "59%", color: "#888" },
-	{ label: "25–34 (2023)", width: 28, value: "28%", color: "var(--red)" },
+	{ label: "25–34 (2025)", width: 28, value: "28%", color: "var(--red)" },
 	{ label: "35–44 (1997)", width: 68, value: "68%", color: "#888" },
-	{ label: "35–44 (2023)", width: 51, value: "51%", color: "#aa2222" },
+	{ label: "35–44 (2025)", width: 51, value: "51%", color: "#aa2222" },
 	{ label: "45–54 (1997)", width: 75, value: "75%", color: "#888" },
-	{ label: "45–54 (2023)", width: 65, value: "65%", color: "#444" },
+	{ label: "45–54 (2025)", width: 65, value: "65%", color: "#444" },
 	{ label: "55–64 (1997)", width: 78, value: "78%", color: "#888" },
-	{ label: "55–64 (2023)", width: 74, value: "74%", color: "#333" },
+	{ label: "55–64 (2025)", width: 74, value: "74%", color: "#333" },
 ];
 
 const debtServiceData: BarChartItem[] = [
@@ -304,7 +306,7 @@ function renderLaborDesktopChart(): void {
 		)
 		.join("");
 
-	container.innerHTML = `<svg id="labor-svg" role="img" aria-labelledby="labor-svg-title" viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg"><title id="labor-svg-title">Labour vs Capital Share of GDP</title><line x1="45" y1="20" x2="440" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="60" x2="440" y2="60" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="100" x2="440" y2="100" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="140" x2="440" y2="140" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="180" x2="440" y2="180" stroke="#333" stroke-width="1"/><text x="40" y="23" fill="#888" font-size="8" text-anchor="end">70%</text><text x="40" y="63" fill="#888" font-size="8" text-anchor="end">65%</text><text x="40" y="103" fill="#888" font-size="8" text-anchor="end">60%</text><text x="40" y="143" fill="#888" font-size="8" text-anchor="end">55%</text><text x="40" y="183" fill="#888" font-size="8" text-anchor="end">50%</text>${yearLabels}<line x1="206" y1="15" x2="206" y2="180" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/><text x="208" y="28" fill="#888" font-size="7">1980</text><text x="208" y="38" fill="#888" font-size="7">Neoliberal</text><text x="208" y="48" fill="#888" font-size="7">Turn</text><polyline id="labor-line" points="${laborPoints}" fill="none" stroke="#888" stroke-width="2"/><polyline id="capital-line" points="${capitalPoints}" fill="none" stroke="#cc1111" stroke-width="2.5"/><line x1="50" y1="210" x2="70" y2="210" stroke="#888" stroke-width="2"/><text x="74" y="213" fill="#888" font-size="8">Labour Share</text><line x1="170" y1="210" x2="190" y2="210" style="stroke: var(--red)" stroke-width="2"/><text x="194" y="213" style="fill: var(--red)" font-size="8">Capital Share</text></svg>`;
+	container.innerHTML = `<svg id="labor-svg" role="img" aria-labelledby="labor-svg-title" viewBox="0 0 475 220" xmlns="http://www.w3.org/2000/svg"><title id="labor-svg-title">Labour vs Capital Share of GDP</title><line x1="45" y1="20" x2="455" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="60" x2="455" y2="60" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="100" x2="455" y2="100" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="140" x2="455" y2="140" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="180" x2="455" y2="180" stroke="#333" stroke-width="1"/><text x="40" y="23" fill="#888" font-size="8" text-anchor="end">70%</text><text x="40" y="63" fill="#888" font-size="8" text-anchor="end">65%</text><text x="40" y="103" fill="#888" font-size="8" text-anchor="end">60%</text><text x="40" y="143" fill="#888" font-size="8" text-anchor="end">55%</text><text x="40" y="183" fill="#888" font-size="8" text-anchor="end">50%</text>${yearLabels}<line x1="206" y1="15" x2="206" y2="180" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/><text x="208" y="28" fill="#888" font-size="7">1980</text><text x="208" y="38" fill="#888" font-size="7">Neoliberal</text><text x="208" y="48" fill="#888" font-size="7">Turn</text><polyline id="labor-line" points="${laborPoints}" fill="none" stroke="#888" stroke-width="2"/><polyline id="capital-line" points="${capitalPoints}" fill="none" stroke="#cc1111" stroke-width="2.5"/><line x1="50" y1="210" x2="70" y2="210" stroke="#888" stroke-width="2"/><text x="74" y="213" fill="#888" font-size="8">Labour Share</text><line x1="170" y1="210" x2="190" y2="210" style="stroke: var(--red)" stroke-width="2"/><text x="194" y="213" style="fill: var(--red)" font-size="8">Capital Share</text></svg>`;
 }
 
 function historyY(share: number): number {
@@ -320,8 +322,9 @@ function renderHistoryDesktopChart(): void {
 	const trendPoints = historySeriesData
 		.map((point) => `${point.x},${historyY(point.share)}`)
 		.join(" ");
-	const areaPoints = `${trendPoints} 780,225 50,225`;
-	const axisYears = [1913, 1929, 1945, 1970, 1980, 2000, 2023];
+	const lastPoint = historySeriesData[historySeriesData.length - 1];
+	const areaPoints = `${trendPoints} ${lastPoint.x},225 50,225`;
+	const axisYears = [1913, 1929, 1945, 1970, 1980, 2000, 2025];
 	const yearLabels = historySeriesData
 		.filter((point) => axisYears.includes(point.year))
 		.map(
@@ -331,12 +334,12 @@ function renderHistoryDesktopChart(): void {
 		.join("");
 	const crash = historySeriesData.find((point) => point.year === 1929);
 	const peak = historySeriesData.find((point) => point.year === 1970);
-	const recent = historySeriesData.find((point) => point.year === 2023);
+	const recent = historySeriesData.find((point) => point.year === 2025);
 	if (!crash || !peak || !recent) {
 		return;
 	}
 
-	container.innerHTML = `<svg id="history-svg" role="img" aria-labelledby="history-svg-title" viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg"><title id="history-svg-title">Top 1% Income Share — USA, 1913–2023</title><rect x="50" y="10" width="212" height="215" fill="rgba(204,17,17,0.06)"/><rect x="262" y="10" width="233" height="215" fill="rgba(76,175,76,0.05)"/><rect x="495" y="10" width="285" height="215" fill="rgba(204,17,17,0.10)"/><text x="60" y="25" fill="rgba(204,17,17,0.4)" font-size="8">GILDED AGE</text><text x="270" y="25" fill="rgba(76,175,76,0.4)" font-size="8">POST-WAR EGALITARIAN ERA</text><text x="505" y="25" fill="rgba(204,17,17,0.5)" font-size="8">NEOLIBERAL ASCENT</text><line x1="50" y1="45" x2="780" y2="45" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="90" x2="780" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="135" x2="780" y2="135" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="180" x2="780" y2="180" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="225" x2="780" y2="225" stroke="#333" stroke-width="1"/><text x="44" y="48" fill="#888" font-size="8" text-anchor="end">30%</text><text x="44" y="93" fill="#888" font-size="8" text-anchor="end">25%</text><text x="44" y="138" fill="#888" font-size="8" text-anchor="end">20%</text><text x="44" y="183" fill="#888" font-size="8" text-anchor="end">15%</text><text x="44" y="228" fill="#888" font-size="8" text-anchor="end">10%</text>${yearLabels}<polygon points="${areaPoints}" fill="rgba(204,17,17,0.08)"/><polyline id="hist-line" points="${trendPoints}" fill="none" stroke="#cc1111" stroke-width="2.5"/><circle cx="${crash.x}" cy="${historyY(crash.share)}" r="5" style="fill: var(--red)"/><text x="${crash.x + 6}" y="${historyY(crash.share) - 8}" style="fill: var(--red)" font-size="7">1929 Crash</text><circle cx="${peak.x}" cy="${historyY(peak.share)}" r="5" fill="#4caf4c"/><text x="${peak.x + 6}" y="${historyY(peak.share) - 7}" fill="#4caf4c" font-size="7">Peak Equality</text><circle cx="${recent.x}" cy="${historyY(recent.share)}" r="5" style="fill: var(--red)"/><text x="${recent.x - 38}" y="${historyY(recent.share) - 8}" style="fill: var(--red)" font-size="7">${recent.share}% (2023)</text></svg>`;
+	container.innerHTML = `<svg id="history-svg" role="img" aria-labelledby="history-svg-title" viewBox="0 0 820 260" xmlns="http://www.w3.org/2000/svg"><title id="history-svg-title">Top 1% Income Share — USA, 1913–2025</title><rect x="50" y="10" width="212" height="215" fill="rgba(204,17,17,0.06)"/><rect x="262" y="10" width="233" height="215" fill="rgba(76,175,76,0.05)"/><rect x="495" y="10" width="305" height="215" fill="rgba(204,17,17,0.10)"/><text x="60" y="25" fill="rgba(204,17,17,0.4)" font-size="8">GILDED AGE</text><text x="270" y="25" fill="rgba(76,175,76,0.4)" font-size="8">POST-WAR EGALITARIAN ERA</text><text x="505" y="25" fill="rgba(204,17,17,0.5)" font-size="8">NEOLIBERAL ASCENT</text><line x1="50" y1="45" x2="800" y2="45" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="90" x2="800" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="135" x2="800" y2="135" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="180" x2="800" y2="180" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="225" x2="800" y2="225" stroke="#333" stroke-width="1"/><text x="44" y="48" fill="#888" font-size="8" text-anchor="end">30%</text><text x="44" y="93" fill="#888" font-size="8" text-anchor="end">25%</text><text x="44" y="138" fill="#888" font-size="8" text-anchor="end">20%</text><text x="44" y="183" fill="#888" font-size="8" text-anchor="end">15%</text><text x="44" y="228" fill="#888" font-size="8" text-anchor="end">10%</text>${yearLabels}<polygon points="${areaPoints}" fill="rgba(204,17,17,0.08)"/><polyline id="hist-line" points="${trendPoints}" fill="none" stroke="#cc1111" stroke-width="2.5"/><circle cx="${crash.x}" cy="${historyY(crash.share)}" r="5" style="fill: var(--red)"/><text x="${crash.x + 6}" y="${historyY(crash.share) - 8}" style="fill: var(--red)" font-size="7">1929 Crash</text><circle cx="${peak.x}" cy="${historyY(peak.share)}" r="5" fill="#4caf4c"/><text x="${peak.x + 6}" y="${historyY(peak.share) - 7}" fill="#4caf4c" font-size="7">Peak Equality</text><circle cx="${recent.x}" cy="${historyY(recent.share)}" r="5" style="fill: var(--red)"/><text x="${recent.x - 38}" y="${historyY(recent.share) - 8}" style="fill: var(--red)" font-size="7">${recent.share}% (2025)</text></svg>`;
 }
 
 function renderDonutDesktopChart(): void {
@@ -489,7 +492,7 @@ function buildMobileData(): {
 		},
 	];
 
-	const historyYears = [1913, 1929, 1970, 2023];
+	const historyYears = [1913, 1929, 1970, 2025];
 	const history = historySeriesData
 		.filter((point) => historyYears.includes(point.year))
 		.map((point) => {
@@ -498,7 +501,7 @@ function buildMobileData(): {
 				1913: "#7a2a2a",
 				1929: "var(--red)",
 				1970: "#4caf4c",
-				2023: "#aa2222",
+				2025: "#aa2222",
 			};
 			const color = colorMap[point.year];
 			return {
