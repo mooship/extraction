@@ -3,7 +3,15 @@ export function initLines(): void {
 		return;
 	}
 
-	for (const id of ["labor-line", "capital-line", "hist-line"]) {
+	for (const id of [
+		"labor-line",
+		"capital-line",
+		"hist-line",
+		"sankey-unequal-exchange",
+		"sankey-debt-service",
+		"sankey-illicit-flows",
+		"sankey-aid",
+	]) {
 		const line = document.getElementById(id) as SVGGeometryElement | null;
 		if (!line) {
 			continue;
@@ -20,7 +28,7 @@ export function initLines(): void {
 					continue;
 				}
 				for (const line of entry.target.querySelectorAll<SVGGeometryElement>(
-					"polyline",
+					"polyline, path",
 				)) {
 					line.style.strokeDashoffset = "0";
 				}
@@ -30,7 +38,7 @@ export function initLines(): void {
 		{ threshold: 0.2 },
 	);
 
-	for (const id of ["labor-svg", "history-svg"]) {
+	for (const id of ["labor-svg", "history-svg", "sankey-svg"]) {
 		const svg = document.getElementById(id);
 		if (svg) {
 			observer.observe(svg);

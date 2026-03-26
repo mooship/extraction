@@ -360,6 +360,72 @@ footer {
 	line-height: 1.5;
 }
 
+#action {
+	background: #111;
+	border-top: 4px solid var(--black);
+}
+
+.action-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2px;
+	background: var(--black);
+	margin-bottom: 50px;
+}
+
+.action-column {
+	background: #111;
+	padding: 32px 28px;
+}
+
+.action-column h3 {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 1.4rem;
+	letter-spacing: 3px;
+	color: var(--red);
+	margin-bottom: 1rem;
+}
+
+.action-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.action-list li {
+	font-family: "Roboto Condensed Variable", sans-serif;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #b0aa9a;
+	line-height: 1.5;
+	padding-left: 14px;
+	border-left: 2px solid #333;
+}
+
+.action-list li em {
+	color: var(--white);
+	font-style: normal;
+	font-weight: 700;
+}
+
+.action-stamp {
+	display: inline-block;
+	border: 4px solid var(--red);
+	padding: 20px 28px;
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 1.1rem;
+	letter-spacing: 3px;
+	color: var(--red);
+	line-height: 1.5;
+	transform: rotate(-2deg);
+	box-shadow: 3px 3px 0 var(--red-dark);
+	opacity: 0.85;
+}
+
 .global-south-callout {
 	border-left: 3px solid var(--red);
 	background: #111;
