@@ -2,7 +2,7 @@
 	font-family: "Roboto Condensed Variable";
 	font-style: normal;
 	font-display: swap;
-	font-weight: 100 900;
+	font-weight: 400 700;
 	src: url("@fontsource-variable/roboto-condensed/files/roboto-condensed-latin-wght-normal.woff2")
 		format("woff2-variations");
 	unicode-range:
@@ -43,6 +43,19 @@
 	--red: #cc1111;
 	--red-dark: #8b0000;
 	--gray: #2a2a2a;
+
+	--text-body: #b0a99a;
+	--text-muted: #808080;
+
+	--ls-tight: 0.5px;
+	--ls-normal: 1px;
+	--ls-wide: 2px;
+	--ls-xwide: 3px;
+	--ls-logo: 4px;
+
+	--font-display: "Bebas Neue", sans-serif;
+	--font-body: "Special Elite", serif;
+	--font-ui: "Roboto Condensed Variable", sans-serif;
 }
 
 *,
@@ -54,14 +67,18 @@
 }
 
 html {
+	font-size: 100%;
 	scroll-behavior: smooth;
 }
 
 body {
 	background: var(--black);
 	color: var(--white);
-	font-family: "Special Elite", serif;
+	font-family: var(--font-body);
 	overflow-x: hidden;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 body::before {

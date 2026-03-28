@@ -5,10 +5,10 @@
 }
 
 .chart-title {
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.65rem;
 	text-transform: uppercase;
-	letter-spacing: 3px;
+	letter-spacing: var(--ls-xwide);
 	color: #999;
 	margin-bottom: 20px;
 }
@@ -26,7 +26,7 @@
 }
 
 .bar-val-outside {
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.65rem;
 	font-weight: 700;
 	color: #a0a0a0;
@@ -35,10 +35,10 @@
 }
 
 .bar-label {
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.7rem;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: var(--ls-normal);
 	color: #808080;
 	width: 80px;
 	text-align: right;
@@ -67,7 +67,7 @@
 	content: attr(data-val);
 	position: absolute;
 	right: 8px;
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.65rem;
 	font-weight: 700;
 	color: var(--white);
@@ -83,7 +83,7 @@
 	width: 100%;
 	height: auto;
 	display: block;
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 }
 
 .mobile-chart {

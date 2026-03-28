@@ -1,11 +1,11 @@
 p {
 	font-size: 0.95rem;
 	line-height: 1.75;
-	color: #b5ae9f;
+	color: var(--text-body);
 }
 
 h1 {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: clamp(3rem, 6vw, 5.5rem);
 	line-height: 1;
 	color: var(--white);
@@ -19,11 +19,19 @@ h1 span {
 }
 
 h2 {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: clamp(2.5rem, 4vw, 3.8rem);
 	line-height: 1;
 	color: var(--white);
 	margin: 16px 0 24px;
+}
+
+h3 {
+	font-family: var(--font-display);
+	font-size: 1.4rem;
+	letter-spacing: var(--ls-xwide);
+	line-height: 1.1;
+	color: var(--red);
 }
 
 .section-label,
@@ -31,9 +39,9 @@ h2 {
 	display: flex;
 	align-items: center;
 	gap: 12px;
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.7rem;
-	letter-spacing: 3px;
+	letter-spacing: var(--ls-xwide);
 	text-transform: uppercase;
 }
 
@@ -70,17 +78,17 @@ h2 {
 }
 
 .pull-quote blockquote {
-	font-family: "Roboto Condensed Variable", sans-serif;
-	font-size: 1.4rem;
+	font-family: var(--font-body);
+	font-size: 1.3rem;
 	color: var(--white);
-	line-height: 1.3;
+	line-height: 1.5;
 }
 
 .pull-quote cite {
 	display: block;
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.7rem;
-	letter-spacing: 3px;
+	letter-spacing: var(--ls-xwide);
 	color: var(--red);
 	font-style: normal;
 	margin-top: 10px;
@@ -89,7 +97,13 @@ h2 {
 
 .source {
 	font-size: 0.72rem;
-	color: #808080;
-	letter-spacing: 0.5px;
+	color: var(--text-muted);
+	letter-spacing: var(--ls-tight);
 	line-height: 1.6;
+}
+
+.section-intro,
+.manifesto-intro {
+	line-height: 1.85;
+	word-spacing: 0.05em;
 }

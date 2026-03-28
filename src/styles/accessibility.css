@@ -18,12 +18,12 @@
 	padding: 12px 24px;
 	background: var(--white);
 	color: var(--black);
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.85rem;
 	font-weight: 700;
 	text-decoration: none;
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: var(--ls-wide);
 	outline: 3px solid var(--black);
 	outline-offset: 0;
 }

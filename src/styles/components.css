@@ -14,9 +14,9 @@ nav {
 }
 
 .nav-logo {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: 1.4rem;
-	letter-spacing: 4px;
+	letter-spacing: var(--ls-logo);
 	color: var(--black);
 	text-decoration: none;
 }
@@ -27,11 +27,11 @@ nav {
 }
 
 .nav-links a {
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.75rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: var(--ls-wide);
 	color: var(--white);
 	text-decoration: none;
 	transition: color 0.2s;
@@ -81,7 +81,6 @@ nav {
 .hero-left p {
 	font-size: 1rem;
 	line-height: 1.7;
-	color: #b0aa9a;
 	max-width: 460px;
 }
 
@@ -89,9 +88,9 @@ nav {
 	display: inline-block;
 	border: 4px solid var(--red);
 	padding: 14px 20px;
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: 1.1rem;
-	letter-spacing: 3px;
+	letter-spacing: var(--ls-xwide);
 	color: var(--red);
 	transform: rotate(-3deg);
 	box-shadow: 3px 3px 0 var(--red-dark);
@@ -114,7 +113,7 @@ nav {
 }
 
 .stat-box .num {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: 3.2rem;
 	color: var(--red);
 	line-height: 1;
@@ -122,10 +121,10 @@ nav {
 }
 
 .stat-box .label {
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.7rem;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: var(--ls-normal);
 	color: #aaa;
 	margin-top: 8px;
 	display: block;
@@ -145,9 +144,9 @@ nav {
 }
 
 .ticker span {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: 1rem;
-	letter-spacing: 4px;
+	letter-spacing: var(--ls-logo);
 	color: var(--white);
 	padding-right: 40px;
 }
@@ -203,18 +202,18 @@ nav {
 }
 
 .country-name {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: 1.4rem;
 	color: var(--white);
-	letter-spacing: 2px;
+	letter-spacing: var(--ls-wide);
 }
 
 .system-tag {
 	display: inline-block;
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.7rem;
 	text-transform: uppercase;
-	letter-spacing: 2px;
+	letter-spacing: var(--ls-wide);
 	padding: 3px 8px;
 	border: 1px solid;
 	align-self: flex-start;
@@ -239,18 +238,18 @@ nav {
 }
 
 .metric-label {
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.65rem;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: var(--ls-normal);
 	color: #999;
 }
 
 .metric-val {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: 1rem;
 	color: var(--white);
-	letter-spacing: 1px;
+	letter-spacing: var(--ls-normal);
 }
 
 .metric-val.good {
@@ -298,7 +297,7 @@ nav {
 }
 
 .demand-num {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: 4rem;
 	color: rgba(0, 0, 0, 0.15);
 	line-height: 1;
@@ -308,7 +307,7 @@ nav {
 }
 
 .demand-text {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: 1.5rem;
 	color: var(--black);
 	line-height: 1.1;
@@ -317,10 +316,10 @@ nav {
 }
 
 .demand-sub {
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.72rem;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: var(--ls-normal);
 	color: rgba(0, 0, 0, 0.75);
 	line-height: 1.5;
 	position: relative;
@@ -337,9 +336,9 @@ footer {
 }
 
 .footer-logo {
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: 1.6rem;
-	letter-spacing: 4px;
+	letter-spacing: var(--ls-logo);
 	color: var(--red);
 	flex-shrink: 0;
 }
@@ -352,11 +351,11 @@ footer {
 }
 
 .footer-right p {
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.65rem;
 	text-transform: uppercase;
-	letter-spacing: 1px;
-	color: #808080;
+	letter-spacing: var(--ls-normal);
+	color: var(--text-muted);
 	line-height: 1.5;
 }
 
@@ -395,10 +394,6 @@ footer {
 }
 
 .action-column h3 {
-	font-family: "Bebas Neue", sans-serif;
-	font-size: 1.4rem;
-	letter-spacing: 3px;
-	color: var(--red);
 	margin-bottom: 1rem;
 }
 
@@ -412,10 +407,10 @@ footer {
 }
 
 .action-list li {
-	font-family: "Roboto Condensed Variable", sans-serif;
+	font-family: var(--font-ui);
 	font-size: 0.75rem;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: var(--ls-normal);
 	color: #b0aa9a;
 	line-height: 1.5;
 	padding-left: 14px;
@@ -432,9 +427,9 @@ footer {
 	display: inline-block;
 	border: 4px solid var(--red);
 	padding: 20px 28px;
-	font-family: "Bebas Neue", sans-serif;
+	font-family: var(--font-display);
 	font-size: 1.1rem;
-	letter-spacing: 3px;
+	letter-spacing: var(--ls-xwide);
 	color: var(--red);
 	line-height: 1.5;
 	transform: rotate(-2deg);
@@ -450,10 +445,6 @@ footer {
 }
 
 .global-south-callout h3 {
-	font-family: "Bebas Neue", sans-serif;
-	font-size: 1.4rem;
-	letter-spacing: 3px;
-	color: var(--red);
 	margin-bottom: 1rem;
 }
 
