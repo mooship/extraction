@@ -9,7 +9,7 @@
 	font-size: 0.65rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-xwide);
-	color: #999;
+	color: #b0a99a;
 	margin-bottom: 20px;
 }
 
@@ -39,7 +39,7 @@
 	font-size: 0.7rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-normal);
-	color: #808080;
+	color: #9a9a9a;
 	width: 80px;
 	text-align: right;
 	flex-shrink: 0;
