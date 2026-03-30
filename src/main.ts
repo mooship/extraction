@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	initTickerPause();
 	initNavToggle();
 	initAnimations();
+	initChartVisibility();
 });
 
 window.addEventListener("load", () => {
@@ -57,6 +58,7 @@ export function initNavToggle(): void {
 			open ? "Close navigation" : "Open navigation",
 		);
 		if (open) {
+			links[0]?.focus();
 			keydownHandler = (e: KeyboardEvent) => {
 				if (e.key === "Escape") {
 					closeNav();
@@ -87,6 +89,25 @@ export function initNavToggle(): void {
 	for (const link of links) {
 		link.addEventListener("click", closeNav);
 	}
+}
+
+export function initChartVisibility(): void {
+	const mq = window.matchMedia("(max-width: 900px)");
+	const desktopCharts =
+		document.querySelectorAll<HTMLElement>(".desktop-chart");
+	const mobileCharts = document.querySelectorAll<HTMLElement>(".mobile-chart");
+
+	function update(mobile: boolean) {
+		for (const el of desktopCharts) {
+			el.setAttribute("aria-hidden", String(mobile));
+		}
+		for (const el of mobileCharts) {
+			el.setAttribute("aria-hidden", String(!mobile));
+		}
+	}
+
+	update(mq.matches);
+	mq.addEventListener("change", (e) => update(e.matches));
 }
 
 export function initTickerPause(): void {
