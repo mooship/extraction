@@ -9,13 +9,13 @@ Extraction is a data visualization site exploring wealth extraction and inequali
 ## Commands
 
 ```bash
-npm run dev          # Vite dev server
-npm run build        # tsc + vite build
-npm run preview      # Preview production build
-npm run biome:fix    # Auto-fix all formatting and lint issues
+pnpm dev             # Vite dev server
+pnpm build           # tsc + vite build
+pnpm preview         # Preview production build
+pnpm biome:fix       # Auto-fix all formatting and lint issues
 ```
 
-There are tests — run with `npx vitest run`. Run a single test file with `npx vitest run src/charts.test.ts`. TypeScript type-checking is done via `tsc --noEmit` (runs as part of `build`). Lefthook runs `biome check --write` on staged files automatically on pre-commit (fixed files are re-staged). Run `npx lefthook install` after cloning to activate hooks. Run Biome checks manually with `npx biome check src/ index.html`.
+There are tests — run with `pnpm vitest run`. Run a single test file with `pnpm vitest run src/charts.test.ts`. TypeScript type-checking is done via `tsc --noEmit` (runs as part of `build`). Lefthook runs `biome check --write` on staged files automatically on pre-commit (fixed files are re-staged). Run `pnpm exec lefthook install` after cloning to activate hooks. Run Biome checks manually with `pnpm exec biome check src/ index.html`.
 
 ## Safety
 
@@ -43,6 +43,6 @@ Single-page vanilla TypeScript site built with Vite. No framework. `index.html` 
 
 - **British English** in all user-visible copy (`labour`, `organised`, `programme`, etc.). Technical identifiers (IDs, class names, variables) remain in American English.
 - **No inline comments** — never use trailing `//` comments on the same line as code. No block comments in HTML or CSS either. JSDoc block comments (`/** */`) are fine where genuinely useful.
-- Biome enforces tabs, double quotes (JS), and recommended lint rules. Run `npm run biome:fix` after edits.
+- Biome enforces tabs, double quotes (JS), and recommended lint rules. Run `pnpm biome:fix` after edits.
 - CSS custom properties are defined in `:root` in `src/styles/base.css`. Core palette: `--black #0a0a0a`, `--white #f0ece0`, `--red #cc1111`, `--red-dark #8b0000`.
 - All scroll animations use `IntersectionObserver` — no scroll event listeners.
