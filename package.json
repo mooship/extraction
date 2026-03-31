@@ -4,6 +4,7 @@
 	"version": "1.0.0",
 	"license": "CC0-1.0",
 	"type": "module",
+	"packageManager": "pnpm@10.29.3",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
@@ -27,5 +28,10 @@
 		"@fontsource-variable/roboto-condensed": "^5.2.8",
 		"@fontsource/bebas-neue": "^5.2.7",
 		"@fontsource/special-elite": "^5.2.8"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"lefthook"
+		]
 	}
 }
