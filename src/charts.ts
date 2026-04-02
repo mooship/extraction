@@ -130,31 +130,31 @@ const sankeyFlows: SankeyFlow[] = [
 		displayValue: "$10.8T",
 		color: "#cc1111",
 		strokeWidth: 44,
-		path: "M 80,55 C 250,55 350,35 520,35",
+		path: "M 80,70 C 250,70 350,55 520,55",
 		direction: "left",
 	},
 	{
 		label: "Debt Service",
 		displayValue: "$443B",
 		color: "#aa2222",
-		strokeWidth: 9,
-		path: "M 80,120 C 250,120 350,110 520,100",
+		strokeWidth: 12,
+		path: "M 80,130 C 250,130 350,125 520,120",
 		direction: "left",
 	},
 	{
 		label: "Illicit Flows",
 		displayValue: "$89B",
 		color: "#883333",
-		strokeWidth: 4,
-		path: "M 80,155 C 250,155 350,145 520,140",
+		strokeWidth: 6,
+		path: "M 80,165 C 250,165 350,160 520,155",
 		direction: "left",
 	},
 	{
 		label: "Aid",
 		displayValue: "$200B",
 		color: "#4caf4c",
-		strokeWidth: 6,
-		path: "M 520,200 C 350,200 250,210 80,215",
+		strokeWidth: 8,
+		path: "M 520,220 C 350,225 250,230 80,235",
 		direction: "right",
 	},
 ];
@@ -433,7 +433,7 @@ function renderSankeyDesktopChart(): void {
 	const leftLabels = leftFlows
 		.map((flow) => {
 			const startY = Number.parseInt(flow.path.split(",")[1], 10);
-			return `<text x="85" y="${startY + 4}" fill="#888" font-size="7">${flow.label}: ${flow.displayValue}</text>`;
+			return `<text x="85" y="${startY + 4}" fill="var(--white)" font-size="7" opacity="0.9">${flow.label}: ${flow.displayValue}</text>`;
 		})
 		.join("");
 
@@ -441,11 +441,14 @@ function renderSankeyDesktopChart(): void {
 		.map((flow) => {
 			const parts = flow.path.match(/(\d+),(\d+)$/);
 			const y = parts ? Number.parseInt(parts[2], 10) : 235;
-			return `<text x="75" y="${y + 4}" fill="#4caf4c" font-size="7">${flow.label}: ${flow.displayValue}</text>`;
+			return `<text x="75" y="${y + 4}" fill="#4caf4c" font-size="7" opacity="0.9">${flow.label}: ${flow.displayValue}</text>`;
 		})
 		.join("");
 
-	container.innerHTML = `<svg id="sankey-svg" role="img" aria-labelledby="sankey-svg-title" viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg"><title id="sankey-svg-title">The Real Flow of Wealth: South to North</title><desc>Sankey flow diagram showing net wealth flows from the Global South to the Global North: Unequal Exchange $10.8T, Debt Service $443B, Illicit Flows $89B flowing northward, versus only $200B in Aid flowing southward.</desc><text x="40" y="20" fill="var(--red)" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="40" y="32" fill="var(--red)" font-size="10" font-weight="bold" text-anchor="middle">SOUTH</text><text x="560" y="20" fill="#888" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="560" y="32" fill="#888" font-size="10" font-weight="bold" text-anchor="middle">NORTH</text>${paths}${leftLabels}${rightLabels}</svg>`;
+	const arrowLeft = `<polygon points="85,55 95,50 95,60" fill="#cc1111" opacity="0.6"/>`;
+	const arrowRight = `<polygon points="515,220 505,215 505,225" fill="#4caf4c" opacity="0.6"/>`;
+
+	container.innerHTML = `<svg id="sankey-svg" role="img" aria-labelledby="sankey-svg-title" viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><title id="sankey-svg-title">The Real Flow of Wealth: South to North</title><desc>Sankey flow diagram showing net wealth flows from the Global South to the Global North: Unequal Exchange $10.8T, Debt Service $443B, Illicit Flows $89B flowing northward, versus only $200B in Aid flowing southward.</desc><text x="40" y="20" fill="var(--red)" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="40" y="32" fill="var(--red)" font-size="10" font-weight="bold" text-anchor="middle">SOUTH</text><text x="560" y="20" fill="#888" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="560" y="32" fill="#888" font-size="10" font-weight="bold" text-anchor="middle">NORTH</text>${paths}${arrowLeft}${arrowRight}${leftLabels}${rightLabels}</svg>`;
 }
 
 function buildMobileData(): {
@@ -536,17 +539,17 @@ function buildMobileData(): {
 		},
 		{
 			label: "Debt Service",
-			width: 8,
+			width: 12,
 			value: "$443B",
 			color: "#aa2222",
 		},
 		{
 			label: "Illicit Flows",
-			width: 3,
+			width: 4,
 			value: "$89B",
 			color: "#883333",
 		},
-		{ label: "Aid Received", width: 5, value: "$200B", color: "#4caf4c" },
+		{ label: "Aid Received", width: 7, value: "$200B", color: "#4caf4c" },
 	];
 
 	return { gini, labor, history, donut, treemap, sankey };
