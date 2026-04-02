@@ -46,6 +46,14 @@
 
 	--text-body: #b8b1a2;
 	--text-muted: #9a9a9a;
+	--text-label: #b0a99a;
+
+	--bg-elevated: #0f0f0f;
+	--bg-surface: #111;
+	--bg-section-alt: #0d0d0d;
+	--bg-inset: #1a1a1a;
+	--border-subtle: #222;
+	--green: #4caf4c;
 
 	--ls-tight: 0.5px;
 	--ls-normal: 1px;

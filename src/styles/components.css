@@ -125,7 +125,7 @@ nav {
 	font-size: 0.7rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-normal);
-	color: #b0a99a;
+	color: var(--text-label);
 	margin-top: 8px;
 	display: block;
 }
@@ -225,7 +225,7 @@ nav {
 }
 
 .system-tag.capitalist {
-	color: #9a9a9a;
+	color: var(--text-muted);
 	border-color: #555;
 }
 
@@ -239,7 +239,7 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
-	border-bottom: 1px solid #111;
+	border-bottom: 1px solid var(--bg-surface);
 	padding-bottom: 6px;
 }
 
@@ -252,7 +252,7 @@ nav {
 	font-size: 0.65rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-normal);
-	color: #b0a99a;
+	color: var(--text-label);
 }
 
 .metric-val {
@@ -263,7 +263,7 @@ nav {
 }
 
 .metric-val.good {
-	color: #4caf4c;
+	color: var(--green);
 }
 
 .metric-val.bad {
@@ -370,7 +370,7 @@ footer {
 }
 
 #action {
-	background: #111;
+	background: var(--bg-surface);
 	border-top: 4px solid var(--black);
 }
 
@@ -399,7 +399,7 @@ footer {
 }
 
 .action-column {
-	background: #111;
+	background: var(--bg-surface);
 	padding: 32px 28px;
 }
 
@@ -421,7 +421,7 @@ footer {
 	font-size: 0.75rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-normal);
-	color: #b8b1a2;
+	color: var(--text-body);
 	line-height: 1.5;
 	padding-left: 14px;
 	border-left: 2px solid #444;
@@ -449,7 +449,7 @@ footer {
 
 .global-south-callout {
 	border-left: 3px solid var(--red);
-	background: #111;
+	background: var(--bg-surface);
 	padding: 2rem 2.5rem;
 	margin: 3rem 0 0;
 }

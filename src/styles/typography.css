@@ -73,7 +73,7 @@ h3 {
 .pull-quote {
 	border-left: 6px solid var(--red);
 	padding: 28px 36px;
-	background: #0f0f0f;
+	background: var(--bg-elevated);
 	margin: 32px 0;
 }
 
