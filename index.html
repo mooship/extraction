@@ -88,6 +88,14 @@
 			</div>
 		</nav>
 		<main id="main-content">
+			<noscript>
+				<p
+					style="padding: 2rem; color: #f0ece0; font-family: sans-serif; text-align: center; background: #1a1a1a; border-bottom: 3px solid #cc1111;"
+				>
+					This site uses JavaScript to render interactive charts and animations.
+					Please enable JavaScript for the full experience.
+				</p>
+			</noscript>
 			<section id="hero">
 				<div class="hero-grid">
 					<div class="hero-left">
@@ -296,8 +304,27 @@
 							>
 						</div>
 						<p class="source">
-							Source: World Inequality Database (Piketty, Saez, Zucman) · US
-							Federal Reserve SCF · Oxfam Inequality Report 2025
+							Source:
+							<a
+								href="https://wid.world"
+								target="_blank"
+								rel="noopener noreferrer"
+								>World Inequality Database</a
+							>
+							(Piketty, Saez, Zucman) ·
+							<a
+								href="https://www.federalreserve.gov/econres/scfindex.htm"
+								target="_blank"
+								rel="noopener noreferrer"
+								>US Federal Reserve SCF</a
+							>
+							·
+							<a
+								href="https://www.oxfam.org/en/research/inequality-inc"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Oxfam Inequality Report 2025</a
+							>
 						</p>
 					</div>
 					<div class="col-charts">
@@ -305,17 +332,35 @@
 							<figcaption class="chart-title">
 								US Wealth Distribution
 							</figcaption>
-							<div id="wealth-distribution-chart"></div>
+							<div
+								id="wealth-distribution-chart"
+								role="img"
+								aria-label="Bar chart showing US wealth distribution: Top 1% owns 38%, Next 9% owns 36%, Next 40% owns 23%, Bottom 50% owns 3%"
+							>
+								<noscript>
+									<p>
+										Chart requires JavaScript. The top 1% owns 38% of US wealth
+										while the bottom 50% owns just 3%.
+									</p>
+								</noscript>
+							</div>
 						</figure>
 						<figure class="chart-box reveal" style="transition-delay: 0.12s">
 							<figcaption class="chart-title">
 								Wealth Gini Coefficient by Country
 							</figcaption>
-							<div id="gini-desktop-chart" class="desktop-chart"></div>
+							<div
+								id="gini-desktop-chart"
+								class="desktop-chart"
+								role="img"
+								aria-label="Bar chart comparing Gini coefficients: South Africa 0.63, USA 0.85, UK 0.71, Germany 0.78, China 0.70, Norway 0.78, Russia 0.88"
+							></div>
 							<div
 								id="gini-mobile-chart"
 								class="mobile-chart"
 								aria-hidden="true"
+								role="img"
+								aria-label="Bar chart comparing wealth Gini coefficients across countries"
 							></div>
 						</figure>
 					</div>
@@ -341,13 +386,27 @@
 					<figcaption class="chart-title">
 						Top 1% Income Share — USA, 1913–2025
 					</figcaption>
-					<div id="history-desktop-chart" class="desktop-chart"></div>
+					<div
+						id="history-desktop-chart"
+						class="desktop-chart"
+						role="img"
+						aria-label="Line chart showing top 1% income share in the USA from 1913 to 2025, peaking at 24% before the 1929 crash, falling to 10% by 1970, then rising back to 21% by 2025"
+					></div>
 					<div
 						id="history-mobile-chart"
 						class="mobile-chart"
 						aria-hidden="true"
+						role="img"
+						aria-label="Bar chart showing top 1% income share in the USA at key historical points"
 					></div>
 				</figure>
+				<p class="source">
+					Source:
+					<a href="https://wid.world" target="_blank" rel="noopener noreferrer"
+						>World Inequality Database</a
+					>
+					(Piketty, Saez, Zucman)
+				</p>
 			</section>
 			<section id="tax">
 				<div class="section-divider" aria-hidden="true"></div>
@@ -357,18 +416,29 @@
 							<figcaption class="chart-title">
 								Where Corporate Profits Are Shifted
 							</figcaption>
-							<div id="tax-donut-desktop-chart" class="desktop-chart"></div>
+							<div
+								id="tax-donut-desktop-chart"
+								class="desktop-chart"
+								role="img"
+								aria-label="Donut chart showing where corporate profits are shifted: UK Dependencies 29%, Netherlands 22%, Bermuda 18%, Ireland 12%, Luxembourg 11%, Singapore 8%"
+							></div>
 							<div
 								id="tax-donut-mobile-chart"
 								class="mobile-chart"
 								aria-hidden="true"
+								role="img"
+								aria-label="Bar chart showing where corporate profits are shifted to tax havens"
 							></div>
 						</figure>
 						<figure class="chart-box reveal" style="transition-delay: 0.12s">
 							<figcaption class="chart-title">
 								Who Really Pays: Effective Tax Rates
 							</figcaption>
-							<div id="tax-rates-chart"></div>
+							<div
+								id="tax-rates-chart"
+								role="img"
+								aria-label="Bar chart showing effective tax rates: Richest 400 families pay 8.2%, median household pays 25%, top statutory rate is 37%"
+							></div>
 						</figure>
 					</div>
 					<div class="col-text">
@@ -459,8 +529,27 @@
 							</div>
 						</div>
 						<p class="source">
-							Source: Tax Justice Network State of Tax Justice 2024 · Saez &amp;
-							Zucman · UNCTAD · Global Financial Integrity
+							Source:
+							<a
+								href="https://taxjustice.net/reports/the-state-of-tax-justice-2024/"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Tax Justice Network State of Tax Justice 2024</a
+							>
+							· Saez &amp; Zucman ·
+							<a
+								href="https://unctad.org"
+								target="_blank"
+								rel="noopener noreferrer"
+								>UNCTAD</a
+							>
+							·
+							<a
+								href="https://gfintegrity.org"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Global Financial Integrity</a
+							>
 						</p>
 					</div>
 				</div>
@@ -493,18 +582,29 @@
 							<figcaption class="chart-title">
 								Labour vs Capital Share of GDP — USA
 							</figcaption>
-							<div id="labor-desktop-chart" class="desktop-chart"></div>
+							<div
+								id="labor-desktop-chart"
+								class="desktop-chart"
+								role="img"
+								aria-label="Area chart showing US labour share of GDP falling from 67% in 1950 to 57% in 2025, with capital share rising inversely"
+							></div>
 							<div
 								id="labor-mobile-chart"
 								class="mobile-chart"
 								aria-hidden="true"
+								role="img"
+								aria-label="Bar chart showing US labour vs capital share of GDP"
 							></div>
 						</figure>
 						<figure class="chart-box reveal" style="transition-delay: 0.12s">
 							<figcaption class="chart-title">
 								CEO-to-Worker Pay Ratio
 							</figcaption>
-							<div id="ceo-pay-chart"></div>
+							<div
+								id="ceo-pay-chart"
+								role="img"
+								aria-label="Bar chart showing CEO-to-worker pay ratio escalation: 21:1 in 1965, 61:1 in 1989, 293:1 in 2000, 399:1 in 2023"
+							></div>
 						</figure>
 					</div>
 					<div class="col-text">
@@ -540,6 +640,29 @@
 						</div>
 					</div>
 				</div>
+				<p class="source">
+					Source:
+					<a
+						href="https://www.bls.gov"
+						target="_blank"
+						rel="noopener noreferrer"
+						>BLS / BEA</a
+					>
+					·
+					<a
+						href="https://www.epi.org"
+						target="_blank"
+						rel="noopener noreferrer"
+						>Economic Policy Institute</a
+					>
+					·
+					<a
+						href="https://www.ilo.org/global/research/global-reports/weso/lang--en/index.htm"
+						target="_blank"
+						rel="noopener noreferrer"
+						>ILO World Employment and Social Outlook 2024</a
+					>
+				</p>
 			</section>
 			<section id="housing">
 				<div class="section-divider" aria-hidden="true"></div>
@@ -577,8 +700,41 @@
 							<cite>— Winston Churchill, 1909</cite>
 						</div>
 						<p class="source">
-							Source: Harvard JCHS · ONS · Resolution Foundation · Savills
-							Global Research · Shelter
+							Source:
+							<a
+								href="https://www.jchs.harvard.edu"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Harvard JCHS</a
+							>
+							·
+							<a
+								href="https://www.ons.gov.uk"
+								target="_blank"
+								rel="noopener noreferrer"
+								>ONS</a
+							>
+							·
+							<a
+								href="https://www.resolutionfoundation.org"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Resolution Foundation</a
+							>
+							·
+							<a
+								href="https://www.savills.com/research_articles/255800/334844-0"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Savills Global Research</a
+							>
+							·
+							<a
+								href="https://england.shelter.org.uk"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Shelter</a
+							>
 						</p>
 					</div>
 					<div class="col-charts">
@@ -641,17 +797,28 @@
 							<figcaption class="chart-title">
 								Homeownership Rate by Age — UK, 1997 vs 2025
 							</figcaption>
-							<div id="homeownership-chart"></div>
+							<div
+								id="homeownership-chart"
+								role="img"
+								aria-label="Bar chart showing UK homeownership rate decline for 25-34 year-olds: 59% in 1997 versus 28% in 2025"
+							></div>
 						</figure>
 						<figure class="chart-box reveal" style="transition-delay: 0.12s">
 							<figcaption class="chart-title">
 								Global Asset Classes by Value
 							</figcaption>
-							<div id="asset-treemap-desktop-chart" class="desktop-chart"></div>
+							<div
+								id="asset-treemap-desktop-chart"
+								class="desktop-chart"
+								role="img"
+								aria-label="Treemap showing global asset classes by value: Residential real estate dominates at $380 trillion"
+							></div>
 							<div
 								id="asset-treemap-mobile-chart"
 								class="mobile-chart"
 								aria-hidden="true"
+								role="img"
+								aria-label="Bar chart showing global asset classes by value"
 							></div>
 						</figure>
 					</div>
@@ -695,8 +862,34 @@
 							>
 						</div>
 						<p class="source">
-							Source: Jason Hickel, <em>The Divide</em> · Global Financial
-							Integrity · Jubilee Debt Campaign · World Bank · UNCTAD
+							Source: Jason Hickel, <em>The Divide</em> ·
+							<a
+								href="https://gfintegrity.org"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Global Financial Integrity</a
+							>
+							·
+							<a
+								href="https://jubileedebt.org.uk"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Jubilee Debt Campaign</a
+							>
+							·
+							<a
+								href="https://data.worldbank.org"
+								target="_blank"
+								rel="noopener noreferrer"
+								>World Bank</a
+							>
+							·
+							<a
+								href="https://unctad.org"
+								target="_blank"
+								rel="noopener noreferrer"
+								>UNCTAD</a
+							>
 						</p>
 					</div>
 					<div class="col-charts">
@@ -754,18 +947,29 @@
 							<figcaption class="chart-title">
 								The Real Flow of Wealth: South to North
 							</figcaption>
-							<div id="flows-sankey-desktop-chart" class="desktop-chart"></div>
+							<div
+								id="flows-sankey-desktop-chart"
+								class="desktop-chart"
+								role="img"
+								aria-label="Sankey diagram showing the real flow of wealth from South to North: $10.8 trillion in unequal exchange versus only $200 billion in aid"
+							></div>
 							<div
 								id="flows-sankey-mobile-chart"
 								class="mobile-chart"
 								aria-hidden="true"
+								role="img"
+								aria-label="Bar chart showing wealth flows from Global South to North"
 							></div>
 						</figure>
 						<figure class="chart-box reveal" style="transition-delay: 0.12s">
 							<figcaption class="chart-title">
 								Debt Service as % of Government Revenue
 							</figcaption>
-							<div id="debt-service-chart"></div>
+							<div
+								id="debt-service-chart"
+								role="img"
+								aria-label="Bar chart showing debt service as percentage of government revenue: Sri Lanka 73%, Ghana 47%, Pakistan 40%, Kenya 30%, USA 9%"
+							></div>
 						</figure>
 					</div>
 				</div>
@@ -853,9 +1057,35 @@
 							>
 						</div>
 						<p class="source">
-							Source: Oxfam Carbon Inequality Report 2025 · Carbon Disclosure
-							Project 2017 · IMF Fossil Fuel Subsidies 2025 · IPBES Global
-							Assessment 2019 · Loss and Damage Collaboration 2024
+							Source:
+							<a
+								href="https://www.oxfam.org/en/research/carbon-inequality-era-climate-breakdown"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Oxfam Carbon Inequality Report 2025</a
+							>
+							·
+							<a
+								href="https://www.cdp.net"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Carbon Disclosure Project 2017</a
+							>
+							·
+							<a
+								href="https://www.imf.org/en/Topics/climate-change/energy-subsidies"
+								target="_blank"
+								rel="noopener noreferrer"
+								>IMF Fossil Fuel Subsidies 2025</a
+							>
+							·
+							<a
+								href="https://ipbes.net/global-assessment"
+								target="_blank"
+								rel="noopener noreferrer"
+								>IPBES Global Assessment 2019</a
+							>
+							· Loss and Damage Collaboration 2024
 						</p>
 					</div>
 					<div class="col-charts">
@@ -920,7 +1150,11 @@
 							<figcaption class="chart-title">
 								CO₂ Emissions Share by Global Income Group
 							</figcaption>
-							<div id="emissions-chart"></div>
+							<div
+								id="emissions-chart"
+								role="img"
+								aria-label="Bar chart showing CO2 emissions share by global income group: Top 1% emit 16%, Top 10% emit 48%, Middle 40% emit 34%, Bottom 50% emit just 8%"
+							></div>
 						</figure>
 					</div>
 				</div>
@@ -1248,6 +1482,44 @@
 						>
 					</div>
 				</aside>
+				<p class="source">
+					Source:
+					<a
+						href="https://hdr.undp.org"
+						target="_blank"
+						rel="noopener noreferrer"
+						>UNDP Human Development Report</a
+					>
+					·
+					<a
+						href="https://www.who.int"
+						target="_blank"
+						rel="noopener noreferrer"
+						>WHO</a
+					>
+					·
+					<a
+						href="https://data.worldbank.org"
+						target="_blank"
+						rel="noopener noreferrer"
+						>World Bank</a
+					>
+					·
+					<a
+						href="https://data.oecd.org"
+						target="_blank"
+						rel="noopener noreferrer"
+						>OECD</a
+					>
+					·
+					<a
+						href="https://data.unicef.org"
+						target="_blank"
+						rel="noopener noreferrer"
+						>UNICEF</a
+					>
+					· Statistics South Africa · National Bureau of Statistics of China
+				</p>
 			</section>
 			<section id="manifesto">
 				<div class="section-label-black">Policy Demands</div>
@@ -1262,7 +1534,7 @@
 				<div class="demands">
 					<div class="demand reveal">
 						<div class="demand-num" aria-hidden="true">01</div>
-						<div class="demand-text">Democratic Ownership of Production</div>
+						<h3 class="demand-text">Democratic Ownership of Production</h3>
 						<div class="demand-sub">
 							Worker co-operatives, public ownership of strategic industries,
 							democratic enterprise governance
@@ -1270,7 +1542,7 @@
 					</div>
 					<div class="demand reveal" style="transition-delay: 0.07s">
 						<div class="demand-num" aria-hidden="true">02</div>
-						<div class="demand-text">Universal Public Services</div>
+						<h3 class="demand-text">Universal Public Services</h3>
 						<div class="demand-sub">
 							Healthcare, housing, education, transport — decommodified and
 							guaranteed as rights, not products
@@ -1278,7 +1550,7 @@
 					</div>
 					<div class="demand reveal" style="transition-delay: 0.14s">
 						<div class="demand-num" aria-hidden="true">03</div>
-						<div class="demand-text">Progressive Wealth Taxation</div>
+						<h3 class="demand-text">Progressive Wealth Taxation</h3>
 						<div class="demand-sub">
 							Progressive wealth taxation, inheritance limits, and compulsory
 							acquisition of assets above democratically set wealth ceilings
@@ -1286,7 +1558,7 @@
 					</div>
 					<div class="demand reveal" style="transition-delay: 0.21s">
 						<div class="demand-num" aria-hidden="true">04</div>
-						<div class="demand-text">Restoration of Labour Power</div>
+						<h3 class="demand-text">Restoration of Labour Power</h3>
 						<div class="demand-sub">
 							Mandatory union recognition, sectoral bargaining, four-day week,
 							living wage indexed to productivity
@@ -1294,7 +1566,7 @@
 					</div>
 					<div class="demand reveal" style="transition-delay: 0.28s">
 						<div class="demand-num" aria-hidden="true">05</div>
-						<div class="demand-text">Abolition of Rentier Extraction</div>
+						<h3 class="demand-text">Abolition of Rentier Extraction</h3>
 						<div class="demand-sub">
 							Land value taxation, rent control, reform of landlordism — ending
 							the passive extraction of value through mere ownership
@@ -1302,7 +1574,7 @@
 					</div>
 					<div class="demand reveal" style="transition-delay: 0.35s">
 						<div class="demand-num" aria-hidden="true">06</div>
-						<div class="demand-text">Planned Ecological Transition</div>
+						<h3 class="demand-text">Planned Ecological Transition</h3>
 						<div class="demand-sub">
 							Democratic control of energy, transport, and food systems; public
 							ownership of fossil fuel assets; end all subsidies to extractive
@@ -1314,9 +1586,9 @@
 					</div>
 					<div class="demand reveal" style="transition-delay: 0.42s">
 						<div class="demand-num" aria-hidden="true">07</div>
-						<div class="demand-text">
+						<h3 class="demand-text">
 							End of Imperialism &amp; Debt Cancellation
-						</div>
+						</h3>
 						<div class="demand-sub">
 							Cancel Global South debt, end IMF structural adjustment
 							programmes, pay climate reparations from the Global North, and
@@ -1328,7 +1600,7 @@
 						style="grid-column: 1 / -1; transition-delay: 0.49s"
 					>
 						<div class="demand-num" aria-hidden="true">08</div>
-						<div class="demand-text">Defence of the Ecological Commons</div>
+						<h3 class="demand-text">Defence of the Ecological Commons</h3>
 						<div class="demand-sub">
 							End corporate enclosure of land, water, forests, and atmosphere;
 							criminalise ecocide; return land to Indigenous communities and
@@ -1351,26 +1623,120 @@
 					<div class="action-column reveal">
 						<h3>Organisations &amp; Movements</h3>
 						<ul class="action-list">
-							<li>Tax Justice Network</li>
-							<li>Jubilee Debt Campaign</li>
-							<li>La Via Campesina</li>
-							<li>London Renters Union / ACORN</li>
-							<li>Extinction Rebellion</li>
-							<li>Democratic Socialists of America</li>
+							<li>
+								<a
+									href="https://taxjustice.net"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Tax Justice Network</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://jubileedebt.org.uk"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Jubilee Debt Campaign</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://viacampesina.org"
+									target="_blank"
+									rel="noopener noreferrer"
+									>La Via Campesina</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://londonrentersunion.org"
+									target="_blank"
+									rel="noopener noreferrer"
+									>London Renters Union</a
+								>
+								/
+								<a
+									href="https://acorntheunion.org.uk"
+									target="_blank"
+									rel="noopener noreferrer"
+									>ACORN</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://rebellion.global"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Extinction Rebellion</a
+								>
+							</li>
+							<li>
+								<a
+									href="https://dsausa.org"
+									target="_blank"
+									rel="noopener noreferrer"
+									>Democratic Socialists of America</a
+								>
+							</li>
 						</ul>
 					</div>
 					<div class="action-column reveal" style="transition-delay: 0.1s">
 						<h3>Essential Reading</h3>
 						<ul class="action-list">
 							<li>
-								<em>Capital in the Twenty-First Century</em>
+								<a
+									href="https://www.hup.harvard.edu/books/9780674430006"
+									target="_blank"
+									rel="noopener noreferrer"
+									><em>Capital in the Twenty-First Century</em></a
+								>
 								— Thomas Piketty
 							</li>
-							<li><em>The Wretched of the Earth</em> — Frantz Fanon</li>
-							<li><em>The Divide</em> — Jason Hickel</li>
-							<li><em>The Hidden Wealth of Nations</em> — Gabriel Zucman</li>
-							<li><em>Ecosocialism</em> — Michael Löwy</li>
-							<li><em>How Europe Underdeveloped Africa</em> — Walter Rodney</li>
+							<li>
+								<a
+									href="https://groveatlantic.com/book/the-wretched-of-the-earth/"
+									target="_blank"
+									rel="noopener noreferrer"
+									><em>The Wretched of the Earth</em></a
+								>
+								— Frantz Fanon
+							</li>
+							<li>
+								<a
+									href="https://www.jasonhickel.org/the-divide"
+									target="_blank"
+									rel="noopener noreferrer"
+									><em>The Divide</em></a
+								>
+								— Jason Hickel
+							</li>
+							<li>
+								<a
+									href="https://gabriel-zucman.eu/hidden-wealth/"
+									target="_blank"
+									rel="noopener noreferrer"
+									><em>The Hidden Wealth of Nations</em></a
+								>
+								— Gabriel Zucman
+							</li>
+							<li>
+								<a
+									href="https://www.haymarketbooks.org/books/749-ecosocialism"
+									target="_blank"
+									rel="noopener noreferrer"
+									><em>Ecosocialism</em></a
+								>
+								— Michael Löwy
+							</li>
+							<li>
+								<a
+									href="https://www.versobooks.com/products/2647-how-europe-underdeveloped-africa"
+									target="_blank"
+									rel="noopener noreferrer"
+									><em>How Europe Underdeveloped Africa</em></a
+								>
+								— Walter Rodney
+							</li>
 						</ul>
 					</div>
 					<div class="action-column reveal" style="transition-delay: 0.2s">

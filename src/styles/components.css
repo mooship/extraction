@@ -37,8 +37,15 @@ nav {
 	transition: color 0.2s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus-visible {
 	color: var(--black);
+}
+
+.nav-links a.nav-active {
+	color: var(--black);
+	border-bottom: 2px solid var(--black);
+	padding-bottom: 2px;
 }
 
 .nav-toggle {
@@ -140,7 +147,7 @@ nav {
 
 .ticker {
 	display: inline-flex;
-	animation: ticker-scroll 120s linear infinite;
+	animation: ticker-scroll 60s linear infinite;
 }
 
 .ticker span {
@@ -170,7 +177,8 @@ nav {
 	justify-content: center;
 }
 
-.ticker-pause:hover {
+.ticker-pause:hover,
+.ticker-pause:focus-visible {
 	background: #6b0000;
 }
 
@@ -197,7 +205,8 @@ nav {
 	transition: border-color 0.2s;
 }
 
-.country-card:hover {
+.country-card:hover,
+.country-card:focus-visible {
 	border-color: var(--red);
 }
 
@@ -281,7 +290,7 @@ nav {
 }
 
 .manifesto-intro {
-	color: rgba(0, 0, 0, 0.75);
+	color: var(--black);
 	max-width: 680px;
 	margin-bottom: 50px;
 }
@@ -296,20 +305,21 @@ nav {
 .demand {
 	background: var(--red);
 	padding: 32px 28px;
-	cursor: crosshair;
+	cursor: default;
 	transition: background 0.2s;
 	position: relative;
 	overflow: hidden;
 }
 
-.demand:hover {
+.demand:hover,
+.demand:focus-visible {
 	background: #b80f0f;
 }
 
 .demand-num {
 	font-family: var(--font-display);
 	font-size: 4rem;
-	color: rgba(0, 0, 0, 0.15);
+	color: rgba(0, 0, 0, 0.35);
 	line-height: 1;
 	position: absolute;
 	top: 12px;
@@ -330,7 +340,7 @@ nav {
 	font-size: 0.72rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-normal);
-	color: rgba(0, 0, 0, 0.85);
+	color: var(--black);
 	line-height: 1.5;
 	position: relative;
 }
@@ -387,7 +397,7 @@ footer {
 }
 
 #action .manifesto-intro {
-	color: rgba(240, 236, 224, 0.8);
+	color: var(--white);
 }
 
 .action-grid {
@@ -433,6 +443,21 @@ footer {
 	font-weight: 700;
 }
 
+.action-list a {
+	color: var(--text-body);
+	text-decoration: none;
+	border-bottom: 1px solid var(--red-dark);
+	transition:
+		color 0.2s,
+		border-color 0.2s;
+}
+
+.action-list a:hover,
+.action-list a:focus-visible {
+	color: var(--white);
+	border-color: var(--red);
+}
+
 .action-stamp {
 	display: inline-block;
 	border: 4px solid var(--red);
@@ -445,6 +470,31 @@ footer {
 	transform: rotate(-2deg);
 	box-shadow: 3px 3px 0 var(--red-dark);
 	opacity: 0.85;
+}
+
+.share-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: 2rem;
+	padding: 8px 16px;
+	background: transparent;
+	border: 1px solid var(--gray);
+	color: var(--text-muted);
+	font-family: var(--font-ui);
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: var(--ls-wide);
+	cursor: pointer;
+	transition:
+		color 0.2s,
+		border-color 0.2s;
+}
+
+.share-btn:hover,
+.share-btn:focus-visible {
+	color: var(--white);
+	border-color: var(--red);
 }
 
 .global-south-callout {

@@ -123,8 +123,16 @@
 		letter-spacing: var(--ls-wide);
 	}
 
+	.stat-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.country-grid {
+		grid-template-columns: 1fr;
+	}
+
 	#hero {
-		padding: 96px 16px 40px;
+		padding: 72px 16px 40px;
 	}
 
 	h1 {
@@ -147,7 +155,7 @@
 
 	.section-label,
 	.section-label-black {
-		letter-spacing: var(--ls-xwide);
+		letter-spacing: var(--ls-wide);
 		font-size: 0.65rem;
 	}
 
@@ -208,11 +216,7 @@
 	}
 
 	#hero {
-		padding: 90px 14px 34px;
-	}
-
-	.stat-grid {
-		grid-template-columns: 1fr;
+		padding: 66px 14px 34px;
 	}
 
 	.stat-box {

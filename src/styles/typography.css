@@ -102,6 +102,21 @@ h3 {
 	line-height: 1.6;
 }
 
+.source a {
+	color: var(--text-muted);
+	text-decoration: none;
+	border-bottom: 1px solid var(--gray);
+	transition:
+		color 0.2s,
+		border-color 0.2s;
+}
+
+.source a:hover,
+.source a:focus-visible {
+	color: var(--white);
+	border-color: var(--red);
+}
+
 .section-intro,
 .manifesto-intro {
 	line-height: 1.85;
