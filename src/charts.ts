@@ -62,13 +62,13 @@ const giniDesktopData: GiniItem[] = [
 ];
 
 const laborSeriesData: LaborPoint[] = [
-	{ year: 1950, labor: 67, capital: 53, x: 50 },
-	{ year: 1970, labor: 67, capital: 53, x: 154 },
-	{ year: 1985, labor: 65, capital: 55, x: 232 },
-	{ year: 2000, labor: 63, capital: 57, x: 310 },
-	{ year: 2015, labor: 61, capital: 59, x: 388 },
-	{ year: 2023, labor: 58, capital: 62, x: 430 },
-	{ year: 2025, labor: 57, capital: 63, x: 445 },
+	{ year: 1950, labor: 67, capital: 33, x: 50 },
+	{ year: 1970, labor: 67, capital: 33, x: 154 },
+	{ year: 1985, labor: 65, capital: 35, x: 232 },
+	{ year: 2000, labor: 63, capital: 37, x: 310 },
+	{ year: 2015, labor: 61, capital: 39, x: 388 },
+	{ year: 2023, labor: 58, capital: 42, x: 430 },
+	{ year: 2025, labor: 57, capital: 43, x: 445 },
 ];
 
 const historySeriesData: HistoryPoint[] = [
@@ -86,8 +86,8 @@ const historySeriesData: HistoryPoint[] = [
 
 const wealthDistributionData: BarChartItem[] = [
 	{ label: "Top 1%", width: 38, value: "38%", color: "var(--red)" },
-	{ label: "Next 9%", width: 37, value: "37%", color: "#444" },
-	{ label: "Next 40%", width: 21, value: "21%", color: "#2a2a2a" },
+	{ label: "Next 9%", width: 36, value: "36%", color: "#444" },
+	{ label: "Next 40%", width: 23, value: "23%", color: "#2a2a2a" },
 	{ label: "Bottom 50%", width: 3, value: "3%", color: "#222" },
 ];
 
@@ -129,15 +129,15 @@ const sankeyFlows: SankeyFlow[] = [
 		label: "Unequal Exchange",
 		displayValue: "$10.8T",
 		color: "#cc1111",
-		strokeWidth: 36,
-		path: "M 80,60 C 250,60 350,40 520,40",
+		strokeWidth: 44,
+		path: "M 80,55 C 250,55 350,35 520,35",
 		direction: "left",
 	},
 	{
 		label: "Debt Service",
 		displayValue: "$443B",
 		color: "#aa2222",
-		strokeWidth: 16,
+		strokeWidth: 9,
 		path: "M 80,120 C 250,120 350,110 520,100",
 		direction: "left",
 	},
@@ -145,16 +145,16 @@ const sankeyFlows: SankeyFlow[] = [
 		label: "Illicit Flows",
 		displayValue: "$89B",
 		color: "#883333",
-		strokeWidth: 8,
-		path: "M 80,170 C 250,170 350,160 520,155",
+		strokeWidth: 4,
+		path: "M 80,155 C 250,155 350,145 520,140",
 		direction: "left",
 	},
 	{
 		label: "Aid",
 		displayValue: "$200B",
 		color: "#4caf4c",
-		strokeWidth: 10,
-		path: "M 520,220 C 350,220 250,230 80,235",
+		strokeWidth: 6,
+		path: "M 520,200 C 350,200 250,210 80,215",
 		direction: "right",
 	},
 ];
@@ -284,7 +284,7 @@ function renderGiniDesktopChart(): void {
 }
 
 function laborY(percent: number): number {
-	return Math.round(180 - (percent - 50) * 8);
+	return Math.round(180 - (percent - 30) * 4);
 }
 
 function renderLaborDesktopChart(): void {
@@ -306,7 +306,7 @@ function renderLaborDesktopChart(): void {
 		)
 		.join("");
 
-	container.innerHTML = `<svg id="labor-svg" role="img" aria-labelledby="labor-svg-title" viewBox="0 0 475 220" xmlns="http://www.w3.org/2000/svg"><title id="labor-svg-title">Labour vs Capital Share of GDP</title><desc>Line chart showing USA labour share falling from 67% in 1950 to 57% in 2025, while capital share rose from 53% to 63% over the same period. The neoliberal turn around 1980 marks the inflection point.</desc><line x1="45" y1="20" x2="455" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="60" x2="455" y2="60" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="100" x2="455" y2="100" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="140" x2="455" y2="140" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="180" x2="455" y2="180" stroke="#333" stroke-width="1"/><text x="40" y="23" fill="#888" font-size="8" text-anchor="end">70%</text><text x="40" y="63" fill="#888" font-size="8" text-anchor="end">65%</text><text x="40" y="103" fill="#888" font-size="8" text-anchor="end">60%</text><text x="40" y="143" fill="#888" font-size="8" text-anchor="end">55%</text><text x="40" y="183" fill="#888" font-size="8" text-anchor="end">50%</text>${yearLabels}<line x1="206" y1="15" x2="206" y2="180" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/><text x="208" y="28" fill="#888" font-size="7">1980</text><text x="208" y="38" fill="#888" font-size="7">Neoliberal</text><text x="208" y="48" fill="#888" font-size="7">Turn</text><polyline id="labor-line" points="${laborPoints}" fill="none" stroke="#888" stroke-width="2"/><polyline id="capital-line" points="${capitalPoints}" fill="none" stroke="#cc1111" stroke-width="2.5"/><line x1="50" y1="210" x2="70" y2="210" stroke="#888" stroke-width="2"/><text x="74" y="213" fill="#888" font-size="8">Labour Share</text><line x1="170" y1="210" x2="190" y2="210" style="stroke: var(--red)" stroke-width="2"/><text x="194" y="213" style="fill: var(--red)" font-size="8">Capital Share</text></svg>`;
+	container.innerHTML = `<svg id="labor-svg" role="img" aria-labelledby="labor-svg-title" viewBox="0 0 475 220" xmlns="http://www.w3.org/2000/svg"><title id="labor-svg-title">Labour vs Capital Share of GDP</title><desc>Line chart showing USA labour share falling from 67% in 1950 to 57% in 2025, while capital share rose from 33% to 43% over the same period. The neoliberal turn around 1980 marks the inflection point.</desc><line x1="45" y1="20" x2="455" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="60" x2="455" y2="60" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="100" x2="455" y2="100" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="140" x2="455" y2="140" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="180" x2="455" y2="180" stroke="#333" stroke-width="1"/><text x="40" y="23" fill="#888" font-size="8" text-anchor="end">70%</text><text x="40" y="63" fill="#888" font-size="8" text-anchor="end">60%</text><text x="40" y="103" fill="#888" font-size="8" text-anchor="end">50%</text><text x="40" y="143" fill="#888" font-size="8" text-anchor="end">40%</text><text x="40" y="183" fill="#888" font-size="8" text-anchor="end">30%</text>${yearLabels}<line x1="206" y1="15" x2="206" y2="180" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/><text x="208" y="28" fill="#888" font-size="7">1980</text><text x="208" y="38" fill="#888" font-size="7">Neoliberal</text><text x="208" y="48" fill="#888" font-size="7">Turn</text><polyline id="labor-line" points="${laborPoints}" fill="none" stroke="#888" stroke-width="2"/><polyline id="capital-line" points="${capitalPoints}" fill="none" stroke="#cc1111" stroke-width="2.5"/><line x1="50" y1="210" x2="70" y2="210" stroke="#888" stroke-width="2"/><text x="74" y="213" fill="#888" font-size="8">Labour Share</text><line x1="170" y1="210" x2="190" y2="210" style="stroke: var(--red)" stroke-width="2"/><text x="194" y="213" style="fill: var(--red)" font-size="8">Capital Share</text></svg>`;
 }
 
 function historyY(share: number): number {
@@ -536,17 +536,17 @@ function buildMobileData(): {
 		},
 		{
 			label: "Debt Service",
-			width: 41,
+			width: 8,
 			value: "$443B",
 			color: "#aa2222",
 		},
 		{
 			label: "Illicit Flows",
-			width: 8,
+			width: 3,
 			value: "$89B",
 			color: "#883333",
 		},
-		{ label: "Aid Received", width: 19, value: "$200B", color: "#4caf4c" },
+		{ label: "Aid Received", width: 5, value: "$200B", color: "#4caf4c" },
 	];
 
 	return { gini, labor, history, donut, treemap, sankey };
