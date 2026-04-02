@@ -1,6 +1,6 @@
 .chart-box {
-	background: #0f0f0f;
-	border: 1px solid #222;
+	background: var(--bg-elevated);
+	border: 1px solid var(--border-subtle);
 	padding: 30px;
 }
 
@@ -9,7 +9,7 @@
 	font-size: 0.65rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-xwide);
-	color: #b0a99a;
+	color: var(--text-label);
 	margin-bottom: 20px;
 }
 
@@ -39,14 +39,14 @@
 	font-size: 0.7rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-normal);
-	color: #9a9a9a;
+	color: var(--text-muted);
 	width: 80px;
 	text-align: right;
 	flex-shrink: 0;
 }
 
 .bar-track {
-	background: #1a1a1a;
+	background: var(--bg-inset);
 	height: 28px;
 	flex: 1;
 	overflow: hidden;
@@ -90,10 +90,7 @@
 	display: none;
 }
 
-#capital-line {
-	stroke: var(--red);
-}
-
+#capital-line,
 #hist-line {
 	stroke: var(--red);
 }

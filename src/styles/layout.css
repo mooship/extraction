@@ -69,7 +69,7 @@ section {
 #labor,
 #imperialism,
 #public {
-	background: #0d0d0d;
+	background: var(--bg-section-alt);
 }
 
 #history .chart-box {
