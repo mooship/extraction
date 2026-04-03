@@ -147,7 +147,7 @@ nav {
 
 .ticker {
 	display: inline-flex;
-	animation: ticker-scroll 60s linear infinite;
+	animation: ticker-scroll 120s linear infinite;
 }
 
 .ticker span {
