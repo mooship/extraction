@@ -237,17 +237,25 @@ function renderBarChart(
 function renderMobileBarChart(
 	containerId: string,
 	items: BarChartItem[],
+	options: BarChartRenderOptions = {},
 ): void {
 	const container = document.getElementById(containerId);
 	if (!container) {
 		return;
 	}
 
+	const outsideValueThreshold = options.outsideValueThreshold ?? 0;
+
 	const rows = items
-		.map(
-			(item) =>
-				`<div class="bar-row"><span class="bar-label">${item.label}</span><div class="bar-track"><div class="bar-fill" data-width="${item.width}" data-val="${item.value}" style="background: ${item.color}"></div></div></div>`,
-		)
+		.map((item) => {
+			const showOutsideValue = item.width <= outsideValueThreshold;
+			const inlineValue = showOutsideValue ? "" : item.value;
+			const outsideValue = showOutsideValue
+				? `<span class="bar-val-outside">${item.value}</span>`
+				: "";
+
+			return `<div class="bar-row"><span class="bar-label">${item.label}</span><div class="bar-track"><div class="bar-fill" data-width="${item.width}" data-val="${inlineValue}" style="background: ${item.color}"></div></div>${outsideValue}</div>`;
+		})
 		.join("");
 
 	container.innerHTML = `<div class="bar-chart">${rows}</div>`;
@@ -556,14 +564,20 @@ function buildMobileData(): {
 }
 
 export function initCharts(): void {
-	renderBarChart("wealth-distribution-chart", wealthDistributionData);
+	renderBarChart("wealth-distribution-chart", wealthDistributionData, {
+		outsideValueThreshold: 5,
+	});
 	renderBarChart("ceo-pay-chart", ceoPayData, {
 		outsideValueThreshold: 20,
 	});
-	renderBarChart("emissions-chart", emissionsData);
+	renderBarChart("emissions-chart", emissionsData, {
+		outsideValueThreshold: 18,
+	});
 	renderBarChart("tax-rates-chart", taxRatesData);
 	renderBarChart("homeownership-chart", homeownershipData);
-	renderBarChart("debt-service-chart", debtServiceData);
+	renderBarChart("debt-service-chart", debtServiceData, {
+		outsideValueThreshold: 13,
+	});
 
 	renderGiniDesktopChart();
 	renderLaborDesktopChart();
@@ -577,8 +591,12 @@ export function initCharts(): void {
 	renderMobileBarChart("labor-mobile-chart", mobileData.labor);
 	renderMobileBarChart("history-mobile-chart", mobileData.history);
 	renderMobileBarChart("tax-donut-mobile-chart", mobileData.donut);
-	renderMobileBarChart("asset-treemap-mobile-chart", mobileData.treemap);
-	renderMobileBarChart("flows-sankey-mobile-chart", mobileData.sankey);
+	renderMobileBarChart("asset-treemap-mobile-chart", mobileData.treemap, {
+		outsideValueThreshold: 5,
+	});
+	renderMobileBarChart("flows-sankey-mobile-chart", mobileData.sankey, {
+		outsideValueThreshold: 15,
+	});
 
 	const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
