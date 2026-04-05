@@ -234,33 +234,6 @@ function renderBarChart(
 	container.innerHTML = `<div class="bar-chart">${rows}</div>`;
 }
 
-function renderMobileBarChart(
-	containerId: string,
-	items: BarChartItem[],
-	options: BarChartRenderOptions = {},
-): void {
-	const container = document.getElementById(containerId);
-	if (!container) {
-		return;
-	}
-
-	const outsideValueThreshold = options.outsideValueThreshold ?? 0;
-
-	const rows = items
-		.map((item) => {
-			const showOutsideValue = item.width <= outsideValueThreshold;
-			const inlineValue = showOutsideValue ? "" : item.value;
-			const outsideValue = showOutsideValue
-				? `<span class="bar-val-outside">${item.value}</span>`
-				: "";
-
-			return `<div class="bar-row"><span class="bar-label">${item.label}</span><div class="bar-track"><div class="bar-fill" data-width="${item.width}" data-val="${inlineValue}" style="background: ${item.color}"></div></div>${outsideValue}</div>`;
-		})
-		.join("");
-
-	container.innerHTML = `<div class="bar-chart">${rows}</div>`;
-}
-
 function renderGiniDesktopChart(): void {
 	const container = document.getElementById("gini-desktop-chart");
 	if (!container) {
@@ -291,8 +264,14 @@ function renderGiniDesktopChart(): void {
 	container.innerHTML = `<svg id="gini-svg" role="img" aria-labelledby="gini-svg-title" viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg"><title id="gini-svg-title">Wealth Gini Coefficient by Country</title><desc>Bar chart comparing wealth Gini coefficients: Germany 0.67, France 0.70, Sweden 0.74, Brazil 0.78, UK 0.81, USA 0.85, South Africa 0.91. Higher values indicate greater inequality.</desc><line x1="18" y1="10" x2="450" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="50" x2="450" y2="50" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="90" x2="450" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="130" x2="450" y2="130" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="170" x2="450" y2="170" stroke="#333" stroke-width="1"/><text x="14" y="13" fill="#888" font-size="8" text-anchor="end">1.0</text><text x="14" y="53" fill="#888" font-size="8" text-anchor="end">0.9</text><text x="14" y="93" fill="#888" font-size="8" text-anchor="end">0.8</text><text x="14" y="133" fill="#888" font-size="8" text-anchor="end">0.7</text><text x="14" y="173" fill="#888" font-size="8" text-anchor="end">0.6</text>${bars}</svg>`;
 }
 
+const LABOR_Y_BASE = 180;
+const LABOR_PERCENT_MIN = 30;
+const LABOR_PX_PER_PERCENT = 4;
+
 function laborY(percent: number): number {
-	return Math.round(180 - (percent - 30) * 4);
+	return Math.round(
+		LABOR_Y_BASE - (percent - LABOR_PERCENT_MIN) * LABOR_PX_PER_PERCENT,
+	);
 }
 
 function renderLaborDesktopChart(): void {
@@ -317,8 +296,14 @@ function renderLaborDesktopChart(): void {
 	container.innerHTML = `<svg id="labor-svg" role="img" aria-labelledby="labor-svg-title" viewBox="0 0 475 220" xmlns="http://www.w3.org/2000/svg"><title id="labor-svg-title">Labour vs Capital Share of GDP</title><desc>Line chart showing USA labour share falling from 67% in 1950 to 57% in 2025, while capital share rose from 33% to 43% over the same period. The neoliberal turn around 1980 marks the inflection point.</desc><line x1="45" y1="20" x2="455" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="60" x2="455" y2="60" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="100" x2="455" y2="100" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="140" x2="455" y2="140" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="180" x2="455" y2="180" stroke="#333" stroke-width="1"/><text x="40" y="23" fill="#888" font-size="8" text-anchor="end">70%</text><text x="40" y="63" fill="#888" font-size="8" text-anchor="end">60%</text><text x="40" y="103" fill="#888" font-size="8" text-anchor="end">50%</text><text x="40" y="143" fill="#888" font-size="8" text-anchor="end">40%</text><text x="40" y="183" fill="#888" font-size="8" text-anchor="end">30%</text>${yearLabels}<line x1="206" y1="15" x2="206" y2="180" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/><text x="208" y="28" fill="#888" font-size="7">1980</text><text x="208" y="38" fill="#888" font-size="7">Neoliberal</text><text x="208" y="48" fill="#888" font-size="7">Turn</text><polyline id="labor-line" points="${laborPoints}" fill="none" stroke="#888" stroke-width="2"/><polyline id="capital-line" points="${capitalPoints}" fill="none" stroke="#cc1111" stroke-width="2.5"/><line x1="50" y1="210" x2="70" y2="210" stroke="#888" stroke-width="2"/><text x="74" y="213" fill="#888" font-size="8">Labour Share</text><line x1="170" y1="210" x2="190" y2="210" style="stroke: var(--red)" stroke-width="2"/><text x="194" y="213" style="fill: var(--red)" font-size="8">Capital Share</text></svg>`;
 }
 
+const HISTORY_Y_BASE = 225;
+const HISTORY_SHARE_MIN = 10;
+const HISTORY_PX_PER_SHARE = 9;
+
 function historyY(share: number): number {
-	return Math.round(225 - (share - 10) * 9);
+	return Math.round(
+		HISTORY_Y_BASE - (share - HISTORY_SHARE_MIN) * HISTORY_PX_PER_SHARE,
+	);
 }
 
 function renderHistoryDesktopChart(): void {
@@ -440,7 +425,8 @@ function renderSankeyDesktopChart(): void {
 
 	const leftLabels = leftFlows
 		.map((flow) => {
-			const startY = Number.parseInt(flow.path.split(",")[1], 10);
+			const pathParts = flow.path.split(",");
+			const startY = pathParts[1] ? Number.parseInt(pathParts[1], 10) : 0;
 			return `<text x="85" y="${startY + 4}" fill="var(--white)" font-size="7" opacity="0.9">${flow.label}: ${flow.displayValue}</text>`;
 		})
 		.join("");
@@ -458,6 +444,9 @@ function renderSankeyDesktopChart(): void {
 
 	container.innerHTML = `<svg id="sankey-svg" role="img" aria-labelledby="sankey-svg-title" viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><title id="sankey-svg-title">The Real Flow of Wealth: South to North</title><desc>Sankey flow diagram showing net wealth flows from the Global South to the Global North: Unequal Exchange $10.8T, Debt Service $443B, Illicit Flows $89B flowing northward, versus only $200B in Aid flowing southward.</desc><text x="40" y="20" fill="var(--red)" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="40" y="32" fill="var(--red)" font-size="10" font-weight="bold" text-anchor="middle">SOUTH</text><text x="560" y="20" fill="#888" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="560" y="32" fill="#888" font-size="10" font-weight="bold" text-anchor="middle">NORTH</text>${paths}${arrowLeft}${arrowRight}${leftLabels}${rightLabels}</svg>`;
 }
+
+const HISTORY_SHARE_MAX = 30;
+const DONUT_MAX_PERCENT = 29;
 
 function buildMobileData(): {
 	gini: BarChartItem[];
@@ -507,7 +496,7 @@ function buildMobileData(): {
 	const history = historySeriesData
 		.filter((point) => historyYears.includes(point.year))
 		.map((point) => {
-			const width = Math.round((point.share / 30) * 100);
+			const width = Math.round((point.share / HISTORY_SHARE_MAX) * 100);
 			const colorMap: Record<number, string> = {
 				1913: "#7a2a2a",
 				1929: "var(--red)",
@@ -525,7 +514,7 @@ function buildMobileData(): {
 
 	const donut = donutData.map((seg) => ({
 		label: seg.label,
-		width: Math.round(seg.percent * (100 / 29)),
+		width: Math.round(seg.percent * (100 / DONUT_MAX_PERCENT)),
 		value: `${seg.percent}%`,
 		color: seg.color,
 	}));
@@ -587,14 +576,14 @@ export function initCharts(): void {
 	renderSankeyDesktopChart();
 
 	const mobileData = buildMobileData();
-	renderMobileBarChart("gini-mobile-chart", mobileData.gini);
-	renderMobileBarChart("labor-mobile-chart", mobileData.labor);
-	renderMobileBarChart("history-mobile-chart", mobileData.history);
-	renderMobileBarChart("tax-donut-mobile-chart", mobileData.donut);
-	renderMobileBarChart("asset-treemap-mobile-chart", mobileData.treemap, {
+	renderBarChart("gini-mobile-chart", mobileData.gini);
+	renderBarChart("labor-mobile-chart", mobileData.labor);
+	renderBarChart("history-mobile-chart", mobileData.history);
+	renderBarChart("tax-donut-mobile-chart", mobileData.donut);
+	renderBarChart("asset-treemap-mobile-chart", mobileData.treemap, {
 		outsideValueThreshold: 5,
 	});
-	renderMobileBarChart("flows-sankey-mobile-chart", mobileData.sankey, {
+	renderBarChart("flows-sankey-mobile-chart", mobileData.sankey, {
 		outsideValueThreshold: 15,
 	});
 

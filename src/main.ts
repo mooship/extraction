@@ -211,4 +211,11 @@ export function initTickerPause(): void {
 			btn.setAttribute("aria-label", "Pause ticker");
 		}
 	});
+
+	document.addEventListener("visibilitychange", () => {
+		if (paused) {
+			return;
+		}
+		ticker.style.animationPlayState = document.hidden ? "paused" : "running";
+	});
 }

@@ -45,7 +45,7 @@
 	--gray: #2a2a2a;
 
 	--text-body: #ddd8ce;
-	--text-muted: #c4c4c4;
+	--text-muted: #d0d0d0;
 	--text-label: #d0c9bc;
 
 	--bg-elevated: #0f0f0f;
@@ -98,4 +98,5 @@ body::before {
 	opacity: 0.2;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
 	background-repeat: repeat;
+	will-change: transform;
 }
