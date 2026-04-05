@@ -7,6 +7,10 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; font-src 'self'"
+		>
 		<title>Extraction — The Anatomy of Wealth Concentration</title>
 		<meta
 			name="description"
@@ -24,6 +28,10 @@
 			property="og:description"
 			content="A data-driven analysis of wealth concentration, ecological destruction, and the capitalist system that drives both. The top 1% own 45% of global wealth — and emit more CO₂ than the poorest 50% combined. The crises are the same crisis."
 		>
+		<meta
+			property="og:image"
+			content="https://extraction.timothybrits.co.za/android-chrome-512x512.png"
+		>
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:url" content="https://extraction.timothybrits.co.za/">
 		<meta
@@ -33,6 +41,10 @@
 		<meta
 			name="twitter:description"
 			content="A data-driven analysis of wealth concentration, ecological destruction, and the capitalist system that drives both. The top 1% own 45% of global wealth — and emit more CO₂ than the poorest 50% combined. The crises are the same crisis."
+		>
+		<meta
+			name="twitter:image"
+			content="https://extraction.timothybrits.co.za/android-chrome-512x512.png"
 		>
 		<script type="application/ld+json">
 	{
@@ -115,7 +127,7 @@
 					</div>
 					<div class="hero-right">
 						<div class="stat-grid">
-							<div class="stat-box" style="animation-delay: 0s">
+							<div class="stat-box">
 								<div class="num" data-target="1" data-prefix="" data-suffix="%">
 									0%
 								</div>
@@ -123,7 +135,7 @@
 									Own more wealth than the bottom 50% combined
 								</div>
 							</div>
-							<div class="stat-box" style="animation-delay: 0.2s">
+							<div class="stat-box">
 								<div
 									class="num"
 									data-target="82"
@@ -137,7 +149,7 @@
 									2018
 								</div>
 							</div>
-							<div class="stat-box" style="animation-delay: 0.4s">
+							<div class="stat-box">
 								<div
 									class="num"
 									data-target="700"
@@ -151,7 +163,7 @@
 									'development'
 								</div>
 							</div>
-							<div class="stat-box" style="animation-delay: 0.6s">
+							<div class="stat-box">
 								<div
 									class="num"
 									data-target="5"
@@ -164,10 +176,7 @@
 									gained by global billionaires during COVID-19 (2020–2022)
 								</div>
 							</div>
-							<div
-								class="stat-box"
-								style="animation-delay: 0.8s; grid-column: 1 / -1"
-							>
+							<div class="stat-box stat-box-full">
 								<div
 									class="num"
 									data-target="1"
@@ -275,12 +284,16 @@
 					</svg>
 				</button>
 			</div>
-			<section id="wealth">
+			<section id="wealth" aria-labelledby="wealth-heading">
 				<div class="section-divider" aria-hidden="true"></div>
 				<div class="two-col wealth-layout">
 					<div class="col-text">
 						<div class="section-label reveal-left">Wealth Inequality</div>
-						<h2 class="reveal" style="transition-delay: 0.1s">
+						<h2
+							id="wealth-heading"
+							class="reveal"
+							style="transition-delay: 0.1s"
+						>
 							The Great<br>Upward<br>Transfer
 						</h2>
 						<p>
@@ -362,14 +375,60 @@
 								role="img"
 								aria-label="Bar chart comparing wealth Gini coefficients across countries"
 							></div>
+							<table class="sr-only">
+								<caption>
+									Wealth Gini Coefficient by Country
+								</caption>
+								<thead>
+									<tr>
+										<th>Country</th>
+										<th>Gini</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Germany</td>
+										<td>0.67</td>
+									</tr>
+									<tr>
+										<td>France</td>
+										<td>0.70</td>
+									</tr>
+									<tr>
+										<td>Sweden</td>
+										<td>0.74</td>
+									</tr>
+									<tr>
+										<td>Brazil</td>
+										<td>0.78</td>
+									</tr>
+									<tr>
+										<td>UK</td>
+										<td>0.81</td>
+									</tr>
+									<tr>
+										<td>USA</td>
+										<td>0.85</td>
+									</tr>
+									<tr>
+										<td>South Africa</td>
+										<td>0.91</td>
+									</tr>
+								</tbody>
+							</table>
+							<noscript>
+								Wealth Gini coefficients: Germany 0.67, France 0.70, Sweden
+								0.74, Brazil 0.78, UK 0.81, USA 0.85, South Africa 0.91. Higher
+								values indicate greater inequality.
+							</noscript>
 						</figure>
 					</div>
 				</div>
 			</section>
-			<section id="history">
+			<section id="history" aria-labelledby="history-heading">
 				<div class="section-divider" aria-hidden="true"></div>
 				<div class="section-label reveal-left">Historical Record</div>
-				<h2 class="reveal" style="transition-delay: 0.1s">
+				<h2 id="history-heading" class="reveal" style="transition-delay: 0.1s">
 					A Century of<br>Concentrated Power
 				</h2>
 				<p class="section-intro reveal" style="transition-delay: 0.2s">
@@ -399,6 +458,39 @@
 						role="img"
 						aria-label="Bar chart showing top 1% income share in the USA at key historical points"
 					></div>
+					<table class="sr-only">
+						<caption>
+							Top 1% Income Share — USA, Key Years
+						</caption>
+						<thead>
+							<tr>
+								<th>Year</th>
+								<th>Share</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1913</td>
+								<td>18%</td>
+							</tr>
+							<tr>
+								<td>1929</td>
+								<td>24%</td>
+							</tr>
+							<tr>
+								<td>1970</td>
+								<td>10%</td>
+							</tr>
+							<tr>
+								<td>2025</td>
+								<td>21%</td>
+							</tr>
+						</tbody>
+					</table>
+					<noscript>
+						Top 1% income share in the USA: 18% in 1913, peaked at 24% in 1929,
+						fell to 10% by 1970, then rose to 21% by 2025.
+					</noscript>
 				</figure>
 				<p class="source">
 					Source:
@@ -408,7 +500,7 @@
 					(Piketty, Saez, Zucman)
 				</p>
 			</section>
-			<section id="tax">
+			<section id="tax" aria-labelledby="tax-heading">
 				<div class="section-divider" aria-hidden="true"></div>
 				<div class="two-col tax-layout">
 					<div class="col-charts">
@@ -429,6 +521,48 @@
 								role="img"
 								aria-label="Bar chart showing where corporate profits are shifted to tax havens"
 							></div>
+							<table class="sr-only">
+								<caption>
+									Where Corporate Profits Are Shifted
+								</caption>
+								<thead>
+									<tr>
+										<th>Destination</th>
+										<th>Share</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>UK Dependencies</td>
+										<td>29%</td>
+									</tr>
+									<tr>
+										<td>Netherlands</td>
+										<td>22%</td>
+									</tr>
+									<tr>
+										<td>Bermuda &amp; Cayman</td>
+										<td>18%</td>
+									</tr>
+									<tr>
+										<td>Luxembourg</td>
+										<td>15%</td>
+									</tr>
+									<tr>
+										<td>Ireland</td>
+										<td>12%</td>
+									</tr>
+									<tr>
+										<td>Other</td>
+										<td>4%</td>
+									</tr>
+								</tbody>
+							</table>
+							<noscript>
+								Corporate profit shifting destinations: UK Dependencies 29%,
+								Netherlands 22%, Bermuda &amp; Cayman 18%, Luxembourg 15%,
+								Ireland 12%, Other 4%.
+							</noscript>
 						</figure>
 						<figure class="chart-box reveal" style="transition-delay: 0.12s">
 							<figcaption class="chart-title">
@@ -445,7 +579,7 @@
 						<div class="section-label reveal-left">
 							Tax Avoidance &amp; Offshore Wealth
 						</div>
-						<h2 class="reveal" style="transition-delay: 0.1s">
+						<h2 id="tax-heading" class="reveal" style="transition-delay: 0.1s">
 							The Hidden<br>Trillions
 						</h2>
 						<p>
@@ -553,7 +687,10 @@
 						</p>
 					</div>
 				</div>
-				<aside class="global-south-callout reveal">
+				<aside
+					class="global-south-callout reveal"
+					aria-label="On the Race to the Bottom"
+				>
 					<h3>On the Race to the Bottom</h3>
 					<p>
 						States compete to attract capital by gutting their own tax bases.
@@ -574,7 +711,7 @@
 					</p>
 				</aside>
 			</section>
-			<section id="labor">
+			<section id="labor" aria-labelledby="labor-heading">
 				<div class="section-divider" aria-hidden="true"></div>
 				<div class="two-col labor-layout">
 					<div class="col-charts">
@@ -595,6 +732,39 @@
 								role="img"
 								aria-label="Bar chart showing US labour vs capital share of GDP"
 							></div>
+							<table class="sr-only">
+								<caption>
+									Labour vs Capital Share of GDP — USA
+								</caption>
+								<thead>
+									<tr>
+										<th>Year</th>
+										<th>Labour</th>
+										<th>Capital</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1950</td>
+										<td>67%</td>
+										<td>33%</td>
+									</tr>
+									<tr>
+										<td>1980</td>
+										<td>64%</td>
+										<td>36%</td>
+									</tr>
+									<tr>
+										<td>2025</td>
+										<td>57%</td>
+										<td>43%</td>
+									</tr>
+								</tbody>
+							</table>
+							<noscript>
+								US labour share of GDP fell from 67% in 1950 to 57% in 2025,
+								while capital share rose from 33% to 43%.
+							</noscript>
 						</figure>
 						<figure class="chart-box reveal" style="transition-delay: 0.12s">
 							<figcaption class="chart-title">
@@ -609,7 +779,11 @@
 					</div>
 					<div class="col-text">
 						<div class="section-label reveal-left">Labour vs Capital</div>
-						<h2 class="reveal" style="transition-delay: 0.1s">
+						<h2
+							id="labor-heading"
+							class="reveal"
+							style="transition-delay: 0.1s"
+						>
 							Workers Produce.<br>Capital Captures.
 						</h2>
 						<p>
@@ -664,12 +838,16 @@
 					>
 				</p>
 			</section>
-			<section id="housing">
+			<section id="housing" aria-labelledby="housing-heading">
 				<div class="section-divider" aria-hidden="true"></div>
 				<div class="two-col housing-layout">
 					<div class="col-text">
 						<div class="section-label reveal-left">Housing &amp; Rent</div>
-						<h2 class="reveal" style="transition-delay: 0.1s">
+						<h2
+							id="housing-heading"
+							class="reveal"
+							style="transition-delay: 0.1s"
+						>
 							Shelter as<br>Speculation
 						</h2>
 						<p>
@@ -820,18 +998,55 @@
 								role="img"
 								aria-label="Bar chart showing global asset classes by value"
 							></div>
+							<table class="sr-only">
+								<caption>
+									Global Asset Classes by Value
+								</caption>
+								<thead>
+									<tr>
+										<th>Asset Class</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Residential Real Estate</td>
+										<td>$380T</td>
+									</tr>
+									<tr>
+										<td>Equities</td>
+										<td>$109T</td>
+									</tr>
+									<tr>
+										<td>Government Debt</td>
+										<td>$66T</td>
+									</tr>
+									<tr>
+										<td>Gold</td>
+										<td>$14T</td>
+									</tr>
+								</tbody>
+							</table>
+							<noscript>
+								Global asset values: Residential Real Estate $380T, Equities
+								$109T, Government Debt $66T, Gold $14T.
+							</noscript>
 						</figure>
 					</div>
 				</div>
 			</section>
-			<section id="imperialism">
+			<section id="imperialism" aria-labelledby="imperialism-heading">
 				<div class="section-divider" aria-hidden="true"></div>
 				<div class="two-col imperialism-layout">
 					<div class="col-text">
 						<div class="section-label reveal-left">
 							Global South &amp; Imperialism
 						</div>
-						<h2 class="reveal" style="transition-delay: 0.1s">
+						<h2
+							id="imperialism-heading"
+							class="reveal"
+							style="transition-delay: 0.1s"
+						>
 							Extraction<br>Without Borders
 						</h2>
 						<p>
@@ -960,6 +1175,45 @@
 								role="img"
 								aria-label="Bar chart showing wealth flows from Global South to North"
 							></div>
+							<table class="sr-only">
+								<caption>
+									The Real Flow of Wealth: South to North
+								</caption>
+								<thead>
+									<tr>
+										<th>Flow</th>
+										<th>Direction</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Unequal Exchange</td>
+										<td>South to North</td>
+										<td>$10.8T</td>
+									</tr>
+									<tr>
+										<td>Debt Service</td>
+										<td>South to North</td>
+										<td>$443B</td>
+									</tr>
+									<tr>
+										<td>Illicit Flows</td>
+										<td>South to North</td>
+										<td>$89B</td>
+									</tr>
+									<tr>
+										<td>Aid</td>
+										<td>North to South</td>
+										<td>$200B</td>
+									</tr>
+								</tbody>
+							</table>
+							<noscript>
+								Net wealth flows from Global South to North: Unequal Exchange
+								$10.8T, Debt Service $443B, Illicit Flows $89B flowing
+								northward, versus only $200B in Aid flowing southward.
+							</noscript>
 						</figure>
 						<figure class="chart-box reveal" style="transition-delay: 0.12s">
 							<figcaption class="chart-title">
@@ -973,7 +1227,10 @@
 						</figure>
 					</div>
 				</div>
-				<aside class="global-south-callout reveal">
+				<aside
+					class="global-south-callout reveal"
+					aria-label="On the IMF and World Bank"
+				>
 					<h3>On the IMF and World Bank</h3>
 					<p>
 						Structural adjustment programmes — imposed as conditions for loans —
@@ -999,12 +1256,16 @@
 					</div>
 				</aside>
 			</section>
-			<section id="ecology">
+			<section id="ecology" aria-labelledby="ecology-heading">
 				<div class="section-divider" aria-hidden="true"></div>
 				<div class="two-col ecology-layout">
 					<div class="col-text">
 						<div class="section-label reveal-left">Ecological Crisis</div>
-						<h2 class="reveal" style="transition-delay: 0.1s">
+						<h2
+							id="ecology-heading"
+							class="reveal"
+							style="transition-delay: 0.1s"
+						>
 							The Same System.<br>The Same Crisis.
 						</h2>
 						<p>
@@ -1158,7 +1419,10 @@
 						</figure>
 					</div>
 				</div>
-				<aside class="global-south-callout reveal">
+				<aside
+					class="global-south-callout reveal"
+					aria-label="On Green Capitalism"
+				>
 					<h3>On Green Capitalism</h3>
 					<p>
 						Carbon trading, ESG investment frameworks, voluntary offsetting, and
@@ -1199,10 +1463,10 @@
 					</div>
 				</aside>
 			</section>
-			<section id="public">
+			<section id="public" aria-labelledby="public-heading">
 				<div class="section-divider" aria-hidden="true"></div>
 				<div class="section-label reveal-left">Public Services</div>
-				<h2 class="reveal" style="transition-delay: 0.1s">
+				<h2 id="public-heading" class="reveal" style="transition-delay: 0.1s">
 					What Markets<br>Fail to Deliver
 				</h2>
 				<p class="section-intro reveal" style="transition-delay: 0.2s">
@@ -1433,7 +1697,10 @@
 						</dl>
 					</div>
 				</div>
-				<aside class="global-south-callout reveal">
+				<aside
+					class="global-south-callout reveal"
+					aria-label="On Social Democracy"
+				>
 					<h3>On Social Democracy</h3>
 					<p>
 						Social democratic states achieve genuinely better outcomes for their
@@ -1521,9 +1788,11 @@
 					· Statistics South Africa · National Bureau of Statistics of China
 				</p>
 			</section>
-			<section id="manifesto">
+			<section id="manifesto" aria-labelledby="manifesto-heading">
 				<div class="section-label-black">Policy Demands</div>
-				<h2 class="manifesto-title">A Policy<br>Programme</h2>
+				<h2 id="manifesto-heading" class="manifesto-title">
+					A Policy<br>Programme
+				</h2>
 				<p class="manifesto-intro">
 					Incremental adjustment has not reversed four decades of upward
 					redistribution. These are not untested proposals — each has historical
@@ -1540,7 +1809,7 @@
 							democratic enterprise governance
 						</div>
 					</div>
-					<div class="demand reveal" style="transition-delay: 0.07s">
+					<div class="demand reveal">
 						<div class="demand-num" aria-hidden="true">02</div>
 						<h3 class="demand-text">Universal Public Services</h3>
 						<div class="demand-sub">
@@ -1548,7 +1817,7 @@
 							guaranteed as rights, not products
 						</div>
 					</div>
-					<div class="demand reveal" style="transition-delay: 0.14s">
+					<div class="demand reveal">
 						<div class="demand-num" aria-hidden="true">03</div>
 						<h3 class="demand-text">Progressive Wealth Taxation</h3>
 						<div class="demand-sub">
@@ -1556,7 +1825,7 @@
 							acquisition of assets above democratically set wealth ceilings
 						</div>
 					</div>
-					<div class="demand reveal" style="transition-delay: 0.21s">
+					<div class="demand reveal">
 						<div class="demand-num" aria-hidden="true">04</div>
 						<h3 class="demand-text">Restoration of Labour Power</h3>
 						<div class="demand-sub">
@@ -1564,7 +1833,7 @@
 							living wage indexed to productivity
 						</div>
 					</div>
-					<div class="demand reveal" style="transition-delay: 0.28s">
+					<div class="demand reveal">
 						<div class="demand-num" aria-hidden="true">05</div>
 						<h3 class="demand-text">Abolition of Rentier Extraction</h3>
 						<div class="demand-sub">
@@ -1572,7 +1841,7 @@
 							the passive extraction of value through mere ownership
 						</div>
 					</div>
-					<div class="demand reveal" style="transition-delay: 0.35s">
+					<div class="demand reveal">
 						<div class="demand-num" aria-hidden="true">06</div>
 						<h3 class="demand-text">Planned Ecological Transition</h3>
 						<div class="demand-sub">
@@ -1584,7 +1853,7 @@
 							ecological limits.
 						</div>
 					</div>
-					<div class="demand reveal" style="transition-delay: 0.42s">
+					<div class="demand reveal">
 						<div class="demand-num" aria-hidden="true">07</div>
 						<h3 class="demand-text">
 							End of Imperialism &amp; Debt Cancellation
@@ -1595,10 +1864,7 @@
 							establish trade terms on Southern terms — not Northern ones
 						</div>
 					</div>
-					<div
-						class="demand reveal"
-						style="grid-column: 1 / -1; transition-delay: 0.49s"
-					>
+					<div class="demand demand-full reveal">
 						<div class="demand-num" aria-hidden="true">08</div>
 						<h3 class="demand-text">Defence of the Ecological Commons</h3>
 						<div class="demand-sub">
@@ -1612,9 +1878,11 @@
 					</div>
 				</div>
 			</section>
-			<section id="action">
+			<section id="action" aria-labelledby="action-heading">
 				<div class="section-label-black">What Now</div>
-				<h2 class="manifesto-title">Organise.<br>Educate.<br>Act.</h2>
+				<h2 id="action-heading" class="manifesto-title">
+					Organise.<br>Educate.<br>Act.
+				</h2>
 				<p class="manifesto-intro">
 					Knowledge without action is complicity. The data is clear. The system
 					will not dismantle itself. These are starting points — not endpoints.

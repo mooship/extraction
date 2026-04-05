@@ -119,6 +119,26 @@ nav {
 	animation: flash-in 0.5s both;
 }
 
+.stat-box:nth-child(1) {
+	animation-delay: 0s;
+}
+.stat-box:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.stat-box:nth-child(3) {
+	animation-delay: 0.4s;
+}
+.stat-box:nth-child(4) {
+	animation-delay: 0.6s;
+}
+.stat-box:nth-child(5) {
+	animation-delay: 0.8s;
+}
+
+.stat-box-full {
+	grid-column: 1 / -1;
+}
+
 .stat-box .num {
 	font-family: var(--font-display);
 	font-size: 3.2rem;
@@ -309,6 +329,32 @@ nav {
 	transition: background 0.2s;
 	position: relative;
 	overflow: hidden;
+}
+
+.demand:nth-child(2) {
+	transition-delay: 0.07s;
+}
+.demand:nth-child(3) {
+	transition-delay: 0.14s;
+}
+.demand:nth-child(4) {
+	transition-delay: 0.21s;
+}
+.demand:nth-child(5) {
+	transition-delay: 0.28s;
+}
+.demand:nth-child(6) {
+	transition-delay: 0.35s;
+}
+.demand:nth-child(7) {
+	transition-delay: 0.42s;
+}
+.demand:nth-child(8) {
+	transition-delay: 0.49s;
+}
+
+.demand-full {
+	grid-column: 1 / -1;
 }
 
 .demand:hover,
