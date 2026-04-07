@@ -40,7 +40,7 @@ h3 {
 	align-items: center;
 	gap: 12px;
 	font-family: var(--font-ui);
-	font-size: 0.7rem;
+	font-size: 0.78rem;
 	letter-spacing: var(--ls-xwide);
 	text-transform: uppercase;
 }
@@ -87,7 +87,7 @@ h3 {
 .pull-quote cite {
 	display: block;
 	font-family: var(--font-ui);
-	font-size: 0.7rem;
+	font-size: 0.78rem;
 	letter-spacing: var(--ls-xwide);
 	color: var(--red);
 	font-style: normal;
@@ -96,7 +96,7 @@ h3 {
 }
 
 .source {
-	font-size: 0.72rem;
+	font-size: 0.78rem;
 	color: var(--text-muted);
 	letter-spacing: var(--ls-tight);
 	line-height: 1.6;

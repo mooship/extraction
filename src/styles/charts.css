@@ -6,7 +6,7 @@
 
 .chart-title {
 	font-family: var(--font-ui);
-	font-size: 0.65rem;
+	font-size: 0.75rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-xwide);
 	color: var(--text-label);
@@ -27,16 +27,16 @@
 
 .bar-val-outside {
 	font-family: var(--font-ui);
-	font-size: 0.65rem;
+	font-size: 0.75rem;
 	font-weight: 700;
-	color: #a0a0a0;
+	color: var(--text-muted);
 	min-width: 34px;
 	line-height: 1;
 }
 
 .bar-label {
 	font-family: var(--font-ui);
-	font-size: 0.7rem;
+	font-size: 0.75rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-normal);
 	color: var(--text-muted);
@@ -60,7 +60,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: width var(--duration-medium) var(--ease-out-expo);
 }
 
 .bar-fill::after {
@@ -68,7 +68,7 @@
 	position: absolute;
 	right: 8px;
 	font-family: var(--font-ui);
-	font-size: 0.65rem;
+	font-size: 0.75rem;
 	font-weight: 700;
 	color: var(--white);
 	white-space: nowrap;
@@ -96,23 +96,23 @@
 }
 
 .gini-bar {
-	transition: transform 0.5s ease-out;
+	transition: transform var(--duration-medium) ease-out;
 }
 
 .treemap-rect {
-	transition: transform 0.5s ease-out;
+	transition: transform var(--duration-medium) ease-out;
 }
 
 .donut-segment {
-	transition: stroke-dasharray 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+	transition: stroke-dasharray var(--duration-medium) var(--ease-out-expo);
 }
 
 .sankey-path {
-	transition: stroke-dashoffset 1.4s ease-in-out;
+	transition: stroke-dashoffset var(--duration-slow) ease-in-out;
 }
 
 #labor-line,
 #capital-line,
 #hist-line {
-	transition: stroke-dashoffset 1.4s ease-in-out;
+	transition: stroke-dashoffset var(--duration-slow) ease-in-out;
 }

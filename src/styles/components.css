@@ -24,6 +24,9 @@ nav {
 .nav-links {
 	display: flex;
 	gap: 16px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .nav-links a {
@@ -101,7 +104,7 @@ nav {
 	color: var(--red);
 	transform: rotate(-3deg);
 	box-shadow: 3px 3px 0 var(--red-dark);
-	animation: stamp-appear 0.4s 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+	animation: stamp-appear var(--duration-fast) 1.5s var(--ease-out-expo) both;
 	align-self: flex-start;
 }
 
@@ -278,7 +281,7 @@ nav {
 
 .metric-label {
 	font-family: var(--font-ui);
-	font-size: 0.65rem;
+	font-size: 0.75rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-normal);
 	color: var(--text-label);
@@ -295,8 +298,18 @@ nav {
 	color: var(--green);
 }
 
+.metric-val.good::before {
+	content: "▲ ";
+	font-size: 0.6em;
+}
+
 .metric-val.bad {
 	color: var(--red);
+}
+
+.metric-val.bad::before {
+	content: "▼ ";
+	font-size: 0.6em;
 }
 
 #manifesto {
@@ -393,7 +406,7 @@ nav {
 
 footer {
 	background: var(--black);
-	border-top: 4px solid #222;
+	border-top: 4px solid var(--border-subtle);
 	padding: 30px 60px;
 	display: flex;
 	align-items: center;
@@ -524,11 +537,12 @@ footer {
 	gap: 6px;
 	margin-top: 2rem;
 	padding: 8px 16px;
+	min-height: 44px;
 	background: transparent;
 	border: 1px solid var(--gray);
 	color: var(--text-muted);
 	font-family: var(--font-ui);
-	font-size: 0.7rem;
+	font-size: 0.78rem;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-wide);
 	cursor: pointer;
@@ -541,6 +555,39 @@ footer {
 .share-btn:focus-visible {
 	color: var(--white);
 	border-color: var(--red);
+}
+
+.back-to-top {
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+	z-index: 900;
+	width: 44px;
+	height: 44px;
+	border: 1px solid var(--gray);
+	background: var(--bg-elevated);
+	color: var(--white);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.back-to-top[hidden] {
+	display: none;
+}
+
+.back-to-top.visible {
+	display: flex;
+	opacity: 1;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+	border-color: var(--red);
+	color: var(--red);
 }
 
 .global-south-callout {

@@ -2,16 +2,16 @@
 	opacity: 0;
 	transform: translateY(32px);
 	transition:
-		opacity 0.7s ease-out,
-		transform 0.7s ease-out;
+		opacity var(--duration-medium) ease-out,
+		transform var(--duration-medium) ease-out;
 }
 
 .reveal-left {
 	opacity: 0;
 	transform: translateX(-32px);
 	transition:
-		opacity 0.7s ease-out,
-		transform 0.7s ease-out;
+		opacity var(--duration-medium) ease-out,
+		transform var(--duration-medium) ease-out;
 }
 
 .reveal.visible,
@@ -104,6 +104,10 @@
 	}
 
 	.sankey-path {
+		transition: none;
+	}
+
+	.back-to-top {
 		transition: none;
 	}
 }

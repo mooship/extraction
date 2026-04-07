@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	initChartVisibility();
 	initShareButtons();
 	initActiveNav();
+	initStatBoxLabels();
+	initChartTableLinks();
+	initBackToTop();
 });
 
 window.addEventListener("load", () => {
@@ -104,7 +107,7 @@ export function initShareButtons(): void {
 		const btn = document.createElement("button");
 		btn.className = "share-btn";
 		btn.setAttribute("aria-label", "Share this section");
-		btn.innerHTML = `${SHARE_SVG} <span>Share</span>`;
+		btn.innerHTML = `${SHARE_SVG} <span role="status" aria-live="polite">Share</span>`;
 
 		btn.addEventListener("click", async () => {
 			const url = `${window.location.origin}${window.location.pathname}#${section.id}`;
@@ -217,5 +220,66 @@ export function initTickerPause(): void {
 			return;
 		}
 		ticker.style.animationPlayState = document.hidden ? "paused" : "running";
+	});
+}
+
+export function initStatBoxLabels(): void {
+	const boxes = document.querySelectorAll<HTMLElement>(".stat-box");
+	let i = 0;
+	for (const box of boxes) {
+		const label = box.querySelector<HTMLElement>(".label");
+		if (label) {
+			const id = `stat-label-${i++}`;
+			label.id = id;
+			box.setAttribute("role", "group");
+			box.setAttribute("aria-labelledby", id);
+		}
+	}
+}
+
+export function initChartTableLinks(): void {
+	const tables = document.querySelectorAll<HTMLTableElement>("table.sr-only");
+	let i = 0;
+	for (const table of tables) {
+		const id = `sr-table-${i++}`;
+		table.id = id;
+		const figure = table.closest("figure");
+		if (figure) {
+			const chartDiv = figure.querySelector<HTMLElement>("[role='img']");
+			if (chartDiv) {
+				const existing = chartDiv.getAttribute("aria-describedby");
+				chartDiv.setAttribute(
+					"aria-describedby",
+					existing ? `${existing} ${id}` : id,
+				);
+			}
+		}
+	}
+}
+
+export function initBackToTop(): void {
+	const btn = document.querySelector<HTMLButtonElement>(".back-to-top");
+	const hero = document.querySelector<HTMLElement>("#hero");
+	if (!btn || !hero) {
+		return;
+	}
+
+	const observer = new IntersectionObserver(
+		([entry]) => {
+			if (entry.isIntersecting) {
+				btn.hidden = true;
+				btn.classList.remove("visible");
+			} else {
+				btn.hidden = false;
+				requestAnimationFrame(() => btn.classList.add("visible"));
+			}
+		},
+		{ threshold: 0 },
+	);
+
+	observer.observe(hero);
+
+	btn.addEventListener("click", () => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
 	});
 }
