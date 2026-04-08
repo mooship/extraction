@@ -104,7 +104,7 @@ const donutData: DonutSegment[] = [
 	{ label: "Bermuda / Cayman", percent: 18, color: "#883333" },
 	{ label: "Luxembourg", percent: 15, color: "#664444" },
 	{ label: "Ireland", percent: 12, color: "#444" },
-	{ label: "Other", percent: 4, color: "#2a2a2a" },
+	{ label: "Other", percent: 10, color: "#2a2a2a" },
 ];
 
 const treemapData: TreemapItem[] = [
