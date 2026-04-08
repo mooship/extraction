@@ -24,14 +24,13 @@
 		"vite": "^8.0.5",
 		"vitest": "^4.1.0"
 	},
-	"dependencies": {
-		"@fontsource-variable/roboto-condensed": "^5.2.8",
-		"@fontsource/bebas-neue": "^5.2.7",
-		"@fontsource/special-elite": "^5.2.8"
-	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"lefthook"
 		]
+	},
+	"dependencies": {
+		"@fontsource-variable/fraunces": "^5.2.9",
+		"@fontsource-variable/inter": "^5.2.8"
 	}
 }
