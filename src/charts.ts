@@ -52,13 +52,13 @@ type HistoryPoint = {
 };
 
 const giniDesktopData: GiniItem[] = [
-	{ label: "DE", value: 0.67, color: "#444" },
 	{ label: "FR", value: 0.7, color: "#444" },
-	{ label: "SE", value: 0.74, color: "#888" },
-	{ label: "BR", value: 0.78, color: "#883333" },
-	{ label: "UK", value: 0.81, color: "#aa2222" },
+	{ label: "UK", value: 0.706, color: "#444" },
+	{ label: "DE", value: 0.788, color: "#888" },
 	{ label: "USA", value: 0.85, color: "var(--red)", highlight: true },
-	{ label: "ZA", value: 0.91, color: "#ff6b6b", highlight: true },
+	{ label: "SE", value: 0.881, color: "#ff6b6b" },
+	{ label: "ZA", value: 0.886, color: "#aa2222", highlight: true },
+	{ label: "BR", value: 0.892, color: "#883333" },
 ];
 
 const laborSeriesData: LaborPoint[] = [
@@ -68,7 +68,7 @@ const laborSeriesData: LaborPoint[] = [
 	{ year: 2000, labor: 63, capital: 37, x: 310 },
 	{ year: 2015, labor: 61, capital: 39, x: 388 },
 	{ year: 2023, labor: 58, capital: 42, x: 430 },
-	{ year: 2025, labor: 57, capital: 43, x: 445 },
+	{ year: 2025, labor: 54, capital: 46, x: 445 },
 ];
 
 const historySeriesData: HistoryPoint[] = [
@@ -85,17 +85,17 @@ const historySeriesData: HistoryPoint[] = [
 ];
 
 const wealthDistributionData: BarChartItem[] = [
-	{ label: "Top 1%", width: 38, value: "38%", color: "var(--red)" },
-	{ label: "Next 9%", width: 36, value: "36%", color: "#444" },
-	{ label: "Next 40%", width: 23, value: "23%", color: "#2a2a2a" },
-	{ label: "Bottom 50%", width: 3, value: "3%", color: "#222" },
+	{ label: "Top 1%", width: 31, value: "31%", color: "var(--red)" },
+	{ label: "Next 9%", width: 37, value: "37%", color: "#444" },
+	{ label: "Next 40%", width: 30, value: "30%", color: "#2a2a2a" },
+	{ label: "Bottom 50%", width: 2, value: "2%", color: "#222" },
 ];
 
 const ceoPayData: BarChartItem[] = [
-	{ label: "1965", width: 5.3, value: "21:1", color: "#333" },
-	{ label: "1989", width: 15.3, value: "61:1", color: "#3a3a3a" },
-	{ label: "2000", width: 91.7, value: "366:1", color: "#aa2222" },
-	{ label: "2023", width: 100, value: "399:1", color: "var(--red)" },
+	{ label: "1965", width: 5.5, value: "21:1", color: "#333" },
+	{ label: "1989", width: 16.1, value: "61:1", color: "#3a3a3a" },
+	{ label: "2000", width: 100, value: "380:1", color: "#aa2222" },
+	{ label: "2023", width: 76.3, value: "290:1", color: "var(--red)" },
 ];
 
 const donutData: DonutSegment[] = [
