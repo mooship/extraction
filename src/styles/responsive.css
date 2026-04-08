@@ -138,10 +138,6 @@
 		font-size: clamp(2.4rem, 10vw, 3.5rem);
 	}
 
-	h1 span {
-		font-size: clamp(3rem, 12vw, 4.5rem);
-	}
-
 	h2 {
 		font-size: clamp(2rem, 9vw, 2.8rem);
 	}
@@ -154,7 +150,6 @@
 
 	.section-label,
 	.section-label-black {
-		letter-spacing: var(--ls-wide);
 		font-size: 0.65rem;
 	}
 
