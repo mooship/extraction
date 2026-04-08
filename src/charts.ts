@@ -99,7 +99,7 @@ const ceoPayData: BarChartItem[] = [
 ];
 
 const donutData: DonutSegment[] = [
-	{ label: "UK Dependencies", percent: 29, color: "var(--red)" },
+	{ label: "UK Dependencies", percent: 23, color: "var(--red)" },
 	{ label: "Netherlands", percent: 22, color: "#aa2222" },
 	{ label: "Bermuda / Cayman", percent: 18, color: "#883333" },
 	{ label: "Luxembourg", percent: 15, color: "#664444" },
@@ -109,7 +109,7 @@ const donutData: DonutSegment[] = [
 
 const treemapData: TreemapItem[] = [
 	{
-		label: "Residential Real Estate",
+		label: "Real Estate",
 		value: 380,
 		displayValue: "$380T",
 		color: "var(--red)",
@@ -162,8 +162,8 @@ const sankeyFlows: SankeyFlow[] = [
 const taxRatesData: BarChartItem[] = [
 	{
 		label: "Richest 400",
-		width: 22,
-		value: "8.2%",
+		width: 62,
+		value: "23%",
 		color: "var(--red)",
 	},
 	{
@@ -181,7 +181,7 @@ const taxRatesData: BarChartItem[] = [
 ];
 
 const homeownershipData: BarChartItem[] = [
-	{ label: "25–34 (1997)", width: 59, value: "59%", color: "#888" },
+	{ label: "25–34 (c.2000)", width: 59, value: "~59%", color: "#888" },
 	{ label: "25–34 (2025)", width: 28, value: "28%", color: "var(--red)" },
 	{ label: "35–44 (1997)", width: 68, value: "68%", color: "#888" },
 	{ label: "35–44 (2025)", width: 51, value: "51%", color: "#aa2222" },
@@ -372,7 +372,7 @@ function renderDonutDesktopChart(): void {
 		})
 		.join("");
 
-	container.innerHTML = `<svg id="tax-donut-svg" role="img" aria-labelledby="donut-svg-title" viewBox="0 0 380 310" xmlns="http://www.w3.org/2000/svg"><title id="donut-svg-title">Where Corporate Profits Are Shifted</title><desc>Donut chart showing corporate profit shifting destinations: UK Dependencies 29%, Netherlands 22%, Bermuda/Cayman 18%, Luxembourg 15%, Ireland 12%, Other 4%.</desc>${segments}${labels}</svg>`;
+	container.innerHTML = `<svg id="tax-donut-svg" role="img" aria-labelledby="donut-svg-title" viewBox="0 0 380 310" xmlns="http://www.w3.org/2000/svg"><title id="donut-svg-title">Where Corporate Profits Are Shifted</title><desc>Donut chart showing corporate profit shifting destinations: UK Dependencies 23%, Netherlands 22%, Bermuda/Cayman 18%, Luxembourg 15%, Ireland 12%, Other 4%.</desc>${segments}${labels}</svg>`;
 }
 
 function renderTreemapDesktopChart(): void {
@@ -404,7 +404,7 @@ function renderTreemapDesktopChart(): void {
 		sideY += actualH;
 	}
 
-	container.innerHTML = `<svg id="treemap-svg" role="img" aria-labelledby="treemap-svg-title" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg"><title id="treemap-svg-title">Global Asset Classes by Value</title><desc>Treemap showing global asset values: Residential Real Estate $380T dominates, followed by Equities $109T, Government Debt $66T, and Gold $14T.</desc>${rects.join("")}</svg>`;
+	container.innerHTML = `<svg id="treemap-svg" role="img" aria-labelledby="treemap-svg-title" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg"><title id="treemap-svg-title">Global Asset Classes by Value</title><desc>Treemap showing global asset values: Real Estate $380T dominates, followed by Equities $109T, Government Debt $66T, and Gold $14T.</desc>${rects.join("")}</svg>`;
 }
 
 function renderSankeyDesktopChart(): void {
@@ -446,7 +446,7 @@ function renderSankeyDesktopChart(): void {
 }
 
 const HISTORY_SHARE_MAX = 30;
-const DONUT_MAX_PERCENT = 29;
+const DONUT_MAX_PERCENT = 23;
 
 function buildMobileData(): {
 	gini: BarChartItem[];
