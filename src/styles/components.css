@@ -258,7 +258,7 @@ nav {
 
 .system-tag.capitalist {
 	color: var(--text-muted);
-	border-color: #555;
+	border-color: var(--text-muted);
 }
 
 .country-card dl {
@@ -446,7 +446,7 @@ footer {
 
 .footer-right a:hover,
 .footer-right a:focus-visible {
-	color: var(--white);
+	color: var(--fg);
 }
 
 #action {
@@ -455,19 +455,19 @@ footer {
 }
 
 #action .section-label-black {
-	color: var(--white);
+	color: var(--fg);
 }
 
 #action .section-label-black::before {
-	background: var(--white);
+	background: var(--fg);
 }
 
 #action .manifesto-title {
-	color: var(--white);
+	color: var(--fg);
 }
 
 #action .manifesto-intro {
-	color: var(--white);
+	color: var(--fg);
 }
 
 .action-grid {
@@ -504,11 +504,11 @@ footer {
 	color: var(--text-body);
 	line-height: 1.5;
 	padding-left: 14px;
-	border-left: 2px solid #444;
+	border-left: 2px solid var(--border-subtle);
 }
 
 .action-list li em {
-	color: var(--white);
+	color: var(--fg);
 	font-style: normal;
 	font-weight: 700;
 }
@@ -524,7 +524,7 @@ footer {
 
 .action-list a:hover,
 .action-list a:focus-visible {
-	color: var(--white);
+	color: var(--fg);
 	border-color: var(--red);
 }
 
@@ -564,7 +564,7 @@ footer {
 
 .share-btn:hover,
 .share-btn:focus-visible {
-	color: var(--white);
+	color: var(--fg);
 	border-color: var(--red);
 }
 
@@ -577,7 +577,7 @@ footer {
 	height: 44px;
 	border: 1px solid var(--gray);
 	background: var(--bg-elevated);
-	color: var(--white);
+	color: var(--fg);
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -624,7 +624,7 @@ footer {
 
 .privacy-policy h1 {
 	font-size: clamp(2.5rem, 5vw, 4rem);
-	color: var(--white);
+	color: var(--fg);
 	margin-bottom: 48px;
 }
 
@@ -660,7 +660,7 @@ footer {
 
 .privacy-policy a:hover,
 .privacy-policy a:focus-visible {
-	color: var(--white);
+	color: var(--fg);
 }
 
 .privacy-policy ul {
@@ -706,7 +706,7 @@ footer {
 
 .cite-ref:hover,
 .cite-ref:focus-visible {
-	color: var(--white);
+	color: var(--fg);
 }
 
 .cite-ref:focus-visible {
@@ -752,7 +752,7 @@ footer {
 
 .cite-link:hover,
 .cite-link:focus-visible {
-	color: var(--white);
+	color: var(--fg);
 }
 
 @media (prefers-reduced-motion: reduce) {

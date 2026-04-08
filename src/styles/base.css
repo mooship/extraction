@@ -45,6 +45,9 @@
 	--red-dark: #8b0000;
 	--gray: #2a2a2a;
 
+	--bg: #0a0a0a;
+	--fg: #f0ece0;
+
 	--text-body: #e8e4da;
 	--text-muted: #d0d0d0;
 	--text-label: #d8d2c4;
@@ -74,9 +77,10 @@
 
 @media (prefers-color-scheme: light) {
 	:root {
-		--black: #1a1a1a;
-		--white: #1a1a1a;
 		--gray: #d0d0d0;
+
+		--bg: #f0ece0;
+		--fg: #1a1a1a;
 
 		--text-body: #2a2a2a;
 		--text-muted: #555;
@@ -90,18 +94,8 @@
 		--green: #2e7d32;
 	}
 
-	body {
-		background: #f0ece0;
-		color: var(--text-body);
-	}
-
 	body::before {
 		opacity: 0.06;
-	}
-
-	h1,
-	h2 {
-		color: var(--text-body);
 	}
 
 	h1 span {
@@ -112,41 +106,9 @@
 		border-bottom-color: var(--border-subtle);
 	}
 
-	.nav-logo {
-		color: #f0ece0;
-	}
-
-	.stat-box {
-		background: var(--bg-elevated);
-	}
-
 	.back-to-top {
 		background: var(--bg-elevated);
 		color: var(--text-body);
-	}
-
-	.bar-fill::after {
-		color: #f0ece0;
-	}
-
-	.nav-links a {
-		color: #f0ece0;
-	}
-
-	.nav-toggle {
-		color: #f0ece0;
-	}
-
-	.country-name,
-	.metric-val {
-		color: #f0ece0;
-	}
-
-	.manifesto-title,
-	.manifesto-intro,
-	.demand-text,
-	.demand-sub {
-		color: #f0ece0;
 	}
 }
 
@@ -164,8 +126,8 @@ html {
 }
 
 body {
-	background: var(--black);
-	color: var(--white);
+	background: var(--bg);
+	color: var(--fg);
 	font-family: var(--font-body);
 	overflow-x: hidden;
 	text-rendering: optimizeLegibility;

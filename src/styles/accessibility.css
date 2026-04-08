@@ -16,20 +16,20 @@
 	height: auto;
 	overflow: visible;
 	padding: 12px 24px;
-	background: var(--white);
-	color: var(--black);
+	background: var(--fg);
+	color: var(--bg);
 	font-family: var(--font-ui);
 	font-size: 0.85rem;
 	font-weight: 700;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-wide);
-	outline: 3px solid var(--black);
+	outline: 3px solid var(--bg);
 	outline-offset: 0;
 }
 
 :focus-visible {
-	outline: 3px solid var(--white);
+	outline: 3px solid var(--fg);
 	outline-offset: 3px;
 }
 

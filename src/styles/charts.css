@@ -116,3 +116,13 @@
 #hist-line {
 	transition: stroke-dashoffset var(--duration-slow) ease-in-out;
 }
+
+@media (prefers-color-scheme: light) {
+	.chart-box {
+		--bg-elevated: #0f0f0f;
+		--border-subtle: #222;
+		--text-label: #d8d2c4;
+		--text-muted: #d0d0d0;
+		--bg-inset: #1a1a1a;
+	}
+}
