@@ -1,9 +1,9 @@
 @font-face {
-	font-family: "Roboto Condensed Variable";
+	font-family: "Fraunces Variable";
 	font-style: normal;
 	font-display: swap;
-	font-weight: 400 700;
-	src: url("@fontsource-variable/roboto-condensed/files/roboto-condensed-latin-wght-normal.woff2")
+	font-weight: 100 900;
+	src: url("@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2")
 		format("woff2-variations");
 	unicode-range:
 		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
@@ -12,25 +12,12 @@
 }
 
 @font-face {
-	font-family: "Special Elite";
+	font-family: "Inter Variable";
 	font-style: normal;
 	font-display: swap;
-	font-weight: 400;
-	src: url("@fontsource/special-elite/files/special-elite-latin-400-normal.woff2")
-		format("woff2");
-	unicode-range:
-		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-		U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-		U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-	font-family: "Bebas Neue";
-	font-style: normal;
-	font-display: swap;
-	font-weight: 400;
-	src: url("@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2")
-		format("woff2");
+	font-weight: 100 900;
+	src: url("@fontsource-variable/inter/files/inter-latin-wght-normal.woff2")
+		format("woff2-variations");
 	unicode-range:
 		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
 		U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
@@ -38,36 +25,29 @@
 }
 
 :root {
-	color-scheme: dark light;
-	--black: #0a0a0a;
-	--white: #f0ece0;
-	--red: #cc1111;
-	--red-dark: #8b0000;
-	--gray: #2a2a2a;
+	color-scheme: light dark;
 
-	--bg: #0a0a0a;
-	--fg: #f0ece0;
+	--bg: #f8f7f4;
+	--bg-elevated: #f2efe9;
+	--bg-surface: #ebe7df;
+	--bg-inset: #e0dbd1;
+	--bg-section-alt: #f4f1ec;
+	--border-subtle: #d6d1c9;
 
-	--text-body: #e8e4da;
-	--text-muted: #d0d0d0;
-	--text-label: #d8d2c4;
+	--fg: #1c1917;
+	--text-body: #292524;
+	--text-muted: #57534e;
+	--text-label: #6b7280;
 
-	--bg-elevated: #0f0f0f;
-	--bg-surface: #111;
-	--bg-section-alt: #0d0d0d;
-	--bg-inset: #1a1a1a;
-	--border-subtle: #222;
-	--green: #4caf4c;
+	--accent: #0d6e70;
+	--accent-fg: #ffffff;
 
-	--ls-tight: 0.5px;
-	--ls-normal: 1px;
-	--ls-wide: 2px;
-	--ls-xwide: 3px;
-	--ls-logo: 4px;
+	--semantic-green: #2e7d32;
+	--semantic-red: #c62828;
 
-	--font-display: "Bebas Neue", sans-serif;
-	--font-body: "Special Elite", serif;
-	--font-ui: "Roboto Condensed Variable", sans-serif;
+	--font-display: "Fraunces Variable", Georgia, serif;
+	--font-body: "Inter Variable", system-ui, sans-serif;
+	--font-ui: "Inter Variable", system-ui, sans-serif;
 
 	--duration-fast: 0.3s;
 	--duration-medium: 0.8s;
@@ -75,40 +55,25 @@
 	--ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
 	:root {
-		--gray: #d0d0d0;
+		--bg: #0e1117;
+		--bg-elevated: #141b24;
+		--bg-surface: #1a2333;
+		--bg-inset: #1e2840;
+		--bg-section-alt: #111820;
+		--border-subtle: #253045;
 
-		--bg: #f0ece0;
-		--fg: #1a1a1a;
+		--fg: #e8edf5;
+		--text-body: #d1d9e6;
+		--text-muted: #8b9ab3;
+		--text-label: #6b7d97;
 
-		--text-body: #2a2a2a;
-		--text-muted: #555;
-		--text-label: #444;
+		--accent: #2ec4c4;
+		--accent-fg: #0e1117;
 
-		--bg-elevated: #f5f2ea;
-		--bg-surface: #ece8de;
-		--bg-section-alt: #f0ece0;
-		--bg-inset: #e0dbd0;
-		--border-subtle: #ccc;
-		--green: #2e7d32;
-	}
-
-	body::before {
-		opacity: 0.06;
-	}
-
-	h1 span {
-		text-shadow: 2px 2px 0 rgba(139, 0, 0, 0.3);
-	}
-
-	nav {
-		border-bottom-color: var(--border-subtle);
-	}
-
-	.back-to-top {
-		background: var(--bg-elevated);
-		color: var(--text-body);
+		--semantic-green: #4caf4c;
+		--semantic-red: #ef5350;
 	}
 }
 
@@ -133,16 +98,4 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-}
-
-body::before {
-	content: "";
-	position: fixed;
-	inset: 0;
-	pointer-events: none;
-	z-index: 9999;
-	opacity: 0.14;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-	background-repeat: repeat;
-	will-change: transform;
 }
