@@ -33,10 +33,6 @@
 	outline-offset: 3px;
 }
 
-nav :focus-visible {
-	outline-color: var(--accent);
-}
-
 #manifesto :focus-visible {
 	outline-color: #2ec4c4;
 }

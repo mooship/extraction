@@ -319,24 +319,32 @@ nav {
 }
 
 .manifesto-title {
-	color: #e8edf5;
+	color: var(--fg);
 	margin: 16px 0 24px;
 }
 
+#manifesto .manifesto-title {
+	color: #e8edf5;
+}
+
 @media (prefers-color-scheme: dark) {
-	.manifesto-title {
+	#manifesto .manifesto-title {
 		color: var(--fg);
 	}
 }
 
 .manifesto-intro {
-	color: #d1d9e6;
+	color: var(--text-body);
 	max-width: 680px;
 	margin-bottom: 50px;
 }
 
+#manifesto .manifesto-intro {
+	color: #d1d9e6;
+}
+
 @media (prefers-color-scheme: dark) {
-	.manifesto-intro {
+	#manifesto .manifesto-intro {
 		color: var(--text-body);
 	}
 }
