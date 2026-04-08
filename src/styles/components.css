@@ -7,23 +7,23 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 24px;
+	padding: 0 32px;
 	height: 60px;
-	background: var(--red);
-	border-bottom: 3px solid var(--black);
+	background: var(--bg-elevated);
+	border-bottom: 1px solid var(--border-subtle);
 }
 
 .nav-logo {
 	font-family: var(--font-display);
-	font-size: 1.4rem;
-	letter-spacing: var(--ls-logo);
-	color: var(--black);
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: var(--fg);
 	text-decoration: none;
 }
 
 .nav-links {
 	display: flex;
-	gap: 16px;
+	gap: 24px;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -31,23 +31,21 @@ nav {
 
 .nav-links a {
 	font-family: var(--font-ui);
-	font-size: 0.75rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: var(--ls-wide);
-	color: var(--white);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	color: var(--text-muted);
 	text-decoration: none;
 	transition: color 0.2s;
 }
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
-	color: var(--black);
+	color: var(--fg);
 }
 
 .nav-links a.nav-active {
-	color: var(--black);
-	border-bottom: 2px solid var(--black);
+	color: var(--fg);
+	border-bottom: 2px solid var(--accent);
 	padding-bottom: 2px;
 }
 
