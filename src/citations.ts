@@ -8,10 +8,15 @@ export function initCitations(): void {
 	const sourceEl = popover.querySelector<HTMLElement>(".cite-source");
 	const linkEl = popover.querySelector<HTMLAnchorElement>(".cite-link");
 	let active: HTMLButtonElement | null = null;
+	let hideTimer: ReturnType<typeof setTimeout> | null = null;
 
 	function show(btn: HTMLButtonElement): void {
 		if (!sourceEl || !linkEl) {
 			return;
+		}
+		if (hideTimer !== null) {
+			clearTimeout(hideTimer);
+			hideTimer = null;
 		}
 		if (active && active !== btn) {
 			active.setAttribute("aria-expanded", "false");
@@ -48,11 +53,14 @@ export function initCitations(): void {
 
 	function hide(): void {
 		popover.classList.remove("is-visible");
-		popover.setAttribute("hidden", "");
 		if (active) {
 			active.setAttribute("aria-expanded", "false");
 			active = null;
 		}
+		hideTimer = setTimeout(() => {
+			popover.setAttribute("hidden", "");
+			hideTimer = null;
+		}, 350);
 	}
 
 	document.querySelectorAll<HTMLButtonElement>(".cite-ref").forEach((btn) => {

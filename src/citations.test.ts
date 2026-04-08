@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { initCitations } from "./citations";
 
 function buildFixture(): void {
@@ -25,7 +25,6 @@ function buildFixture(): void {
 	const popover = document.createElement("div");
 	popover.id = "cite-popover";
 	popover.setAttribute("hidden", "");
-	popover.setAttribute("role", "tooltip");
 
 	const sourceSpan = document.createElement("span");
 	sourceSpan.className = "cite-source";
@@ -43,12 +42,17 @@ function buildFixture(): void {
 
 describe("initCitations", () => {
 	beforeEach(() => {
+		vi.useFakeTimers();
 		vi.stubGlobal("requestAnimationFrame", (cb: FrameRequestCallback) => {
 			cb(0);
 			return 0;
 		});
 		buildFixture();
 		initCitations();
+	});
+
+	afterEach(() => {
+		vi.useRealTimers();
 	});
 
 	it("does not throw when #cite-popover is absent", () => {
@@ -64,7 +68,7 @@ describe("initCitations", () => {
 	it("removes hidden and adds is-visible on button click", () => {
 		const btn = document.querySelectorAll<HTMLButtonElement>(".cite-ref")[0];
 		btn.click();
-		const popover = document.getElementById("cite-popover")!;
+		const popover = document.getElementById("cite-popover") as HTMLElement;
 		expect(popover.hasAttribute("hidden")).toBe(false);
 		expect(popover.classList.contains("is-visible")).toBe(true);
 	});
@@ -72,7 +76,7 @@ describe("initCitations", () => {
 	it("populates cite-source text and cite-link href on click", () => {
 		const btn = document.querySelectorAll<HTMLButtonElement>(".cite-ref")[0];
 		btn.click();
-		const popover = document.getElementById("cite-popover")!;
+		const popover = document.getElementById("cite-popover") as HTMLElement;
 		expect(popover.querySelector(".cite-source")?.textContent).toBe(
 			"Test Source, 2024",
 		);
@@ -91,10 +95,11 @@ describe("initCitations", () => {
 		const btn = document.querySelectorAll<HTMLButtonElement>(".cite-ref")[0];
 		btn.click();
 		btn.click();
-		const popover = document.getElementById("cite-popover")!;
-		expect(popover.hasAttribute("hidden")).toBe(true);
+		const popover = document.getElementById("cite-popover") as HTMLElement;
 		expect(popover.classList.contains("is-visible")).toBe(false);
 		expect(btn.getAttribute("aria-expanded")).toBe("false");
+		vi.runAllTimers();
+		expect(popover.hasAttribute("hidden")).toBe(true);
 	});
 
 	it("hides popover on Escape key", () => {
@@ -103,7 +108,9 @@ describe("initCitations", () => {
 		document.dispatchEvent(
 			new KeyboardEvent("keydown", { key: "Escape", bubbles: true }),
 		);
-		const popover = document.getElementById("cite-popover")!;
+		const popover = document.getElementById("cite-popover") as HTMLElement;
+		expect(popover.classList.contains("is-visible")).toBe(false);
+		vi.runAllTimers();
 		expect(popover.hasAttribute("hidden")).toBe(true);
 	});
 
@@ -111,7 +118,9 @@ describe("initCitations", () => {
 		const btn = document.querySelectorAll<HTMLButtonElement>(".cite-ref")[0];
 		btn.click();
 		document.dispatchEvent(new MouseEvent("click", { bubbles: true }));
-		const popover = document.getElementById("cite-popover")!;
+		const popover = document.getElementById("cite-popover") as HTMLElement;
+		expect(popover.classList.contains("is-visible")).toBe(false);
+		vi.runAllTimers();
 		expect(popover.hasAttribute("hidden")).toBe(true);
 	});
 
@@ -122,7 +131,7 @@ describe("initCitations", () => {
 		btn2.click();
 		expect(btn1.getAttribute("aria-expanded")).toBe("false");
 		expect(btn2.getAttribute("aria-expanded")).toBe("true");
-		const popover = document.getElementById("cite-popover")!;
+		const popover = document.getElementById("cite-popover") as HTMLElement;
 		expect(popover.querySelector(".cite-source")?.textContent).toBe(
 			"Other Source, 2023",
 		);
