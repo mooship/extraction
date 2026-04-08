@@ -203,52 +203,54 @@ nav {
 .country-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 2px;
-	background: var(--gray);
+	gap: 12px;
 	margin-top: 40px;
 }
 
 .country-card {
-	background: var(--black);
-	padding: 24px;
+	background: var(--bg-surface);
+	border: 1px solid var(--border-subtle);
+	border-radius: 6px;
+	padding: 20px;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	border-top: 2px solid transparent;
 	transition: border-color 0.2s;
 }
 
 .country-card:hover,
 .country-card:focus-visible {
-	border-color: var(--red);
+	border-color: var(--accent);
 }
 
 .country-name {
 	font-family: var(--font-display);
-	font-size: 1.4rem;
-	color: var(--white);
-	letter-spacing: var(--ls-wide);
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: var(--fg);
 }
 
 .system-tag {
 	display: inline-block;
 	font-family: var(--font-ui);
-	font-size: 0.7rem;
+	font-size: 0.75rem;
+	font-weight: 500;
 	text-transform: uppercase;
-	letter-spacing: var(--ls-wide);
+	letter-spacing: 0.06em;
 	padding: 3px 8px;
 	border: 1px solid;
+	border-radius: 4px;
 	align-self: flex-start;
 }
 
 .system-tag.socialist {
-	color: var(--red);
-	border-color: var(--red);
+	color: var(--accent);
+	border-color: var(--accent);
 }
 
 .system-tag.capitalist {
 	color: var(--text-muted);
-	border-color: var(--text-muted);
+	border-color: var(--border-subtle);
 }
 
 .country-card dl {
@@ -261,7 +263,7 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
-	border-bottom: 1px solid var(--bg-surface);
+	border-bottom: 1px solid var(--border-subtle);
 	padding-bottom: 6px;
 }
 
@@ -272,20 +274,21 @@ nav {
 .metric-label {
 	font-family: var(--font-ui);
 	font-size: 0.75rem;
+	font-weight: 500;
 	text-transform: uppercase;
-	letter-spacing: var(--ls-normal);
+	letter-spacing: 0.06em;
 	color: var(--text-label);
 }
 
 .metric-val {
 	font-family: var(--font-display);
 	font-size: 1rem;
-	color: var(--white);
-	letter-spacing: var(--ls-normal);
+	font-weight: 600;
+	color: var(--fg);
 }
 
 .metric-val.good {
-	color: var(--green);
+	color: var(--semantic-green);
 }
 
 .metric-val.good::before {
@@ -294,7 +297,7 @@ nav {
 }
 
 .metric-val.bad {
-	color: var(--red);
+	color: var(--semantic-red);
 }
 
 .metric-val.bad::before {
@@ -421,9 +424,9 @@ nav {
 }
 
 footer {
-	background: var(--black);
-	border-top: 4px solid var(--border-subtle);
-	padding: 30px 60px;
+	background: var(--bg-elevated);
+	border-top: 1px solid var(--border-subtle);
+	padding: 28px 60px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -432,9 +435,9 @@ footer {
 
 .footer-logo {
 	font-family: var(--font-display);
-	font-size: 1.6rem;
-	letter-spacing: var(--ls-logo);
-	color: var(--red);
+	font-size: 1.4rem;
+	font-weight: 600;
+	color: var(--accent);
 	flex-shrink: 0;
 }
 
@@ -447,9 +450,9 @@ footer {
 
 .footer-right p {
 	font-family: var(--font-ui);
-	font-size: 0.65rem;
+	font-size: 0.75rem;
 	text-transform: uppercase;
-	letter-spacing: var(--ls-normal);
+	letter-spacing: 0.06em;
 	color: var(--text-muted);
 	line-height: 1.5;
 }
@@ -467,36 +470,21 @@ footer {
 
 #action {
 	background: var(--bg-surface);
-	border-top: 4px solid var(--black);
-}
-
-#action .section-label-black {
-	color: var(--fg);
-}
-
-#action .section-label-black::before {
-	background: var(--fg);
-}
-
-#action .manifesto-title {
-	color: var(--fg);
-}
-
-#action .manifesto-intro {
-	color: var(--fg);
+	border-top: 1px solid var(--border-subtle);
 }
 
 .action-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 2px;
-	background: var(--black);
+	gap: 12px;
 	margin-bottom: 50px;
 }
 
 .action-column {
-	background: var(--bg-surface);
-	padding: 32px 28px;
+	background: var(--bg-elevated);
+	border: 1px solid var(--border-subtle);
+	border-radius: 6px;
+	padding: 28px 24px;
 }
 
 .action-column h3 {
@@ -514,25 +502,23 @@ footer {
 
 .action-list li {
 	font-family: var(--font-ui);
-	font-size: 0.75rem;
-	text-transform: uppercase;
-	letter-spacing: var(--ls-normal);
+	font-size: 0.8125rem;
 	color: var(--text-body);
 	line-height: 1.5;
-	padding-left: 14px;
+	padding-left: 12px;
 	border-left: 2px solid var(--border-subtle);
 }
 
 .action-list li em {
 	color: var(--fg);
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 600;
 }
 
 .action-list a {
 	color: var(--text-body);
 	text-decoration: none;
-	border-bottom: 1px solid var(--red-dark);
+	border-bottom: 1px solid var(--border-subtle);
 	transition:
 		color 0.2s,
 		border-color 0.2s;
@@ -541,21 +527,19 @@ footer {
 .action-list a:hover,
 .action-list a:focus-visible {
 	color: var(--fg);
-	border-color: var(--red);
+	border-color: var(--accent);
 }
 
 .action-stamp {
 	display: inline-block;
-	border: 4px solid var(--red);
-	padding: 20px 28px;
+	border: 2px solid var(--accent);
+	border-radius: 4px;
+	padding: 16px 24px;
 	font-family: var(--font-display);
-	font-size: 1.1rem;
-	letter-spacing: var(--ls-xwide);
-	color: var(--red);
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--accent);
 	line-height: 1.5;
-	transform: rotate(-2deg);
-	box-shadow: 3px 3px 0 var(--red-dark);
-	opacity: 0.85;
 }
 
 .share-btn {
@@ -566,12 +550,14 @@ footer {
 	padding: 8px 16px;
 	min-height: 44px;
 	background: transparent;
-	border: 1px solid var(--gray);
+	border: 1px solid var(--border-subtle);
+	border-radius: 4px;
 	color: var(--text-muted);
 	font-family: var(--font-ui);
-	font-size: 0.78rem;
+	font-size: 0.8125rem;
+	font-weight: 500;
 	text-transform: uppercase;
-	letter-spacing: var(--ls-wide);
+	letter-spacing: 0.06em;
 	cursor: pointer;
 	transition:
 		color 0.2s,
@@ -581,7 +567,7 @@ footer {
 .share-btn:hover,
 .share-btn:focus-visible {
 	color: var(--fg);
-	border-color: var(--red);
+	border-color: var(--accent);
 }
 
 .back-to-top {
@@ -591,7 +577,8 @@ footer {
 	z-index: 900;
 	width: 44px;
 	height: 44px;
-	border: 1px solid var(--gray);
+	border: 1px solid var(--border-subtle);
+	border-radius: 4px;
 	background: var(--bg-elevated);
 	color: var(--fg);
 	cursor: pointer;
@@ -613,14 +600,15 @@ footer {
 
 .back-to-top:hover,
 .back-to-top:focus-visible {
-	border-color: var(--red);
-	color: var(--red);
+	border-color: var(--accent);
+	color: var(--accent);
 }
 
 .global-south-callout {
-	border-left: 3px solid var(--red);
+	border-left: 3px solid var(--accent);
+	border-radius: 0 4px 4px 0;
 	background: var(--bg-surface);
-	padding: 2rem 2.5rem;
+	padding: 1.5rem 2rem;
 	margin: 3rem 0 0;
 }
 
@@ -656,7 +644,7 @@ footer {
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: var(--ls-xwide);
-	color: var(--red);
+	color: var(--accent);
 	margin-bottom: 16px;
 }
 
@@ -669,7 +657,7 @@ footer {
 }
 
 .privacy-policy a {
-	color: var(--red);
+	color: var(--accent);
 	text-decoration: underline;
 	text-underline-offset: 3px;
 }
@@ -689,7 +677,7 @@ footer {
 
 .privacy-policy ul li::before {
 	content: "—";
-	color: var(--red);
+	color: var(--accent);
 	margin-right: 10px;
 }
 
@@ -711,10 +699,10 @@ footer {
 	padding: 0 1px;
 	margin: 0;
 	font-family: var(--font-ui);
-	font-size: 1em;
-	font-weight: 700;
+	font-size: 0.8em;
+	font-weight: 600;
 	vertical-align: super;
-	color: var(--red);
+	color: var(--accent);
 	cursor: pointer;
 	line-height: 1;
 	transition: color var(--duration-fast);
@@ -726,17 +714,18 @@ footer {
 }
 
 .cite-ref:focus-visible {
-	outline: 1px solid var(--red);
+	outline: 2px solid var(--accent);
 	outline-offset: 2px;
 }
 
 #cite-popover {
 	position: fixed;
 	z-index: 900;
-	max-width: 280px;
+	max-width: 300px;
 	background: var(--bg-elevated);
 	border: 1px solid var(--border-subtle);
-	border-left: 2px solid var(--red);
+	border-left: 2px solid var(--accent);
+	border-radius: 0 4px 4px 0;
 	padding: 10px 14px;
 	display: flex;
 	flex-direction: column;
@@ -753,17 +742,16 @@ footer {
 
 .cite-source {
 	font-family: var(--font-ui);
-	font-size: 0.75rem;
+	font-size: 0.8125rem;
 	color: var(--text-body);
 	line-height: 1.4;
 }
 
 .cite-link {
 	font-family: var(--font-ui);
-	font-size: 0.7rem;
-	color: var(--red);
+	font-size: 0.75rem;
+	color: var(--accent);
 	text-decoration: none;
-	letter-spacing: var(--ls-tight);
 }
 
 .cite-link:hover,
