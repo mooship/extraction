@@ -55,10 +55,10 @@ const giniDesktopData: GiniItem[] = [
 	{ label: "FR", value: 0.7, color: "#444" },
 	{ label: "UK", value: 0.706, color: "#444" },
 	{ label: "DE", value: 0.788, color: "#888" },
-	{ label: "USA", value: 0.85, color: "var(--red)", highlight: true },
-	{ label: "SE", value: 0.881, color: "#ff6b6b" },
-	{ label: "ZA", value: 0.886, color: "#aa2222", highlight: true },
-	{ label: "BR", value: 0.892, color: "#883333" },
+	{ label: "USA", value: 0.85, color: "var(--accent)", highlight: true },
+	{ label: "SE", value: 0.881, color: "#0a8f8f" },
+	{ label: "ZA", value: 0.886, color: "#0a7676", highlight: true },
+	{ label: "BR", value: 0.892, color: "#0d6e6e" },
 ];
 
 const laborSeriesData: LaborPoint[] = [
@@ -85,7 +85,7 @@ const historySeriesData: HistoryPoint[] = [
 ];
 
 const wealthDistributionData: BarChartItem[] = [
-	{ label: "Top 1%", width: 31, value: "31%", color: "var(--red)" },
+	{ label: "Top 1%", width: 31, value: "31%", color: "var(--accent)" },
 	{ label: "Next 9%", width: 37, value: "37%", color: "#444" },
 	{ label: "Next 40%", width: 30, value: "30%", color: "#2a2a2a" },
 	{ label: "Bottom 50%", width: 2, value: "2%", color: "#222" },
@@ -94,15 +94,15 @@ const wealthDistributionData: BarChartItem[] = [
 const ceoPayData: BarChartItem[] = [
 	{ label: "1965", width: 5.5, value: "21:1", color: "#333" },
 	{ label: "1989", width: 16.1, value: "61:1", color: "#3a3a3a" },
-	{ label: "2000", width: 100, value: "380:1", color: "#aa2222" },
-	{ label: "2023", width: 76.3, value: "290:1", color: "var(--red)" },
+	{ label: "2000", width: 100, value: "380:1", color: "#0a8f8f" },
+	{ label: "2023", width: 76.3, value: "290:1", color: "var(--accent)" },
 ];
 
 const donutData: DonutSegment[] = [
-	{ label: "UK Dependencies", percent: 23, color: "var(--red)" },
-	{ label: "Netherlands", percent: 22, color: "#aa2222" },
-	{ label: "Bermuda / Cayman", percent: 18, color: "#883333" },
-	{ label: "Luxembourg", percent: 15, color: "#664444" },
+	{ label: "UK Dependencies", percent: 23, color: "var(--accent)" },
+	{ label: "Netherlands", percent: 22, color: "#0a8f8f" },
+	{ label: "Bermuda / Cayman", percent: 18, color: "#0d7676" },
+	{ label: "Luxembourg", percent: 15, color: "#0a5e5e" },
 	{ label: "Ireland", percent: 12, color: "#444" },
 	{ label: "Other", percent: 10, color: "#2a2a2a" },
 ];
@@ -112,7 +112,7 @@ const treemapData: TreemapItem[] = [
 		label: "Real Estate",
 		value: 380,
 		displayValue: "$380T",
-		color: "var(--red)",
+		color: "var(--accent)",
 	},
 	{ label: "Equities", value: 109, displayValue: "$109T", color: "#444" },
 	{
@@ -128,7 +128,7 @@ const sankeyFlows: SankeyFlow[] = [
 	{
 		label: "Unequal Exchange",
 		displayValue: "$10.8T",
-		color: "#cc1111",
+		color: "var(--accent)",
 		strokeWidth: 44,
 		path: "M 80,70 C 250,70 350,55 520,55",
 		direction: "left",
@@ -136,7 +136,7 @@ const sankeyFlows: SankeyFlow[] = [
 	{
 		label: "Debt Service",
 		displayValue: "$443B",
-		color: "#aa2222",
+		color: "#0a8f8f",
 		strokeWidth: 12,
 		path: "M 80,130 C 250,130 350,125 520,120",
 		direction: "left",
@@ -144,7 +144,7 @@ const sankeyFlows: SankeyFlow[] = [
 	{
 		label: "Illicit Flows",
 		displayValue: "$89B",
-		color: "#883333",
+		color: "#0d7676",
 		strokeWidth: 6,
 		path: "M 80,165 C 250,165 350,160 520,155",
 		direction: "left",
@@ -164,7 +164,7 @@ const taxRatesData: BarChartItem[] = [
 		label: "Richest 400",
 		width: 62,
 		value: "23%",
-		color: "var(--red)",
+		color: "var(--accent)",
 	},
 	{
 		label: "Median Household",
@@ -182,9 +182,9 @@ const taxRatesData: BarChartItem[] = [
 
 const homeownershipData: BarChartItem[] = [
 	{ label: "25–34 (c.2000)", width: 59, value: "~59%", color: "#888" },
-	{ label: "25–34 (2025)", width: 28, value: "28%", color: "var(--red)" },
+	{ label: "25–34 (2025)", width: 28, value: "28%", color: "var(--accent)" },
 	{ label: "35–44 (1997)", width: 68, value: "68%", color: "#888" },
-	{ label: "35–44 (2025)", width: 51, value: "51%", color: "#aa2222" },
+	{ label: "35–44 (2025)", width: 51, value: "51%", color: "#0a8f8f" },
 	{ label: "45–54 (1997)", width: 75, value: "75%", color: "#888" },
 	{ label: "45–54 (2025)", width: 65, value: "65%", color: "#444" },
 	{ label: "55–64 (1997)", width: 78, value: "78%", color: "#888" },
@@ -192,17 +192,17 @@ const homeownershipData: BarChartItem[] = [
 ];
 
 const debtServiceData: BarChartItem[] = [
-	{ label: "Sri Lanka", width: 100, value: "73%", color: "var(--red)" },
-	{ label: "Ghana", width: 64, value: "47%", color: "#aa2222" },
-	{ label: "Pakistan", width: 55, value: "40%", color: "#883333" },
+	{ label: "Sri Lanka", width: 100, value: "73%", color: "var(--accent)" },
+	{ label: "Ghana", width: 64, value: "47%", color: "#0a8f8f" },
+	{ label: "Pakistan", width: 55, value: "40%", color: "#0d7676" },
 	{ label: "Kenya", width: 41, value: "30%", color: "#444" },
 	{ label: "USA", width: 12, value: "9%", color: "#2a2a2a" },
 	{ label: "UK", width: 10, value: "7%", color: "#222" },
 ];
 
 const emissionsData: BarChartItem[] = [
-	{ label: "Top 1%", width: 16, value: "16%", color: "var(--red)" },
-	{ label: "Next 9%", width: 34, value: "34%", color: "#aa2222" },
+	{ label: "Top 1%", width: 16, value: "16%", color: "var(--accent)" },
+	{ label: "Next 9%", width: 34, value: "34%", color: "#0a8f8f" },
 	{ label: "Middle 40%", width: 42, value: "42%", color: "#444" },
 	{ label: "Bottom 50%", width: 8, value: "8%", color: "#2a2a2a" },
 ];
@@ -254,7 +254,7 @@ function renderGiniDesktopChart(): void {
 			const fullY = Math.round(yBase - height);
 			const fullH = Math.round(height);
 			const labelX = x + width / 2;
-			const labelColor = item.highlight ? "var(--red)" : "#888";
+			const labelColor = item.highlight ? "var(--accent)" : "#888";
 			const fontWeight = item.highlight ? ' font-weight="bold"' : "";
 
 			return `<rect class="gini-bar" data-index="${i}" x="${x}" y="${fullY}" width="${width}" height="${fullH}" style="fill: ${item.color}"/><text x="${labelX}" y="185" style="fill: ${labelColor}" font-size="7"${fontWeight} text-anchor="middle">${item.label}</text>`;
@@ -293,7 +293,7 @@ function renderLaborDesktopChart(): void {
 		)
 		.join("");
 
-	container.innerHTML = `<svg id="labor-svg" role="img" aria-labelledby="labor-svg-title" viewBox="0 0 475 220" xmlns="http://www.w3.org/2000/svg"><title id="labor-svg-title">Labour vs Capital Share of GDP</title><desc>Line chart showing USA labour share falling from 67% in 1950 to 57% in 2025, while capital share rose from 33% to 43% over the same period. The neoliberal turn around 1980 marks the inflection point.</desc><line x1="45" y1="20" x2="455" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="60" x2="455" y2="60" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="100" x2="455" y2="100" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="140" x2="455" y2="140" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="180" x2="455" y2="180" stroke="#333" stroke-width="1"/><text x="40" y="23" fill="#888" font-size="8" text-anchor="end">70%</text><text x="40" y="63" fill="#888" font-size="8" text-anchor="end">60%</text><text x="40" y="103" fill="#888" font-size="8" text-anchor="end">50%</text><text x="40" y="143" fill="#888" font-size="8" text-anchor="end">40%</text><text x="40" y="183" fill="#888" font-size="8" text-anchor="end">30%</text>${yearLabels}<line x1="206" y1="15" x2="206" y2="180" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/><text x="208" y="28" fill="#888" font-size="7">1980</text><text x="208" y="38" fill="#888" font-size="7">Neoliberal</text><text x="208" y="48" fill="#888" font-size="7">Turn</text><polyline id="labor-line" points="${laborPoints}" fill="none" stroke="#888" stroke-width="2"/><polyline id="capital-line" points="${capitalPoints}" fill="none" stroke="#cc1111" stroke-width="2.5"/><line x1="50" y1="210" x2="70" y2="210" stroke="#888" stroke-width="2"/><text x="74" y="213" fill="#888" font-size="8">Labour Share</text><line x1="170" y1="210" x2="190" y2="210" style="stroke: var(--red)" stroke-width="2"/><text x="194" y="213" style="fill: var(--red)" font-size="8">Capital Share</text></svg>`;
+	container.innerHTML = `<svg id="labor-svg" role="img" aria-labelledby="labor-svg-title" viewBox="0 0 475 220" xmlns="http://www.w3.org/2000/svg"><title id="labor-svg-title">Labour vs Capital Share of GDP</title><desc>Line chart showing USA labour share falling from 67% in 1950 to 57% in 2025, while capital share rose from 33% to 43% over the same period. The neoliberal turn around 1980 marks the inflection point.</desc><line x1="45" y1="20" x2="455" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="60" x2="455" y2="60" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="100" x2="455" y2="100" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="140" x2="455" y2="140" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="180" x2="455" y2="180" stroke="#333" stroke-width="1"/><text x="40" y="23" fill="#888" font-size="8" text-anchor="end">70%</text><text x="40" y="63" fill="#888" font-size="8" text-anchor="end">60%</text><text x="40" y="103" fill="#888" font-size="8" text-anchor="end">50%</text><text x="40" y="143" fill="#888" font-size="8" text-anchor="end">40%</text><text x="40" y="183" fill="#888" font-size="8" text-anchor="end">30%</text>${yearLabels}<line x1="206" y1="15" x2="206" y2="180" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/><text x="208" y="28" fill="#888" font-size="7">1980</text><text x="208" y="38" fill="#888" font-size="7">Neoliberal</text><text x="208" y="48" fill="#888" font-size="7">Turn</text><polyline id="labor-line" points="${laborPoints}" fill="none" stroke="#888" stroke-width="2"/><polyline id="capital-line" points="${capitalPoints}" fill="none" stroke="var(--accent)" stroke-width="2.5"/><line x1="50" y1="210" x2="70" y2="210" stroke="#888" stroke-width="2"/><text x="74" y="213" fill="#888" font-size="8">Labour Share</text><line x1="170" y1="210" x2="190" y2="210" style="stroke: var(--accent)" stroke-width="2"/><text x="194" y="213" style="fill: var(--accent)" font-size="8">Capital Share</text></svg>`;
 }
 
 const HISTORY_Y_BASE = 225;
@@ -332,7 +332,7 @@ function renderHistoryDesktopChart(): void {
 		return;
 	}
 
-	container.innerHTML = `<svg id="history-svg" role="img" aria-labelledby="history-svg-title" viewBox="0 0 820 260" xmlns="http://www.w3.org/2000/svg"><title id="history-svg-title">Top 1% Income Share — USA, 1913–2025</title><desc>Line chart showing the top 1% income share peaked at 24% in 1929, fell to 10% by 1970 during the post-war egalitarian era, then rose again to 21% by 2025 under neoliberal policies.</desc><rect x="50" y="10" width="212" height="215" fill="rgba(204,17,17,0.06)"/><rect x="262" y="10" width="233" height="215" fill="rgba(76,175,76,0.05)"/><rect x="495" y="10" width="305" height="215" fill="rgba(204,17,17,0.10)"/><text x="60" y="25" fill="rgba(204,17,17,0.4)" font-size="8">GILDED AGE</text><text x="270" y="25" fill="rgba(76,175,76,0.4)" font-size="8">POST-WAR EGALITARIAN ERA</text><text x="505" y="25" fill="rgba(204,17,17,0.5)" font-size="8">NEOLIBERAL ASCENT</text><line x1="50" y1="45" x2="800" y2="45" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="90" x2="800" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="135" x2="800" y2="135" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="180" x2="800" y2="180" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="225" x2="800" y2="225" stroke="#333" stroke-width="1"/><text x="44" y="48" fill="#888" font-size="8" text-anchor="end">30%</text><text x="44" y="93" fill="#888" font-size="8" text-anchor="end">25%</text><text x="44" y="138" fill="#888" font-size="8" text-anchor="end">20%</text><text x="44" y="183" fill="#888" font-size="8" text-anchor="end">15%</text><text x="44" y="228" fill="#888" font-size="8" text-anchor="end">10%</text>${yearLabels}<polygon points="${areaPoints}" fill="rgba(204,17,17,0.08)"/><polyline id="hist-line" points="${trendPoints}" fill="none" stroke="#cc1111" stroke-width="2.5"/><circle cx="${crash.x}" cy="${historyY(crash.share)}" r="5" style="fill: var(--red)"/><text x="${crash.x + 6}" y="${historyY(crash.share) - 8}" style="fill: var(--red)" font-size="7">1929 Crash</text><circle cx="${peak.x}" cy="${historyY(peak.share)}" r="5" fill="#4caf4c"/><text x="${peak.x + 6}" y="${historyY(peak.share) - 7}" fill="#4caf4c" font-size="7">Peak Equality</text><circle cx="${recent.x}" cy="${historyY(recent.share)}" r="5" style="fill: var(--red)"/><text x="${recent.x - 38}" y="${historyY(recent.share) - 8}" style="fill: var(--red)" font-size="7">${recent.share}% (2025)</text></svg>`;
+	container.innerHTML = `<svg id="history-svg" role="img" aria-labelledby="history-svg-title" viewBox="0 0 820 260" xmlns="http://www.w3.org/2000/svg"><title id="history-svg-title">Top 1% Income Share — USA, 1913–2025</title><desc>Line chart showing the top 1% income share peaked at 24% in 1929, fell to 10% by 1970 during the post-war egalitarian era, then rose again to 21% by 2025 under neoliberal policies.</desc><rect x="50" y="10" width="212" height="215" fill="rgba(14,110,112,0.06)"/><rect x="262" y="10" width="233" height="215" fill="rgba(76,175,76,0.05)"/><rect x="495" y="10" width="305" height="215" fill="rgba(14,110,112,0.10)"/><text x="60" y="25" fill="rgba(14,110,112,0.4)" font-size="8">GILDED AGE</text><text x="270" y="25" fill="rgba(76,175,76,0.4)" font-size="8">POST-WAR EGALITARIAN ERA</text><text x="505" y="25" fill="rgba(14,110,112,0.5)" font-size="8">NEOLIBERAL ASCENT</text><line x1="50" y1="45" x2="800" y2="45" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="90" x2="800" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="135" x2="800" y2="135" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="180" x2="800" y2="180" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/><line x1="50" y1="225" x2="800" y2="225" stroke="#333" stroke-width="1"/><text x="44" y="48" fill="#888" font-size="8" text-anchor="end">30%</text><text x="44" y="93" fill="#888" font-size="8" text-anchor="end">25%</text><text x="44" y="138" fill="#888" font-size="8" text-anchor="end">20%</text><text x="44" y="183" fill="#888" font-size="8" text-anchor="end">15%</text><text x="44" y="228" fill="#888" font-size="8" text-anchor="end">10%</text>${yearLabels}<polygon points="${areaPoints}" fill="rgba(14,110,112,0.08)"/><polyline id="hist-line" points="${trendPoints}" fill="none" stroke="var(--accent)" stroke-width="2.5"/><circle cx="${crash.x}" cy="${historyY(crash.share)}" r="5" style="fill: var(--accent)"/><text x="${crash.x + 6}" y="${historyY(crash.share) - 8}" style="fill: var(--accent)" font-size="7">1929 Crash</text><circle cx="${peak.x}" cy="${historyY(peak.share)}" r="5" fill="#4caf4c"/><text x="${peak.x + 6}" y="${historyY(peak.share) - 7}" fill="#4caf4c" font-size="7">Peak Equality</text><circle cx="${recent.x}" cy="${historyY(recent.share)}" r="5" style="fill: var(--accent)"/><text x="${recent.x - 38}" y="${historyY(recent.share) - 8}" style="fill: var(--accent)" font-size="7">${recent.share}% (2025)</text></svg>`;
 }
 
 function renderDonutDesktopChart(): void {
@@ -391,7 +391,7 @@ function renderTreemapDesktopChart(): void {
 
 	let sideY = 0;
 	const rects = [
-		`<rect class="treemap-rect" data-index="0" x="0" y="0" width="${mainW}" height="${h}" fill="${treemapData[0].color}"/><text x="${mainW / 2}" y="${h / 2 - 10}" fill="var(--white)" font-size="11" font-weight="bold" text-anchor="middle">${treemapData[0].label}</text><text x="${mainW / 2}" y="${h / 2 + 10}" fill="var(--white)" font-size="14" font-weight="bold" text-anchor="middle">${treemapData[0].displayValue}</text>`,
+		`<rect class="treemap-rect" data-index="0" x="0" y="0" width="${mainW}" height="${h}" fill="${treemapData[0].color}"/><text x="${mainW / 2}" y="${h / 2 - 10}" fill="#f0f0f0" font-size="11" font-weight="bold" text-anchor="middle">${treemapData[0].label}</text><text x="${mainW / 2}" y="${h / 2 + 10}" fill="#f0f0f0" font-size="14" font-weight="bold" text-anchor="middle">${treemapData[0].displayValue}</text>`,
 	];
 
 	for (let i = 1; i < treemapData.length; i++) {
@@ -427,7 +427,7 @@ function renderSankeyDesktopChart(): void {
 		.map((flow) => {
 			const pathParts = flow.path.split(",");
 			const startY = pathParts[1] ? Number.parseInt(pathParts[1], 10) : 0;
-			return `<text x="85" y="${startY + 4}" fill="var(--white)" font-size="7" opacity="0.9">${flow.label}: ${flow.displayValue}</text>`;
+			return `<text x="85" y="${startY + 4}" fill="#f0f0f0" font-size="7" opacity="0.9">${flow.label}: ${flow.displayValue}</text>`;
 		})
 		.join("");
 
@@ -439,7 +439,7 @@ function renderSankeyDesktopChart(): void {
 		})
 		.join("");
 
-	const arrowLeft = `<polygon points="85,55 95,50 95,60" fill="#cc1111" opacity="0.6"/>`;
+	const arrowLeft = `<polygon points="85,55 95,50 95,60" fill="var(--accent)" opacity="0.6"/>`;
 	const arrowRight = `<polygon points="515,220 505,215 505,225" fill="#4caf4c" opacity="0.6"/>`;
 
 	container.innerHTML = `<svg id="sankey-svg" role="img" aria-labelledby="sankey-svg-title" viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><title id="sankey-svg-title">The Real Flow of Wealth: South to North</title><desc>Sankey flow diagram showing net wealth flows from the Global South to the Global North: Unequal Exchange $10.8T, Debt Service $443B, Illicit Flows $89B flowing northward, versus only $200B in Aid flowing southward.</desc><text x="40" y="20" fill="var(--red)" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="40" y="32" fill="var(--red)" font-size="10" font-weight="bold" text-anchor="middle">SOUTH</text><text x="560" y="20" fill="#888" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="560" y="32" fill="#888" font-size="10" font-weight="bold" text-anchor="middle">NORTH</text>${paths}${arrowLeft}${arrowRight}${leftLabels}${rightLabels}</svg>`;
@@ -482,13 +482,13 @@ function buildMobileData(): {
 			label: `Capital ${firstLabor.year}`,
 			width: firstLabor.capital,
 			value: `${firstLabor.capital}%`,
-			color: "#7a2a2a",
+			color: "#0a7575",
 		},
 		{
 			label: `Capital ${lastLabor.year}`,
 			width: lastLabor.capital,
 			value: `${lastLabor.capital}%`,
-			color: "var(--red)",
+			color: "var(--accent)",
 		},
 	];
 
@@ -498,10 +498,10 @@ function buildMobileData(): {
 		.map((point) => {
 			const width = Math.round((point.share / HISTORY_SHARE_MAX) * 100);
 			const colorMap: Record<number, string> = {
-				1913: "#7a2a2a",
-				1929: "var(--red)",
+				1913: "#0a7575",
+				1929: "var(--accent)",
 				1970: "#4caf4c",
-				2025: "#aa2222",
+				2025: "#0a8f8f",
 			};
 			const color = colorMap[point.year];
 			return {
@@ -532,19 +532,19 @@ function buildMobileData(): {
 			label: "Unequal Exchange",
 			width: 100,
 			value: "$10.8T",
-			color: "#cc1111",
+			color: "var(--accent)",
 		},
 		{
 			label: "Debt Service",
 			width: 12,
 			value: "$443B",
-			color: "#aa2222",
+			color: "#0a8f8f",
 		},
 		{
 			label: "Illicit Flows",
 			width: 4,
 			value: "$89B",
-			color: "#883333",
+			color: "#0d7676",
 		},
 		{ label: "Aid Received", width: 7, value: "$200B", color: "#4caf4c" },
 	];
