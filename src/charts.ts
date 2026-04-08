@@ -341,8 +341,8 @@ function renderDonutDesktopChart(): void {
 		return;
 	}
 
-	const cx = 150;
-	const cy = 150;
+	const cx = 200;
+	const cy = 155;
 	const r = 100;
 	const circumference = 2 * Math.PI * r;
 	let offset = 0;
@@ -372,7 +372,7 @@ function renderDonutDesktopChart(): void {
 		})
 		.join("");
 
-	container.innerHTML = `<svg id="tax-donut-svg" role="img" aria-labelledby="donut-svg-title" viewBox="0 0 380 310" xmlns="http://www.w3.org/2000/svg"><title id="donut-svg-title">Where Corporate Profits Are Shifted</title><desc>Donut chart showing corporate profit shifting destinations: UK Dependencies 23%, Netherlands 22%, Bermuda/Cayman 18%, Luxembourg 15%, Ireland 12%, Other 4%.</desc>${segments}${labels}</svg>`;
+	container.innerHTML = `<svg id="tax-donut-svg" role="img" aria-labelledby="donut-svg-title" viewBox="-30 -10 460 340" xmlns="http://www.w3.org/2000/svg"><title id="donut-svg-title">Where Corporate Profits Are Shifted</title><desc>Donut chart showing corporate profit shifting destinations: UK Dependencies 23%, Netherlands 22%, Bermuda/Cayman 18%, Luxembourg 15%, Ireland 12%, Other 4%.</desc>${segments}${labels}</svg>`;
 }
 
 function renderTreemapDesktopChart(): void {
