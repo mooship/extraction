@@ -438,6 +438,17 @@ footer {
 	line-height: 1.5;
 }
 
+.footer-right a {
+	color: var(--text-muted);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.footer-right a:hover,
+.footer-right a:focus-visible {
+	color: var(--white);
+}
+
 #action {
 	background: var(--bg-surface);
 	border-top: 4px solid var(--black);
