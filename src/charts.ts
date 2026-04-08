@@ -264,15 +264,15 @@ function renderGiniDesktopChart(): void {
 	container.innerHTML = `<svg id="gini-svg" role="img" aria-labelledby="gini-svg-title" viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg"><title id="gini-svg-title">Wealth Gini Coefficient by Country</title><desc>Bar chart comparing wealth Gini coefficients: Germany 0.67, France 0.70, Sweden 0.74, Brazil 0.78, UK 0.81, USA 0.85, South Africa 0.91. Higher values indicate greater inequality.</desc><line x1="18" y1="10" x2="450" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="50" x2="450" y2="50" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="90" x2="450" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="130" x2="450" y2="130" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="18" y1="170" x2="450" y2="170" stroke="#333" stroke-width="1"/><text x="14" y="13" fill="#888" font-size="8" text-anchor="end">1.0</text><text x="14" y="53" fill="#888" font-size="8" text-anchor="end">0.9</text><text x="14" y="93" fill="#888" font-size="8" text-anchor="end">0.8</text><text x="14" y="133" fill="#888" font-size="8" text-anchor="end">0.7</text><text x="14" y="173" fill="#888" font-size="8" text-anchor="end">0.6</text>${bars}</svg>`;
 }
 
-const LABOR_Y_BASE = 180;
-const LABOR_PERCENT_MIN = 30;
-const LABOR_PX_PER_PERCENT = 4;
-
-function laborY(percent: number): number {
-	return Math.round(
-		LABOR_Y_BASE - (percent - LABOR_PERCENT_MIN) * LABOR_PX_PER_PERCENT,
-	);
+function createYScale(
+	base: number,
+	min: number,
+	pxPerUnit: number,
+): (v: number) => number {
+	return (v) => Math.round(base - (v - min) * pxPerUnit);
 }
+
+const laborY = createYScale(180, 30, 4);
 
 function renderLaborDesktopChart(): void {
 	const container = document.getElementById("labor-desktop-chart");
@@ -296,15 +296,7 @@ function renderLaborDesktopChart(): void {
 	container.innerHTML = `<svg id="labor-svg" role="img" aria-labelledby="labor-svg-title" viewBox="0 0 475 220" xmlns="http://www.w3.org/2000/svg"><title id="labor-svg-title">Labour vs Capital Share of GDP</title><desc>Line chart showing USA labour share falling from 67% in 1950 to 57% in 2025, while capital share rose from 33% to 43% over the same period. The neoliberal turn around 1980 marks the inflection point.</desc><line x1="45" y1="20" x2="455" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="60" x2="455" y2="60" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="100" x2="455" y2="100" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="140" x2="455" y2="140" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3"/><line x1="45" y1="180" x2="455" y2="180" stroke="#333" stroke-width="1"/><text x="40" y="23" fill="#888" font-size="8" text-anchor="end">70%</text><text x="40" y="63" fill="#888" font-size="8" text-anchor="end">60%</text><text x="40" y="103" fill="#888" font-size="8" text-anchor="end">50%</text><text x="40" y="143" fill="#888" font-size="8" text-anchor="end">40%</text><text x="40" y="183" fill="#888" font-size="8" text-anchor="end">30%</text>${yearLabels}<line x1="206" y1="15" x2="206" y2="180" stroke="#444" stroke-width="1" stroke-dasharray="3,3"/><text x="208" y="28" fill="#888" font-size="7">1980</text><text x="208" y="38" fill="#888" font-size="7">Neoliberal</text><text x="208" y="48" fill="#888" font-size="7">Turn</text><polyline id="labor-line" points="${laborPoints}" fill="none" stroke="#888" stroke-width="2"/><polyline id="capital-line" points="${capitalPoints}" fill="none" stroke="var(--accent)" stroke-width="2.5"/><line x1="50" y1="210" x2="70" y2="210" stroke="#888" stroke-width="2"/><text x="74" y="213" fill="#888" font-size="8">Labour Share</text><line x1="170" y1="210" x2="190" y2="210" style="stroke: var(--accent)" stroke-width="2"/><text x="194" y="213" style="fill: var(--accent)" font-size="8">Capital Share</text></svg>`;
 }
 
-const HISTORY_Y_BASE = 225;
-const HISTORY_SHARE_MIN = 10;
-const HISTORY_PX_PER_SHARE = 9;
-
-function historyY(share: number): number {
-	return Math.round(
-		HISTORY_Y_BASE - (share - HISTORY_SHARE_MIN) * HISTORY_PX_PER_SHARE,
-	);
-}
+const historyY = createYScale(225, 10, 9);
 
 function renderHistoryDesktopChart(): void {
 	const container = document.getElementById("history-desktop-chart");
@@ -345,24 +337,28 @@ function renderDonutDesktopChart(): void {
 	const cy = 155;
 	const r = 100;
 	const circumference = 2 * Math.PI * r;
-	let offset = 0;
+
+	const cumulativePercent: number[] = [];
+	let running = 0;
+	for (const seg of donutData) {
+		cumulativePercent.push(running);
+		running += seg.percent;
+	}
 
 	const segments = donutData
 		.map((seg, i) => {
 			const segLen = (seg.percent / 100) * circumference;
 			const dashArray = `${segLen} ${circumference - segLen}`;
-			const dashOffset = -offset;
-			offset += segLen;
+			const dashOffset = -(cumulativePercent[i] / 100) * circumference;
 
 			return `<circle class="donut-segment" data-index="${i}" data-dasharray="${dashArray}" cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${seg.color}" stroke-width="60" stroke-dasharray="${dashArray}" stroke-dashoffset="${dashOffset}" transform="rotate(-90 ${cx} ${cy})"/>`;
 		})
 		.join("");
 
-	let labelOffset = 0;
 	const labels = donutData
-		.map((seg) => {
-			const midAngle = ((labelOffset + seg.percent / 2) / 100) * 360 - 90;
-			labelOffset += seg.percent;
+		.map((seg, i) => {
+			const midAngle =
+				((cumulativePercent[i] + seg.percent / 2) / 100) * 360 - 90;
 			const rad = (midAngle * Math.PI) / 180;
 			const lx = cx + 165 * Math.cos(rad);
 			const ly = cy + 165 * Math.sin(rad);
@@ -552,6 +548,30 @@ function buildMobileData(): {
 	return { gini, labor, history, donut, treemap, sankey };
 }
 
+function makeStaggerObserver(
+	selector: string,
+	delayPerItem: number,
+): IntersectionObserver {
+	const observer = new IntersectionObserver(
+		(entries) => {
+			for (const entry of entries) {
+				if (!entry.isIntersecting) {
+					continue;
+				}
+				for (const el of entry.target.querySelectorAll<SVGElement>(selector)) {
+					const i = Number(el.dataset.index ?? 0);
+					setTimeout(() => {
+						el.style.transform = "scaleY(1)";
+					}, i * delayPerItem);
+				}
+				observer.unobserve(entry.target);
+			}
+		},
+		{ threshold: 0.2 },
+	);
+	return observer;
+}
+
 export function initCharts(): void {
 	renderBarChart("wealth-distribution-chart", wealthDistributionData, {
 		outsideValueThreshold: 5,
@@ -623,10 +643,10 @@ export function initCharts(): void {
 		rect.style.transform = "scaleY(0)";
 	}
 
+	const circumference = 2 * Math.PI * 100;
 	for (const seg of document.querySelectorAll<SVGCircleElement>(
 		".donut-segment",
 	)) {
-		const circumference = 2 * Math.PI * 100;
 		seg.style.strokeDasharray = `0 ${circumference}`;
 	}
 
@@ -647,25 +667,7 @@ export function initCharts(): void {
 		{ threshold: 0.2 },
 	);
 
-	const giniObserver = new IntersectionObserver(
-		(entries) => {
-			for (const entry of entries) {
-				if (!entry.isIntersecting) {
-					continue;
-				}
-				for (const bar of entry.target.querySelectorAll<SVGRectElement>(
-					".gini-bar",
-				)) {
-					const i = Number(bar.dataset.index ?? 0);
-					setTimeout(() => {
-						bar.style.transform = "scaleY(1)";
-					}, i * 120);
-				}
-				giniObserver.unobserve(entry.target);
-			}
-		},
-		{ threshold: 0.2 },
-	);
+	const giniObserver = makeStaggerObserver(".gini-bar", 120);
 
 	for (const box of document.querySelectorAll<HTMLElement>(".chart-box")) {
 		barObserver.observe(box);
@@ -676,25 +678,7 @@ export function initCharts(): void {
 		giniObserver.observe(giniSvg);
 	}
 
-	const treemapObserver = new IntersectionObserver(
-		(entries) => {
-			for (const entry of entries) {
-				if (!entry.isIntersecting) {
-					continue;
-				}
-				for (const rect of entry.target.querySelectorAll<SVGRectElement>(
-					".treemap-rect",
-				)) {
-					const i = Number(rect.dataset.index ?? 0);
-					setTimeout(() => {
-						rect.style.transform = "scaleY(1)";
-					}, i * 150);
-				}
-				treemapObserver.unobserve(entry.target);
-			}
-		},
-		{ threshold: 0.2 },
-	);
+	const treemapObserver = makeStaggerObserver(".treemap-rect", 150);
 
 	const treemapSvg = document.getElementById("treemap-svg");
 	if (treemapSvg) {
