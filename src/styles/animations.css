@@ -1,6 +1,7 @@
 .reveal {
 	opacity: 0;
 	transform: translateY(32px);
+	will-change: opacity, transform;
 	transition:
 		opacity var(--duration-medium) ease-out,
 		transform var(--duration-medium) ease-out;
@@ -9,6 +10,7 @@
 .reveal-left {
 	opacity: 0;
 	transform: translateX(-32px);
+	will-change: opacity, transform;
 	transition:
 		opacity var(--duration-medium) ease-out,
 		transform var(--duration-medium) ease-out;

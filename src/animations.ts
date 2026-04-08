@@ -21,11 +21,9 @@ export function initAnimations(): void {
 		observer.observe(el);
 	}
 
-	setTimeout(() => {
-		for (const el of document.querySelectorAll<HTMLElement>(
-			"#hero .reveal, #hero .reveal-left",
-		)) {
-			el.classList.add("visible");
-		}
-	}, 100);
+	for (const el of document.querySelectorAll<HTMLElement>(
+		"#hero .reveal, #hero .reveal-left",
+	)) {
+		el.classList.add("visible");
+	}
 }

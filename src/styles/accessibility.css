@@ -5,7 +5,7 @@
 	width: 1px;
 	height: 1px;
 	overflow: hidden;
-	z-index: 10000;
+	z-index: var(--z-skip);
 }
 
 .skip-link:focus {
@@ -34,7 +34,7 @@
 }
 
 #manifesto :focus-visible {
-	outline-color: #2ec4c4;
+	outline-color: var(--accent);
 }
 
 .sr-only {

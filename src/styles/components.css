@@ -3,7 +3,7 @@ nav {
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 1000;
+	z-index: var(--z-nav);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -106,6 +106,7 @@ nav {
 	border: 1px solid var(--border-subtle);
 	border-radius: 6px;
 	padding: 24px 20px;
+	will-change: transform, opacity;
 	animation: flash-in 0.5s both;
 }
 
@@ -159,6 +160,7 @@ nav {
 
 .ticker {
 	display: inline-flex;
+	will-change: transform;
 	animation: ticker-scroll 120s linear infinite;
 }
 
@@ -306,16 +308,10 @@ nav {
 }
 
 #manifesto {
-	background: #1c1917;
+	background: var(--bg-inverted);
 	padding: 80px 60px;
 	color: #e8edf5;
-}
-
-@media (prefers-color-scheme: dark) {
-	#manifesto {
-		background: var(--bg-surface);
-		border-top: 2px solid var(--border-subtle);
-	}
+	border-top: 2px solid var(--border-inverted);
 }
 
 .manifesto-title {
@@ -325,12 +321,6 @@ nav {
 
 #manifesto .manifesto-title {
 	color: #e8edf5;
-}
-
-@media (prefers-color-scheme: dark) {
-	#manifesto .manifesto-title {
-		color: var(--fg);
-	}
 }
 
 .manifesto-intro {
@@ -343,12 +333,6 @@ nav {
 	color: #d1d9e6;
 }
 
-@media (prefers-color-scheme: dark) {
-	#manifesto .manifesto-intro {
-		color: var(--text-body);
-	}
-}
-
 .demands {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -356,8 +340,8 @@ nav {
 }
 
 .demand {
-	background: #262220;
-	border: 1px solid #333;
+	background: var(--bg-inverted-surface);
+	border: 1px solid var(--border-inverted);
 	border-radius: 6px;
 	padding: 28px 24px;
 	cursor: default;
@@ -366,27 +350,13 @@ nav {
 	overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-	.demand {
-		background: var(--bg-inset);
-		border-color: var(--border-subtle);
-	}
-}
-
 .demand-full {
 	grid-column: 1 / -1;
 }
 
 .demand:hover,
 .demand:focus-visible {
-	background: #2e2a28;
-}
-
-@media (prefers-color-scheme: dark) {
-	.demand:hover,
-	.demand:focus-visible {
-		background: var(--bg-elevated);
-	}
+	background: var(--bg-inverted-elevated);
 }
 
 .demand-num {
@@ -410,12 +380,6 @@ nav {
 	position: relative;
 }
 
-@media (prefers-color-scheme: dark) {
-	.demand-text {
-		color: var(--fg);
-	}
-}
-
 .demand-sub {
 	font-family: var(--font-ui);
 	font-size: 0.75rem;
@@ -423,12 +387,6 @@ nav {
 	color: #8b9ab3;
 	line-height: 1.5;
 	position: relative;
-}
-
-@media (prefers-color-scheme: dark) {
-	.demand-sub {
-		color: var(--text-muted);
-	}
 }
 
 footer {
@@ -582,7 +540,7 @@ footer {
 	position: fixed;
 	bottom: 24px;
 	right: 24px;
-	z-index: 900;
+	z-index: var(--z-popover);
 	width: 44px;
 	height: 44px;
 	border: 1px solid var(--border-subtle);
@@ -726,7 +684,7 @@ footer {
 
 #cite-popover {
 	position: fixed;
-	z-index: 900;
+	z-index: var(--z-popover);
 	max-width: 300px;
 	background: var(--bg-elevated);
 	border: 1px solid var(--border-subtle);

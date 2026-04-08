@@ -63,6 +63,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	will-change: width;
 	transition: width var(--duration-medium) var(--ease-out-expo);
 }
 
@@ -73,7 +74,7 @@
 	font-family: var(--font-ui);
 	font-size: 0.75rem;
 	font-weight: 700;
-	color: #ffffff;
+	color: var(--accent-fg);
 	white-space: nowrap;
 }
 
@@ -99,23 +100,28 @@
 }
 
 .gini-bar {
+	will-change: transform;
 	transition: transform var(--duration-medium) ease-out;
 }
 
 .treemap-rect {
+	will-change: transform;
 	transition: transform var(--duration-medium) ease-out;
 }
 
 .donut-segment {
+	will-change: stroke-dasharray;
 	transition: stroke-dasharray var(--duration-medium) var(--ease-out-expo);
 }
 
 .sankey-path {
+	will-change: stroke-dashoffset;
 	transition: stroke-dashoffset var(--duration-slow) ease-in-out;
 }
 
 #labor-line,
 #capital-line,
 #hist-line {
+	will-change: stroke-dashoffset;
 	transition: stroke-dashoffset var(--duration-slow) ease-in-out;
 }
