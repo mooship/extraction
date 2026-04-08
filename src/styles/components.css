@@ -643,7 +643,6 @@ footer {
 	font-size: 0.75rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	letter-spacing: var(--ls-xwide);
 	color: var(--accent);
 	margin-bottom: 16px;
 }
@@ -685,7 +684,6 @@ footer {
 	font-family: var(--font-ui);
 	font-size: 0.75rem;
 	text-transform: uppercase;
-	letter-spacing: var(--ls-wide);
 	color: var(--text-muted);
 	margin-top: 48px;
 	padding-top: 32px;

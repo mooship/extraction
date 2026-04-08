@@ -95,7 +95,7 @@
 
 #capital-line,
 #hist-line {
-	stroke: var(--red);
+	stroke: var(--semantic-red);
 }
 
 .gini-bar {
