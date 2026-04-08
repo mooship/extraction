@@ -57,7 +57,7 @@ nav {
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
-	padding: 80px;
+	padding: 100px 80px;
 	position: relative;
 	border-top: none;
 }
