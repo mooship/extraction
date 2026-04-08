@@ -35,7 +35,7 @@ Single-page vanilla TypeScript site built with Vite. No framework. `index.html` 
 
 **Animation contract:** CSS transitions/keyframes drive the actual motion. JS only toggles classes or sets properties; timing lives in CSS. The `prefers-reduced-motion` media query in `animations.css` disables all transitions and keyframe animations.
 
-**Fonts** are served from `@fontsource` npm packages (not Google CDN). `vite.config.ts` runs Fontaine to inject computed `@font-face` fallback rules at build time, eliminating layout shift. The three fonts are Bebas Neue (display/headings), Special Elite (body), and Roboto Condensed Variable (labels/UI).
+**Fonts** are served from `@fontsource-variable` npm packages (not Google CDN). `vite.config.ts` runs Fontaine to inject computed `@font-face` fallback rules at build time, eliminating layout shift. The two fonts are Fraunces Variable (display/headings) and Inter Variable (body and labels/UI). Font variables: `--font-display`, `--font-body`, `--font-ui` (body and UI both use Inter Variable).
 
 **Ticker** — seamless loop via duplicated content inside `.ticker`. JS in `main.ts` wires the `.ticker-pause` button. CSS pauses animation on hover/`:focus-within`.
 
@@ -44,5 +44,5 @@ Single-page vanilla TypeScript site built with Vite. No framework. `index.html` 
 - **British English** in all user-visible copy (`labour`, `organised`, `programme`, etc.). Technical identifiers (IDs, class names, variables) remain in American English.
 - **No inline comments** — never use trailing `//` comments on the same line as code. No block comments in HTML or CSS either. JSDoc block comments (`/** */`) are fine where genuinely useful.
 - Biome enforces tabs, double quotes (JS), and recommended lint rules. Run `pnpm biome:fix` after edits.
-- CSS custom properties are defined in `:root` in `src/styles/base.css`. Core palette: `--black #0a0a0a`, `--white #f0ece0`, `--red #cc1111`, `--red-dark #8b0000`.
+- CSS custom properties are defined in `:root` (light theme default) and `@media (prefers-color-scheme: dark)` in `src/styles/base.css`. Core tokens: `--accent` (teal, `#0d6e70` light / `#2ec4c4` dark), `--bg`, `--fg`, `--text-body`, `--text-muted`, `--text-label`, `--semantic-red`, `--semantic-green` (data indicators only).
 - All scroll animations use `IntersectionObserver` — no scroll event listeners.
