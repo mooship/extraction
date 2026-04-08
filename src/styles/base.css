@@ -133,12 +133,6 @@
 		color: #f0ece0;
 	}
 
-	.nav-links a:hover,
-	.nav-links a:focus-visible,
-	.nav-links a.nav-active {
-		color: var(--black);
-	}
-
 	.nav-toggle {
 		color: #f0ece0;
 	}
