@@ -1,18 +1,6 @@
 section {
 	padding: 80px 60px;
-}
-
-.section-divider {
-	height: 1px;
-	background: linear-gradient(
-		90deg,
-		transparent,
-		var(--red) 20%,
-		var(--red) 80%,
-		transparent
-	);
-	margin-bottom: 60px;
-	opacity: 0.6;
+	border-top: 1px solid var(--border-subtle);
 }
 
 .section-intro {
@@ -62,7 +50,7 @@ section {
 }
 
 #wealth {
-	border-top: 4px solid var(--red);
+	border-top: 1px solid var(--border-subtle);
 }
 
 #history,
