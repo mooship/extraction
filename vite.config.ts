@@ -6,9 +6,8 @@ export default defineConfig({
 	plugins: [
 		FontaineTransform.vite({
 			fallbacks: {
-				"Bebas Neue": ["Impact", "Arial Narrow", "Arial"],
-				"Special Elite": ["Courier New", "Courier", "Georgia"],
-				"Roboto Condensed Variable": ["Arial Narrow", "Arial", "Helvetica"],
+				"Fraunces Variable": ["Georgia", "Times New Roman"],
+				"Inter Variable": ["Arial", "Helvetica Neue"],
 			},
 			resolvePath: (id) => {
 				if (id.startsWith("@fontsource")) {
