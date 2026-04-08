@@ -38,15 +38,16 @@
 }
 
 :root {
+	color-scheme: dark light;
 	--black: #0a0a0a;
 	--white: #f0ece0;
 	--red: #cc1111;
 	--red-dark: #8b0000;
 	--gray: #2a2a2a;
 
-	--text-body: #ddd8ce;
+	--text-body: #e8e4da;
 	--text-muted: #d0d0d0;
-	--text-label: #d0c9bc;
+	--text-label: #d8d2c4;
 
 	--bg-elevated: #0f0f0f;
 	--bg-surface: #111;
@@ -127,6 +128,32 @@
 	.bar-fill::after {
 		color: #f0ece0;
 	}
+
+	.nav-links a {
+		color: #f0ece0;
+	}
+
+	.nav-links a:hover,
+	.nav-links a:focus-visible,
+	.nav-links a.nav-active {
+		color: var(--black);
+	}
+
+	.nav-toggle {
+		color: #f0ece0;
+	}
+
+	.country-name,
+	.metric-val {
+		color: #f0ece0;
+	}
+
+	.manifesto-title,
+	.manifesto-intro,
+	.demand-text,
+	.demand-sub {
+		color: #f0ece0;
+	}
 }
 
 *,
@@ -158,7 +185,7 @@ body::before {
 	inset: 0;
 	pointer-events: none;
 	z-index: 9999;
-	opacity: 0.2;
+	opacity: 0.14;
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
 	background-repeat: repeat;
 	will-change: transform;
