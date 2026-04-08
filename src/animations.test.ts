@@ -68,12 +68,10 @@ describe("initAnimations", () => {
 		expect(obs.targets).not.toContain(el);
 	});
 
-	it("makes #hero .reveal elements visible after 100ms timeout", () => {
+	it("makes #hero .reveal elements visible immediately", () => {
 		buildFixture(1, 0);
 		initAnimations();
 		const el = document.getElementById("hero-reveal-0") as HTMLElement;
-		expect(el.classList.contains("visible")).toBe(false);
-		vi.advanceTimersByTime(100);
 		expect(el.classList.contains("visible")).toBe(true);
 	});
 

@@ -560,9 +560,8 @@ function makeStaggerObserver(
 				}
 				for (const el of entry.target.querySelectorAll<SVGElement>(selector)) {
 					const i = Number(el.dataset.index ?? 0);
-					setTimeout(() => {
-						el.style.transform = "scaleY(1)";
-					}, i * delayPerItem);
+					el.style.transitionDelay = `${i * delayPerItem}ms`;
+					el.style.transform = "scaleY(1)";
 				}
 				observer.unobserve(entry.target);
 			}

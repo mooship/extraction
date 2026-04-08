@@ -1,5 +1,10 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { mockMatchMedia } from "./__mocks__/setup";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import {
+	clearObservers,
+	getObservers,
+	mockMatchMedia,
+	triggerIntersection,
+} from "./__mocks__/setup";
 import { initCounters } from "./counters";
 
 function buildStatBox(target: string | null, prefix: string, suffix: string) {
@@ -19,19 +24,17 @@ function buildStatBox(target: string | null, prefix: string, suffix: string) {
 
 describe("initCounters", () => {
 	beforeEach(() => {
-		vi.useFakeTimers();
-	});
-
-	afterEach(() => {
-		vi.useRealTimers();
-		vi.unstubAllGlobals();
+		mockMatchMedia(false);
+		clearObservers();
 	});
 
 	it("sets the final value directly when prefers-reduced-motion is set", () => {
 		mockMatchMedia(true);
 		buildStatBox("100", "$", "%");
+
 		initCounters();
-		vi.advanceTimersByTime(600);
+		const box = document.querySelector(".stat-box") as HTMLElement;
+		triggerIntersection(getObservers()[0], box, true);
 		expect((document.querySelector(".num") as HTMLElement).textContent).toBe(
 			"$100%",
 		);
@@ -48,7 +51,8 @@ describe("initCounters", () => {
 		});
 		buildStatBox("100", "$", "%");
 		initCounters();
-		vi.advanceTimersByTime(600);
+		const box = document.querySelector(".stat-box") as HTMLElement;
+		triggerIntersection(getObservers()[0], box, true);
 		expect((document.querySelector(".num") as HTMLElement).textContent).toBe(
 			"$100%",
 		);
@@ -57,8 +61,10 @@ describe("initCounters", () => {
 	it("applies data-prefix and data-suffix", () => {
 		mockMatchMedia(true);
 		buildStatBox("42", "~", "x");
+
 		initCounters();
-		vi.advanceTimersByTime(600);
+		const box = document.querySelector(".stat-box") as HTMLElement;
+		triggerIntersection(getObservers()[0], box, true);
 		expect((document.querySelector(".num") as HTMLElement).textContent).toBe(
 			"~42x",
 		);
@@ -67,8 +73,10 @@ describe("initCounters", () => {
 	it("defaults to 0 when data-target is absent", () => {
 		mockMatchMedia(true);
 		buildStatBox(null, "#", "");
+
 		initCounters();
-		vi.advanceTimersByTime(600);
+		const box = document.querySelector(".stat-box") as HTMLElement;
+		triggerIntersection(getObservers()[0], box, true);
 		expect((document.querySelector(".num") as HTMLElement).textContent).toBe(
 			"#0",
 		);
