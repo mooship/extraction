@@ -1,9 +1,5 @@
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 import { FontaineTransform } from "fontaine";
 import { defineConfig } from "vite";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
 	cacheDir: "node_modules/.vite",
@@ -25,8 +21,8 @@ export default defineConfig({
 	build: {
 		rollupOptions: {
 			input: {
-				main: resolve(__dirname, "index.html"),
-				privacy: resolve(__dirname, "privacy.html"),
+				main: new URL("index.html", import.meta.url).pathname,
+				privacy: new URL("privacy.html", import.meta.url).pathname,
 			},
 		},
 	},
