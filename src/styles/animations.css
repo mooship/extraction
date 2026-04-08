@@ -20,17 +20,6 @@
 	transform: none;
 }
 
-@keyframes stamp-appear {
-	from {
-		transform: rotate(-3deg) scale(2);
-		opacity: 0;
-	}
-	to {
-		transform: rotate(-3deg) scale(1);
-		opacity: 0.85;
-	}
-}
-
 @keyframes flash-in {
 	0% {
 		opacity: 0;
@@ -58,11 +47,6 @@
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
-	}
-
-	.stamp {
-		animation: none;
-		opacity: 0.85;
 	}
 
 	.stat-box {

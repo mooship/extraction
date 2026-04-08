@@ -19,23 +19,26 @@
 	background: var(--fg);
 	color: var(--bg);
 	font-family: var(--font-ui);
-	font-size: 0.85rem;
-	font-weight: 700;
+	font-size: 0.875rem;
+	font-weight: 600;
 	text-decoration: none;
 	text-transform: uppercase;
-	letter-spacing: var(--ls-wide);
-	outline: 3px solid var(--bg);
+	letter-spacing: 0.06em;
+	outline: 3px solid var(--accent);
 	outline-offset: 0;
 }
 
 :focus-visible {
-	outline: 3px solid var(--fg);
+	outline: 2px solid var(--accent);
 	outline-offset: 3px;
 }
 
-nav :focus-visible,
+nav :focus-visible {
+	outline-color: var(--accent);
+}
+
 #manifesto :focus-visible {
-	outline-color: var(--black);
+	outline-color: #2ec4c4;
 }
 
 .sr-only {
