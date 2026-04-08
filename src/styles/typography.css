@@ -1,85 +1,66 @@
 p {
-	font-size: 0.95rem;
+	font-size: 1rem;
 	line-height: 1.75;
 	color: var(--text-body);
 }
 
 h1 {
 	font-family: var(--font-display);
-	font-size: clamp(3rem, 6vw, 5.5rem);
-	line-height: 1;
+	font-size: clamp(2.8rem, 5vw, 4.5rem);
+	font-weight: 700;
+	line-height: 1.05;
 	color: var(--fg);
-}
-
-h1 span {
-	display: block;
-	font-size: clamp(4rem, 8vw, 7.5rem);
-	color: var(--red);
-	text-shadow: 4px 4px 0 var(--red-dark);
 }
 
 h2 {
 	font-family: var(--font-display);
-	font-size: clamp(2.5rem, 4vw, 3.8rem);
-	line-height: 1;
+	font-size: clamp(1.75rem, 3vw, 2.5rem);
+	font-weight: 600;
+	line-height: 1.1;
 	color: var(--fg);
 	margin: 16px 0 24px;
 }
 
 h3 {
 	font-family: var(--font-display);
-	font-size: 1.4rem;
-	letter-spacing: var(--ls-xwide);
-	line-height: 1.1;
-	color: var(--red);
+	font-size: 1.125rem;
+	font-weight: 600;
+	line-height: 1.3;
+	color: var(--fg);
 }
 
 .section-label,
 .section-label-black {
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	gap: 10px;
 	font-family: var(--font-ui);
-	font-size: 0.78rem;
-	letter-spacing: var(--ls-xwide);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	letter-spacing: 0.06em;
 	text-transform: uppercase;
+	color: var(--accent);
 }
 
 .section-label::before,
 .section-label-black::before {
-	content: "";
-	display: block;
-	width: 30px;
-	height: 2px;
+	content: "■";
+	font-size: 0.5rem;
+	color: var(--accent);
 	flex-shrink: 0;
 }
 
-.section-label {
-	color: var(--red);
-}
-
-.section-label::before {
-	background: var(--red);
-}
-
-.section-label-black {
-	color: var(--black);
-}
-
-.section-label-black::before {
-	background: var(--black);
-}
-
 .pull-quote {
-	border-left: 6px solid var(--red);
-	padding: 28px 36px;
+	border-left: 3px solid var(--accent);
+	padding: 24px 32px;
 	background: var(--bg-elevated);
 	margin: 32px 0;
+	border-radius: 0 4px 4px 0;
 }
 
 .pull-quote blockquote {
-	font-family: var(--font-body);
-	font-size: 1.3rem;
+	font-family: var(--font-display);
+	font-size: 1.25rem;
 	color: var(--fg);
 	line-height: 1.5;
 }
@@ -87,25 +68,24 @@ h3 {
 .pull-quote cite {
 	display: block;
 	font-family: var(--font-ui);
-	font-size: 0.78rem;
-	letter-spacing: var(--ls-xwide);
-	color: var(--red);
+	font-size: 0.8125rem;
+	letter-spacing: 0.06em;
+	color: var(--text-muted);
 	font-style: normal;
 	margin-top: 10px;
 	text-transform: uppercase;
 }
 
 .source {
-	font-size: 0.78rem;
+	font-size: 0.75rem;
 	color: var(--text-muted);
-	letter-spacing: var(--ls-tight);
 	line-height: 1.6;
 }
 
 .source a {
 	color: var(--text-muted);
 	text-decoration: none;
-	border-bottom: 1px solid var(--gray);
+	border-bottom: 1px solid var(--border-subtle);
 	transition:
 		color 0.2s,
 		border-color 0.2s;
@@ -114,11 +94,10 @@ h3 {
 .source a:hover,
 .source a:focus-visible {
 	color: var(--fg);
-	border-color: var(--red);
+	border-color: var(--accent);
 }
 
 .section-intro,
 .manifesto-intro {
 	line-height: 1.85;
-	word-spacing: 0.05em;
 }
