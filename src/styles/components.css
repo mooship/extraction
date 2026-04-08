@@ -695,7 +695,7 @@ footer {
 	padding: 0 1px;
 	margin: 0;
 	font-family: var(--font-ui);
-	font-size: 0.65em;
+	font-size: 1em;
 	font-weight: 700;
 	vertical-align: super;
 	color: var(--red);
