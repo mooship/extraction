@@ -45,10 +45,6 @@ section {
 	gap: 30px;
 }
 
-#wealth {
-	border-top: 1px solid var(--border-subtle);
-}
-
 #tax,
 #imperialism,
 #public {

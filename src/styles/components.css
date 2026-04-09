@@ -555,6 +555,22 @@ footer {
 	color: var(--accent);
 }
 
+.global-south-callout {
+	border-left: 3px solid var(--accent);
+	border-radius: 0 4px 4px 0;
+	background: var(--bg-surface);
+	padding: 1.5rem 2rem;
+	margin: 3rem 0 0;
+}
+
+.global-south-callout h3 {
+	margin-bottom: 1rem;
+}
+
+.global-south-callout p {
+	margin-bottom: 1rem;
+}
+
 .privacy-policy {
 	max-width: 720px;
 	margin: 0 auto;
