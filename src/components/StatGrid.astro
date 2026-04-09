@@ -1,0 +1,17 @@
+---
+import type { StatBoxData } from "../data/sections";
+import StatBox from "./StatBox.astro";
+
+interface Props {
+	stats: StatBoxData[];
+	idPrefix: string;
+}
+
+const { stats, idPrefix } = Astro.props;
+---
+
+<div class="stat-grid reveal">
+	{stats.map((stat, i) => (
+		<StatBox stat={stat} labelId={`${idPrefix}-${i}`} />
+	))}
+</div>

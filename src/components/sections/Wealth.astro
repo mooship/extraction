@@ -22,7 +22,7 @@ import SourceList from "../SourceList.astro";
 	</p>
 	<figure class="chart-box reveal" style="transition-delay: 0.1s">
 		<figcaption class="chart-title">
-			Top 1% Income Share — USA, 1913–2025<CiteButton citation={wealthSection.chartCitations!.history} />
+			Top 1% Income Share — USA, 1913–2025<CiteButton citation={wealthSection.chartCitations.history} />
 		</figcaption>
 		<div
 			id="history-desktop-chart"
@@ -52,7 +52,7 @@ import SourceList from "../SourceList.astro";
 			</tbody>
 		</table>
 	</figure>
-	<SourceList items={wealthSection.sources!} />
+	<SourceList items={wealthSection.sources} />
 	<div class="two-col wealth-layout">
 		<div class="col-text">
 			<p>
@@ -65,13 +65,13 @@ import SourceList from "../SourceList.astro";
 				wealth concentration under democratic governance. The middle class
 				is not "squeezed" — it is being liquidated.
 			</p>
-			<PullQuote data={wealthSection.pullQuote!} />
-			<SourceList items={wealthSection.sourcesSecondary!} />
+			<PullQuote data={wealthSection.pullQuote} />
+			<SourceList items={[...wealthSection.sources, ...wealthSection.additionalSources]} />
 		</div>
 		<div class="col-charts">
 			<figure class="chart-box reveal">
 				<figcaption class="chart-title">
-					US Wealth Distribution<CiteButton citation={wealthSection.chartCitations!.distribution} />
+					US Wealth Distribution<CiteButton citation={wealthSection.chartCitations.distribution} />
 				</figcaption>
 				<div role="img" aria-label="Bar chart showing US wealth distribution: Top 1% owns 31%, Next 9% owns 37%, Next 40% owns 30%, Bottom 50% owns 2%">
 					<BarChart id="wealth-distribution-chart" items={wealthDistributionData} outsideValueThreshold={5} />

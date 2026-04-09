@@ -23,16 +23,7 @@ export interface SourceItem {
 	url?: string;
 }
 
-export interface SectionContent {
-	stats?: StatBoxData[];
-	statIdPrefix?: string;
-	pullQuote?: PullQuoteData;
-	sources?: SourceItem[];
-	sourcesSecondary?: SourceItem[];
-	chartCitations?: Record<string, Citation>;
-}
-
-export const heroSection: SectionContent = {
+export const heroSection = {
 	statIdPrefix: "stat-label",
 	stats: [
 		{
@@ -79,23 +70,20 @@ export const heroSection: SectionContent = {
 				"Emit more CO\u2082 than the poorest 50% of humanity combined \u2014 the same class that owns half the world\u2019s wealth",
 			full: true,
 		},
-	],
+	] satisfies StatBoxData[],
 };
 
-export const wealthSection: SectionContent = {
-	statIdPrefix: "stat-label-wealth",
+export const wealthSection = {
 	pullQuote: {
 		quote:
 			"To allow the market mechanism to be the sole director of the fate of human beings and their natural environment\u2026 would result in the demolition of society.",
 		attribution: "\u2014 Karl Polanyi, <em>The Great Transformation</em>, 1944",
-	},
+	} satisfies PullQuoteData,
 	sources: [
 		{ label: "World Inequality Database", url: "https://wid.world" },
 		{ label: "(Piketty, Saez, Zucman)" },
-	],
-	sourcesSecondary: [
-		{ label: "World Inequality Database", url: "https://wid.world" },
-		{ label: "(Piketty, Saez, Zucman)" },
+	] satisfies SourceItem[],
+	additionalSources: [
 		{
 			label: "US Federal Reserve SCF",
 			url: "https://www.federalreserve.gov/econres/scfindex.htm",
@@ -104,7 +92,7 @@ export const wealthSection: SectionContent = {
 			label: "Oxfam Inequality Report 2025",
 			url: "https://www.oxfam.org/en/research/inequality-inc",
 		},
-	],
+	] satisfies SourceItem[],
 	chartCitations: {
 		history: {
 			ariaLabel: "View source: World Inequality Database",
@@ -119,7 +107,7 @@ export const wealthSection: SectionContent = {
 	},
 };
 
-export const taxSection: SectionContent = {
+export const taxSection = {
 	statIdPrefix: "stat-label-tax",
 	stats: [
 		{
@@ -164,7 +152,7 @@ export const taxSection: SectionContent = {
 				url: "https://unctad.org/publication/economic-development-africa-report-2020",
 			},
 		},
-	],
+	] satisfies StatBoxData[],
 	pullQuote: {
 		quote:
 			"The tax system has been turned against the very people it is supposed to serve. When billionaires pay lower tax rates than their secretaries, it is not a loophole \u2014 it is the design.",
@@ -185,7 +173,7 @@ export const taxSection: SectionContent = {
 	],
 };
 
-export const laborSection: SectionContent = {
+export const laborSection = {
 	statIdPrefix: "stat-label-housing",
 	stats: [
 		{
@@ -226,7 +214,7 @@ export const laborSection: SectionContent = {
 			label:
 				"Nearly 1 million empty homes in England while over 350,000 are homeless (Action on Empty Homes 2024; Shelter 2024)",
 		},
-	],
+	] satisfies StatBoxData[],
 	pullQuote: {
 		quote:
 			"The share of income going to labour has declined in most economies since the 1980s, while returns to capital have risen correspondingly.",
@@ -258,7 +246,7 @@ export const laborSection: SectionContent = {
 	},
 };
 
-export const ecologySection: SectionContent = {
+export const ecologySection = {
 	statIdPrefix: "stat-label-eco",
 	stats: [
 		{
@@ -298,7 +286,7 @@ export const ecologySection: SectionContent = {
 			label:
 				"Species facing extinction driven by corporate agribusiness and extractive industry",
 		},
-	],
+	] satisfies StatBoxData[],
 	pullQuote: {
 		quote:
 			"There is no such thing as sustainable capitalism. The system is built on the infinite expansion of production on a finite planet. Eco-socialism is not a branch of environmentalism \u2014 it is the recognition that the ecological and social crises share a root.",
@@ -333,7 +321,7 @@ export const ecologySection: SectionContent = {
 	},
 };
 
-export const imperialismSection: SectionContent = {
+export const imperialismSection = {
 	statIdPrefix: "stat-label-imp",
 	stats: [
 		{
@@ -373,7 +361,7 @@ export const imperialismSection: SectionContent = {
 				url: "https://www.worldbank.org/en/publication/international-debt-report",
 			},
 		},
-	],
+	] satisfies StatBoxData[],
 	pullQuote: {
 		quote: "Europe is literally the creation of the Third World.",
 		attribution:
@@ -396,8 +384,7 @@ export const imperialismSection: SectionContent = {
 	],
 };
 
-export const publicSection: SectionContent = {
-	statIdPrefix: "stat-label-public",
+export const publicSection = {
 	pullQuote: {
 		quote:
 			"Neocolonialism is the worst form of imperialism. For those who practise it, it means power without responsibility; and for those who suffer from it, it means exploitation without redress.",

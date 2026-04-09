@@ -7,7 +7,7 @@ import LaborChart from "../charts/LaborChart.astro";
 import TreemapChart from "../charts/TreemapChart.astro";
 import PullQuote from "../PullQuote.astro";
 import SourceList from "../SourceList.astro";
-import StatBox from "../StatBox.astro";
+import StatGrid from "../StatGrid.astro";
 ---
 
 <section id="labor" aria-labelledby="labor-heading">
@@ -33,7 +33,7 @@ import StatBox from "../StatBox.astro";
 			</figure>
 			<figure class="chart-box reveal" style="transition-delay: 0.12s">
 				<figcaption class="chart-title">
-					CEO-to-Worker Pay Ratio<CiteButton citation={laborSection.chartCitations!.ceoPay} />
+					CEO-to-Worker Pay Ratio<CiteButton citation={laborSection.chartCitations.ceoPay} />
 				</figcaption>
 				<div role="img" aria-label="CEO-to-worker pay ratio in the USA (Economic Policy Institute): 1965: 21:1, 1989: 61:1, 2000: 380:1, 2023: 290:1. The ratio peaked at 399:1 in 2021.">
 					<BarChart id="ceo-pay-chart" items={ceoPayData} outsideValueThreshold={20} />
@@ -55,11 +55,7 @@ import StatBox from "../StatBox.astro";
 				the Anglosphere while rents consume an ever-larger share of
 				wages already suppressed by the dynamics shown here.
 			</p>
-			<div class="stat-grid reveal">
-				{laborSection.stats!.map((stat, i) => (
-					<StatBox stat={stat} labelId={`${laborSection.statIdPrefix}-${i}`} />
-				))}
-			</div>
+			<StatGrid stats={laborSection.stats} idPrefix={laborSection.statIdPrefix} />
 			<figure class="chart-box reveal">
 				<figcaption class="chart-title">Homeownership Rate by Age — UK, 1997 vs 2025</figcaption>
 				<div role="img" aria-label="Bar chart showing UK homeownership rate decline for 25-34 year-olds: around 59% in the early 2000s versus 28% in 2025">
@@ -85,8 +81,8 @@ import StatBox from "../StatBox.astro";
 					</tbody>
 				</table>
 			</figure>
-			<PullQuote data={laborSection.pullQuote!} />
-			<SourceList items={laborSection.sources!} />
+			<PullQuote data={laborSection.pullQuote} />
+			<SourceList items={laborSection.sources} />
 		</div>
 	</div>
 </section>

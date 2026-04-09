@@ -5,7 +5,7 @@ import BarChart from "../charts/BarChart.astro";
 import SankeyChart from "../charts/SankeyChart.astro";
 import PullQuote from "../PullQuote.astro";
 import SourceList from "../SourceList.astro";
-import StatBox from "../StatBox.astro";
+import StatGrid from "../StatGrid.astro";
 ---
 
 <section id="imperialism" aria-labelledby="imperialism-heading">
@@ -34,15 +34,11 @@ import StatBox from "../StatBox.astro";
 				since. This is not development. It is extraction with a
 				humanitarian label.
 			</p>
-			<PullQuote data={imperialismSection.pullQuote!} />
-			<SourceList items={imperialismSection.sources!} />
+			<PullQuote data={imperialismSection.pullQuote} />
+			<SourceList items={imperialismSection.sources} />
 		</div>
 		<div class="col-charts">
-			<div class="stat-grid reveal">
-				{imperialismSection.stats!.map((stat, i) => (
-					<StatBox stat={stat} labelId={`${imperialismSection.statIdPrefix}-${i}`} />
-				))}
-			</div>
+			<StatGrid stats={imperialismSection.stats} idPrefix={imperialismSection.statIdPrefix} />
 			<figure class="chart-box reveal">
 				<figcaption class="chart-title">The Real Flow of Wealth: South to North</figcaption>
 				<div id="flows-sankey-desktop-chart" class="desktop-chart" role="img" aria-label="Sankey diagram showing the real flow of wealth from South to North: $10.8 trillion in unequal exchange versus only $200 billion in aid">

@@ -5,7 +5,7 @@ import BarChart from "../charts/BarChart.astro";
 import DonutChart from "../charts/DonutChart.astro";
 import PullQuote from "../PullQuote.astro";
 import SourceList from "../SourceList.astro";
-import StatBox from "../StatBox.astro";
+import StatGrid from "../StatGrid.astro";
 ---
 
 <section id="tax" aria-labelledby="tax-heading">
@@ -62,13 +62,9 @@ import StatBox from "../StatBox.astro";
 				built into the architecture of global capital: the City of London,
 				Delaware, the Netherlands.
 			</p>
-			<PullQuote data={taxSection.pullQuote!} />
-			<div class="stat-grid reveal">
-				{taxSection.stats!.map((stat, i) => (
-					<StatBox stat={stat} labelId={`${taxSection.statIdPrefix}-${i}`} />
-				))}
-			</div>
-			<SourceList items={taxSection.sources!} />
+			<PullQuote data={taxSection.pullQuote} />
+			<StatGrid stats={taxSection.stats} idPrefix={taxSection.statIdPrefix} />
+			<SourceList items={taxSection.sources} />
 		</div>
 	</div>
 </section>

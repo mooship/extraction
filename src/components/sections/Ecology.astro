@@ -5,7 +5,7 @@ import CiteButton from "../CiteButton.astro";
 import BarChart from "../charts/BarChart.astro";
 import PullQuote from "../PullQuote.astro";
 import SourceList from "../SourceList.astro";
-import StatBox from "../StatBox.astro";
+import StatGrid from "../StatGrid.astro";
 ---
 
 <section id="ecology" aria-labelledby="ecology-heading">
@@ -34,18 +34,14 @@ import StatBox from "../StatBox.astro";
 				and disproportionately from the Global South, which suffers the
 				worst consequences of a crisis it did not cause.
 			</p>
-			<PullQuote data={ecologySection.pullQuote!} />
-			<SourceList items={ecologySection.sources!} />
+			<PullQuote data={ecologySection.pullQuote} />
+			<SourceList items={ecologySection.sources} />
 		</div>
 		<div class="col-charts">
-			<div class="stat-grid reveal">
-				{ecologySection.stats!.map((stat, i) => (
-					<StatBox stat={stat} labelId={`${ecologySection.statIdPrefix}-${i}`} />
-				))}
-			</div>
+			<StatGrid stats={ecologySection.stats} idPrefix={ecologySection.statIdPrefix} />
 			<figure class="chart-box reveal">
 				<figcaption class="chart-title">
-					CO₂ Emissions Share by Global Income Group<CiteButton citation={ecologySection.chartCitations!.emissions} />
+					CO₂ Emissions Share by Global Income Group<CiteButton citation={ecologySection.chartCitations.emissions} />
 				</figcaption>
 				<div role="img" aria-label="CO₂ emissions share by global income group (Oxfam Carbon Inequality Report 2025): Top 1%: 16%, Next 9%: 34%, Middle 40%: 42%, Bottom 50%: 8%. The wealthiest 10% account for 50% of all emissions.">
 					<BarChart id="emissions-chart" items={emissionsData} outsideValueThreshold={18} />

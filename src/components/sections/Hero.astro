@@ -22,7 +22,7 @@ import StatBox from "../StatBox.astro";
 		</div>
 		<div class="hero-right">
 			<div class="stat-grid">
-				{heroSection.stats!.map((stat, i) => (
+				{heroSection.stats.map((stat, i) => (
 					<StatBox stat={stat} labelId={`${heroSection.statIdPrefix}-${i}`} />
 				))}
 			</div>
