@@ -25,7 +25,10 @@ export function initCitations(): void {
 		sourceEl.textContent = btn.dataset.source ?? "";
 		linkEl.href = btn.dataset.url ?? "#";
 		popover.removeAttribute("hidden");
-		requestAnimationFrame(() => popover.classList.add("is-visible"));
+		requestAnimationFrame(() => {
+			popover.classList.add("is-visible");
+			popover.focus();
+		});
 
 		const rect = btn.getBoundingClientRect();
 		const vw = window.innerWidth;
@@ -51,11 +54,15 @@ export function initCitations(): void {
 		active = btn;
 	}
 
-	function hide(): void {
+	function hide(returnFocus = false): void {
+		const trigger = active;
 		popover.classList.remove("is-visible");
 		if (active) {
 			active.setAttribute("aria-expanded", "false");
 			active = null;
+		}
+		if (returnFocus && trigger) {
+			trigger.focus();
 		}
 		hideTimer = setTimeout(() => {
 			popover.setAttribute("hidden", "");
@@ -67,7 +74,7 @@ export function initCitations(): void {
 		btn.addEventListener("click", (e) => {
 			e.stopPropagation();
 			if (active === btn) {
-				hide();
+				hide(true);
 			} else {
 				show(btn);
 			}
@@ -77,7 +84,7 @@ export function initCitations(): void {
 	document.addEventListener("click", () => hide());
 	document.addEventListener("keydown", (e) => {
 		if (e.key === "Escape") {
-			hide();
+			hide(true);
 		}
 	});
 }

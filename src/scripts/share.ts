@@ -38,7 +38,14 @@ function initShareButtons(): void {
 					}, 2000);
 				}
 			} catch {
-				/* clipboard unavailable */
+				const span = btn.querySelector("span");
+				if (span) {
+					span.textContent = "Copy failed";
+					clearTimeout(resetTimer);
+					resetTimer = setTimeout(() => {
+						span.textContent = "Share";
+					}, 2000);
+				}
 			}
 		});
 
