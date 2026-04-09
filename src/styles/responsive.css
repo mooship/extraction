@@ -35,12 +35,12 @@
 
 	footer {
 		padding: 30px 32px;
-		flex-direction: column;
-		align-items: flex-start;
 	}
 
-	.footer-right {
-		text-align: left;
+	.footer-top {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
 	}
 }
 
@@ -69,7 +69,7 @@
 
 	p,
 	.demand-sub,
-	.footer-right p {
+	.footer-sources p {
 		overflow-wrap: anywhere;
 	}
 }
