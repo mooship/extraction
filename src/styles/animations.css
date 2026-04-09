@@ -1,4 +1,4 @@
-.reveal {
+html.js-ready .reveal {
 	opacity: 0;
 	transform: translateY(32px);
 	will-change: opacity, transform;
@@ -7,7 +7,7 @@
 		transform var(--duration-medium) ease-out;
 }
 
-.reveal-left {
+html.js-ready .reveal-left {
 	opacity: 0;
 	transform: translateX(-32px);
 	will-change: opacity, transform;
@@ -16,8 +16,8 @@
 		transform var(--duration-medium) ease-out;
 }
 
-.reveal.visible,
-.reveal-left.visible {
+html.js-ready .reveal.visible,
+html.js-ready .reveal-left.visible {
 	opacity: 1;
 	transform: none;
 }
