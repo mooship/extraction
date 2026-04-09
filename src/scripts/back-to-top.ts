@@ -1,4 +1,4 @@
-function initBackToTop(): void {
+export function initBackToTop(): void {
 	const btn = document.querySelector<HTMLButtonElement>(".back-to-top");
 	const hero = document.querySelector<HTMLElement>("#hero");
 	if (!btn || !hero) {
@@ -25,4 +25,8 @@ function initBackToTop(): void {
 	});
 }
 
-document.addEventListener("DOMContentLoaded", initBackToTop);
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", initBackToTop);
+} else {
+	initBackToTop();
+}

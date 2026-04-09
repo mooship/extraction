@@ -62,7 +62,7 @@ export function initNavToggle(): void {
 	}
 }
 
-function initActiveNav(): void {
+export function initActiveNav(): void {
 	const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-links a");
 	const sections = document.querySelectorAll<HTMLElement>("section[id]");
 
@@ -94,7 +94,13 @@ function initActiveNav(): void {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function initNav(): void {
 	initNavToggle();
 	initActiveNav();
-});
+}
+
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", initNav);
+} else {
+	initNav();
+}

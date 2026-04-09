@@ -1,6 +1,11 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { mockMatchMedia } from "./__mocks__/setup";
-import { initNavToggle } from "./scripts/nav";
+import {
+	clearObservers,
+	getObservers,
+	mockMatchMedia,
+	triggerIntersection,
+} from "./__mocks__/setup";
+import { initActiveNav, initNavToggle } from "./scripts/nav";
 
 function buildNavFixture() {
 	document.body.textContent = "";
@@ -128,5 +133,78 @@ describe("initNavToggle", () => {
 	it("does not throw when nav elements are absent", () => {
 		document.body.textContent = "";
 		expect(() => initNavToggle()).not.toThrow();
+	});
+});
+
+function buildActiveNavFixture() {
+	document.body.textContent = "";
+	const nav = document.createElement("nav");
+	const ul = document.createElement("ul");
+	ul.className = "nav-links";
+	for (const id of ["wealth", "labor"]) {
+		const li = document.createElement("li");
+		const a = document.createElement("a");
+		a.href = `#${id}`;
+		a.textContent = id;
+		li.appendChild(a);
+		ul.appendChild(li);
+	}
+	nav.appendChild(ul);
+	document.body.appendChild(nav);
+
+	for (const id of ["wealth", "labor"]) {
+		const section = document.createElement("section");
+		section.id = id;
+		document.body.appendChild(section);
+	}
+}
+
+describe("initActiveNav", () => {
+	beforeEach(() => {
+		clearObservers();
+		buildActiveNavFixture();
+	});
+
+	it("observes all section[id] elements", () => {
+		initActiveNav();
+		const observer = getObservers()[0];
+		const sections = document.querySelectorAll("section[id]");
+		expect(observer.targets).toHaveLength(sections.length);
+		for (const section of sections) {
+			expect(observer.targets).toContain(section);
+		}
+	});
+
+	it("adds nav-active to the matching link on intersection", () => {
+		initActiveNav();
+		const section = document.getElementById("wealth") as HTMLElement;
+		triggerIntersection(getObservers()[0], section, true);
+		const link = document.querySelector('a[href="#wealth"]') as HTMLElement;
+		expect(link.classList.contains("nav-active")).toBe(true);
+	});
+
+	it("removes nav-active from other links when a new section intersects", () => {
+		initActiveNav();
+		const wealth = document.getElementById("wealth") as HTMLElement;
+		const labor = document.getElementById("labor") as HTMLElement;
+		triggerIntersection(getObservers()[0], wealth, true);
+		triggerIntersection(getObservers()[0], labor, true);
+		const wealthLink = document.querySelector(
+			'a[href="#wealth"]',
+		) as HTMLElement;
+		const laborLink = document.querySelector('a[href="#labor"]') as HTMLElement;
+		expect(wealthLink.classList.contains("nav-active")).toBe(false);
+		expect(laborLink.classList.contains("nav-active")).toBe(true);
+	});
+
+	it("uses the correct rootMargin", () => {
+		initActiveNav();
+		expect(getObservers()[0].options?.rootMargin).toBe("-20% 0px -60% 0px");
+	});
+
+	it("does not throw when nav links or sections are absent", () => {
+		document.body.textContent = "";
+		expect(() => initActiveNav()).not.toThrow();
+		expect(getObservers()).toHaveLength(0);
 	});
 });

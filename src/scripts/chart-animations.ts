@@ -1,4 +1,4 @@
-function initChartAnimations(): void {
+export function initChartAnimations(): void {
 	const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 	if (reduced) {
@@ -95,4 +95,8 @@ function initChartAnimations(): void {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", initChartAnimations);
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", initChartAnimations);
+} else {
+	initChartAnimations();
+}
