@@ -4,6 +4,7 @@ type IntersectionCallback = (entries: IntersectionObserverEntry[]) => void;
 
 export type MockObserver = {
 	cb: IntersectionCallback;
+	options: IntersectionObserverInit | undefined;
 	targets: Element[];
 	observe: (el: Element) => void;
 	unobserve: (el: Element) => void;
@@ -14,10 +15,12 @@ const observers: MockObserver[] = [];
 
 class MockIntersectionObserver {
 	cb: IntersectionCallback;
+	options: IntersectionObserverInit | undefined;
 	targets: Element[] = [];
 
-	constructor(cb: IntersectionCallback) {
+	constructor(cb: IntersectionCallback, options?: IntersectionObserverInit) {
 		this.cb = cb;
+		this.options = options;
 		observers.push(this);
 	}
 
