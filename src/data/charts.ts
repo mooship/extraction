@@ -217,7 +217,7 @@ export const historyY = createYScale(225, 10, 9);
 const HISTORY_SHARE_MAX = 30;
 const DONUT_MAX_PERCENT = 23;
 
-export function buildMobileData(): {
+function buildMobileData(): {
 	gini: BarChartItem[];
 	labor: BarChartItem[];
 	history: BarChartItem[];
@@ -320,3 +320,5 @@ export function buildMobileData(): {
 
 	return { gini, labor, history, donut, treemap, sankey };
 }
+
+export const mobileData = buildMobileData();

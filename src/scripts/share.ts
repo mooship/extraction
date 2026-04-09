@@ -11,6 +11,8 @@ function initShareButtons(): void {
 		btn.setAttribute("aria-label", "Share this section");
 		btn.innerHTML = `${SHARE_SVG} <span role="status" aria-live="polite">Share</span>`;
 
+		let resetTimer: ReturnType<typeof setTimeout> | undefined;
+
 		btn.addEventListener("click", async () => {
 			const url = `${window.location.origin}${window.location.pathname}#${section.id}`;
 			const title =
@@ -30,7 +32,8 @@ function initShareButtons(): void {
 				const span = btn.querySelector("span");
 				if (span) {
 					span.textContent = "Copied!";
-					setTimeout(() => {
+					clearTimeout(resetTimer);
+					resetTimer = setTimeout(() => {
 						span.textContent = "Share";
 					}, 2000);
 				}
