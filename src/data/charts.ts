@@ -16,7 +16,8 @@ export type SankeyFlow = {
 	displayValue: string;
 	color: string;
 	strokeWidth: number;
-	path: string;
+	sourceY: number;
+	targetY: number;
 	direction: "left" | "right";
 };
 
@@ -38,13 +39,11 @@ export type LaborPoint = {
 	year: number;
 	labor: number;
 	capital: number;
-	x: number;
 };
 
 export type HistoryPoint = {
 	year: number;
 	share: number;
-	x: number;
 };
 
 export const giniDesktopData: GiniItem[] = [
@@ -58,26 +57,26 @@ export const giniDesktopData: GiniItem[] = [
 ];
 
 export const laborSeriesData: LaborPoint[] = [
-	{ year: 1950, labor: 67, capital: 33, x: 50 },
-	{ year: 1970, labor: 67, capital: 33, x: 154 },
-	{ year: 1985, labor: 65, capital: 35, x: 232 },
-	{ year: 2000, labor: 63, capital: 37, x: 310 },
-	{ year: 2015, labor: 61, capital: 39, x: 388 },
-	{ year: 2023, labor: 58, capital: 42, x: 430 },
-	{ year: 2025, labor: 54, capital: 46, x: 445 },
+	{ year: 1950, labor: 67, capital: 33 },
+	{ year: 1970, labor: 67, capital: 33 },
+	{ year: 1985, labor: 65, capital: 35 },
+	{ year: 2000, labor: 63, capital: 37 },
+	{ year: 2015, labor: 61, capital: 39 },
+	{ year: 2023, labor: 58, capital: 42 },
+	{ year: 2025, labor: 54, capital: 46 },
 ];
 
 export const historySeriesData: HistoryPoint[] = [
-	{ year: 1913, share: 18, x: 50 },
-	{ year: 1929, share: 24, x: 156 },
-	{ year: 1945, share: 13, x: 262 },
-	{ year: 1970, share: 10, x: 428 },
-	{ year: 1980, share: 11, x: 495 },
-	{ year: 2000, share: 21, x: 627 },
-	{ year: 2007, share: 24, x: 674 },
-	{ year: 2018, share: 19, x: 760 },
-	{ year: 2023, share: 21, x: 780 },
-	{ year: 2025, share: 21, x: 795 },
+	{ year: 1913, share: 18 },
+	{ year: 1929, share: 24 },
+	{ year: 1945, share: 13 },
+	{ year: 1970, share: 10 },
+	{ year: 1980, share: 11 },
+	{ year: 2000, share: 21 },
+	{ year: 2007, share: 24 },
+	{ year: 2018, share: 19 },
+	{ year: 2023, share: 21 },
+	{ year: 2025, share: 21 },
 ];
 
 export const wealthDistributionData: BarChartItem[] = [
@@ -126,7 +125,8 @@ export const sankeyFlows: SankeyFlow[] = [
 		displayValue: "$10.8T",
 		color: "var(--accent)",
 		strokeWidth: 44,
-		path: "M 80,70 C 250,70 350,55 520,55",
+		sourceY: 70,
+		targetY: 55,
 		direction: "left",
 	},
 	{
@@ -134,7 +134,8 @@ export const sankeyFlows: SankeyFlow[] = [
 		displayValue: "$443B",
 		color: "#0a8f8f",
 		strokeWidth: 12,
-		path: "M 80,130 C 250,130 350,125 520,120",
+		sourceY: 130,
+		targetY: 120,
 		direction: "left",
 	},
 	{
@@ -142,7 +143,8 @@ export const sankeyFlows: SankeyFlow[] = [
 		displayValue: "$89B",
 		color: "#0d7676",
 		strokeWidth: 6,
-		path: "M 80,165 C 250,165 350,160 520,155",
+		sourceY: 165,
+		targetY: 155,
 		direction: "left",
 	},
 	{
@@ -150,7 +152,8 @@ export const sankeyFlows: SankeyFlow[] = [
 		displayValue: "$200B",
 		color: "#4caf4c",
 		strokeWidth: 8,
-		path: "M 520,220 C 350,225 250,230 80,235",
+		sourceY: 220,
+		targetY: 235,
 		direction: "right",
 	},
 ];
@@ -202,17 +205,6 @@ export const emissionsData: BarChartItem[] = [
 	{ label: "Middle 40%", width: 42, value: "42%", color: "#444" },
 	{ label: "Bottom 50%", width: 8, value: "8%", color: "#2a2a2a" },
 ];
-
-function createYScale(
-	base: number,
-	min: number,
-	pxPerUnit: number,
-): (v: number) => number {
-	return (v) => Math.round(base - (v - min) * pxPerUnit);
-}
-
-export const laborY = createYScale(180, 30, 4);
-export const historyY = createYScale(225, 10, 9);
 
 const HISTORY_SHARE_MAX = 30;
 const DONUT_MAX_PERCENT = 23;
