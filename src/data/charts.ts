@@ -63,7 +63,7 @@ export const laborSeriesData: LaborPoint[] = [
 	{ year: 2000, labor: 63, capital: 37 },
 	{ year: 2015, labor: 61, capital: 39 },
 	{ year: 2023, labor: 58, capital: 42 },
-	{ year: 2025, labor: 54, capital: 46 },
+	{ year: 2025, labor: 57, capital: 43 },
 ];
 
 export const historySeriesData: HistoryPoint[] = [

@@ -34,9 +34,9 @@ const gridValues = [1.0, 0.9, 0.8, 0.7, 0.6];
 >
 	<title id="gini-svg-title">Wealth Gini Coefficient by Country</title>
 	<desc>
-		Bar chart comparing wealth Gini coefficients: Germany 0.67, France 0.70,
-		Sweden 0.74, Brazil 0.78, UK 0.81, USA 0.85, South Africa 0.91. Higher
-		values indicate greater inequality.
+		Bar chart comparing wealth Gini coefficients (Credit Suisse/UBS 2021):
+		France 0.70, UK 0.71, Germany 0.79, USA 0.85, Sweden 0.88,
+		South Africa 0.89, Brazil 0.89. Higher values indicate greater inequality.
 	</desc>
 	{gridValues.map((v) => (
 		<line x1="18" y1={yScale(v)} x2="450" y2={yScale(v)} stroke={v === 0.6 ? "#333" : "#1a1a1a"} stroke-width="1" stroke-dasharray={v === 0.6 ? undefined : "4,3"} />
