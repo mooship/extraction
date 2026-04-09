@@ -52,7 +52,7 @@ h3 {
 	border-left: 3px solid var(--accent);
 	padding: 24px 32px;
 	background: var(--bg-elevated);
-	margin: 32px 0;
+	margin: 16px 0;
 	border-radius: 0 4px 4px 0;
 }
 
