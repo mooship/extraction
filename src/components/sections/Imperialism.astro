@@ -1,0 +1,118 @@
+---
+import { debtServiceData, mobileData } from "../../data/charts";
+import BarChart from "../charts/BarChart.astro";
+import SankeyChart from "../charts/SankeyChart.astro";
+---
+
+<section id="imperialism" aria-labelledby="imperialism-heading">
+	<div class="two-col imperialism-layout">
+		<div class="col-text">
+			<div class="section-label reveal-left">Global South &amp; Imperialism</div>
+			<h2 id="imperialism-heading" class="reveal" style="transition-delay: 0.1s">
+				Extraction<br />Without Borders
+			</h2>
+			<p>
+				The same logic of extraction that operates within wealthy nations
+				operates between them. When illicit financial flows, debt service,
+				trade mispricing, and unequal exchange are accounted for, the
+				Global South is a net creditor to the Global North — transferring
+				an estimated $2 trillion per year northward. The aid narrative
+				inverts reality: wealth flows from poor countries to rich ones,
+				not the other way around.
+			</p>
+			<p>
+				The IMF and World Bank enforce structural adjustment programmes
+				that strip developing nations of the very policy tools Western
+				welfare states used to industrialise and build public services.
+				Fifty-four countries are in debt crisis or at high risk. Debt
+				service payments by developing countries reached $443 billion in
+				2022 — dwarfing the aid they receive — and have risen further
+				since. This is not development. It is extraction with a
+				humanitarian label.
+			</p>
+			<div class="pull-quote reveal">
+				<blockquote>"Europe is literally the creation of the Third World."</blockquote>
+				<cite>— Frantz Fanon, <em>The Wretched of the Earth</em>, 1961</cite>
+			</div>
+			<p class="source">
+				Source: Jason Hickel, <em>The Divide</em> ·
+				<a href="https://gfintegrity.org" target="_blank" rel="noopener noreferrer">Global Financial Integrity</a> ·
+				<a href="https://jubileedebt.org.uk" target="_blank" rel="noopener noreferrer">Jubilee Debt Campaign</a> ·
+				<a href="https://data.worldbank.org" target="_blank" rel="noopener noreferrer">World Bank</a> ·
+				<a href="https://unctad.org" target="_blank" rel="noopener noreferrer">UNCTAD</a>
+			</p>
+		</div>
+		<div class="col-charts">
+			<div class="stat-grid reveal">
+				<div class="stat-box" role="group" aria-labelledby="stat-label-imp-0">
+					<div class="num" data-target="2" data-prefix="$" data-suffix="T">$0T</div>
+					<div class="label" id="stat-label-imp-0">
+						Net annual resource flows from South to North — Hickel et al. 2022<button type="button" class="cite-ref" aria-label="View source: Hickel et al. 2021" aria-expanded="false" data-source="Hickel, Sullivan &amp; Zoomkawala, New Political Economy, 2021" data-url="https://doi.org/10.1080/13563467.2021.1899153">*</button>
+					</div>
+				</div>
+				<div class="stat-box" role="group" aria-labelledby="stat-label-imp-1">
+					<div class="num" data-target="11" data-prefix="$" data-suffix="T">$0T</div>
+					<div class="label" id="stat-label-imp-1">Total external debt of developing countries — World Bank 2024</div>
+				</div>
+				<div class="stat-box" role="group" aria-labelledby="stat-label-imp-2">
+					<div class="num" data-target="54" data-prefix="" data-suffix="">0</div>
+					<div class="label" id="stat-label-imp-2">Countries in debt crisis or at high risk — UN 2025</div>
+				</div>
+				<div class="stat-box" role="group" aria-labelledby="stat-label-imp-3">
+					<div class="num" data-target="443" data-prefix="$" data-suffix="B">$0B</div>
+					<div class="label" id="stat-label-imp-3">
+						Annual debt service payments by developing countries — 2022 (World Bank)<button type="button" class="cite-ref" aria-label="View source: World Bank 2023" aria-expanded="false" data-source="World Bank, International Debt Report, 2023" data-url="https://www.worldbank.org/en/publication/international-debt-report">*</button>
+					</div>
+				</div>
+			</div>
+			<figure class="chart-box reveal">
+				<figcaption class="chart-title">The Real Flow of Wealth: South to North</figcaption>
+				<div id="flows-sankey-desktop-chart" class="desktop-chart" role="img" aria-label="Sankey diagram showing the real flow of wealth from South to North: $10.8 trillion in unequal exchange versus only $200 billion in aid">
+					<SankeyChart />
+				</div>
+				<div id="flows-sankey-mobile-chart" class="mobile-chart" role="img" aria-label="Bar chart showing wealth flows from Global South to North">
+					<BarChart id="sankey-mobile-bars" items={mobileData.sankey} outsideValueThreshold={15} />
+				</div>
+				<table class="sr-only">
+					<caption>The Real Flow of Wealth: South to North</caption>
+					<thead><tr><th>Flow</th><th>Direction</th><th>Value</th></tr></thead>
+					<tbody>
+						<tr><td>Unequal Exchange</td><td>South to North</td><td>$10.8T</td></tr>
+						<tr><td>Debt Service</td><td>South to North</td><td>$443B</td></tr>
+						<tr><td>Illicit Flows</td><td>South to North</td><td>$89B</td></tr>
+						<tr><td>Aid</td><td>North to South</td><td>$200B</td></tr>
+					</tbody>
+				</table>
+			</figure>
+			<figure class="chart-box reveal" style="transition-delay: 0.12s">
+				<figcaption class="chart-title">Debt Service as % of Government Revenue</figcaption>
+				<div role="img" aria-label="Bar chart showing debt service as percentage of government revenue: Sri Lanka 73%, Ghana 47%, Pakistan 40%, Kenya 30%, USA 9%">
+					<BarChart id="debt-service-chart" items={debtServiceData} outsideValueThreshold={13} />
+				</div>
+			</figure>
+		</div>
+	</div>
+	<aside class="global-south-callout reveal" aria-label="On the IMF and World Bank">
+		<h3>On the IMF and World Bank</h3>
+		<p>
+			Structural adjustment programmes — imposed as conditions for loans —
+			require privatisation of public assets, deregulation of labour
+			markets, removal of trade protections, and cuts to social spending.
+			These are the same policies that built the neoliberal order in the
+			Global North, now exported as non-negotiable conditions to the
+			Global South. A country cannot pursue the Nordic model if the IMF
+			controls its fiscal policy.
+		</p>
+		<p>
+			The debt itself is often illegitimate — contracted by dictators,
+			inflated by compound interest, or imposed through structural
+			conditions that prevented the growth needed to repay it. Yet it
+			continues to be serviced, year after year, by populations that never
+			consented to it and never benefited from it.
+		</p>
+		<div class="pull-quote">
+			<blockquote>"They no longer need to occupy us. They own the debt."</blockquote>
+			<cite>— Thomas Sankara, OAU Summit, 1987</cite>
+		</div>
+	</aside>
+</section>

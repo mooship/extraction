@@ -1,0 +1,73 @@
+---
+import { donutData } from "../../data/charts";
+
+const cx = 200;
+const cy = 155;
+const r = 100;
+const circumference = 2 * Math.PI * r;
+
+const cumulativePercent: number[] = [];
+let running = 0;
+for (const seg of donutData) {
+	cumulativePercent.push(running);
+	running += seg.percent;
+}
+
+const segments = donutData.map((seg, i) => {
+	const segLen = (seg.percent / 100) * circumference;
+	const dashArray = `${segLen} ${circumference - segLen}`;
+	const dashOffset = -(cumulativePercent[i] / 100) * circumference;
+	return { ...seg, dashArray, dashOffset, i };
+});
+
+const labels = donutData.map((seg, i) => {
+	const midAngle = ((cumulativePercent[i] + seg.percent / 2) / 100) * 360 - 90;
+	const rad = (midAngle * Math.PI) / 180;
+	const lx = cx + 165 * Math.cos(rad);
+	const ly = cy + 165 * Math.sin(rad);
+	const anchor = lx > cx ? "start" : "end";
+	return { ...seg, lx: Math.round(lx), ly: Math.round(ly), anchor };
+});
+---
+
+<svg
+	id="tax-donut-svg"
+	role="img"
+	aria-labelledby="donut-svg-title"
+	viewBox="-30 -10 460 340"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<title id="donut-svg-title">Where Corporate Profits Are Shifted</title>
+	<desc>
+		Donut chart showing corporate profit shifting destinations: UK Dependencies
+		23%, Netherlands 22%, Bermuda/Cayman 18%, Luxembourg 15%, Ireland 12%,
+		Other 4%.
+	</desc>
+	{segments.map((seg) => (
+		<circle
+			class="donut-segment"
+			data-index={seg.i}
+			data-dasharray={seg.dashArray}
+			cx={cx}
+			cy={cy}
+			r={r}
+			fill="none"
+			stroke={seg.color}
+			stroke-width="60"
+			stroke-dasharray={seg.dashArray}
+			stroke-dashoffset={seg.dashOffset}
+			transform={`rotate(-90 ${cx} ${cy})`}
+		/>
+	))}
+	{labels.map((label) => (
+		<text
+			x={label.lx}
+			y={label.ly}
+			fill="#888"
+			font-size="7"
+			text-anchor={label.anchor}
+		>
+			{label.label} ({label.percent}%)
+		</text>
+	))}
+</svg>

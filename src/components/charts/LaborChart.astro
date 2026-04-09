@@ -1,0 +1,50 @@
+---
+import { laborSeriesData, laborY } from "../../data/charts";
+
+const laborPoints = laborSeriesData
+	.map((point) => `${point.x},${laborY(point.labor)}`)
+	.join(" ");
+const capitalPoints = laborSeriesData
+	.map((point) => `${point.x},${laborY(point.capital)}`)
+	.join(" ");
+---
+
+<svg
+	id="labor-svg"
+	role="img"
+	aria-labelledby="labor-svg-title"
+	viewBox="0 0 475 220"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<title id="labor-svg-title">Labour vs Capital Share of GDP</title>
+	<desc>
+		Line chart showing USA labour share falling from 67% in 1950 to 57% in
+		2025, while capital share rose from 33% to 43% over the same period. The
+		neoliberal turn around 1980 marks the inflection point.
+	</desc>
+	<line x1="45" y1="20" x2="455" y2="20" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
+	<line x1="45" y1="60" x2="455" y2="60" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
+	<line x1="45" y1="100" x2="455" y2="100" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
+	<line x1="45" y1="140" x2="455" y2="140" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
+	<line x1="45" y1="180" x2="455" y2="180" stroke="#333" stroke-width="1" />
+	<text x="40" y="23" fill="#888" font-size="8" text-anchor="end">70%</text>
+	<text x="40" y="63" fill="#888" font-size="8" text-anchor="end">60%</text>
+	<text x="40" y="103" fill="#888" font-size="8" text-anchor="end">50%</text>
+	<text x="40" y="143" fill="#888" font-size="8" text-anchor="end">40%</text>
+	<text x="40" y="183" fill="#888" font-size="8" text-anchor="end">30%</text>
+	{laborSeriesData.map((point) => (
+		<text x={point.x} y="197" fill="#888" font-size="7" text-anchor="middle">
+			{point.year}
+		</text>
+	))}
+	<line x1="206" y1="15" x2="206" y2="180" stroke="#444" stroke-width="1" stroke-dasharray="3,3" />
+	<text x="208" y="28" fill="#888" font-size="7">1980</text>
+	<text x="208" y="38" fill="#888" font-size="7">Neoliberal</text>
+	<text x="208" y="48" fill="#888" font-size="7">Turn</text>
+	<polyline id="labor-line" points={laborPoints} fill="none" stroke="#888" stroke-width="2" />
+	<polyline id="capital-line" points={capitalPoints} fill="none" stroke="var(--accent)" stroke-width="2.5" />
+	<line x1="50" y1="210" x2="70" y2="210" stroke="#888" stroke-width="2" />
+	<text x="74" y="213" fill="#888" font-size="8">Labour Share</text>
+	<line x1="170" y1="210" x2="190" y2="210" style="stroke: var(--accent)" stroke-width="2" />
+	<text x="194" y="213" style="fill: var(--accent)" font-size="8">Capital Share</text>
+</svg>

@@ -5,7 +5,7 @@ import {
 	mockMatchMedia,
 	triggerIntersection,
 } from "./__mocks__/setup";
-import { initCounters } from "./counters";
+import { initCounters } from "./scripts/counters";
 
 function buildStatBox(target: string | null, prefix: string, suffix: string) {
 	document.body.textContent = "";

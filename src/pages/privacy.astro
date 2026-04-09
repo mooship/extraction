@@ -1,0 +1,59 @@
+---
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+	title="Privacy Policy — Extraction"
+	description="Privacy policy for Extraction: what data is collected and how it is used."
+	canonicalUrl="https://extraction.timothybrits.co.za/privacy"
+>
+	<Nav isHome={false} />
+	<main id="main-content">
+		<article class="privacy-policy">
+			<h1>Privacy Policy</h1>
+
+			<section>
+				<h2>What this site collects</h2>
+				<p>
+					This site uses Cloudflare Web Analytics to understand how it is
+					used. No cookies are set. No personal information is collected or
+					stored.
+				</p>
+			</section>
+
+			<section>
+				<h2>What Cloudflare records</h2>
+				<p>
+					Cloudflare Web Analytics records aggregate, anonymised data: page
+					views, referrer URL, browser type and version, operating system,
+					device type, and country-level location. IP addresses are not stored
+					beyond the initial request. There is no cross-site tracking.
+				</p>
+				<p>
+					For full details, see
+					<a
+						href="https://www.cloudflare.com/privacypolicy/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>Cloudflare's privacy policy</a>.
+				</p>
+			</section>
+
+			<section>
+				<h2>What this site does not do</h2>
+				<ul>
+					<li>No user accounts or login</li>
+					<li>No contact forms or data submission</li>
+					<li>No advertising networks</li>
+					<li>No third-party tracking scripts</li>
+					<li>No fingerprinting</li>
+				</ul>
+			</section>
+
+			<p class="privacy-updated">Last updated: April 2026</p>
+		</article>
+	</main>
+	<Footer />
+</Base>

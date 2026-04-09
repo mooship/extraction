@@ -1,6 +1,6 @@
 pre-commit:
   jobs:
     - name: biome check
-      glob: "*.{ts,js,json,css,html}"
+      glob: "*.{ts,js,json,css,html,astro}"
       run: pnpm exec biome check --write {staged_files}
       stage_fixed: true

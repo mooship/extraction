@@ -1,0 +1,87 @@
+---
+import { mobileData, wealthDistributionData } from "../../data/charts";
+import BarChart from "../charts/BarChart.astro";
+import GiniChart from "../charts/GiniChart.astro";
+---
+
+<section id="wealth" aria-labelledby="wealth-heading">
+	<div class="two-col wealth-layout">
+		<div class="col-text">
+			<div class="section-label reveal-left">Wealth Inequality</div>
+			<h2 id="wealth-heading" class="reveal" style="transition-delay: 0.1s">
+				The Great<br />Upward<br />Transfer
+			</h2>
+			<p>
+				Since the 1980s, the share of wealth held by the bottom half of
+				the global population has collapsed. Wage suppression,
+				financialisation, and tax policy have systematically redirected
+				economic output from workers to shareholders across every major
+				economy. In South Africa — the world's most unequal major economy
+				— decades of neoliberal policy have entrenched apartheid-era
+				wealth concentration under democratic governance. The middle class
+				is not "squeezed" — it is being liquidated.
+			</p>
+			<div class="pull-quote reveal">
+				<blockquote>
+					"To allow the market mechanism to be the sole director of the
+					fate of human beings and their natural environment… would result
+					in the demolition of society."
+				</blockquote>
+				<cite>— Karl Polanyi, <em>The Great Transformation</em>, 1944</cite>
+			</div>
+			<p class="source">
+				Source:
+				<a href="https://wid.world" target="_blank" rel="noopener noreferrer">World Inequality Database</a>
+				(Piketty, Saez, Zucman) ·
+				<a href="https://www.federalreserve.gov/econres/scfindex.htm" target="_blank" rel="noopener noreferrer">US Federal Reserve SCF</a> ·
+				<a href="https://www.oxfam.org/en/research/inequality-inc" target="_blank" rel="noopener noreferrer">Oxfam Inequality Report 2025</a>
+			</p>
+		</div>
+		<div class="col-charts">
+			<figure class="chart-box reveal">
+				<figcaption class="chart-title">
+					US Wealth Distribution<button
+						type="button"
+						class="cite-ref"
+						aria-label="View source: US Federal Reserve 2024"
+						aria-expanded="false"
+						data-source="US Federal Reserve DFA, Q1 2024"
+						data-url="https://www.federalreserve.gov/releases/z1/dataviz/dfa/distribute/chart/"
+					>*</button>
+				</figcaption>
+				<div role="img" aria-label="Bar chart showing US wealth distribution: Top 1% owns 31%, Next 9% owns 37%, Next 40% owns 30%, Bottom 50% owns 2%">
+					<BarChart id="wealth-distribution-chart" items={wealthDistributionData} outsideValueThreshold={5} />
+				</div>
+			</figure>
+			<figure class="chart-box reveal" style="transition-delay: 0.12s">
+				<figcaption class="chart-title">
+					Wealth Gini Coefficient by Country
+				</figcaption>
+				<div
+					id="gini-desktop-chart"
+					class="desktop-chart"
+					role="img"
+					aria-label="Wealth Gini coefficients by country (Credit Suisse/UBS 2021): France 0.70, UK 0.71, Germany 0.79, USA 0.85, Sweden 0.88, South Africa 0.89, Brazil 0.89. Higher values indicate greater wealth inequality. USA and South Africa are highlighted as extreme cases."
+				>
+					<GiniChart />
+				</div>
+				<div id="gini-mobile-chart" class="mobile-chart" role="img" aria-label="Bar chart comparing wealth Gini coefficients across countries">
+					<BarChart id="gini-mobile-bars" items={mobileData.gini} />
+				</div>
+				<table class="sr-only">
+					<caption>Wealth Gini Coefficient by Country</caption>
+					<thead><tr><th>Country</th><th>Gini</th></tr></thead>
+					<tbody>
+						<tr><td>Germany</td><td>0.67</td></tr>
+						<tr><td>France</td><td>0.70</td></tr>
+						<tr><td>Sweden</td><td>0.74</td></tr>
+						<tr><td>Brazil</td><td>0.78</td></tr>
+						<tr><td>UK</td><td>0.81</td></tr>
+						<tr><td>USA</td><td>0.85</td></tr>
+						<tr><td>South Africa</td><td>0.91</td></tr>
+					</tbody>
+				</table>
+			</figure>
+		</div>
+	</div>
+</section>

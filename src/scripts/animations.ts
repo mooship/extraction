@@ -27,3 +27,5 @@ export function initAnimations(): void {
 		el.classList.add("visible");
 	}
 }
+
+document.addEventListener("DOMContentLoaded", initAnimations);

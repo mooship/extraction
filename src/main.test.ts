@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { mockMatchMedia } from "./__mocks__/setup";
-import { initNavToggle, initTickerPause } from "./main";
+import { initNavToggle } from "./scripts/nav";
+import { initTickerPause } from "./scripts/ticker";
 
 function buildNavFixture() {
 	document.body.textContent = "";
