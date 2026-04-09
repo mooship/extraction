@@ -2,11 +2,10 @@ function initChartAnimations(): void {
 	const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 	if (reduced) {
-		for (const fill of document.querySelectorAll<HTMLElement>(".bar-fill")) {
-			fill.style.width = `${fill.dataset.width ?? "0"}%`;
-		}
 		return;
 	}
+
+	document.documentElement.classList.add("js-animate");
 
 	const barObserver = new IntersectionObserver(
 		(entries) => {

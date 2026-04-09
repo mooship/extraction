@@ -68,12 +68,10 @@
 	}
 
 	.bar-fill {
-		width: var(--target-width) !important;
 		transition: none;
 	}
 
 	.gini-bar {
-		transform: scaleY(1);
 		transition: none;
 	}
 
@@ -88,7 +86,6 @@
 	}
 
 	.treemap-rect {
-		transform: scaleY(1);
 		transition: none;
 	}
 
