@@ -7,13 +7,13 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.fontsource(),
-			name: "Fraunces Variable",
+			name: "Fraunces",
 			cssVariable: "--font-display",
 			fallbacks: ["Georgia", "Times New Roman"],
 		},
 		{
 			provider: fontProviders.fontsource(),
-			name: "Inter Variable",
+			name: "Inter",
 			cssVariable: "--font-body",
 			fallbacks: ["Arial", "Helvetica Neue"],
 		},

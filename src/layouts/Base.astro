@@ -1,4 +1,6 @@
 ---
+import { Font } from "astro:assets";
+
 interface Props {
 	title: string;
 	description: string;
@@ -37,6 +39,8 @@ const { title, description, canonicalUrl, ogImage } = Astro.props;
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		{ogImage && <meta name="twitter:image" content={ogImage} />}
+		<Font cssVariable="--font-display" />
+		<Font cssVariable="--font-body" />
 		<slot name="head" />
 	</head>
 	<body>

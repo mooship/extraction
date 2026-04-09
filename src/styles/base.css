@@ -24,8 +24,6 @@
 	--semantic-green: #2e7d32;
 	--semantic-red: #c62828;
 
-	--font-display: "Fraunces Variable", Georgia, serif;
-	--font-body: "Inter Variable", system-ui, sans-serif;
 	--font-ui: var(--font-body);
 
 	--duration-fast: 0.3s;
