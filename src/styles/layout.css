@@ -59,3 +59,15 @@ section {
 #public {
 	background: var(--bg-section-alt);
 }
+
+.chart-box + .source {
+	margin-top: 12px;
+}
+
+.source + .two-col {
+	margin-top: 2rem;
+}
+
+.global-south-callout + .source {
+	margin-top: 12px;
+}
