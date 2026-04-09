@@ -3,6 +3,8 @@ export function initAnimations(): void {
 		return;
 	}
 
+	document.documentElement.classList.add("js-ready");
+
 	const observer = new IntersectionObserver(
 		(entries) => {
 			for (const entry of entries) {

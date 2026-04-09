@@ -7,7 +7,8 @@
 	"packageManager": "pnpm@10.29.3",
 	"scripts": {
 		"dev": "astro dev",
-		"build": "astro check && astro build",
+		"check": "astro check",
+		"build": "astro build",
 		"preview": "astro preview",
 		"biome:fix": "biome format --write . && biome lint --write .",
 		"test": "vitest run",
@@ -19,8 +20,6 @@
 		"@types/d3-scale": "^4.0.9",
 		"@types/d3-shape": "^3.1.8",
 		"@vitest/coverage-v8": "^4.1.0",
-		"d3-scale": "^4.0.2",
-		"d3-shape": "^3.2.0",
 		"happy-dom": "^20.8.9",
 		"lefthook": "^2.1.4",
 		"typescript": "^6.0.2",
@@ -33,6 +32,8 @@
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "^3.7.2",
-		"astro": "^6.1.5"
+		"astro": "^6.1.5",
+		"d3-scale": "^4.0.2",
+		"d3-shape": "^3.2.0"
 	}
 }
