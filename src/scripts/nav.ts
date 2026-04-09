@@ -58,9 +58,7 @@ export function initNavToggle(): void {
 	});
 
 	for (const link of links) {
-		link.addEventListener("click", () => {
-			closeNav();
-		});
+		link.addEventListener("click", closeNav);
 	}
 }
 

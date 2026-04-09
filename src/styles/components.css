@@ -452,15 +452,23 @@ footer {
 	margin-top: 12px;
 }
 
-footer a {
+.footer-meta a,
+.footer-sources a {
 	color: var(--text-muted);
 	text-decoration: underline;
 	text-underline-offset: 3px;
 }
 
-footer a:hover,
-footer a:focus-visible {
+.footer-meta a:hover,
+.footer-meta a:focus-visible,
+.footer-sources a:hover,
+.footer-sources a:focus-visible {
 	color: var(--fg);
+}
+
+.footer-sources summary:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
 }
 
 #action {
