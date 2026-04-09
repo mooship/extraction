@@ -36,5 +36,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ matrix.node-version }}-astro-${{ hashFiles('pnpm-lock.yaml', 'astro.config.*', 'tsconfig*.json') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-astro-
+      - name: Type check
+        run: pnpm check
       - run: pnpm build
       - run: pnpm test
