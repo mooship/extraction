@@ -56,4 +56,4 @@ export function initCounters(): void {
 	}
 }
 
-window.addEventListener("load", initCounters);
+document.addEventListener("DOMContentLoaded", initCounters);
