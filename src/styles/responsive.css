@@ -179,7 +179,7 @@
 	}
 
 	.bar-label {
-		width: 62px;
+		min-width: 62px;
 	}
 
 	.stat-box {
@@ -191,7 +191,7 @@
 	}
 
 	.mobile-chart .bar-label {
-		width: 90px;
+		min-width: 90px;
 		text-align: left;
 		text-transform: none;
 		letter-spacing: 0.4px;
