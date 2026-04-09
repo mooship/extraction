@@ -1,23 +1,3 @@
-function smoothScrollTo(target: HTMLElement): void {
-	const start = window.scrollY;
-	const end = target.getBoundingClientRect().top + start;
-	const distance = end - start;
-	const duration = Math.min(1200, Math.max(600, Math.abs(distance) * 0.4));
-	const startTime = performance.now();
-
-	function tick(now: number): void {
-		const elapsed = now - startTime;
-		const t = Math.min(elapsed / duration, 1);
-		const ease = t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2;
-		window.scrollTo(0, start + distance * ease);
-		if (t < 1) {
-			requestAnimationFrame(tick);
-		}
-	}
-
-	requestAnimationFrame(tick);
-}
-
 export function initNavToggle(): void {
 	const nav = document.querySelector<HTMLElement>("nav");
 	const btn = document.querySelector<HTMLButtonElement>(".nav-toggle");
@@ -78,16 +58,8 @@ export function initNavToggle(): void {
 	});
 
 	for (const link of links) {
-		link.addEventListener("click", (e) => {
-			const href = link.getAttribute("href");
-			const target = href ? document.querySelector<HTMLElement>(href) : null;
-			if (target) {
-				e.preventDefault();
-				closeNav();
-				requestAnimationFrame(() => smoothScrollTo(target));
-			} else {
-				closeNav();
-			}
+		link.addEventListener("click", () => {
+			closeNav();
 		});
 	}
 }
