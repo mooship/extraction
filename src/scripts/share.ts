@@ -27,25 +27,20 @@ function initShareButtons(): void {
 				}
 			}
 
+			const span = btn.querySelector("span");
+
 			try {
 				await navigator.clipboard.writeText(url);
-				const span = btn.querySelector("span");
-				if (span) {
-					span.textContent = "Copied!";
-					clearTimeout(resetTimer);
-					resetTimer = setTimeout(() => {
-						span.textContent = "Share";
-					}, 2000);
-				}
+				if (span) span.textContent = "Copied!";
 			} catch {
-				const span = btn.querySelector("span");
-				if (span) {
-					span.textContent = "Copy failed";
-					clearTimeout(resetTimer);
-					resetTimer = setTimeout(() => {
-						span.textContent = "Share";
-					}, 2000);
-				}
+				if (span) span.textContent = "Copy failed";
+			}
+
+			if (span) {
+				clearTimeout(resetTimer);
+				resetTimer = setTimeout(() => {
+					span.textContent = "Share";
+				}, 2000);
 			}
 		});
 
