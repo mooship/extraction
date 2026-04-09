@@ -36,7 +36,11 @@ section {
 .col-text {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: 16px;
+}
+
+.col-text > p {
+	margin-bottom: 8px;
 }
 
 .col-charts {
