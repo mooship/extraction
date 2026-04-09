@@ -18,11 +18,11 @@ section {
 }
 
 .labor-layout {
-	grid-template-columns: 1.3fr 1fr;
+	grid-template-columns: 1fr 1.3fr;
 }
 
 .ecology-layout {
-	grid-template-columns: 1fr 1.3fr;
+	grid-template-columns: 1fr 1.2fr;
 }
 
 .tax-layout {
@@ -30,7 +30,7 @@ section {
 }
 
 .imperialism-layout {
-	grid-template-columns: 1fr 1.3fr;
+	grid-template-columns: 1.3fr 1fr;
 }
 
 .col-text {
