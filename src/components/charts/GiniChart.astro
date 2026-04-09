@@ -1,21 +1,28 @@
 ---
+import { scaleBand, scaleLinear } from "d3-scale";
 import { giniDesktopData } from "../../data/charts";
 
 const yTop = 10;
 const yBase = 170;
-const min = 0.6;
-const max = 1;
-const range = max - min;
+
+const xScale = scaleBand()
+	.domain(giniDesktopData.map((d) => d.label))
+	.range([20, 440])
+	.padding(0.35);
+
+const yScale = scaleLinear().domain([0.6, 1.0]).range([yBase, yTop]);
+
+const bandwidth = xScale.bandwidth();
 
 const bars = giniDesktopData.map((item, i) => {
-	const x = 20 + i * 60;
-	const width = 38;
-	const height = ((item.value - min) / range) * (yBase - yTop);
-	const fullY = Math.round(yBase - height);
-	const fullH = Math.round(height);
-	const labelX = x + width / 2;
-	return { ...item, x, width, fullY, fullH, labelX, i };
+	const x = xScale(item.label) ?? 0;
+	const barY = Math.round(yScale(item.value));
+	const barH = Math.round(yBase - barY);
+	const labelX = x + bandwidth / 2;
+	return { ...item, x, width: bandwidth, fullY: barY, fullH: barH, labelX, i };
 });
+
+const gridValues = [1.0, 0.9, 0.8, 0.7, 0.6];
 ---
 
 <svg
@@ -31,16 +38,14 @@ const bars = giniDesktopData.map((item, i) => {
 		Sweden 0.74, Brazil 0.78, UK 0.81, USA 0.85, South Africa 0.91. Higher
 		values indicate greater inequality.
 	</desc>
-	<line x1="18" y1="10" x2="450" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
-	<line x1="18" y1="50" x2="450" y2="50" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
-	<line x1="18" y1="90" x2="450" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
-	<line x1="18" y1="130" x2="450" y2="130" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
-	<line x1="18" y1="170" x2="450" y2="170" stroke="#333" stroke-width="1" />
-	<text x="14" y="13" fill="#888" font-size="8" text-anchor="end">1.0</text>
-	<text x="14" y="53" fill="#888" font-size="8" text-anchor="end">0.9</text>
-	<text x="14" y="93" fill="#888" font-size="8" text-anchor="end">0.8</text>
-	<text x="14" y="133" fill="#888" font-size="8" text-anchor="end">0.7</text>
-	<text x="14" y="173" fill="#888" font-size="8" text-anchor="end">0.6</text>
+	{gridValues.map((v) => (
+		<line x1="18" y1={yScale(v)} x2="450" y2={yScale(v)} stroke={v === 0.6 ? "#333" : "#1a1a1a"} stroke-width="1" stroke-dasharray={v === 0.6 ? undefined : "4,3"} />
+	))}
+	{gridValues.map((v) => (
+		<text x="14" y={yScale(v) + 3} fill="#888" font-size="8" text-anchor="end">
+			{v.toFixed(1)}
+		</text>
+	))}
 	{bars.map((bar) => (
 		<>
 			<rect

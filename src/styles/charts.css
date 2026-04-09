@@ -42,7 +42,7 @@
 	text-transform: uppercase;
 	letter-spacing: 0.03em;
 	color: var(--text-muted);
-	width: 80px;
+	min-width: 80px;
 	text-align: right;
 	flex-shrink: 0;
 }

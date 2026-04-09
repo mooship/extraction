@@ -16,7 +16,11 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.8",
+		"@types/d3-scale": "^4.0.9",
+		"@types/d3-shape": "^3.1.8",
 		"@vitest/coverage-v8": "^4.1.0",
+		"d3-scale": "^4.0.2",
+		"d3-shape": "^3.2.0",
 		"happy-dom": "^20.8.9",
 		"lefthook": "^2.1.4",
 		"typescript": "^6.0.2",

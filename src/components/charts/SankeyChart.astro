@@ -1,20 +1,26 @@
 ---
+import { linkHorizontal } from "d3-shape";
 import { sankeyFlows } from "../../data/charts";
 
-const leftFlows = sankeyFlows.filter((f) => f.direction === "left");
-const rightFlows = sankeyFlows.filter((f) => f.direction === "right");
+const sourceX = 80;
+const targetX = 520;
 
-const leftLabels = leftFlows.map((flow) => {
-	const pathParts = flow.path.split(",");
-	const startY = pathParts[1] ? Number.parseInt(pathParts[1], 10) : 0;
-	return { ...flow, y: startY + 4 };
-});
+const linkGen = linkHorizontal<(typeof sankeyFlows)[number], [number, number]>()
+	.source((d) =>
+		d.direction === "left" ? [sourceX, d.sourceY] : [targetX, d.sourceY],
+	)
+	.target((d) =>
+		d.direction === "left" ? [targetX, d.targetY] : [sourceX, d.targetY],
+	);
 
-const rightLabels = rightFlows.map((flow) => {
-	const parts = flow.path.match(/(\d+),(\d+)$/);
-	const y = parts ? Number.parseInt(parts[2], 10) : 235;
-	return { ...flow, y: y + 4 };
-});
+const flows = sankeyFlows.map((flow) => ({
+	...flow,
+	path: linkGen(flow) ?? "",
+	labelY: (flow.direction === "left" ? flow.sourceY : flow.targetY) + 4,
+}));
+
+const leftFlows = flows.filter((f) => f.direction === "left");
+const rightFlows = flows.filter((f) => f.direction === "right");
 ---
 
 <svg
@@ -34,7 +40,7 @@ const rightLabels = rightFlows.map((flow) => {
 	<text x="40" y="32" fill="var(--semantic-red)" font-size="10" font-weight="bold" text-anchor="middle">SOUTH</text>
 	<text x="560" y="20" fill="var(--text-muted)" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text>
 	<text x="560" y="32" fill="var(--text-muted)" font-size="10" font-weight="bold" text-anchor="middle">NORTH</text>
-	{sankeyFlows.map((flow) => (
+	{flows.map((flow) => (
 		<path
 			id={`sankey-${flow.label.toLowerCase().replace(/\s+/g, "-")}`}
 			class="sankey-path"
@@ -48,10 +54,10 @@ const rightLabels = rightFlows.map((flow) => {
 	))}
 	<polygon points="85,55 95,50 95,60" fill="var(--accent)" opacity="0.6" />
 	<polygon points="515,220 505,215 505,225" fill="var(--semantic-green)" opacity="0.6" />
-	{leftLabels.map((flow) => (
+	{leftFlows.map((flow) => (
 		<text
 			x="85"
-			y={flow.y}
+			y={flow.labelY}
 			fill="var(--fg)"
 			font-size="8"
 			paint-order="stroke"
@@ -62,10 +68,10 @@ const rightLabels = rightFlows.map((flow) => {
 			{flow.label}: {flow.displayValue}
 		</text>
 	))}
-	{rightLabels.map((flow) => (
+	{rightFlows.map((flow) => (
 		<text
 			x="75"
-			y={flow.y}
+			y={flow.labelY}
 			fill="var(--semantic-green)"
 			font-size="8"
 			paint-order="stroke"
