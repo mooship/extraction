@@ -15,20 +15,23 @@ const pieLayout = pie<DonutSegment>()
 
 const arcs = pieLayout(donutData);
 
-const segments = arcs.map((arc, i) => {
+const slices = arcs.map((arc, i) => {
 	const segLen =
 		((arc.endAngle - arc.startAngle) / (2 * Math.PI)) * circumference;
 	const dashArray = `${segLen} ${circumference - segLen}`;
 	const dashOffset = -(arc.startAngle / (2 * Math.PI)) * circumference;
-	return { ...arc.data, dashArray, dashOffset, i };
-});
-
-const labels = arcs.map((arc) => {
 	const midAngle = (arc.startAngle + arc.endAngle) / 2 - Math.PI / 2;
 	const lx = cx + labelRadius * Math.cos(midAngle);
 	const ly = cy + labelRadius * Math.sin(midAngle);
-	const anchor = lx > cx ? "start" : "end";
-	return { ...arc.data, lx: Math.round(lx), ly: Math.round(ly), anchor };
+	return {
+		...arc.data,
+		dashArray,
+		dashOffset,
+		i,
+		lx: Math.round(lx),
+		ly: Math.round(ly),
+		anchor: (lx > cx ? "start" : "end") as "start" | "end",
+	};
 });
 ---
 
@@ -45,31 +48,31 @@ const labels = arcs.map((arc) => {
 		23%, Netherlands 22%, Bermuda/Cayman 18%, Luxembourg 15%, Ireland 12%,
 		Other 4%.
 	</desc>
-	{segments.map((seg) => (
+	{slices.map((s) => (
 		<circle
 			class="donut-segment"
-			data-index={seg.i}
-			data-dasharray={seg.dashArray}
+			data-index={s.i}
+			data-dasharray={s.dashArray}
 			cx={cx}
 			cy={cy}
 			r={r}
 			fill="none"
-			stroke={seg.color}
+			stroke={s.color}
 			stroke-width="60"
-			stroke-dasharray={seg.dashArray}
-			stroke-dashoffset={seg.dashOffset}
+			stroke-dasharray={s.dashArray}
+			stroke-dashoffset={s.dashOffset}
 			transform={`rotate(-90 ${cx} ${cy})`}
 		/>
 	))}
-	{labels.map((label) => (
+	{slices.map((s) => (
 		<text
-			x={label.lx}
-			y={label.ly}
+			x={s.lx}
+			y={s.ly}
 			fill="#888"
 			font-size="7"
-			text-anchor={label.anchor}
+			text-anchor={s.anchor}
 		>
-			{label.label} ({label.percent}%)
+			{s.label} ({s.percent}%)
 		</text>
 	))}
 </svg>
