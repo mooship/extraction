@@ -10,9 +10,14 @@ const axisYears = [1913, 1929, 1945, 1970, 1980, 2000, 2025];
 const filteredYears = historySeriesData.filter((point) =>
 	axisYears.includes(point.year),
 );
-const crash = historySeriesData.find((point) => point.year === 1929)!;
-const peak = historySeriesData.find((point) => point.year === 1970)!;
-const recent = historySeriesData.find((point) => point.year === 2025)!;
+const findYear = (year: number) => {
+	const point = historySeriesData.find((p) => p.year === year);
+	if (!point) throw new Error(`Missing history data for ${year}`);
+	return point;
+};
+const crash = findYear(1929);
+const peak = findYear(1970);
+const recent = findYear(2025);
 ---
 
 <svg
