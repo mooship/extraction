@@ -46,4 +46,4 @@ export function initLines(): void {
 	}
 }
 
-window.addEventListener("load", initLines);
+document.addEventListener("DOMContentLoaded", initLines);
