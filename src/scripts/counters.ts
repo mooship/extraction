@@ -56,4 +56,8 @@ export function initCounters(): void {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", initCounters);
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", initCounters);
+} else {
+	initCounters();
+}

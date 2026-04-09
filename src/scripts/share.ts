@@ -48,4 +48,8 @@ function initShareButtons(): void {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", initShareButtons);
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", initShareButtons);
+} else {
+	initShareButtons();
+}

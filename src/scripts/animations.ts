@@ -30,4 +30,8 @@ export function initAnimations(): void {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", initAnimations);
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", initAnimations);
+} else {
+	initAnimations();
+}

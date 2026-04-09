@@ -46,4 +46,8 @@ export function initLines(): void {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", initLines);
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", initLines);
+} else {
+	initLines();
+}

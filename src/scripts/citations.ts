@@ -89,4 +89,8 @@ export function initCitations(): void {
 	});
 }
 
-document.addEventListener("DOMContentLoaded", initCitations);
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", initCitations);
+} else {
+	initCitations();
+}
