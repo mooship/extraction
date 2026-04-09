@@ -58,7 +58,19 @@ export function initNavToggle(): void {
 	});
 
 	for (const link of links) {
-		link.addEventListener("click", closeNav);
+		link.addEventListener("click", (e) => {
+			const href = link.getAttribute("href");
+			const target = href ? document.querySelector(href) : null;
+			if (target) {
+				e.preventDefault();
+				closeNav();
+				requestAnimationFrame(() => {
+					target.scrollIntoView({ behavior: "smooth", block: "start" });
+				});
+			} else {
+				closeNav();
+			}
+		});
 	}
 }
 
