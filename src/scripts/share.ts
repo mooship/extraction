@@ -2,7 +2,7 @@ const SHARE_SVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" s
 
 function initShareButtons(): void {
 	const sections = document.querySelectorAll<HTMLElement>(
-		"#wealth, #history, #tax, #labor, #housing, #imperialism, #ecology, #public",
+		"#wealth, #tax, #labor, #imperialism, #ecology, #public",
 	);
 
 	for (const section of sections) {

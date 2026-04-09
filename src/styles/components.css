@@ -150,58 +150,6 @@ nav {
 	display: block;
 }
 
-.ticker-wrap {
-	background: var(--accent);
-	overflow: hidden;
-	padding: 10px 0;
-	white-space: nowrap;
-	position: relative;
-}
-
-.ticker {
-	display: inline-flex;
-	will-change: transform;
-	animation: ticker-scroll 120s linear infinite;
-}
-
-.ticker span {
-	font-family: var(--font-ui);
-	font-size: 0.875rem;
-	font-weight: 600;
-	letter-spacing: 0.06em;
-	color: var(--accent-fg);
-	padding-right: 40px;
-}
-
-.ticker-pause {
-	position: absolute;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	padding: 0 18px;
-	min-width: 44px;
-	min-height: 44px;
-	background: color-mix(in srgb, var(--accent) 80%, black);
-	border: none;
-	border-left: 1px solid color-mix(in srgb, var(--accent) 60%, black);
-	color: var(--accent-fg);
-	cursor: pointer;
-	transition: background 0.2s;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.ticker-pause:hover,
-.ticker-pause:focus-visible {
-	background: color-mix(in srgb, var(--accent) 60%, black);
-}
-
-.ticker-wrap:hover .ticker,
-.ticker-wrap:focus-within .ticker {
-	animation-play-state: paused;
-}
-
 .country-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);

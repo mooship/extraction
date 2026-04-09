@@ -1,7 +1,8 @@
 ---
-import { ceoPayData, mobileData } from "../../data/charts";
+import { ceoPayData, homeownershipData, mobileData } from "../../data/charts";
 import BarChart from "../charts/BarChart.astro";
 import LaborChart from "../charts/LaborChart.astro";
+import TreemapChart from "../charts/TreemapChart.astro";
 ---
 
 <section id="labor" aria-labelledby="labor-heading">
@@ -35,7 +36,7 @@ import LaborChart from "../charts/LaborChart.astro";
 			</figure>
 		</div>
 		<div class="col-text">
-			<div class="section-label reveal-left">Labour vs Capital</div>
+			<div class="section-label reveal-left">Labour, Housing &amp; Rent</div>
 			<h2 id="labor-heading" class="reveal" style="transition-delay: 0.1s">
 				Workers Produce.<br />Capital Captures.
 			</h2>
@@ -43,13 +44,59 @@ import LaborChart from "../charts/LaborChart.astro";
 				Since 1980, the share of national income going to workers has
 				fallen in most major economies while the share captured by capital
 				owners has soared. This is not productivity — it is extraction.
-				The post-war social contract, forged through union power and
-				democratic pressure, has been systematically dismantled through
-				deregulation, union-busting, and offshoring to the Global South —
-				where weaker labour protections and lower wages allow capital to
-				extract even more — against the organised resistance of workers
-				who face the same logic without the same protections.
+				The same logic turns shelter into speculation: housing has been
+				transformed from a basic human need into a financial asset class,
+				and homeownership rates are collapsing for younger cohorts across
+				the Anglosphere while rents consume an ever-larger share of
+				wages already suppressed by the dynamics shown here.
 			</p>
+			<div class="stat-grid reveal">
+				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-0">
+					<div class="num" data-target="50" data-prefix="" data-suffix="%">0%</div>
+					<div class="label" id="stat-label-housing-0">
+						Of US renters spend 30%+ of income on rent — Harvard JCHS 2025<button type="button" class="cite-ref" aria-label="View source: Harvard JCHS 2025" aria-expanded="false" data-source="Harvard JCHS, State of the Nation's Housing, 2025" data-url="https://www.jchs.harvard.edu/state-nations-housing-2025">*</button>
+					</div>
+				</div>
+				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-1">
+					<div class="num" data-target="13" data-prefix="" data-suffix=":1">0:1</div>
+					<div class="label" id="stat-label-housing-1">London house price to earnings ratio — was around 4:1 in 1997</div>
+				</div>
+				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-2">
+					<div class="num" data-target="380" data-prefix="$" data-suffix="T">$0T</div>
+					<div class="label" id="stat-label-housing-2">
+						Global real estate value — the largest asset class on earth (2021, Savills)<button type="button" class="cite-ref" aria-label="View source: Savills 2021" aria-expanded="false" data-source="Savills, Around the World in Dollars and Cents, 2021" data-url="https://www.savills.com/impacts/market-trends/the-total-value-of-global-real-estate.html">*</button>
+					</div>
+				</div>
+				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-3">
+					<div class="num" data-target="1" data-prefix="" data-suffix="M">0M</div>
+					<div class="label" id="stat-label-housing-3">Nearly 1 million empty homes in England while over 350,000 are homeless (Action on Empty Homes 2024; Shelter 2024)</div>
+				</div>
+			</div>
+			<figure class="chart-box reveal">
+				<figcaption class="chart-title">Homeownership Rate by Age — UK, 1997 vs 2025</figcaption>
+				<div role="img" aria-label="Bar chart showing UK homeownership rate decline for 25-34 year-olds: around 59% in the early 2000s versus 28% in 2025">
+					<BarChart id="homeownership-chart" items={homeownershipData} />
+				</div>
+			</figure>
+			<figure class="chart-box reveal" style="transition-delay: 0.12s">
+				<figcaption class="chart-title">Global Asset Classes by Value</figcaption>
+				<div id="asset-treemap-desktop-chart" class="desktop-chart" role="img" aria-label="Treemap showing global asset classes by value: Real estate dominates at $380 trillion">
+					<TreemapChart />
+				</div>
+				<div id="asset-treemap-mobile-chart" class="mobile-chart" role="img" aria-label="Bar chart showing global asset classes by value">
+					<BarChart id="treemap-mobile-bars" items={mobileData.treemap} outsideValueThreshold={5} />
+				</div>
+				<table class="sr-only">
+					<caption>Global Asset Classes by Value</caption>
+					<thead><tr><th>Asset Class</th><th>Value</th></tr></thead>
+					<tbody>
+						<tr><td>Real Estate</td><td>$380T</td></tr>
+						<tr><td>Equities</td><td>$109T</td></tr>
+						<tr><td>Government Debt</td><td>$66T</td></tr>
+						<tr><td>Gold</td><td>$14T</td></tr>
+					</tbody>
+				</table>
+			</figure>
 			<div class="pull-quote reveal">
 				<blockquote>
 					"The share of income going to labour has declined in most
@@ -58,19 +105,15 @@ import LaborChart from "../charts/LaborChart.astro";
 				</blockquote>
 				<cite>— ILO World Employment and Social Outlook, 2024</cite>
 			</div>
-			<div class="pull-quote reveal" style="transition-delay: 0.1s">
-				<blockquote>
-					"The accumulation of capital at the centre is inseparable from
-					the dispossession and impoverishment of the periphery."
-				</blockquote>
-				<cite>— Samir Amin, <em>Unequal Development</em>, 1976</cite>
-			</div>
+			<p class="source">
+				Source:
+				<a href="https://www.bls.gov" target="_blank" rel="noopener noreferrer">BLS / BEA</a> ·
+				<a href="https://www.epi.org" target="_blank" rel="noopener noreferrer">Economic Policy Institute</a> ·
+				<a href="https://www.ilo.org/global/research/global-reports/weso/lang--en/index.htm" target="_blank" rel="noopener noreferrer">ILO World Employment and Social Outlook 2024</a> ·
+				<a href="https://www.jchs.harvard.edu" target="_blank" rel="noopener noreferrer">Harvard JCHS</a> ·
+				<a href="https://www.ons.gov.uk" target="_blank" rel="noopener noreferrer">ONS</a> ·
+				<a href="https://www.savills.com/research_articles/255800/334844-0" target="_blank" rel="noopener noreferrer">Savills Global Research</a>
+			</p>
 		</div>
 	</div>
-	<p class="source">
-		Source:
-		<a href="https://www.bls.gov" target="_blank" rel="noopener noreferrer">BLS / BEA</a> ·
-		<a href="https://www.epi.org" target="_blank" rel="noopener noreferrer">Economic Policy Institute</a> ·
-		<a href="https://www.ilo.org/global/research/global-reports/weso/lang--en/index.htm" target="_blank" rel="noopener noreferrer">ILO World Employment and Social Outlook 2024</a>
-	</p>
 </section>

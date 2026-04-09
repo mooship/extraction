@@ -1,7 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { mockMatchMedia } from "./__mocks__/setup";
 import { initNavToggle } from "./scripts/nav";
-import { initTickerPause } from "./scripts/ticker";
 
 function buildNavFixture() {
 	document.body.textContent = "";
@@ -18,7 +17,6 @@ function buildNavFixture() {
 	for (const [href, text] of [
 		["#wealth", "Wealth"],
 		["#labor", "Labour"],
-		["#history", "History"],
 	]) {
 		const li = document.createElement("li");
 		const a = document.createElement("a");
@@ -29,20 +27,6 @@ function buildNavFixture() {
 	}
 	nav.appendChild(ul);
 	document.body.appendChild(nav);
-}
-
-function buildTickerFixture() {
-	document.body.textContent = "";
-	const ticker = document.createElement("div");
-	ticker.className = "ticker";
-	ticker.textContent = "content";
-	document.body.appendChild(ticker);
-
-	const btn = document.createElement("button");
-	btn.className = "ticker-pause";
-	btn.setAttribute("aria-pressed", "false");
-	btn.setAttribute("aria-label", "Pause ticker");
-	document.body.appendChild(btn);
 }
 
 describe("initNavToggle", () => {
@@ -144,45 +128,5 @@ describe("initNavToggle", () => {
 	it("does not throw when nav elements are absent", () => {
 		document.body.textContent = "";
 		expect(() => initNavToggle()).not.toThrow();
-	});
-});
-
-describe("initTickerPause", () => {
-	beforeEach(() => {
-		mockMatchMedia(false);
-		buildTickerFixture();
-		initTickerPause();
-	});
-
-	it("pauses the ticker and updates aria attributes on first click", () => {
-		const btn = document.querySelector<HTMLButtonElement>(
-			".ticker-pause",
-		) as HTMLButtonElement;
-		const ticker = document.querySelector<HTMLElement>(
-			".ticker",
-		) as HTMLElement;
-		btn.click();
-		expect(ticker.style.animationPlayState).toBe("paused");
-		expect(btn.getAttribute("aria-pressed")).toBe("true");
-		expect(btn.getAttribute("aria-label")).toBe("Play ticker");
-	});
-
-	it("resumes the ticker and updates aria attributes on second click", () => {
-		const btn = document.querySelector<HTMLButtonElement>(
-			".ticker-pause",
-		) as HTMLButtonElement;
-		const ticker = document.querySelector<HTMLElement>(
-			".ticker",
-		) as HTMLElement;
-		btn.click();
-		btn.click();
-		expect(ticker.style.animationPlayState).toBe("running");
-		expect(btn.getAttribute("aria-pressed")).toBe("false");
-		expect(btn.getAttribute("aria-label")).toBe("Pause ticker");
-	});
-
-	it("does not throw when ticker elements are absent", () => {
-		document.body.textContent = "";
-		expect(() => initTickerPause()).not.toThrow();
 	});
 });
