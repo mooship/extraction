@@ -53,13 +53,13 @@ import BarChart from "../charts/BarChart.astro";
 				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-0">
 					<div class="num" data-target="71" data-prefix="" data-suffix="%">0%</div>
 					<div class="label" id="stat-label-eco-0">
-						Of global emissions since 1988 traced to just 100 corporations — including downstream combustion of their products<button type="button" class="cite-ref" aria-label="View source: CDP 2017" aria-expanded="false" data-source="CDP, Carbon Majors Database Report, 2017" data-url="https://www.cdp.net/en/articles/media/new-report-shows-just-100-companies-responsible-for-71-of-global-emissions">*</button>
+						Of global emissions since 1988 traced to just 100 corporations — including downstream combustion of their products<button type="button" class="cite-ref" aria-label="View source: CDP 2017" aria-controls="cite-popover" aria-expanded="false" data-source="CDP, Carbon Majors Database Report, 2017" data-url="https://www.cdp.net/en/articles/media/new-report-shows-just-100-companies-responsible-for-71-of-global-emissions">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-1">
 					<div class="num" data-target="7" data-prefix="$" data-suffix="T">$0T</div>
 					<div class="label" id="stat-label-eco-1">
-						In annual fossil fuel subsidies including unpriced environmental costs — more than global spending on education<button type="button" class="cite-ref" aria-label="View source: IMF 2025" aria-expanded="false" data-source="IMF, Fossil Fuel Subsidies 2025 Update" data-url="https://www.imf.org/en/Topics/climate-change/energy-subsidies">*</button>
+						In annual fossil fuel subsidies including unpriced environmental costs — more than global spending on education<button type="button" class="cite-ref" aria-label="View source: IMF 2025" aria-controls="cite-popover" aria-expanded="false" data-source="IMF, Fossil Fuel Subsidies 2025 Update" data-url="https://www.imf.org/en/Topics/climate-change/energy-subsidies">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-2">
@@ -73,7 +73,7 @@ import BarChart from "../charts/BarChart.astro";
 			</div>
 			<figure class="chart-box reveal">
 				<figcaption class="chart-title">
-					CO₂ Emissions Share by Global Income Group<button type="button" class="cite-ref" aria-label="View source: Oxfam 2025" aria-expanded="false" data-source="Oxfam, Carbon Inequality Kills, 2025" data-url="https://www.oxfam.org/en/research/carbon-inequality-kills">*</button>
+					CO₂ Emissions Share by Global Income Group&nbsp;<button type="button" class="cite-ref" aria-label="View source: Oxfam 2025" aria-controls="cite-popover" aria-expanded="false" data-source="Oxfam, Carbon Inequality Kills, 2025" data-url="https://www.oxfam.org/en/research/carbon-inequality-kills">*</button>
 				</figcaption>
 				<div role="img" aria-label="CO₂ emissions share by global income group (Oxfam Carbon Inequality Report 2025): Top 1%: 16%, Next 9%: 34%, Middle 40%: 42%, Bottom 50%: 8%. The wealthiest 10% account for 50% of all emissions.">
 					<BarChart id="emissions-chart" items={emissionsData} outsideValueThreshold={18} />

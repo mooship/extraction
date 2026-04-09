@@ -549,10 +549,16 @@ footer {
 	opacity: 1;
 }
 
-.back-to-top:hover,
+.back-to-top:hover {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
 .back-to-top:focus-visible {
 	border-color: var(--accent);
 	color: var(--accent);
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
 }
 
 .global-south-callout {
@@ -665,6 +671,13 @@ footer {
 .cite-ref:focus-visible {
 	outline: 2px solid var(--accent);
 	outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+	.cite-ref {
+		padding: 8px 10px;
+		margin: -8px -9px;
+	}
 }
 
 #cite-popover {

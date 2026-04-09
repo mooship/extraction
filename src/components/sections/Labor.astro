@@ -26,7 +26,7 @@ import TreemapChart from "../charts/TreemapChart.astro";
 				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-0">
 					<div class="num" data-target="50" data-prefix="" data-suffix="%">0%</div>
 					<div class="label" id="stat-label-housing-0">
-						Of US renters spend 30%+ of income on rent — Harvard JCHS 2025<button type="button" class="cite-ref" aria-label="View source: Harvard JCHS 2025" aria-expanded="false" data-source="Harvard JCHS, State of the Nation's Housing, 2025" data-url="https://www.jchs.harvard.edu/state-nations-housing-2025">*</button>
+						Of US renters spend 30%+ of income on rent — Harvard JCHS 2025<button type="button" class="cite-ref" aria-label="View source: Harvard JCHS 2025" aria-controls="cite-popover" aria-expanded="false" data-source="Harvard JCHS, State of the Nation's Housing, 2025" data-url="https://www.jchs.harvard.edu/state-nations-housing-2025">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-1">
@@ -36,7 +36,7 @@ import TreemapChart from "../charts/TreemapChart.astro";
 				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-2">
 					<div class="num" data-target="380" data-prefix="$" data-suffix="T">$0T</div>
 					<div class="label" id="stat-label-housing-2">
-						Global real estate value — the largest asset class on earth (2021, Savills)<button type="button" class="cite-ref" aria-label="View source: Savills 2021" aria-expanded="false" data-source="Savills, Around the World in Dollars and Cents, 2021" data-url="https://www.savills.com/impacts/market-trends/the-total-value-of-global-real-estate.html">*</button>
+						Global real estate value — the largest asset class on earth (2021, Savills)<button type="button" class="cite-ref" aria-label="View source: Savills 2021" aria-controls="cite-popover" aria-expanded="false" data-source="Savills, Around the World in Dollars and Cents, 2021" data-url="https://www.savills.com/impacts/market-trends/the-total-value-of-global-real-estate.html">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-3">
@@ -84,7 +84,7 @@ import TreemapChart from "../charts/TreemapChart.astro";
 			</figure>
 			<figure class="chart-box reveal" style="transition-delay: 0.12s">
 				<figcaption class="chart-title">
-					CEO-to-Worker Pay Ratio<button type="button" class="cite-ref" aria-label="View source: EPI 2024" aria-expanded="false" data-source="Economic Policy Institute, CEO Pay in 2023, 2024" data-url="https://www.epi.org/publication/ceo-pay-in-2023/">*</button>
+					CEO-to-Worker Pay Ratio&nbsp;<button type="button" class="cite-ref" aria-label="View source: EPI 2024" aria-controls="cite-popover" aria-expanded="false" data-source="Economic Policy Institute, CEO Pay in 2023, 2024" data-url="https://www.epi.org/publication/ceo-pay-in-2023/">*</button>
 				</figcaption>
 				<div role="img" aria-label="CEO-to-worker pay ratio in the USA (Economic Policy Institute): 1965: 21:1, 1989: 61:1, 2000: 380:1, 2023: 290:1. The ratio peaked at 399:1 in 2021.">
 					<BarChart id="ceo-pay-chart" items={ceoPayData} outsideValueThreshold={20} />
