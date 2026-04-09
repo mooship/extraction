@@ -43,7 +43,7 @@ export function initCounters(): void {
 				observer.unobserve(entry.target);
 			}
 		},
-		{ threshold: 0.5 },
+		{ threshold: 0.15 },
 	);
 
 	for (const box of document.querySelectorAll<HTMLElement>(".stat-box")) {

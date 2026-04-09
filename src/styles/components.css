@@ -675,8 +675,10 @@ footer {
 
 @media (max-width: 900px) {
 	.cite-ref {
-		padding: 8px 10px;
-		margin: -8px -9px;
+		display: inline-block;
+		padding: 12px;
+		margin: -12px -10px;
+		touch-action: manipulation;
 	}
 }
 

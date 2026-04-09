@@ -70,6 +70,13 @@ describe("initCounters", () => {
 		);
 	});
 
+	it("uses a low intersection threshold for mobile reliability", () => {
+		buildStatBox("50", "", "%");
+		initCounters();
+		const observer = getObservers()[0];
+		expect(observer.options?.threshold).toBeLessThanOrEqual(0.2);
+	});
+
 	it("defaults to 0 when data-target is absent", () => {
 		mockMatchMedia(true);
 		buildStatBox(null, "#", "");
