@@ -29,12 +29,12 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Lint
         run: pnpm exec biome check .
-      - name: Cache Vite cache
+      - name: Cache Astro
         uses: actions/cache@v5
         with:
-          path: node_modules/.vite
-          key: ${{ runner.os }}-node-${{ matrix.node-version }}-vite-${{ hashFiles('pnpm-lock.yaml', 'vite.config.*', 'tsconfig*.json') }}
+          path: node_modules/.astro
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-astro-${{ hashFiles('pnpm-lock.yaml', 'astro.config.*', 'tsconfig*.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-vite-
+            ${{ runner.os }}-node-${{ matrix.node-version }}-astro-
       - run: pnpm build
       - run: pnpm test

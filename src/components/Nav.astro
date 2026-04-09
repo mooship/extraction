@@ -1,0 +1,42 @@
+---
+interface Props {
+	isHome?: boolean;
+}
+
+const { isHome = true } = Astro.props;
+const prefix = isHome ? "" : "/";
+---
+
+<nav aria-label="Main navigation">
+	<a href={`${prefix}#hero`} class="nav-logo">Extraction</a>
+	<button
+		type="button"
+		class="nav-toggle"
+		aria-label="Open navigation"
+		aria-expanded="false"
+	>
+		<svg
+			width="20"
+			height="14"
+			viewBox="0 0 20 14"
+			fill="currentColor"
+			aria-hidden="true"
+		>
+			<rect x="0" y="0" width="20" height="2" />
+			<rect x="0" y="6" width="20" height="2" />
+			<rect x="0" y="12" width="20" height="2" />
+		</svg>
+	</button>
+	<ul class="nav-links">
+		<li><a href={`${prefix}#wealth`}>Wealth</a></li>
+		<li><a href={`${prefix}#history`}>History</a></li>
+		<li><a href={`${prefix}#tax`}>Tax</a></li>
+		<li><a href={`${prefix}#labor`}>Labour</a></li>
+		<li><a href={`${prefix}#housing`}>Housing</a></li>
+		<li><a href={`${prefix}#imperialism`}>Global South</a></li>
+		<li><a href={`${prefix}#ecology`}>Ecology</a></li>
+		<li><a href={`${prefix}#public`}>Public</a></li>
+		<li><a href={`${prefix}#manifesto`}>Manifesto</a></li>
+		<li><a href={`${prefix}#action`}>Action</a></li>
+	</ul>
+</nav>

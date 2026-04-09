@@ -1,0 +1,66 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	canonicalUrl: string;
+	ogImage?: string;
+}
+
+const { title, description, canonicalUrl, ogImage } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="color-scheme" content="dark light" />
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; font-src 'self'"
+		/>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalUrl} />
+		<meta name="theme-color" content="#0d6e70" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		{ogImage && <meta property="og:image" content={ogImage} />}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalUrl} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		{ogImage && <meta name="twitter:image" content={ogImage} />}
+		<slot name="head" />
+	</head>
+	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
+		<slot />
+		<script src="../scripts/nav.ts"></script>
+		<script src="../scripts/animations.ts"></script>
+		<script src="../scripts/counters.ts"></script>
+		<script src="../scripts/lines.ts"></script>
+		<script src="../scripts/chart-animations.ts"></script>
+		<script src="../scripts/citations.ts"></script>
+		<script src="../scripts/ticker.ts"></script>
+		<script src="../scripts/share.ts"></script>
+		<script src="../scripts/back-to-top.ts"></script>
+	</body>
+</html>
+
+<style is:global>
+	@import "../styles/base.css";
+	@import "../styles/typography.css";
+	@import "../styles/layout.css";
+	@import "../styles/components.css";
+	@import "../styles/charts.css";
+	@import "../styles/animations.css";
+	@import "../styles/accessibility.css";
+	@import "../styles/responsive.css";
+</style>

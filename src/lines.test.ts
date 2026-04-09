@@ -5,7 +5,7 @@ import {
 	mockMatchMedia,
 	triggerIntersection,
 } from "./__mocks__/setup";
-import { initLines } from "./lines";
+import { initLines } from "./scripts/lines";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 

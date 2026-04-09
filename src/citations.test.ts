@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { initCitations } from "./citations";
+import { initCitations } from "./scripts/citations";
 
 function buildFixture(): void {
 	document.body.textContent = "";

@@ -4,18 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## About
 
-Extraction is a data visualization site exploring wealth extraction and inequality, built with vanilla TypeScript and Vite. All charts are custom SVG — no charting libraries.
+Extraction is a data visualisation site exploring wealth extraction and inequality, built with Astro v6. All charts are custom SVG rendered at build time — no charting libraries.
 
 ## Commands
 
 ```bash
-pnpm dev             # Vite dev server
-pnpm build           # tsc + vite build
+pnpm dev             # Astro dev server
+pnpm build           # astro check + astro build
 pnpm preview         # Preview production build
 pnpm biome:fix       # Auto-fix all formatting and lint issues
 ```
 
-There are tests — run with `pnpm vitest run`. Run a single test file with `pnpm vitest run src/charts.test.ts`. TypeScript type-checking is done via `tsc --noEmit` (runs as part of `build`). Lefthook runs `biome check --write` on staged files automatically on pre-commit (fixed files are re-staged). Run `pnpm exec lefthook install` after cloning to activate hooks. Run Biome checks manually with `pnpm exec biome check src/ index.html`.
+There are tests — run with `pnpm vitest run`. Run a single test file with `pnpm vitest run src/animations.test.ts`. Type-checking is done via `astro check` (runs as part of `build`). Lefthook runs `biome check --write` on staged files automatically on pre-commit (fixed files are re-staged). Run `pnpm exec lefthook install` after cloning to activate hooks. Run Biome checks manually with `pnpm exec biome check src/`.
 
 ## Safety
 
@@ -23,21 +23,40 @@ There are tests — run with `pnpm vitest run`. Run a single test file with `pnp
 
 ## Architecture
 
-Single-page vanilla TypeScript site built with Vite. No framework. `index.html` defines page structure and chart mount points; `src/main.ts` is the entry point and imports `style.css` plus all modules.
+Static site built with Astro v6. Single scrollable page with anchor-linked sections, plus a privacy page. Charts are pre-rendered as SVG at build time from hardcoded data — visible without JavaScript.
 
-**Module responsibilities:**
-- `animations.ts` — `IntersectionObserver` scroll reveals. `.reveal` (translateY) and `.reveal-left` (translateX) elements start hidden; observer adds `.visible`. Hero elements are made visible immediately (100ms timeout). Checks `prefers-reduced-motion` and skips animation setup if set.
-- `counters.ts` — RAF-based counter animation on `.stat-box .num` elements. Reads `data-target`, `data-prefix`, `data-suffix`. Skips animation when `prefers-reduced-motion` is set.
-- `charts.ts` — Owns chart datasets and renders both desktop SVG and mobile bar chart variants into HTML containers. Chart types: horizontal bar charts, vertical Gini bars, donut chart (stroke-dasharray circles), treemap (squarified rects), and Sankey flow diagram (cubic bezier paths). Handles animation concerns: (1) `.bar-fill` widths are set to `data-width + '%'` on first `.chart-box` entering the viewport; (2) Gini SVG bars (`.gini-bar`) and treemap rects (`.treemap-rect`) start at `scaleY(0)` and are restored with a stagger; (3) donut segments start with `strokeDasharray: 0` and are restored on intersection.
-- `lines.ts` — Sets `strokeDashoffset = '0'` on SVG polylines and paths (`#labor-line`, `#capital-line`, `#hist-line`, and `#sankey-*` paths) when their parent SVG enters the viewport. CSS transitions handle the draw animation.
+**Directory structure:**
+- `src/pages/` — `index.astro` (main page) and `privacy.astro`
+- `src/layouts/Base.astro` — Shared HTML shell (`<html>`, `<head>`, meta, global CSS, client scripts)
+- `src/components/sections/` — One component per page section (Hero, Ticker, Wealth, History, Tax, Labor, Housing, Imperialism, Ecology, Public, Manifesto, Action)
+- `src/components/charts/` — Build-time SVG chart components (BarChart, GiniChart, LaborChart, HistoryChart, DonutChart, TreemapChart, SankeyChart)
+- `src/components/` — Shared UI (Nav, Footer, CitePopover, BackToTop)
+- `src/data/charts.ts` — All chart data constants, types, and helper functions (e.g. `buildMobileData()`)
+- `src/scripts/` — Client-side scripts (loaded via `<script>` tags in Base.astro)
+- `src/styles/` — Global CSS files
 
-**SVG charts are data-driven but still custom** — no D3, Chart.js, or Recharts. Desktop SVG geometry is generated in `charts.ts` and injected into mount points in `index.html`. Do not replace this with a charting library.
+**Client-side scripts** (in `src/scripts/`):
+- `animations.ts` — `IntersectionObserver` scroll reveals for `.reveal` and `.reveal-left` elements
+- `counters.ts` — RAF-based counter animation on `.stat-box .num` elements
+- `chart-animations.ts` — Bar fill, Gini bar, treemap rect, and donut segment entrance animations via IntersectionObserver
+- `lines.ts` — Stroke-dashoffset animation for SVG polylines/paths
+- `citations.ts` — Citation popover tooltip system
+- `nav.ts` — Mobile nav toggle with keyboard trapping, active nav highlighting
+- `ticker.ts` — Ticker pause/play and visibility change handling
+- `share.ts` — Per-section share buttons (Web Share API with clipboard fallback)
+- `back-to-top.ts` — Back-to-top button visibility and scroll
 
-**Animation contract:** CSS transitions/keyframes drive the actual motion. JS only toggles classes or sets properties; timing lives in CSS. The `prefers-reduced-motion` media query in `animations.css` disables all transitions and keyframe animations.
+**SVG charts are data-driven but still custom** — no D3, Chart.js, or Recharts. Chart geometry is computed in Astro component frontmatters and rendered as SVG in templates at build time. Do not replace this with a charting library.
 
-**Fonts** are served from `@fontsource-variable` npm packages (not Google CDN). `vite.config.ts` runs Fontaine to inject computed `@font-face` fallback rules at build time, eliminating layout shift. The two fonts are Fraunces Variable (display/headings) and Inter Variable (body and labels/UI). Font variables: `--font-display`, `--font-body`, `--font-ui` (body and UI both use Inter Variable).
+**Animation contract:** CSS transitions/keyframes drive the actual motion. JS only toggles classes or sets properties; timing lives in CSS. Chart animation initial states (e.g. `scaleY(0)` for bars) are set in `charts.css`. The `prefers-reduced-motion` media query in `animations.css` disables all transitions and keyframe animations.
 
-**Ticker** — seamless loop via duplicated content inside `.ticker`. JS in `main.ts` wires the `.ticker-pause` button. CSS pauses animation on hover/`:focus-within`.
+**Desktop/mobile chart swap** is handled via CSS in `responsive.css` — `.desktop-chart` and `.mobile-chart` toggle via `display: none` at the 900px breakpoint. No JavaScript needed.
+
+**Fonts** are configured via Astro v6's Fonts API (`fontProviders.fontsource()` in `astro.config.mjs`). Fraunces Variable (display/headings) and Inter Variable (body/UI). CSS variables: `--font-display`, `--font-body`, `--font-ui` (alias for `--font-body`).
+
+**Sitemap** is auto-generated by `@astrojs/sitemap` integration.
+
+**Ticker** — seamless loop via duplicated content inside `.ticker`. `ticker.ts` wires the `.ticker-pause` button. CSS pauses animation on hover/`:focus-within`.
 
 ## Conventions
 

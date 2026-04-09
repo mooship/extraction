@@ -63,7 +63,7 @@ export function initCitations(): void {
 		}, 350);
 	}
 
-	document.querySelectorAll<HTMLButtonElement>(".cite-ref").forEach((btn) => {
+	for (const btn of document.querySelectorAll<HTMLButtonElement>(".cite-ref")) {
 		btn.addEventListener("click", (e) => {
 			e.stopPropagation();
 			if (active === btn) {
@@ -72,7 +72,7 @@ export function initCitations(): void {
 				show(btn);
 			}
 		});
-	});
+	}
 
 	document.addEventListener("click", () => hide());
 	document.addEventListener("keydown", (e) => {
@@ -81,3 +81,5 @@ export function initCitations(): void {
 		}
 	});
 }
+
+document.addEventListener("DOMContentLoaded", initCitations);

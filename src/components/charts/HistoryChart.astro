@@ -1,0 +1,60 @@
+---
+import { historySeriesData, historyY } from "../../data/charts";
+
+const trendPoints = historySeriesData
+	.map((point) => `${point.x},${historyY(point.share)}`)
+	.join(" ");
+const lastPoint = historySeriesData[historySeriesData.length - 1];
+const areaPoints = `${trendPoints} ${lastPoint.x},225 50,225`;
+const axisYears = [1913, 1929, 1945, 1970, 1980, 2000, 2025];
+const filteredYears = historySeriesData.filter((point) =>
+	axisYears.includes(point.year),
+);
+const crash = historySeriesData.find((point) => point.year === 1929)!;
+const peak = historySeriesData.find((point) => point.year === 1970)!;
+const recent = historySeriesData.find((point) => point.year === 2025)!;
+---
+
+<svg
+	id="history-svg"
+	role="img"
+	aria-labelledby="history-svg-title"
+	viewBox="0 0 820 260"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<title id="history-svg-title">Top 1% Income Share — USA, 1913–2025</title>
+	<desc>
+		Line chart showing the top 1% income share peaked at 24% in 1929, fell to
+		10% by 1970 during the post-war egalitarian era, then rose again to 21% by
+		2025 under neoliberal policies.
+	</desc>
+	<rect x="50" y="10" width="212" height="215" fill="rgba(14,110,112,0.06)" />
+	<rect x="262" y="10" width="233" height="215" fill="rgba(76,175,76,0.05)" />
+	<rect x="495" y="10" width="305" height="215" fill="rgba(14,110,112,0.10)" />
+	<text x="60" y="25" fill="rgba(14,110,112,0.4)" font-size="8">GILDED AGE</text>
+	<text x="270" y="25" fill="rgba(76,175,76,0.4)" font-size="8">POST-WAR EGALITARIAN ERA</text>
+	<text x="505" y="25" fill="rgba(14,110,112,0.5)" font-size="8">NEOLIBERAL ASCENT</text>
+	<line x1="50" y1="45" x2="800" y2="45" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4" />
+	<line x1="50" y1="90" x2="800" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4" />
+	<line x1="50" y1="135" x2="800" y2="135" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4" />
+	<line x1="50" y1="180" x2="800" y2="180" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4" />
+	<line x1="50" y1="225" x2="800" y2="225" stroke="#333" stroke-width="1" />
+	<text x="44" y="48" fill="#888" font-size="8" text-anchor="end">30%</text>
+	<text x="44" y="93" fill="#888" font-size="8" text-anchor="end">25%</text>
+	<text x="44" y="138" fill="#888" font-size="8" text-anchor="end">20%</text>
+	<text x="44" y="183" fill="#888" font-size="8" text-anchor="end">15%</text>
+	<text x="44" y="228" fill="#888" font-size="8" text-anchor="end">10%</text>
+	{filteredYears.map((point) => (
+		<text x={point.x} y="243" fill="#888" font-size="8" text-anchor="middle">
+			{point.year}
+		</text>
+	))}
+	<polygon points={areaPoints} fill="rgba(14,110,112,0.08)" />
+	<polyline id="hist-line" points={trendPoints} fill="none" stroke="var(--accent)" stroke-width="2.5" />
+	<circle cx={crash.x} cy={historyY(crash.share)} r="5" style="fill: var(--accent)" />
+	<text x={crash.x + 6} y={historyY(crash.share) - 8} style="fill: var(--accent)" font-size="7">1929 Crash</text>
+	<circle cx={peak.x} cy={historyY(peak.share)} r="5" fill="#4caf4c" />
+	<text x={peak.x + 6} y={historyY(peak.share) - 7} fill="#4caf4c" font-size="7">Peak Equality</text>
+	<circle cx={recent.x} cy={historyY(recent.share)} r="5" style="fill: var(--accent)" />
+	<text x={recent.x - 38} y={historyY(recent.share) - 8} style="fill: var(--accent)" font-size="7">{recent.share}% (2025)</text>
+</svg>

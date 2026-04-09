@@ -1,0 +1,36 @@
+---
+import type { BarChartItem } from "../../data/charts";
+
+interface Props {
+	id: string;
+	items: BarChartItem[];
+	outsideValueThreshold?: number;
+}
+
+const { id, items, outsideValueThreshold = 0 } = Astro.props;
+
+const rows = items.map((item) => ({
+	...item,
+	showOutside: item.width <= outsideValueThreshold,
+	inlineValue: item.width <= outsideValueThreshold ? "" : item.value,
+}));
+---
+
+<div id={id}>
+	<div class="bar-chart">
+		{rows.map((row) => (
+			<div class="bar-row">
+				<span class="bar-label">{row.label}</span>
+				<div class="bar-track">
+					<div
+						class="bar-fill"
+						data-width={row.width}
+						data-val={row.inlineValue}
+						style={`background: ${row.color}; --target-width: ${row.width}%`}
+					/>
+				</div>
+				{row.showOutside && <span class="bar-val-outside">{row.value}</span>}
+			</div>
+		))}
+	</div>
+</div>

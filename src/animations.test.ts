@@ -5,7 +5,7 @@ import {
 	mockMatchMedia,
 	triggerIntersection,
 } from "./__mocks__/setup";
-import { initAnimations } from "./animations";
+import { initAnimations } from "./scripts/animations";
 
 function buildFixture(heroRevealCount: number, outerRevealCount: number) {
 	document.body.textContent = "";

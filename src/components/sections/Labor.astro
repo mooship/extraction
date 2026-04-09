@@ -1,0 +1,78 @@
+---
+import { buildMobileData, ceoPayData } from "../../data/charts";
+import BarChart from "../charts/BarChart.astro";
+import LaborChart from "../charts/LaborChart.astro";
+
+const mobileData = buildMobileData();
+---
+
+<section id="labor" aria-labelledby="labor-heading">
+	<div class="two-col labor-layout">
+		<div class="col-charts">
+			<figure class="chart-box reveal">
+				<figcaption class="chart-title">Labour vs Capital Share of GDP — USA</figcaption>
+				<div id="labor-desktop-chart" class="desktop-chart" role="img" aria-label="Area chart showing US labour share of GDP falling from 67% in 1950 to 57% in 2025, with capital share rising inversely">
+					<LaborChart />
+				</div>
+				<div id="labor-mobile-chart" class="mobile-chart" role="img" aria-label="Bar chart showing US labour vs capital share of GDP">
+					<BarChart id="labor-mobile-bars" items={mobileData.labor} />
+				</div>
+				<table class="sr-only">
+					<caption>Labour vs Capital Share of GDP — USA</caption>
+					<thead><tr><th>Year</th><th>Labour</th><th>Capital</th></tr></thead>
+					<tbody>
+						<tr><td>1950</td><td>67%</td><td>33%</td></tr>
+						<tr><td>1985</td><td>65%</td><td>35%</td></tr>
+						<tr><td>2025</td><td>57%</td><td>43%</td></tr>
+					</tbody>
+				</table>
+			</figure>
+			<figure class="chart-box reveal" style="transition-delay: 0.12s">
+				<figcaption class="chart-title">
+					CEO-to-Worker Pay Ratio<button type="button" class="cite-ref" aria-label="View source: EPI 2024" aria-expanded="false" data-source="Economic Policy Institute, CEO Pay in 2023, 2024" data-url="https://www.epi.org/publication/ceo-pay-in-2023/">*</button>
+				</figcaption>
+				<div role="img" aria-label="CEO-to-worker pay ratio in the USA (Economic Policy Institute): 1965: 21:1, 1989: 61:1, 2000: 380:1, 2023: 290:1. The ratio peaked at 399:1 in 2021.">
+					<BarChart id="ceo-pay-chart" items={ceoPayData} outsideValueThreshold={20} />
+				</div>
+			</figure>
+		</div>
+		<div class="col-text">
+			<div class="section-label reveal-left">Labour vs Capital</div>
+			<h2 id="labor-heading" class="reveal" style="transition-delay: 0.1s">
+				Workers Produce.<br />Capital Captures.
+			</h2>
+			<p>
+				Since 1980, the share of national income going to workers has
+				fallen in most major economies while the share captured by capital
+				owners has soared. This is not productivity — it is extraction.
+				The post-war social contract, forged through union power and
+				democratic pressure, has been systematically dismantled through
+				deregulation, union-busting, and offshoring to the Global South —
+				where weaker labour protections and lower wages allow capital to
+				extract even more — against the organised resistance of workers
+				who face the same logic without the same protections.
+			</p>
+			<div class="pull-quote reveal">
+				<blockquote>
+					"The share of income going to labour has declined in most
+					economies since the 1980s, while returns to capital have risen
+					correspondingly."
+				</blockquote>
+				<cite>— ILO World Employment and Social Outlook, 2024</cite>
+			</div>
+			<div class="pull-quote reveal" style="transition-delay: 0.1s">
+				<blockquote>
+					"The accumulation of capital at the centre is inseparable from
+					the dispossession and impoverishment of the periphery."
+				</blockquote>
+				<cite>— Samir Amin, <em>Unequal Development</em>, 1976</cite>
+			</div>
+		</div>
+	</div>
+	<p class="source">
+		Source:
+		<a href="https://www.bls.gov" target="_blank" rel="noopener noreferrer">BLS / BEA</a> ·
+		<a href="https://www.epi.org" target="_blank" rel="noopener noreferrer">Economic Policy Institute</a> ·
+		<a href="https://www.ilo.org/global/research/global-reports/weso/lang--en/index.htm" target="_blank" rel="noopener noreferrer">ILO World Employment and Social Outlook 2024</a>
+	</p>
+</section>

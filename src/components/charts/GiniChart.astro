@@ -1,0 +1,67 @@
+---
+import { giniDesktopData } from "../../data/charts";
+
+const yTop = 10;
+const yBase = 170;
+const min = 0.6;
+const max = 1;
+const range = max - min;
+
+const bars = giniDesktopData.map((item, i) => {
+	const x = 20 + i * 60;
+	const width = 38;
+	const height = ((item.value - min) / range) * (yBase - yTop);
+	const fullY = Math.round(yBase - height);
+	const fullH = Math.round(height);
+	const labelX = x + width / 2;
+	return { ...item, x, width, fullY, fullH, labelX, i };
+});
+---
+
+<svg
+	id="gini-svg"
+	role="img"
+	aria-labelledby="gini-svg-title"
+	viewBox="0 0 460 200"
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<title id="gini-svg-title">Wealth Gini Coefficient by Country</title>
+	<desc>
+		Bar chart comparing wealth Gini coefficients: Germany 0.67, France 0.70,
+		Sweden 0.74, Brazil 0.78, UK 0.81, USA 0.85, South Africa 0.91. Higher
+		values indicate greater inequality.
+	</desc>
+	<line x1="18" y1="10" x2="450" y2="10" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
+	<line x1="18" y1="50" x2="450" y2="50" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
+	<line x1="18" y1="90" x2="450" y2="90" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
+	<line x1="18" y1="130" x2="450" y2="130" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,3" />
+	<line x1="18" y1="170" x2="450" y2="170" stroke="#333" stroke-width="1" />
+	<text x="14" y="13" fill="#888" font-size="8" text-anchor="end">1.0</text>
+	<text x="14" y="53" fill="#888" font-size="8" text-anchor="end">0.9</text>
+	<text x="14" y="93" fill="#888" font-size="8" text-anchor="end">0.8</text>
+	<text x="14" y="133" fill="#888" font-size="8" text-anchor="end">0.7</text>
+	<text x="14" y="173" fill="#888" font-size="8" text-anchor="end">0.6</text>
+	{bars.map((bar) => (
+		<>
+			<rect
+				class="gini-bar"
+				data-index={bar.i}
+				x={bar.x}
+				y={bar.fullY}
+				width={bar.width}
+				height={bar.fullH}
+				style={`fill: ${bar.color}`}
+			/>
+			<text
+				x={bar.labelX}
+				y="185"
+				style={`fill: ${bar.highlight ? "var(--accent)" : "#888"}`}
+				font-size="7"
+				font-weight={bar.highlight ? "bold" : "normal"}
+				text-anchor="middle"
+			>
+				{bar.label}
+			</text>
+		</>
+	))}
+</svg>

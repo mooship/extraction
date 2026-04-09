@@ -1,0 +1,138 @@
+---
+import { emissionsData } from "../../data/charts";
+import BarChart from "../charts/BarChart.astro";
+---
+
+<section id="ecology" aria-labelledby="ecology-heading">
+	<div class="two-col ecology-layout">
+		<div class="col-text">
+			<div class="section-label reveal-left">Ecological Crisis</div>
+			<h2 id="ecology-heading" class="reveal" style="transition-delay: 0.1s">
+				The Same System.<br />The Same Crisis.
+			</h2>
+			<p>
+				In 2022, floods submerged a third of Pakistan — a country
+				responsible for less than 1% of historical emissions. In 2021,
+				research published in Nature found the south-eastern Amazon had
+				become a net CO₂ emitter for the first time in recorded history —
+				driven by deforestation and fire. These are not anomalies — they
+				are the predictable output of a system that externalises cost onto
+				nature and the Global South.
+			</p>
+			<p>
+				Capitalism does not merely pollute — its growth imperative makes
+				ecological destruction structurally inevitable. The same drive to
+				extract maximum value from labour also extracts maximum value from
+				land, water, atmosphere, and biodiversity. These are not separate
+				problems with separate solutions. They are the same logic applied
+				to different commons.
+			</p>
+			<p>
+				The richest 1% — the same class that captures the majority of
+				economic output — emit more CO₂ than the poorest 50% of humanity
+				combined. The corporations responsible for 71% of global emissions
+				since 1988 are not aberrations: they are the concentrated
+				ownership of fossil capital. Every ton of carbon they burn is
+				extracted value — from the atmosphere, from future generations,
+				and disproportionately from the Global South, which suffers the
+				worst consequences of a crisis it did not cause.
+			</p>
+			<p>
+				Capitalism cannot resolve this contradiction. The market requires
+				growth; the biosphere requires limits. These are incompatible.
+				Carbon markets, ESG ratings, and voluntary net-zero pledges do not
+				alter this logic — they extend it. The decarbonisation of
+				production requires the same democratic reorganisation that the
+				redistribution of wealth requires. They are the same demand.
+			</p>
+			<div class="pull-quote reveal">
+				<blockquote>
+					"There is no such thing as sustainable capitalism. The system is
+					built on the infinite expansion of production on a finite
+					planet. Eco-socialism is not a branch of environmentalism — it
+					is the recognition that the ecological and social crises share a
+					root."
+				</blockquote>
+				<cite>— Michael Löwy, <em>Ecosocialism: A Radical Alternative to Capitalist Catastrophe</em>, 2015</cite>
+			</div>
+			<p class="source">
+				Source:
+				<a href="https://www.oxfam.org/en/research/carbon-inequality-era-climate-breakdown" target="_blank" rel="noopener noreferrer">Oxfam Carbon Inequality Report 2025</a> ·
+				<a href="https://www.cdp.net" target="_blank" rel="noopener noreferrer">Carbon Disclosure Project 2017</a> ·
+				<a href="https://www.imf.org/en/Topics/climate-change/energy-subsidies" target="_blank" rel="noopener noreferrer">IMF Fossil Fuel Subsidies 2025</a> ·
+				<a href="https://ipbes.net/global-assessment" target="_blank" rel="noopener noreferrer">IPBES Global Assessment 2019</a>
+				· Loss and Damage Collaboration 2024
+			</p>
+		</div>
+		<div class="col-charts">
+			<div class="stat-grid reveal">
+				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-0">
+					<div class="num" data-target="71" data-prefix="" data-suffix="%">0%</div>
+					<div class="label" id="stat-label-eco-0">
+						Of global emissions since 1988 traced to just 100 corporations — including downstream combustion of their products<button type="button" class="cite-ref" aria-label="View source: CDP 2017" aria-expanded="false" data-source="CDP, Carbon Majors Database Report, 2017" data-url="https://www.cdp.net/en/articles/media/new-report-shows-just-100-companies-responsible-for-71-of-global-emissions">*</button>
+					</div>
+				</div>
+				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-1">
+					<div class="num" data-target="7" data-prefix="$" data-suffix="T">$0T</div>
+					<div class="label" id="stat-label-eco-1">
+						In annual fossil fuel subsidies — more than global spending on education<button type="button" class="cite-ref" aria-label="View source: IMF 2025" aria-expanded="false" data-source="IMF, Fossil Fuel Subsidies 2025 Update" data-url="https://www.imf.org/en/Topics/climate-change/energy-subsidies">*</button>
+					</div>
+				</div>
+				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-2">
+					<div class="num" data-target="400" data-prefix="$" data-suffix="B">$0B</div>
+					<div class="label" id="stat-label-eco-2">Estimated annual cost of climate damage to the Global South</div>
+				</div>
+				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-3">
+					<div class="num" data-target="1" data-prefix="" data-suffix="M+">0M+</div>
+					<div class="label" id="stat-label-eco-3">Species facing extinction driven by corporate agribusiness and extractive industry</div>
+				</div>
+			</div>
+			<figure class="chart-box reveal">
+				<figcaption class="chart-title">
+					CO₂ Emissions Share by Global Income Group<button type="button" class="cite-ref" aria-label="View source: Oxfam 2025" aria-expanded="false" data-source="Oxfam, Carbon Inequality Kills, 2025" data-url="https://www.oxfam.org/en/research/carbon-inequality-kills">*</button>
+				</figcaption>
+				<div role="img" aria-label="CO₂ emissions share by global income group (Oxfam Carbon Inequality Report 2025): Top 1%: 16%, Next 9%: 34%, Middle 40%: 42%, Bottom 50%: 8%. The wealthiest 10% account for 50% of all emissions.">
+					<BarChart id="emissions-chart" items={emissionsData} outsideValueThreshold={18} />
+				</div>
+			</figure>
+		</div>
+	</div>
+	<aside class="global-south-callout reveal" aria-label="On Green Capitalism">
+		<h3>On Green Capitalism</h3>
+		<p>
+			Carbon trading, ESG investment frameworks, voluntary offsetting, and
+			net-zero pledges share a common assumption: that the market,
+			properly priced, can resolve the ecological crisis capitalism
+			created. This is not a solution — it is a delay tactic dressed in
+			the language of urgency.
+		</p>
+		<p>
+			Carbon markets commodify the atmosphere and create new financial
+			instruments for speculation. Offsetting allows continued emissions
+			in the Global North in exchange for forestry projects that
+			dispossess Indigenous communities in the Global South. ESG ratings
+			are self-reported and unenforceable. Shell's net-zero 2050 pledge
+			was accompanied by approved plans to increase oil and gas production
+			through the same period. Volkswagen sold millions of vehicles
+			certified as clean that were engineered to cheat emissions tests.
+			The fossil fuel companies that lobbied against climate legislation
+			for forty years now brand themselves as partners in the green
+			transition — while continuing to expand production.
+		</p>
+		<p>
+			The ecological commons — air, water, soil, biodiversity — are being
+			treated as they have always been treated under capitalism: as free
+			inputs for extraction and free sinks for waste, until the point of
+			collapse. A socialist reorganisation of production is not an
+			ideological preference. It is a material necessity.
+		</p>
+		<div class="pull-quote">
+			<blockquote>
+				"We have to recognise that climate change is a consequence of the
+				capitalist system. To really tackle climate change, we have to
+				change the system, not the climate."
+			</blockquote>
+			<cite>— Evo Morales, World People's Conference on Climate Change, 2010</cite>
+		</div>
+	</aside>
+</section>

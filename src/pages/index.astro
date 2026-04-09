@@ -1,0 +1,66 @@
+---
+import BackToTop from "../components/BackToTop.astro";
+import CitePopover from "../components/CitePopover.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import Action from "../components/sections/Action.astro";
+import Ecology from "../components/sections/Ecology.astro";
+import Hero from "../components/sections/Hero.astro";
+import History from "../components/sections/History.astro";
+import Housing from "../components/sections/Housing.astro";
+import Imperialism from "../components/sections/Imperialism.astro";
+import Labor from "../components/sections/Labor.astro";
+import Manifesto from "../components/sections/Manifesto.astro";
+import Public from "../components/sections/Public.astro";
+import Tax from "../components/sections/Tax.astro";
+import Ticker from "../components/sections/Ticker.astro";
+import Wealth from "../components/sections/Wealth.astro";
+import Base from "../layouts/Base.astro";
+
+const description =
+	"A data-driven analysis of wealth concentration, ecological destruction, and the capitalist system that drives both — and the case for an eco-socialist alternative. The top 1% own 45% of global wealth — and emit more CO₂ than the poorest 50% combined. The crises are the same crisis.";
+---
+
+<Base
+	title="Extraction — The Anatomy of Wealth Concentration"
+	description={description}
+	canonicalUrl="https://extraction.timothybrits.co.za/"
+	ogImage="https://extraction.timothybrits.co.za/android-chrome-512x512.png"
+>
+	<Fragment slot="head">
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "Extraction — The Anatomy of Wealth Concentration",
+			"description": description,
+			"url": "https://extraction.timothybrits.co.za/",
+			"inLanguage": "en",
+			"isAccessibleForFree": true,
+			"about": [
+				{ "@type": "Thing", "name": "Wealth inequality" },
+				{ "@type": "Thing", "name": "Capitalism" },
+				{ "@type": "Thing", "name": "Eco-socialism" },
+				{ "@type": "Thing", "name": "Ecological crisis" },
+				{ "@type": "Thing", "name": "Labour rights" },
+			],
+		})} />
+	</Fragment>
+	<Nav />
+	<main id="main-content">
+		<Hero />
+		<Ticker />
+		<Wealth />
+		<History />
+		<Tax />
+		<Labor />
+		<Housing />
+		<Imperialism />
+		<Ecology />
+		<Public />
+		<Manifesto />
+		<Action />
+	</main>
+	<BackToTop />
+	<Footer />
+	<CitePopover />
+</Base>

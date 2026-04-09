@@ -1,0 +1,103 @@
+---
+import { treemapData } from "../../data/charts";
+
+const w = 600;
+const h = 300;
+const total = treemapData.reduce((sum, item) => sum + item.value, 0);
+
+const mainW = Math.round((treemapData[0].value / total) * w);
+const sideW = w - mainW;
+const remainingTotal = total - treemapData[0].value;
+
+type RectData = {
+	x: number;
+	y: number;
+	w: number;
+	h: number;
+	label: string;
+	displayValue: string;
+	color: string;
+	i: number;
+	isMain: boolean;
+};
+
+const rects: RectData[] = [
+	{
+		x: 0,
+		y: 0,
+		w: mainW,
+		h,
+		label: treemapData[0].label,
+		displayValue: treemapData[0].displayValue,
+		color: treemapData[0].color,
+		i: 0,
+		isMain: true,
+	},
+];
+
+let sideY = 0;
+for (let i = 1; i < treemapData.length; i++) {
+	const item = treemapData[i];
+	const rectH = Math.round((item.value / remainingTotal) * h);
+	const actualH = i === treemapData.length - 1 ? h - sideY : rectH;
+	rects.push({
+		x: mainW + 1,
+		y: sideY,
+		w: sideW - 1,
+		h: actualH,
+		label: item.label,
+		displayValue: item.displayValue,
+		color: item.color,
+		i,
+		isMain: false,
+	});
+	sideY += actualH;
+}
+---
+
+<svg
+	id="treemap-svg"
+	role="img"
+	aria-labelledby="treemap-svg-title"
+	viewBox={`0 0 ${w} ${h}`}
+	xmlns="http://www.w3.org/2000/svg"
+>
+	<title id="treemap-svg-title">Global Asset Classes by Value</title>
+	<desc>
+		Treemap showing global asset values: Real Estate $380T dominates, followed
+		by Equities $109T, Government Debt $66T, and Gold $14T.
+	</desc>
+	{rects.map((rect) => (
+		<>
+			<rect
+				class="treemap-rect"
+				data-index={rect.i}
+				x={rect.x}
+				y={rect.y}
+				width={rect.w}
+				height={rect.h}
+				fill={rect.color}
+			/>
+			<text
+				x={rect.isMain ? rect.w / 2 : rect.x + rect.w / 2}
+				y={rect.isMain ? rect.h / 2 - 10 : rect.y + rect.h / 2 - 6}
+				fill={rect.isMain ? "#f0f0f0" : "#ccc"}
+				font-size={rect.isMain ? "11" : "8"}
+				font-weight={rect.isMain ? "bold" : "normal"}
+				text-anchor="middle"
+			>
+				{rect.label}
+			</text>
+			<text
+				x={rect.isMain ? rect.w / 2 : rect.x + rect.w / 2}
+				y={rect.isMain ? rect.h / 2 + 10 : rect.y + rect.h / 2 + 8}
+				fill={rect.isMain ? "#f0f0f0" : "#ccc"}
+				font-size={rect.isMain ? "14" : "10"}
+				font-weight="bold"
+				text-anchor="middle"
+			>
+				{rect.displayValue}
+			</text>
+		</>
+	))}
+</svg>
