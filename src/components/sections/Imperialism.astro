@@ -6,42 +6,6 @@ import SankeyChart from "../charts/SankeyChart.astro";
 
 <section id="imperialism" aria-labelledby="imperialism-heading">
 	<div class="two-col imperialism-layout">
-		<div class="col-text">
-			<div class="section-label reveal-left">Global South &amp; Imperialism</div>
-			<h2 id="imperialism-heading" class="reveal" style="transition-delay: 0.1s">
-				Extraction<br />Without Borders
-			</h2>
-			<p>
-				The same logic of extraction that operates within wealthy nations
-				operates between them. When illicit financial flows, debt service,
-				trade mispricing, and unequal exchange are accounted for, the
-				Global South is a net creditor to the Global North — transferring
-				an estimated $2 trillion per year northward. The aid narrative
-				inverts reality: wealth flows from poor countries to rich ones,
-				not the other way around.
-			</p>
-			<p>
-				The IMF and World Bank enforce structural adjustment programmes
-				that strip developing nations of the very policy tools Western
-				welfare states used to industrialise and build public services.
-				Fifty-four countries are in debt crisis or at high risk. Debt
-				service payments by developing countries reached $443 billion in
-				2022 — dwarfing the aid they receive — and have risen further
-				since. This is not development. It is extraction with a
-				humanitarian label.
-			</p>
-			<div class="pull-quote reveal">
-				<blockquote>"Europe is literally the creation of the Third World."</blockquote>
-				<cite>— Frantz Fanon, <em>The Wretched of the Earth</em>, 1961</cite>
-			</div>
-			<p class="source">
-				Source: Jason Hickel, <em>The Divide</em> ·
-				<a href="https://gfintegrity.org" target="_blank" rel="noopener noreferrer">Global Financial Integrity</a> ·
-				<a href="https://jubileedebt.org.uk" target="_blank" rel="noopener noreferrer">Jubilee Debt Campaign</a> ·
-				<a href="https://data.worldbank.org" target="_blank" rel="noopener noreferrer">World Bank</a> ·
-				<a href="https://unctad.org" target="_blank" rel="noopener noreferrer">UNCTAD</a>
-			</p>
-		</div>
 		<div class="col-charts">
 			<div class="stat-grid reveal">
 				<div class="stat-box" role="group" aria-labelledby="stat-label-imp-0">
@@ -90,6 +54,42 @@ import SankeyChart from "../charts/SankeyChart.astro";
 					<BarChart id="debt-service-chart" items={debtServiceData} outsideValueThreshold={13} />
 				</div>
 			</figure>
+		</div>
+		<div class="col-text">
+			<div class="section-label reveal-left">Global South &amp; Imperialism</div>
+			<h2 id="imperialism-heading" class="reveal" style="transition-delay: 0.1s">
+				Extraction<br />Without Borders
+			</h2>
+			<p>
+				The same logic of extraction that operates within wealthy nations
+				operates between them. When illicit financial flows, debt service,
+				trade mispricing, and unequal exchange are accounted for, the
+				Global South is a net creditor to the Global North — transferring
+				an estimated $2 trillion per year northward. The aid narrative
+				inverts reality: wealth flows from poor countries to rich ones,
+				not the other way around.
+			</p>
+			<p>
+				The IMF and World Bank enforce structural adjustment programmes
+				that strip developing nations of the very policy tools Western
+				welfare states used to industrialise and build public services.
+				Fifty-four countries are in debt crisis or at high risk. Debt
+				service payments by developing countries reached $443 billion in
+				2022 — dwarfing the aid they receive — and have risen further
+				since. This is not development. It is extraction with a
+				humanitarian label.
+			</p>
+			<div class="pull-quote reveal">
+				<blockquote>"Europe is literally the creation of the Third World."</blockquote>
+				<cite>— Frantz Fanon, <em>The Wretched of the Earth</em>, 1961</cite>
+			</div>
+			<p class="source">
+				Source: Jason Hickel, <em>The Divide</em> ·
+				<a href="https://gfintegrity.org" target="_blank" rel="noopener noreferrer">Global Financial Integrity</a> ·
+				<a href="https://jubileedebt.org.uk" target="_blank" rel="noopener noreferrer">Jubilee Debt Campaign</a> ·
+				<a href="https://data.worldbank.org" target="_blank" rel="noopener noreferrer">World Bank</a> ·
+				<a href="https://unctad.org" target="_blank" rel="noopener noreferrer">UNCTAD</a>
+			</p>
 		</div>
 	</div>
 </section>
