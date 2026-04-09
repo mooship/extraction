@@ -39,7 +39,7 @@ section {
 	gap: 16px;
 }
 
-.col-text > p {
+.col-text > p:not(:last-child) {
 	margin-bottom: 8px;
 }
 
