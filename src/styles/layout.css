@@ -43,6 +43,11 @@ section {
 	margin-bottom: 8px;
 }
 
+.col-text .stat-grid,
+.col-text .chart-box {
+	margin-top: 12px;
+}
+
 .col-charts {
 	display: flex;
 	flex-direction: column;
