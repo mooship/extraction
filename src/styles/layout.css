@@ -29,10 +29,6 @@ section {
 	grid-template-columns: 1.3fr 1fr;
 }
 
-.housing-layout {
-	grid-template-columns: 1fr 1.4fr;
-}
-
 .imperialism-layout {
 	grid-template-columns: 1fr 1.3fr;
 }
@@ -53,13 +49,8 @@ section {
 	border-top: 1px solid var(--border-subtle);
 }
 
-#history,
-#labor,
+#tax,
 #imperialism,
 #public {
 	background: var(--bg-section-alt);
-}
-
-#history .chart-box {
-	margin-top: 40px;
 }

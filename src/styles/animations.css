@@ -37,15 +37,6 @@
 	}
 }
 
-@keyframes ticker-scroll {
-	from {
-		transform: translateX(0);
-	}
-	to {
-		transform: translateX(-50%);
-	}
-}
-
 @media (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
@@ -54,10 +45,6 @@
 	.stat-box {
 		animation: none;
 		opacity: 1;
-	}
-
-	.ticker {
-		animation: none;
 	}
 
 	.reveal,
