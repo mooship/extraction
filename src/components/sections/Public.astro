@@ -1,3 +1,9 @@
+---
+import { publicSection } from "../../data/sections";
+import PullQuote from "../PullQuote.astro";
+import SourceList from "../SourceList.astro";
+---
+
 <section id="public" aria-labelledby="public-heading">
 	<div class="section-label reveal-left">Public Services</div>
 	<h2 id="public-heading" class="reveal" style="transition-delay: 0.1s">
@@ -115,22 +121,7 @@
 			a generation. Their adaptations are not failures of socialism but
 			evidence of its resilience under siege.
 		</p>
-		<div class="pull-quote">
-			<blockquote>
-				"Neocolonialism is the worst form of imperialism. For those who
-				practise it, it means power without responsibility; and for those
-				who suffer from it, it means exploitation without redress."
-			</blockquote>
-			<cite>— Kwame Nkrumah, <em>Neo-Colonialism: The Last Stage of Imperialism</em>, 1965</cite>
-		</div>
+		<PullQuote data={publicSection.pullQuote!} reveal={false} />
 	</aside>
-	<p class="source">
-		Source:
-		<a href="https://hdr.undp.org" target="_blank" rel="noopener noreferrer">UNDP Human Development Report</a> ·
-		<a href="https://www.who.int" target="_blank" rel="noopener noreferrer">WHO</a> ·
-		<a href="https://data.worldbank.org" target="_blank" rel="noopener noreferrer">World Bank</a> ·
-		<a href="https://data.oecd.org" target="_blank" rel="noopener noreferrer">OECD</a> ·
-		<a href="https://data.unicef.org" target="_blank" rel="noopener noreferrer">UNICEF</a>
-		· Statistics South Africa · National Bureau of Statistics of China
-	</p>
+	<SourceList items={publicSection.sources!} />
 </section>

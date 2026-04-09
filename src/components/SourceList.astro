@@ -1,0 +1,13 @@
+---
+import type { SourceItem } from "../data/sections";
+
+interface Props {
+	items: SourceItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<p class="source">
+	Source:{items.map((item, i) => <Fragment>{i > 0 && " \u00b7"} {item.url ? <a href={item.url} target="_blank" rel="noopener noreferrer">{item.label}</a> : <Fragment set:html={item.label} />}</Fragment>)}
+</p>

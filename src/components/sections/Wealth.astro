@@ -1,8 +1,12 @@
 ---
 import { mobileData, wealthDistributionData } from "../../data/charts";
+import { wealthSection } from "../../data/sections";
+import CiteButton from "../CiteButton.astro";
 import BarChart from "../charts/BarChart.astro";
 import GiniChart from "../charts/GiniChart.astro";
 import HistoryChart from "../charts/HistoryChart.astro";
+import PullQuote from "../PullQuote.astro";
+import SourceList from "../SourceList.astro";
 ---
 
 <section id="wealth" aria-labelledby="wealth-heading">
@@ -18,14 +22,7 @@ import HistoryChart from "../charts/HistoryChart.astro";
 	</p>
 	<figure class="chart-box reveal" style="transition-delay: 0.1s">
 		<figcaption class="chart-title">
-			Top 1% Income Share — USA, 1913–2025<button
-				type="button"
-				class="cite-ref"
-				aria-label="View source: World Inequality Database"
-				aria-expanded="false"
-				data-source="World Inequality Database / Piketty, Saez &amp; Zucman"
-				data-url="https://wid.world/country/usa/"
-			>*</button>
+			Top 1% Income Share — USA, 1913–2025<CiteButton citation={wealthSection.chartCitations!.history} />
 		</figcaption>
 		<div
 			id="history-desktop-chart"
@@ -55,11 +52,7 @@ import HistoryChart from "../charts/HistoryChart.astro";
 			</tbody>
 		</table>
 	</figure>
-	<p class="source">
-		Source:
-		<a href="https://wid.world" target="_blank" rel="noopener noreferrer">World Inequality Database</a>
-		(Piketty, Saez, Zucman)
-	</p>
+	<SourceList items={wealthSection.sources!} />
 	<div class="two-col wealth-layout">
 		<div class="col-text">
 			<p>
@@ -72,33 +65,13 @@ import HistoryChart from "../charts/HistoryChart.astro";
 				wealth concentration under democratic governance. The middle class
 				is not "squeezed" — it is being liquidated.
 			</p>
-			<div class="pull-quote reveal">
-				<blockquote>
-					"To allow the market mechanism to be the sole director of the
-					fate of human beings and their natural environment… would result
-					in the demolition of society."
-				</blockquote>
-				<cite>— Karl Polanyi, <em>The Great Transformation</em>, 1944</cite>
-			</div>
-			<p class="source">
-				Source:
-				<a href="https://wid.world" target="_blank" rel="noopener noreferrer">World Inequality Database</a>
-				(Piketty, Saez, Zucman) ·
-				<a href="https://www.federalreserve.gov/econres/scfindex.htm" target="_blank" rel="noopener noreferrer">US Federal Reserve SCF</a> ·
-				<a href="https://www.oxfam.org/en/research/inequality-inc" target="_blank" rel="noopener noreferrer">Oxfam Inequality Report 2025</a>
-			</p>
+			<PullQuote data={wealthSection.pullQuote!} />
+			<SourceList items={wealthSection.sourcesSecondary!} />
 		</div>
 		<div class="col-charts">
 			<figure class="chart-box reveal">
 				<figcaption class="chart-title">
-					US Wealth Distribution<button
-						type="button"
-						class="cite-ref"
-						aria-label="View source: US Federal Reserve 2024"
-						aria-expanded="false"
-						data-source="US Federal Reserve DFA, Q1 2024"
-						data-url="https://www.federalreserve.gov/releases/z1/dataviz/dfa/distribute/chart/"
-					>*</button>
+					US Wealth Distribution<CiteButton citation={wealthSection.chartCitations!.distribution} />
 				</figcaption>
 				<div role="img" aria-label="Bar chart showing US wealth distribution: Top 1% owns 31%, Next 9% owns 37%, Next 40% owns 30%, Bottom 50% owns 2%">
 					<BarChart id="wealth-distribution-chart" items={wealthDistributionData} outsideValueThreshold={5} />

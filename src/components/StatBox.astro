@@ -1,0 +1,18 @@
+---
+import type { StatBoxData } from "../data/sections";
+import CiteButton from "./CiteButton.astro";
+
+interface Props {
+	stat: StatBoxData;
+	labelId: string;
+}
+
+const { stat, labelId } = Astro.props;
+---
+
+<div class:list={["stat-box", { "stat-box-full": stat.full }]} role="group" aria-labelledby={labelId}>
+	<div class="num" data-target={stat.target} data-prefix={stat.prefix} data-suffix={stat.suffix}>{stat.prefix}0{stat.suffix}</div>
+	<div class="label" id={labelId}>
+		{stat.label}{stat.citation && <CiteButton citation={stat.citation} />}
+	</div>
+</div>

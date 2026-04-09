@@ -1,0 +1,15 @@
+---
+import type { PullQuoteData } from "../data/sections";
+
+interface Props {
+	data: PullQuoteData;
+	reveal?: boolean;
+}
+
+const { data, reveal = true } = Astro.props;
+---
+
+<div class:list={["pull-quote", { reveal }]}>
+	<blockquote set:html={`\u201c${data.quote}\u201d`} />
+	<cite set:html={data.attribution} />
+</div>

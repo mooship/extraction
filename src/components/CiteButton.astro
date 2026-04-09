@@ -1,0 +1,18 @@
+---
+import type { Citation } from "../data/sections";
+
+interface Props {
+	citation: Citation;
+}
+
+const { citation } = Astro.props;
+---
+
+<button
+	type="button"
+	class="cite-ref"
+	aria-label={citation.ariaLabel}
+	aria-expanded="false"
+	data-source={citation.source}
+	data-url={citation.url}
+>*</button>
