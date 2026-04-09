@@ -667,6 +667,13 @@ footer {
 	outline-offset: 2px;
 }
 
+@media (max-width: 900px) {
+	.cite-ref {
+		padding: 8px 4px;
+		margin: -8px -3px;
+	}
+}
+
 #cite-popover {
 	position: fixed;
 	z-index: var(--z-popover);
