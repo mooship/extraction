@@ -45,7 +45,7 @@ Static site built with Astro v6. Single scrollable page with anchor-linked secti
 - `share.ts` — Per-section share buttons (Web Share API with clipboard fallback)
 - `back-to-top.ts` — Back-to-top button visibility and scroll
 
-**SVG charts are data-driven but still custom** — no D3, Chart.js, or Recharts. Chart geometry is computed in Astro component frontmatters and rendered as SVG in templates at build time. Do not replace this with a charting library.
+**SVG charts are currently hand-built** — chart geometry is computed in Astro component frontmatters and rendered as SVG in templates at build time. A charting library may be introduced in future.
 
 **Animation contract:** CSS transitions/keyframes drive the actual motion. JS only toggles classes or sets properties; timing lives in CSS. Chart animation initial states (e.g. `scaleY(0)` for bars) are set in `charts.css`. The `prefers-reduced-motion` media query in `animations.css` disables all transitions and keyframe animations.
 
