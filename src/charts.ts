@@ -418,12 +418,13 @@ function renderSankeyDesktopChart(): void {
 
 	const leftFlows = sankeyFlows.filter((f) => f.direction === "left");
 	const rightFlows = sankeyFlows.filter((f) => f.direction === "right");
+	const halo = `paint-order="stroke" stroke="var(--bg)" stroke-width="3" stroke-linejoin="round"`;
 
 	const leftLabels = leftFlows
 		.map((flow) => {
 			const pathParts = flow.path.split(",");
 			const startY = pathParts[1] ? Number.parseInt(pathParts[1], 10) : 0;
-			return `<text x="85" y="${startY + 4}" fill="#f0f0f0" font-size="7" opacity="0.9">${flow.label}: ${flow.displayValue}</text>`;
+			return `<text x="85" y="${startY + 4}" fill="var(--fg)" font-size="8" ${halo}>${flow.label}: ${flow.displayValue}</text>`;
 		})
 		.join("");
 
@@ -431,14 +432,14 @@ function renderSankeyDesktopChart(): void {
 		.map((flow) => {
 			const parts = flow.path.match(/(\d+),(\d+)$/);
 			const y = parts ? Number.parseInt(parts[2], 10) : 235;
-			return `<text x="75" y="${y + 4}" fill="#4caf4c" font-size="7" opacity="0.9">${flow.label}: ${flow.displayValue}</text>`;
+			return `<text x="75" y="${y + 4}" fill="var(--semantic-green)" font-size="8" ${halo}>${flow.label}: ${flow.displayValue}</text>`;
 		})
 		.join("");
 
 	const arrowLeft = `<polygon points="85,55 95,50 95,60" fill="var(--accent)" opacity="0.6"/>`;
-	const arrowRight = `<polygon points="515,220 505,215 505,225" fill="#4caf4c" opacity="0.6"/>`;
+	const arrowRight = `<polygon points="515,220 505,215 505,225" fill="var(--semantic-green)" opacity="0.6"/>`;
 
-	container.innerHTML = `<svg id="sankey-svg" role="img" aria-labelledby="sankey-svg-title" viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><title id="sankey-svg-title">The Real Flow of Wealth: South to North</title><desc>Sankey flow diagram showing net wealth flows from the Global South to the Global North: Unequal Exchange $10.8T, Debt Service $443B, Illicit Flows $89B flowing northward, versus only $200B in Aid flowing southward.</desc><text x="40" y="20" fill="var(--semantic-red)" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="40" y="32" fill="var(--semantic-red)" font-size="10" font-weight="bold" text-anchor="middle">SOUTH</text><text x="560" y="20" fill="#888" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="560" y="32" fill="#888" font-size="10" font-weight="bold" text-anchor="middle">NORTH</text>${paths}${arrowLeft}${arrowRight}${leftLabels}${rightLabels}</svg>`;
+	container.innerHTML = `<svg id="sankey-svg" role="img" aria-labelledby="sankey-svg-title" viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><title id="sankey-svg-title">The Real Flow of Wealth: South to North</title><desc>Sankey flow diagram showing net wealth flows from the Global South to the Global North: Unequal Exchange $10.8T, Debt Service $443B, Illicit Flows $89B flowing northward, versus only $200B in Aid flowing southward.</desc><text x="40" y="20" fill="var(--semantic-red)" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="40" y="32" fill="var(--semantic-red)" font-size="10" font-weight="bold" text-anchor="middle">SOUTH</text><text x="560" y="20" fill="var(--text-muted)" font-size="10" font-weight="bold" text-anchor="middle">GLOBAL</text><text x="560" y="32" fill="var(--text-muted)" font-size="10" font-weight="bold" text-anchor="middle">NORTH</text>${paths}${arrowLeft}${arrowRight}${leftLabels}${rightLabels}</svg>`;
 }
 
 const HISTORY_SHARE_MAX = 30;
