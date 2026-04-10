@@ -23,20 +23,20 @@ A data-driven, interactive web experience making a visual case against wealth co
 
 ## Getting Started
 
-**Prerequisites:** Node.js 22+, pnpm 10+
+**Prerequisites:** Bun 1.3+
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Start development server
-pnpm dev
+bun run dev
 
 # Build for production
-pnpm build
+bun run build
 
 # Preview production build
-pnpm preview
+bun run preview
 ```
 
 ## Project Structure
@@ -81,7 +81,7 @@ Biome runs automatically on staged files via Lefthook before every commit. To ru
 
 ```bash
 # Auto-fix formatting and lint issues
-pnpm biome:fix
+bun run biome:fix
 ```
 
 ## License

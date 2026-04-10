@@ -4,6 +4,6 @@
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {
-		"package.json": "package-lock.json, pnpm-lock.yaml, yarn.lock, bun.lockb, npm-shrinkwrap.json, .npmrc, .nvmrc"
+		"package.json": "package-lock.json, bun.lock, yarn.lock, npm-shrinkwrap.json, .npmrc, .nvmrc"
 	}
 }

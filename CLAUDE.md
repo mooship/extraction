@@ -9,13 +9,13 @@ Extraction is a data visualisation site exploring wealth extraction and inequali
 ## Commands
 
 ```bash
-pnpm dev             # Astro dev server
-pnpm build           # astro check + astro build
-pnpm preview         # Preview production build
-pnpm biome:fix       # Auto-fix all formatting and lint issues
+bun run dev          # Astro dev server
+bun run build        # astro check + astro build
+bun run preview      # Preview production build
+bun run biome:fix    # Auto-fix all formatting and lint issues
 ```
 
-There are tests — run with `pnpm vitest run`. Run a single test file with `pnpm vitest run src/animations.test.ts`. Type-checking is done via `astro check` (runs as part of `build`). Lefthook runs `biome check --write` on staged files automatically on pre-commit (fixed files are re-staged). Run `pnpm exec lefthook install` after cloning to activate hooks. Run Biome checks manually with `pnpm exec biome check src/`.
+There are tests — run with `bun run test`. Run a single test file with `bun run test src/animations.test.ts`. Type-checking is done via `astro check` (runs as part of `build`). Lefthook runs `biome check --write` on staged files automatically on pre-commit (fixed files are re-staged). Run `bunx lefthook install` after cloning to activate hooks. Run Biome checks manually with `bunx biome check src/`.
 
 ## Safety
 
@@ -59,6 +59,6 @@ Static site built with Astro v6. Single scrollable page with anchor-linked secti
 
 - **British English** in all user-visible copy (`labour`, `organised`, `programme`, etc.). Technical identifiers (IDs, class names, variables) remain in American English.
 - **No inline comments** — never use trailing `//` comments on the same line as code. No block comments in HTML or CSS either. JSDoc block comments (`/** */`) are fine where genuinely useful.
-- Biome enforces tabs, double quotes (JS), and recommended lint rules. Run `pnpm biome:fix` after edits.
+- Biome enforces tabs, double quotes (JS), and recommended lint rules. Run `bun run biome:fix` after edits.
 - CSS custom properties are defined in `:root` (light theme default) and `@media (prefers-color-scheme: dark)` in `src/styles/base.css`. Core tokens: `--accent` (teal, `#0d6e70` light / `#2ec4c4` dark), `--bg`, `--fg`, `--text-body`, `--text-muted`, `--text-label`, `--semantic-red`, `--semantic-green` (data indicators only).
 - All scroll animations use `IntersectionObserver` — no scroll event listeners.
