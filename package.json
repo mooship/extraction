@@ -25,15 +25,6 @@
 		"typescript": "^6.0.2",
 		"vitest": "^4.1.0"
 	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"lefthook"
-		],
-		"ignoredBuiltDependencies": [
-			"esbuild",
-			"sharp"
-		]
-	},
 	"dependencies": {
 		"@astrojs/sitemap": "^3.7.2",
 		"astro": "^6.1.5",
