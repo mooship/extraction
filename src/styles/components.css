@@ -718,6 +718,12 @@ footer {
 	text-decoration: none;
 }
 
+.cite-link-icon {
+	display: inline-block;
+	vertical-align: -0.05em;
+	margin-left: 0.15em;
+}
+
 .cite-link:hover,
 .cite-link:focus-visible {
 	color: var(--fg);
