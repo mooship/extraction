@@ -47,8 +47,8 @@ html.js-ready .reveal-left.visible {
 		opacity: 1;
 	}
 
-	.reveal,
-	.reveal-left {
+	html.js-ready .reveal,
+	html.js-ready .reveal-left {
 		opacity: 1;
 		transform: none;
 		transition: none;
