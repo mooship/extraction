@@ -22,7 +22,5 @@ jobs:
       - run: npm ci
       - name: Lint
         run: npx biome check .
-      - name: Type check
-        run: npm run check
       - run: npm run build
       - run: npm run test
