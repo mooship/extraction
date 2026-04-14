@@ -5,6 +5,9 @@
 	"license": "CC0-1.0",
 	"type": "module",
 	"packageManager": "npm@11.11.0",
+	"engines": {
+		"node": ">=24.0.0"
+	},
 	"scripts": {
 		"dev": "astro dev",
 		"check": "astro check",
