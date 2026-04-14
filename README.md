@@ -23,20 +23,20 @@ A data-driven, interactive web experience making a visual case against wealth co
 
 ## Getting Started
 
-**Prerequisites:** Bun 1.3+
+**Prerequisites:** Node 24+
 
 ```bash
 # Install dependencies
-bun install
+npm install
 
 # Start development server
-bun run dev
+npm run dev
 
 # Build for production
-bun run build
+npm run build
 
 # Preview production build
-bun run preview
+npm run preview
 ```
 
 ## Project Structure
@@ -81,7 +81,7 @@ Biome runs automatically on staged files via Lefthook before every commit. To ru
 
 ```bash
 # Auto-fix formatting and lint issues
-bun run biome:fix
+npm run biome:fix
 ```
 
 ## License
