@@ -11,7 +11,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"check": "astro check",
-		"build": "astro build",
+		"build": "astro check && astro build",
 		"preview": "astro preview",
 		"biome:fix": "biome format --write . && biome lint --write .",
 		"test": "vitest run",
