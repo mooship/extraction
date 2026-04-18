@@ -2,6 +2,7 @@
 import { mobileData, taxRatesData } from "../../data/charts";
 import BarChart from "../charts/BarChart.astro";
 import DonutChart from "../charts/DonutChart.astro";
+import StatNumber from "../StatNumber.astro";
 ---
 
 <section id="tax" aria-labelledby="tax-heading">
@@ -68,23 +69,23 @@ import DonutChart from "../charts/DonutChart.astro";
 			</div>
 			<div class="stat-grid reveal">
 				<div class="stat-box" role="group" aria-labelledby="stat-label-tax-0">
-					<div class="num" data-target="32" data-prefix="$" data-suffix="T">$32T</div>
+					<StatNumber target={32} prefix="$" suffix="T" />
 					<div class="label" id="stat-label-tax-0">
 						Estimated global offshore wealth (2012 estimate, Tax Justice Network)<button type="button" class="cite-ref" aria-label="View source: Tax Justice Network 2012" aria-controls="cite-popover" aria-expanded="false" data-source="Tax Justice Network, The Price of Offshore Revisited, 2012" data-url="https://taxjustice.net/reports/the-price-of-offshore-revisited/">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-tax-1">
-					<div class="num" data-target="1" data-prefix="$" data-suffix="T">$1T</div>
+					<StatNumber target={1} prefix="$" suffix="T" />
 					<div class="label" id="stat-label-tax-1">In corporate profits shifted to tax havens annually</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-tax-2">
-					<div class="num" data-target="24" data-prefix="" data-suffix="%">24%</div>
+					<StatNumber target={24} suffix="%" />
 					<div class="label" id="stat-label-tax-2">
 						Effective tax rate paid by the richest 400 US families (all taxes, Saez, Zucman et al., NBER 2025)<button type="button" class="cite-ref" aria-label="View source: Saez, Zucman et al., NBER 2025" aria-controls="cite-popover" aria-expanded="false" data-source="Saez, Zucman et al., How Much Tax Do US Billionaires Pay?, NBER WP 34170, 2025" data-url="https://www.nber.org/papers/w34170">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-tax-3">
-					<div class="num" data-target="89" data-prefix="$" data-suffix="B">$89B</div>
+					<StatNumber target={89} prefix="$" suffix="B" />
 					<div class="label" id="stat-label-tax-3">
 						Annual illicit financial flows from Africa — more than total aid received (UNCTAD 2020)<button type="button" class="cite-ref" aria-label="View source: UNCTAD 2020" aria-controls="cite-popover" aria-expanded="false" data-source="UNCTAD, Economic Development in Africa Report, 2020" data-url="https://unctad.org/publication/economic-development-africa-report-2020">*</button>
 					</div>

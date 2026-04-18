@@ -1,6 +1,7 @@
 ---
 import { emissionsData } from "../../data/charts";
 import BarChart from "../charts/BarChart.astro";
+import StatNumber from "../StatNumber.astro";
 ---
 
 <section id="ecology" aria-labelledby="ecology-heading">
@@ -51,23 +52,23 @@ import BarChart from "../charts/BarChart.astro";
 		<div class="col-charts">
 			<div class="stat-grid reveal">
 				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-0">
-					<div class="num" data-target="71" data-prefix="" data-suffix="%">71%</div>
+					<StatNumber target={71} suffix="%" />
 					<div class="label" id="stat-label-eco-0">
 						Of global emissions since 1988 traced to just 100 corporations — including downstream combustion of their products<button type="button" class="cite-ref" aria-label="View source: Carbon Majors (formerly CDP), 2017" aria-controls="cite-popover" aria-expanded="false" data-source="CDP, Carbon Majors Database Report, 2017 (now hosted at carbonmajors.org)" data-url="https://carbonmajors.org/">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-1">
-					<div class="num" data-target="7" data-prefix="$" data-suffix="T">$7T</div>
+					<StatNumber target={7} prefix="$" suffix="T" />
 					<div class="label" id="stat-label-eco-1">
 						In annual fossil fuel subsidies including unpriced environmental costs — more than global spending on education<button type="button" class="cite-ref" aria-label="View source: IMF 2025" aria-controls="cite-popover" aria-expanded="false" data-source="IMF, Fossil Fuel Subsidies 2025 Update" data-url="https://www.imf.org/en/Topics/climate-change/energy-subsidies">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-2">
-					<div class="num" data-target="400" data-prefix="$" data-suffix="B">$400B</div>
+					<StatNumber target={400} prefix="$" suffix="B" />
 					<div class="label" id="stat-label-eco-2">Estimated annual cost of climate damage to the Global South (Loss and Damage Collaboration 2024)</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-eco-3">
-					<div class="num" data-target="1" data-prefix="" data-suffix="M+">1M+</div>
+					<StatNumber target={1} suffix="M+" />
 					<div class="label" id="stat-label-eco-3">Species facing extinction — driven primarily by land-use change, extractive industry, and climate breakdown</div>
 				</div>
 			</div>

@@ -3,6 +3,7 @@ import { ceoPayData, homeownershipData, mobileData } from "../../data/charts";
 import BarChart from "../charts/BarChart.astro";
 import LaborChart from "../charts/LaborChart.astro";
 import TreemapChart from "../charts/TreemapChart.astro";
+import StatNumber from "../StatNumber.astro";
 ---
 
 <section id="labor" aria-labelledby="labor-heading">
@@ -24,23 +25,23 @@ import TreemapChart from "../charts/TreemapChart.astro";
 			</p>
 			<div class="stat-grid reveal">
 				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-0">
-					<div class="num" data-target="50" data-prefix="" data-suffix="%">50%</div>
+					<StatNumber target={50} suffix="%" />
 					<div class="label" id="stat-label-housing-0">
 						Of US renters spend 30%+ of income on rent — Harvard JCHS 2025<button type="button" class="cite-ref" aria-label="View source: Harvard JCHS 2025" aria-controls="cite-popover" aria-expanded="false" data-source="Harvard JCHS, State of the Nation's Housing, 2025" data-url="https://www.jchs.harvard.edu/state-nations-housing-2025">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-1">
-					<div class="num" data-target="13" data-prefix="" data-suffix=":1">13:1</div>
+					<StatNumber target={13} suffix=":1" />
 					<div class="label" id="stat-label-housing-1">London house price to earnings ratio — was around 4:1 in 1997 (ONS)</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-2">
-					<div class="num" data-target="393" data-prefix="$" data-suffix="T">$393T</div>
+					<StatNumber target={393} prefix="$" suffix="T" />
 					<div class="label" id="stat-label-housing-2">
 						Global real estate value — the largest asset class on earth (2024, Savills)<button type="button" class="cite-ref" aria-label="View source: Savills 2024" aria-controls="cite-popover" aria-expanded="false" data-source="Savills, How Much Is Global Real Estate Worth?, 2024" data-url="https://impacts.savills.com/market-trends/how-much-is-global-real-estate-worth.html">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-housing-3">
-					<div class="num" data-target="1" data-prefix="" data-suffix="M">1M</div>
+					<StatNumber target={1} suffix="M" />
 					<div class="label" id="stat-label-housing-3">Nearly 1 million empty homes in England while over 350,000 are homeless (Action on Empty Homes 2024; Shelter 2024)</div>
 				</div>
 			</div>
