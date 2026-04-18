@@ -1,0 +1,16 @@
+---
+interface Props {
+	target: number;
+	prefix?: string;
+	suffix?: string;
+}
+
+const { target, prefix = "", suffix = "" } = Astro.props;
+---
+
+<div
+	class="num"
+	data-target={target}
+	data-prefix={prefix}
+	data-suffix={suffix}
+>{prefix}{target}{suffix}</div>
