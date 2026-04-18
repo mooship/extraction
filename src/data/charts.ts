@@ -48,12 +48,12 @@ export type HistoryPoint = {
 
 export const giniDesktopData: GiniItem[] = [
 	{ label: "FR", value: 0.7, color: "#444" },
-	{ label: "UK", value: 0.706, color: "#444" },
-	{ label: "DE", value: 0.788, color: "#888" },
+	{ label: "UK", value: 0.71, color: "#444" },
+	{ label: "DE", value: 0.79, color: "#888" },
 	{ label: "USA", value: 0.85, color: "var(--accent)", highlight: true },
-	{ label: "SE", value: 0.881, color: "#0a8f8f" },
-	{ label: "ZA", value: 0.886, color: "#0a7676", highlight: true },
-	{ label: "BR", value: 0.892, color: "#0d6e6e" },
+	{ label: "SE", value: 0.88, color: "#0a8f8f" },
+	{ label: "ZA", value: 0.89, color: "#0a7676", highlight: true },
+	{ label: "BR", value: 0.89, color: "#0d6e6e" },
 ];
 
 export const laborSeriesData: LaborPoint[] = [
@@ -105,8 +105,8 @@ export const donutData: DonutSegment[] = [
 export const treemapData: TreemapItem[] = [
 	{
 		label: "Real Estate",
-		value: 380,
-		displayValue: "$380T",
+		value: 393,
+		displayValue: "$393T",
 		color: "var(--accent)",
 	},
 	{ label: "Equities", value: 109, displayValue: "$109T", color: "#444" },
@@ -161,8 +161,8 @@ export const sankeyFlows: SankeyFlow[] = [
 export const taxRatesData: BarChartItem[] = [
 	{
 		label: "Richest 400",
-		width: 62,
-		value: "23%",
+		width: 65,
+		value: "24%",
 		color: "var(--accent)",
 	},
 	{
