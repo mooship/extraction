@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "^3.7.2",
-		"astro": "^6.1.5",
+		"astro": "^6.2.1",
 		"d3-scale": "^4.0.2",
 		"d3-shape": "^3.2.0"
 	}
