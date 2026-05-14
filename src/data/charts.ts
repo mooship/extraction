@@ -67,7 +67,7 @@ export const laborSeriesData: LaborPoint[] = [
 ];
 
 export const historySeriesData: HistoryPoint[] = [
-	{ year: 1914, share: 28 },
+	{ year: 1914, share: 22 },
 	{ year: 1948, share: 27 },
 	{ year: 1970, share: 24 },
 	{ year: 1985, share: 22 },
@@ -191,7 +191,7 @@ export const debtServiceData: BarChartItem[] = [
 	{ label: "Ghana", width: 64, value: "47%", color: "#0a8f8f" },
 	{ label: "Pakistan", width: 55, value: "40%", color: "#0d7676" },
 	{ label: "Kenya", width: 41, value: "30%", color: "#444" },
-	{ label: "S. Africa", width: 30, value: "~22%", color: "#0a5e5e" },
+	{ label: "S. Africa", width: 29, value: "~21%", color: "#0a5e5e" },
 	{ label: "USA", width: 12, value: "9%", color: "#2a2a2a" },
 	{ label: "UK", width: 10, value: "7%", color: "#222" },
 ];
