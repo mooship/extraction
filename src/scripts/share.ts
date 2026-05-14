@@ -2,7 +2,7 @@ const SHARE_SVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" s
 
 function initShareButtons(): void {
 	const sections = document.querySelectorAll<HTMLElement>(
-		"#wealth, #tax, #labor, #imperialism, #ecology, #public",
+		"#wealth, #tax, #labor, #imperialism, #ecology",
 	);
 
 	for (const section of sections) {
@@ -22,8 +22,8 @@ function initShareButtons(): void {
 				try {
 					await navigator.share({ title: `Extraction — ${title}`, url });
 					return;
-				} catch {
-					/* user cancelled or API failed, fall through to clipboard */
+				} catch (err) {
+					if (err instanceof Error && err.name === "AbortError") return;
 				}
 			}
 
