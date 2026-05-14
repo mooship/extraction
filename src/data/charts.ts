@@ -96,7 +96,7 @@ export const ceoPayData: BarChartItem[] = [
 export const donutData: DonutSegment[] = [
 	{ label: "UK Dependencies", percent: 23, color: "var(--accent)" },
 	{ label: "Netherlands", percent: 22, color: "#0a8f8f" },
-	{ label: "Bermuda / Cayman", percent: 18, color: "#0d7676" },
+	{ label: "Bermuda & Cayman", percent: 18, color: "#0d7676" },
 	{ label: "Luxembourg", percent: 15, color: "#0a5e5e" },
 	{ label: "Ireland", percent: 12, color: "#444" },
 	{ label: "Other", percent: 10, color: "#2a2a2a" },
