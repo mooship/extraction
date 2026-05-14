@@ -10,7 +10,7 @@ import StatNumber from "../StatNumber.astro";
 		<div class="col-charts">
 			<figure class="chart-box reveal">
 				<figcaption class="chart-title">Where Corporate Profits Are Shifted</figcaption>
-				<div id="tax-donut-desktop-chart" class="desktop-chart" role="img" aria-label="Donut chart showing where corporate profits are shifted: UK Dependencies 23%, Netherlands 22%, Bermuda 18%, Ireland 12%, Luxembourg 15%, Other 10%">
+				<div id="tax-donut-desktop-chart" class="desktop-chart" role="img" aria-label="Donut chart showing where corporate profits are shifted: UK Dependencies 23%, Netherlands 22%, Bermuda 18%, Luxembourg 15%, Ireland 12%, Other 10%. Mauritius is a primary conduit for South African capital flight not shown in this global split.">
 					<DonutChart />
 				</div>
 				<div id="tax-donut-mobile-chart" class="mobile-chart" role="img" aria-label="Bar chart showing where corporate profits are shifted to tax havens">
@@ -30,34 +30,39 @@ import StatNumber from "../StatNumber.astro";
 				</table>
 			</figure>
 			<figure class="chart-box reveal" style="transition-delay: 0.12s">
-				<figcaption class="chart-title">Who Really Pays: Effective Tax Rates</figcaption>
-				<div role="img" aria-label="Bar chart showing effective tax rates: Richest 400 families pay 24% (all taxes), median household pays 25%, top statutory rate is 37%">
+				<figcaption class="chart-title">Who Really Pays: Effective Tax Rates — South Africa</figcaption>
+				<div role="img" aria-label="Bar chart showing South African tax rates: top personal marginal rate is 45%, statutory corporate rate is 27%, estimated effective rate for multinationals after profit-shifting is approximately 18%">
 					<BarChart id="tax-rates-chart" items={taxRatesData} />
 				</div>
 			</figure>
 		</div>
 		<div class="col-text">
-			<div class="section-label reveal-left">Tax Avoidance &amp; Offshore Wealth</div>
+			<div class="section-label reveal-left">Tax Avoidance &amp; Illicit Flows</div>
 			<h2 id="tax-heading" class="reveal" style="transition-delay: 0.1s">
 				The Hidden<br />Trillions
 			</h2>
 			<p>
-				The wealth concentration shown above is an undercount. An
-				estimated $32+ trillion sits offshore — beyond democratic reach.
-				Corporations shift over $1 trillion in profits to tax havens
-				annually.<button type="button" class="cite-ref" aria-label="View source: Tax Justice Network 2024" aria-controls="cite-popover" aria-expanded="false" data-source="Tax Justice Network, State of Tax Justice, 2024" data-url="https://taxjustice.net/reports/the-state-of-tax-justice-2024/">*</button> The global average corporate statutory tax rate has been
-				halved since 1985, from 49% to 23%, in a race to the bottom that
-				makes redistribution structurally impossible. The UK's Crown
-				Dependencies and Overseas Territories alone are responsible for
-				23% of global corporate tax losses.
+				South Africa's inequality is magnified by what leaves the country
+				unseen. Mauritius has become the primary conduit for South African
+				corporate profit-shifting: a double-taxation agreement exploited
+				by mining giants and financial holding companies to route earnings
+				offshore before they can be taxed. The Panama Papers and Pandora
+				Papers named scores of South African elites and politically
+				exposed persons with offshore structures.<button type="button" class="cite-ref" aria-label="View source: Tax Justice Network 2024" aria-controls="cite-popover" aria-expanded="false" data-source="Tax Justice Network, State of Tax Justice, 2024" data-url="https://taxjustice.net/reports/the-state-of-tax-justice-2024/">*</button> SARS estimates the
+				annual tax gap — money owed but not collected — at over R300
+				billion. That figure is larger than the entire national health
+				budget.
 			</p>
 			<p>
-				Meanwhile, illicit financial flows strip $89 billion per year from
-				Africa — more than the continent receives in aid. The system does
-				not merely produce inequality — it actively shields it from
-				democratic correction. Tax havens are not rogue actors. They are
-				built into the architecture of global capital: the City of London,
-				Delaware, the Netherlands.
+				Africa loses $89 billion per year to illicit financial flows —
+				more than the continent receives in aid. South Africa is one of
+				the continent's largest sources. The global corporate statutory
+				tax rate has been halved since 1985, from 49% to 23%, making
+				redistribution structurally impossible. While ordinary PAYE
+				workers cannot shield their wages from the taxman, multinational
+				corporations operating in South Africa pay effective rates of
+				around 18% — less than the 27% statutory rate — through
+				transfer pricing and offshore structuring.
 			</p>
 			<div class="pull-quote reveal">
 				<blockquote>
@@ -69,31 +74,32 @@ import StatNumber from "../StatNumber.astro";
 			</div>
 			<div class="stat-grid reveal">
 				<div class="stat-box" role="group" aria-labelledby="stat-label-tax-0">
-					<StatNumber target={32} prefix="$" suffix="T" />
+					<StatNumber target={300} prefix="R" suffix="B+" />
 					<div class="label" id="stat-label-tax-0">
-						Estimated global offshore wealth (2012 estimate, Tax Justice Network)<button type="button" class="cite-ref" aria-label="View source: Tax Justice Network 2012" aria-controls="cite-popover" aria-expanded="false" data-source="Tax Justice Network, The Price of Offshore Revisited, 2012" data-url="https://taxjustice.net/reports/the-price-of-offshore-revisited/">*</button>
+						Annual tax gap in South Africa — money owed but not collected, larger than the entire health budget (SARS estimate)<button type="button" class="cite-ref" aria-label="View source: SARS Annual Report" aria-controls="cite-popover" aria-expanded="false" data-source="South African Revenue Service, Annual Performance Plan &amp; Tax Gap Estimates" data-url="https://www.sars.gov.za/about/sars-annual-reports/">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-tax-1">
-					<StatNumber target={1} prefix="$" suffix="T" />
-					<div class="label" id="stat-label-tax-1">In corporate profits shifted to tax havens annually</div>
+					<StatNumber target={89} prefix="$" suffix="B" />
+					<div class="label" id="stat-label-tax-1">
+						Annual illicit financial flows from Africa — more than total aid received. South Africa is a major source via mining and financial sector profit-shifting<button type="button" class="cite-ref" aria-label="View source: UNCTAD 2020" aria-controls="cite-popover" aria-expanded="false" data-source="UNCTAD, Economic Development in Africa Report, 2020" data-url="https://unctad.org/publication/economic-development-africa-report-2020">*</button>
+					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-tax-2">
-					<StatNumber target={24} suffix="%" />
+					<StatNumber target={18} suffix="%" />
 					<div class="label" id="stat-label-tax-2">
-						Effective tax rate paid by the richest 400 US families (all taxes, Saez, Zucman et al., NBER 2025)<button type="button" class="cite-ref" aria-label="View source: Saez, Zucman et al., NBER 2025" aria-controls="cite-popover" aria-expanded="false" data-source="Saez, Zucman et al., How Much Tax Do US Billionaires Pay?, NBER WP 34170, 2025" data-url="https://www.nber.org/papers/w34170">*</button>
+						Estimated effective tax rate paid by large multinationals operating in South Africa — versus the 27% statutory rate and 45% personal marginal rate paid by wage earners<button type="button" class="cite-ref" aria-label="View source: Tax Justice Network" aria-controls="cite-popover" aria-expanded="false" data-source="Tax Justice Network, Profit Shifting &amp; South Africa, 2023" data-url="https://taxjustice.net">*</button>
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-tax-3">
-					<StatNumber target={89} prefix="$" suffix="B" />
-					<div class="label" id="stat-label-tax-3">
-						Annual illicit financial flows from Africa — more than total aid received (UNCTAD 2020)<button type="button" class="cite-ref" aria-label="View source: UNCTAD 2020" aria-controls="cite-popover" aria-expanded="false" data-source="UNCTAD, Economic Development in Africa Report, 2020" data-url="https://unctad.org/publication/economic-development-africa-report-2020">*</button>
-					</div>
+					<StatNumber target={1} prefix="$" suffix="T" />
+					<div class="label" id="stat-label-tax-3">In corporate profits shifted to tax havens globally every year — the same jurisdictions used by South African capital</div>
 				</div>
 			</div>
 			<p class="source">
 				Source:
-				<a href="https://taxjustice.net/reports/the-state-of-tax-justice-2024/" target="_blank" rel="noopener noreferrer">Tax Justice Network State of Tax Justice 2024</a> · Saez &amp; Zucman ·
+				<a href="https://www.sars.gov.za" target="_blank" rel="noopener noreferrer">South African Revenue Service</a> ·
+				<a href="https://taxjustice.net/reports/the-state-of-tax-justice-2024/" target="_blank" rel="noopener noreferrer">Tax Justice Network State of Tax Justice 2024</a> ·
 				<a href="https://unctad.org" target="_blank" rel="noopener noreferrer">UNCTAD</a> ·
 				<a href="https://gfintegrity.org" target="_blank" rel="noopener noreferrer">Global Financial Integrity</a>
 			</p>

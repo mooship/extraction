@@ -50,47 +50,47 @@ export const giniDesktopData: GiniItem[] = [
 	{ label: "FR", value: 0.7, color: "#444" },
 	{ label: "UK", value: 0.71, color: "#444" },
 	{ label: "DE", value: 0.79, color: "#888" },
-	{ label: "USA", value: 0.85, color: "var(--accent)", highlight: true },
+	{ label: "USA", value: 0.85, color: "#666" },
 	{ label: "SE", value: 0.88, color: "#0a8f8f" },
-	{ label: "ZA", value: 0.89, color: "#0a7676", highlight: true },
 	{ label: "BR", value: 0.89, color: "#0d6e6e" },
+	{ label: "ZA", value: 0.89, color: "var(--accent)", highlight: true },
 ];
 
 export const laborSeriesData: LaborPoint[] = [
-	{ year: 1950, labor: 67, capital: 33 },
-	{ year: 1970, labor: 67, capital: 33 },
-	{ year: 1985, labor: 65, capital: 35 },
-	{ year: 2000, labor: 63, capital: 37 },
-	{ year: 2015, labor: 61, capital: 39 },
-	{ year: 2023, labor: 58, capital: 42 },
-	{ year: 2025, labor: 57, capital: 43 },
+	{ year: 1990, labor: 55, capital: 45 },
+	{ year: 1994, labor: 54, capital: 46 },
+	{ year: 2000, labor: 52, capital: 48 },
+	{ year: 2008, labor: 51, capital: 49 },
+	{ year: 2015, labor: 49, capital: 51 },
+	{ year: 2020, labor: 47, capital: 53 },
+	{ year: 2025, labor: 46, capital: 54 },
 ];
 
 export const historySeriesData: HistoryPoint[] = [
-	{ year: 1913, share: 18 },
-	{ year: 1929, share: 24 },
-	{ year: 1945, share: 13 },
-	{ year: 1970, share: 10 },
-	{ year: 1980, share: 11 },
+	{ year: 1914, share: 28 },
+	{ year: 1948, share: 27 },
+	{ year: 1970, share: 24 },
+	{ year: 1985, share: 22 },
+	{ year: 1994, share: 20 },
 	{ year: 2000, share: 21 },
-	{ year: 2007, share: 24 },
+	{ year: 2010, share: 20 },
 	{ year: 2018, share: 19 },
-	{ year: 2023, share: 21 },
-	{ year: 2025, share: 21 },
+	{ year: 2023, share: 20 },
+	{ year: 2025, share: 20 },
 ];
 
 export const wealthDistributionData: BarChartItem[] = [
-	{ label: "Top 1%", width: 31, value: "31%", color: "var(--accent)" },
-	{ label: "Next 9%", width: 37, value: "37%", color: "#444" },
-	{ label: "Next 40%", width: 30, value: "30%", color: "#2a2a2a" },
-	{ label: "Bottom 50%", width: 2, value: "2%", color: "#222" },
+	{ label: "Top 1%", width: 55, value: "55%", color: "var(--accent)" },
+	{ label: "Next 9%", width: 35, value: "35%", color: "#444" },
+	{ label: "Next 40%", width: 9, value: "9%", color: "#2a2a2a" },
+	{ label: "Bottom 50%", width: 1, value: "~1%", color: "#222" },
 ];
 
 export const ceoPayData: BarChartItem[] = [
-	{ label: "1965", width: 5.5, value: "21:1", color: "#333" },
-	{ label: "1989", width: 16.1, value: "61:1", color: "#3a3a3a" },
-	{ label: "2000", width: 100, value: "380:1", color: "#0a8f8f" },
-	{ label: "2023", width: 76.3, value: "290:1", color: "var(--accent)" },
+	{ label: "1994", width: 16, value: "~85:1", color: "#333" },
+	{ label: "2005", width: 37, value: "~200:1", color: "#3a3a3a" },
+	{ label: "2015", width: 74, value: "~400:1", color: "#0a8f8f" },
+	{ label: "2022", width: 100, value: "541:1", color: "var(--accent)" },
 ];
 
 export const donutData: DonutSegment[] = [
@@ -160,34 +160,30 @@ export const sankeyFlows: SankeyFlow[] = [
 
 export const taxRatesData: BarChartItem[] = [
 	{
-		label: "Richest 400",
-		width: 65,
-		value: "24%",
-		color: "var(--accent)",
+		label: "Top personal rate",
+		width: 100,
+		value: "45%",
+		color: "#2a2a2a",
 	},
 	{
-		label: "Median Household",
-		width: 68,
-		value: "25%",
+		label: "Statutory corporate",
+		width: 60,
+		value: "27%",
 		color: "#444",
 	},
 	{
-		label: "Top Statutory",
-		width: 100,
-		value: "37%",
-		color: "#2a2a2a",
+		label: "MNC effective (est.)",
+		width: 40,
+		value: "~18%",
+		color: "var(--accent)",
 	},
 ];
 
 export const homeownershipData: BarChartItem[] = [
-	{ label: "25–34 (c.2000)", width: 59, value: "~59%", color: "#888" },
-	{ label: "25–34 (2025)", width: 28, value: "28%", color: "var(--accent)" },
-	{ label: "35–44 (1997)", width: 68, value: "68%", color: "#888" },
-	{ label: "35–44 (2025)", width: 51, value: "51%", color: "#0a8f8f" },
-	{ label: "45–54 (1997)", width: 75, value: "75%", color: "#888" },
-	{ label: "45–54 (2025)", width: 65, value: "65%", color: "#444" },
-	{ label: "55–64 (1997)", width: 78, value: "78%", color: "#888" },
-	{ label: "55–64 (2025)", width: 74, value: "74%", color: "#333" },
+	{ label: "1994", width: 63, value: "~1.5M", color: "#888" },
+	{ label: "2004", width: 79, value: "~1.9M", color: "#666" },
+	{ label: "2014", width: 96, value: "~2.3M", color: "#0a8f8f" },
+	{ label: "2024", width: 100, value: "~2.4M", color: "var(--accent)" },
 ];
 
 export const debtServiceData: BarChartItem[] = [
@@ -195,6 +191,7 @@ export const debtServiceData: BarChartItem[] = [
 	{ label: "Ghana", width: 64, value: "47%", color: "#0a8f8f" },
 	{ label: "Pakistan", width: 55, value: "40%", color: "#0d7676" },
 	{ label: "Kenya", width: 41, value: "30%", color: "#444" },
+	{ label: "S. Africa", width: 30, value: "~22%", color: "#0a5e5e" },
 	{ label: "USA", width: 12, value: "9%", color: "#2a2a2a" },
 	{ label: "UK", width: 10, value: "7%", color: "#222" },
 ];
@@ -253,15 +250,15 @@ function buildMobileData(): {
 		},
 	];
 
-	const historyYears = [1913, 1929, 1970, 2025];
+	const historyYears = [1914, 1948, 1994, 2025];
 	const history = historySeriesData
 		.filter((point) => historyYears.includes(point.year))
 		.map((point) => {
 			const width = Math.round((point.share / HISTORY_SHARE_MAX) * 100);
 			const colorMap: Record<number, string> = {
-				1913: "#0a7575",
-				1929: "var(--accent)",
-				1970: "#4caf4c",
+				1914: "#0a7575",
+				1948: "var(--accent)",
+				1994: "#4caf4c",
 				2025: "#0a8f8f",
 			};
 			const color = colorMap[point.year];

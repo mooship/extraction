@@ -16,8 +16,12 @@ import StatNumber from "../StatNumber.astro";
 					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-imp-1">
-					<StatNumber target={11} prefix="$" suffix="T" />
-					<div class="label" id="stat-label-imp-1">Total external debt of developing countries — World Bank 2024<button type="button" class="cite-ref" aria-label="View source: World Bank 2024" aria-controls="cite-popover" aria-expanded="false" data-source="World Bank, International Debt Report, 2024" data-url="https://www.worldbank.org/en/publication/international-debt-report">*</button></div>
+					<StatNumber target={22} suffix="%" />
+					<div class="label" id="stat-label-imp-1">
+						Of South Africa's government revenue goes to debt service in
+						2023/24 — nearly double the 12% share in 2015, driven by
+						state capture and its aftermath<button type="button" class="cite-ref" aria-label="View source: National Treasury South Africa" aria-controls="cite-popover" aria-expanded="false" data-source="National Treasury South Africa, Budget Review 2024" data-url="https://www.treasury.gov.za/documents/national%20budget/2024/review/FullBR.pdf">*</button>
+					</div>
 				</div>
 				<div class="stat-box" role="group" aria-labelledby="stat-label-imp-2">
 					<StatNumber target={54} />
@@ -32,7 +36,7 @@ import StatNumber from "../StatNumber.astro";
 			</div>
 			<figure class="chart-box reveal">
 				<figcaption class="chart-title">The Real Flow of Wealth: South to North</figcaption>
-				<div id="flows-sankey-desktop-chart" class="desktop-chart" role="img" aria-label="Sankey diagram showing the real flow of wealth from South to North: $10.8 trillion in unequal exchange versus only $200 billion in aid">
+				<div id="flows-sankey-desktop-chart" class="desktop-chart" role="img" aria-label="Sankey diagram showing the real flow of wealth from South to North: $10.8 trillion in unequal exchange versus only $200 billion in aid. South Africa sits on both sides of this flow — as a victim of colonial extraction and as a source of ongoing capital flight.">
 					<SankeyChart />
 				</div>
 				<div id="flows-sankey-mobile-chart" class="mobile-chart" role="img" aria-label="Bar chart showing wealth flows from Global South to North">
@@ -51,34 +55,45 @@ import StatNumber from "../StatNumber.astro";
 			</figure>
 			<figure class="chart-box reveal" style="transition-delay: 0.12s">
 				<figcaption class="chart-title">Debt Service as % of Government Revenue</figcaption>
-				<div role="img" aria-label="Bar chart showing debt service as percentage of government revenue: Sri Lanka 73%, Ghana 47%, Pakistan 40%, Kenya 30%, USA 9%">
+				<div role="img" aria-label="Bar chart showing debt service as percentage of government revenue: Sri Lanka 73%, Ghana 47%, Pakistan 40%, Kenya 30%, South Africa approximately 22%, USA 9%, UK 7%">
 					<BarChart id="debt-service-chart" items={debtServiceData} outsideValueThreshold={13} />
 				</div>
 			</figure>
 		</div>
 		<div class="col-text">
-			<div class="section-label reveal-left">Global South &amp; Imperialism</div>
+			<div class="section-label reveal-left">Global South &amp; Colonialism</div>
 			<h2 id="imperialism-heading" class="reveal" style="transition-delay: 0.1s">
 				Extraction<br />Without Borders
 			</h2>
 			<p>
-				The same logic of extraction that operates within wealthy nations
-				operates between them. When illicit financial flows, debt service,
-				trade mispricing, and unequal exchange are accounted for, the
-				Global South is a net creditor to the Global North — transferring
-				an estimated $2 trillion per year northward. The aid narrative
-				inverts reality: wealth flows from poor countries to rich ones,
-				not the other way around.
+				South Africa's extraction story did not begin in 1948. It began in
+				1652, accelerated with diamonds in 1867 and gold in 1886, and was
+				systematised by a British colonial state that dispossessed, taxed,
+				and conscripted an entire people into its mines. The apartheid
+				state inherited this structure and perfected it. And when majority
+				rule came, South African mining capital — Anglo American, Glencore,
+				Gold Fields — did not dissolve. It registered in Bermuda, listed
+				in London, and continued extracting value from the same soil, the
+				same workers, the same communities.
 			</p>
 			<p>
-				The IMF and World Bank enforce structural adjustment programmes
-				that strip developing nations of the very policy tools Western
-				welfare states used to industrialise and build public services.
-				Fifty-four countries are in debt crisis or at high risk. Debt
-				service payments by developing countries reached $443 billion in
-				2022 — dwarfing the aid they receive — and have risen further
-				since. This is not development. It is extraction with a
-				humanitarian label.
+				When illicit financial flows, debt service, trade mispricing, and
+				unequal exchange are accounted for, the Global South is a net
+				creditor to the Global North — transferring an estimated $2
+				trillion per year northward. South Africa is not merely a victim
+				of this system: it occupies a contradictory position as both
+				exploited periphery and, through its own capital, a regional
+				extractor within Africa. The same logic of extraction operates
+				between Johannesburg and the DRC as it does between London and
+				Johannesburg.
+			</p>
+			<p>
+				South Africa's debt cost has nearly doubled since the state
+				capture years (2009–2018), during which Zuma-aligned networks
+				looted an estimated R500 billion from state enterprises. The
+				interest bill on that looting now crowds out healthcare, housing,
+				and education budgets — transferring the cost of elite theft onto
+				the public permanently.
 			</p>
 			<div class="pull-quote reveal">
 				<blockquote>"Europe is literally the creation of the Third World."</blockquote>
@@ -87,7 +102,7 @@ import StatNumber from "../StatNumber.astro";
 			<p class="source">
 				Source: Jason Hickel, <em>The Divide</em> ·
 				<a href="https://gfintegrity.org" target="_blank" rel="noopener noreferrer">Global Financial Integrity</a> ·
-				<a href="https://jubileedebt.org.uk" target="_blank" rel="noopener noreferrer">Jubilee Debt Campaign</a> ·
+				<a href="https://www.treasury.gov.za" target="_blank" rel="noopener noreferrer">National Treasury SA</a> ·
 				<a href="https://data.worldbank.org" target="_blank" rel="noopener noreferrer">World Bank</a> ·
 				<a href="https://unctad.org" target="_blank" rel="noopener noreferrer">UNCTAD</a>
 			</p>

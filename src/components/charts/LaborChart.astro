@@ -3,7 +3,7 @@ import { scaleLinear } from "d3-scale";
 import { line } from "d3-shape";
 import { laborSeriesData } from "../../data/charts";
 
-const xScale = scaleLinear().domain([1950, 2025]).range([50, 445]);
+const xScale = scaleLinear().domain([1990, 2025]).range([50, 445]);
 const yScale = scaleLinear().domain([30, 70]).range([180, 20]);
 
 const laborLine = line<(typeof laborSeriesData)[number]>()
@@ -18,7 +18,7 @@ const laborPath = laborLine(laborSeriesData) ?? "";
 const capitalPath = capitalLine(laborSeriesData) ?? "";
 
 const gridYValues = [70, 60, 50, 40, 30];
-const markerX = xScale(1980);
+const markerX = xScale(1996);
 ---
 
 <svg
@@ -28,11 +28,12 @@ const markerX = xScale(1980);
 	viewBox="0 0 475 220"
 	xmlns="http://www.w3.org/2000/svg"
 >
-	<title id="labor-svg-title">Labour vs Capital Share of GDP</title>
+	<title id="labor-svg-title">Labour vs Capital Share of GDP — South Africa</title>
 	<desc>
-		Line chart showing USA labour share falling from 67% in 1950 to 57% in
-		2025, while capital share rose from 33% to 43% over the same period. The
-		neoliberal turn around 1980 marks the inflection point.
+		Line chart showing South Africa's labour share of GDP falling from 55% in
+		1990 to 46% in 2025, while capital share rose from 45% to 54%. The 1996
+		GEAR policy marks the inflection point where capital began capturing a
+		majority of national income.
 	</desc>
 	{gridYValues.map((v) => (
 		<line x1="45" y1={yScale(v)} x2="455" y2={yScale(v)} stroke={v === 30 ? "#333" : "#1a1a1a"} stroke-width="1" stroke-dasharray={v === 30 ? undefined : "4,3"} />
@@ -48,9 +49,9 @@ const markerX = xScale(1980);
 		</text>
 	))}
 	<line x1={markerX} y1="15" x2={markerX} y2="180" stroke="#444" stroke-width="1" stroke-dasharray="3,3" />
-	<text x={markerX + 2} y="28" fill="#888" font-size="7">1980</text>
-	<text x={markerX + 2} y="38" fill="#888" font-size="7">Neoliberal</text>
-	<text x={markerX + 2} y="48" fill="#888" font-size="7">Turn</text>
+	<text x={markerX + 2} y="28" fill="#888" font-size="7">1996</text>
+	<text x={markerX + 2} y="38" fill="#888" font-size="7">GEAR</text>
+	<text x={markerX + 2} y="48" fill="#888" font-size="7">Policy</text>
 	<path id="labor-line" d={laborPath} fill="none" stroke="#888" stroke-width="2" />
 	<path id="capital-line" d={capitalPath} fill="none" stroke="var(--accent)" stroke-width="2.5" />
 	<line x1="50" y1="210" x2="70" y2="210" stroke="#888" stroke-width="2" />

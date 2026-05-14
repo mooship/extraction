@@ -61,7 +61,7 @@ describe("buildMobileData", () => {
 		it("filters to exactly 4 key years", () => {
 			expect(mobileData.history).toHaveLength(4);
 			const years = mobileData.history.map((h) => h.label);
-			expect(years).toEqual(["1913", "1929", "1970", "2025"]);
+			expect(years).toEqual(["1914", "1948", "1994", "2025"]);
 		});
 
 		it("normalises width against HISTORY_SHARE_MAX of 30", () => {
