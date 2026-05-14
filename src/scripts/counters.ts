@@ -4,12 +4,16 @@ export function initCounters(): void {
 	).matches;
 
 	function animateCounter(el: HTMLElement): void {
-		const target = Number.parseInt(el.dataset.target ?? "0", 10);
+		const targetStr = el.dataset.target ?? "0";
+		const target = Number.parseFloat(targetStr);
+		const decimals = targetStr.includes(".")
+			? targetStr.split(".")[1].length
+			: 0;
 		const prefix = el.dataset.prefix ?? "";
 		const suffix = el.dataset.suffix ?? "";
 
 		if (reducedMotion) {
-			el.textContent = `${prefix}${target}${suffix}`;
+			el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
 			return;
 		}
 
@@ -20,8 +24,8 @@ export function initCounters(): void {
 			const elapsed = now - startTime;
 			const t = Math.min(elapsed / duration, 1);
 			const progress = 1 - (1 - t) ** 3;
-			const current = Math.round(progress * target);
-			el.textContent = `${prefix}${current}${suffix}`;
+			const current = progress * target;
+			el.textContent = `${prefix}${current.toFixed(decimals)}${suffix}`;
 			if (t < 1) {
 				requestAnimationFrame(tick);
 			}

@@ -3,7 +3,7 @@ import { scaleLinear } from "d3-scale";
 import { area, line } from "d3-shape";
 import { historySeriesData } from "../../data/charts";
 
-const xScale = scaleLinear().domain([1913, 2025]).range([50, 795]);
+const xScale = scaleLinear().domain([1914, 2025]).range([50, 795]);
 const yScale = scaleLinear().domain([10, 30]).range([225, 45]);
 
 const trendLine = line<(typeof historySeriesData)[number]>()
@@ -18,7 +18,7 @@ const areaFill = area<(typeof historySeriesData)[number]>()
 const trendPath = trendLine(historySeriesData) ?? "";
 const areaPath = areaFill(historySeriesData) ?? "";
 
-const axisYears = [1913, 1929, 1945, 1970, 1980, 2000, 2025];
+const axisYears = [1914, 1948, 1970, 1994, 2000, 2025];
 const filteredYears = historySeriesData.filter((point) =>
 	axisYears.includes(point.year),
 );
@@ -28,30 +28,31 @@ const findYear = (year: number) => {
 	if (!point) throw new Error(`Missing history data for ${year}`);
 	return point;
 };
-const crash = findYear(1929);
-const peak = findYear(1970);
+const apartheid = findYear(1948);
+const democracy = findYear(1994);
 const recent = findYear(2025);
+const gearX = xScale(1996);
 
 const eras = [
 	{
-		x1: xScale(1913),
-		x2: xScale(1929),
+		x1: xScale(1914),
+		x2: xScale(1948),
 		fill: "rgba(14,110,112,0.06)",
-		label: "GILDED AGE",
+		label: "COLONIAL ERA",
 		labelColor: "rgba(14,110,112,0.4)",
 	},
 	{
-		x1: xScale(1929),
-		x2: xScale(1970),
+		x1: xScale(1948),
+		x2: xScale(1994),
 		fill: "rgba(76,175,76,0.05)",
-		label: "POST-WAR EGALITARIAN ERA",
+		label: "APARTHEID",
 		labelColor: "rgba(76,175,76,0.4)",
 	},
 	{
-		x1: xScale(1970),
+		x1: xScale(1994),
 		x2: xScale(2025),
 		fill: "rgba(14,110,112,0.10)",
-		label: "NEOLIBERAL ASCENT",
+		label: "POST-APARTHEID",
 		labelColor: "rgba(14,110,112,0.5)",
 	},
 ];
@@ -66,11 +67,13 @@ const gridYValues = [30, 25, 20, 15, 10];
 	viewBox="0 0 820 260"
 	xmlns="http://www.w3.org/2000/svg"
 >
-	<title id="history-svg-title">Top 1% Income Share — USA, 1913–2025</title>
+	<title id="history-svg-title">Top 1% Income Share — South Africa, 1914–2025</title>
 	<desc>
-		Line chart showing the top 1% income share peaked at 24% in 1929, fell to
-		10% by 1970 during the post-war egalitarian era, then rose again to 21% by
-		2025 under neoliberal policies.
+		Line chart showing the top 1% income share in South Africa from 1914 to
+		2025. The share rose from around 22% in the colonial era to 27% when
+		apartheid began in 1948, then fell gradually through the apartheid period,
+		and has held at around 19–21% in the post-apartheid era — with the 1996
+		GEAR policy preventing any structural redistribution.
 	</desc>
 	{eras.map((era) => (
 		<>
@@ -93,10 +96,13 @@ const gridYValues = [30, 25, 20, 15, 10];
 	))}
 	<path d={areaPath} fill="rgba(14,110,112,0.08)" />
 	<path id="hist-line" d={trendPath} fill="none" stroke="var(--accent)" stroke-width="2.5" />
-	<circle cx={xScale(crash.year)} cy={yScale(crash.share)} r="5" style="fill: var(--accent)" />
-	<text x={xScale(crash.year) + 6} y={yScale(crash.share) - 8} style="fill: var(--accent)" font-size="7">1929 Crash</text>
-	<circle cx={xScale(peak.year)} cy={yScale(peak.share)} r="5" fill="#4caf4c" />
-	<text x={xScale(peak.year) + 6} y={yScale(peak.share) - 7} fill="#4caf4c" font-size="7">Peak Equality</text>
+	<line x1={gearX} y1="15" x2={gearX} y2="225" stroke="#555" stroke-width="1" stroke-dasharray="3,3" />
+	<text x={gearX + 3} y="60" fill="#888" font-size="7">1996</text>
+	<text x={gearX + 3} y="70" fill="#888" font-size="7">GEAR</text>
+	<circle cx={xScale(apartheid.year)} cy={yScale(apartheid.share)} r="5" style="fill: var(--accent)" />
+	<text x={xScale(apartheid.year) + 6} y={yScale(apartheid.share) - 8} style="fill: var(--accent)" font-size="7">Apartheid begins</text>
+	<circle cx={xScale(democracy.year)} cy={yScale(democracy.share)} r="5" fill="#4caf4c" />
+	<text x={xScale(democracy.year) + 6} y={yScale(democracy.share) - 7} fill="#4caf4c" font-size="7">Democracy</text>
 	<circle cx={xScale(recent.year)} cy={yScale(recent.share)} r="5" style="fill: var(--accent)" />
 	<text x={xScale(recent.year) - 38} y={yScale(recent.share) - 8} style="fill: var(--accent)" font-size="7">{recent.share}% (2025)</text>
 </svg>
