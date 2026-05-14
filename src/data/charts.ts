@@ -261,7 +261,7 @@ function buildMobileData(): {
 				1994: "#4caf4c",
 				2025: "#0a8f8f",
 			};
-			const color = colorMap[point.year];
+			const color = colorMap[point.year] ?? "var(--accent)";
 			return {
 				label: `${point.year}`,
 				width,
