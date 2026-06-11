@@ -28,10 +28,6 @@
 		grid-template-columns: 1fr;
 	}
 
-	.country-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
 	footer {
 		padding: 30px 32px;
 	}
@@ -52,22 +48,12 @@
 		display: block;
 	}
 
-	.country-grid,
-	.demands {
-		grid-template-columns: 1fr;
-	}
-
-	#manifesto {
-		padding: 56px 16px;
-	}
-
 	footer {
 		padding: 24px 16px;
 		gap: 16px;
 	}
 
 	p,
-	.demand-sub,
 	.footer-sources p {
 		overflow-wrap: anywhere;
 	}
@@ -136,10 +122,6 @@
 	}
 
 	.stat-grid {
-		grid-template-columns: 1fr;
-	}
-
-	.country-grid {
 		grid-template-columns: 1fr;
 	}
 
@@ -238,10 +220,6 @@
 
 	.pull-quote {
 		padding: 14px 14px;
-	}
-
-	#manifesto {
-		padding: 48px 14px;
 	}
 
 	footer {

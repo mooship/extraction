@@ -33,10 +33,6 @@
 	outline-offset: 3px;
 }
 
-#manifesto :focus-visible {
-	outline-color: var(--accent);
-}
-
 .sr-only {
 	position: absolute;
 	width: 1px;

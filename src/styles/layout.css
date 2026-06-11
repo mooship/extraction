@@ -55,8 +55,7 @@ section {
 }
 
 #tax,
-#imperialism,
-#public {
+#imperialism {
 	background: var(--bg-section-alt);
 }
 
@@ -66,8 +65,4 @@ section {
 
 .source + .two-col {
 	margin-top: 2rem;
-}
-
-.global-south-callout + .source {
-	margin-top: 12px;
 }

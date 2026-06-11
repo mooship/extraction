@@ -15,6 +15,16 @@
 	margin-bottom: 20px;
 }
 
+.chart-note {
+	font-family: var(--font-ui);
+	font-size: 0.8125rem;
+	color: var(--text-muted);
+	line-height: 1.6;
+	margin-top: 16px;
+	padding-top: 12px;
+	border-top: 1px solid var(--border-subtle);
+}
+
 .bar-chart {
 	display: flex;
 	flex-direction: column;
