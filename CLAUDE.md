@@ -28,7 +28,7 @@ Static site built with Astro v6. Single scrollable page with anchor-linked secti
 **Directory structure:**
 - `src/pages/` — `index.astro` (main page) and `privacy.astro`
 - `src/layouts/Base.astro` — Shared HTML shell (`<html>`, `<head>`, meta, global CSS, client scripts)
-- `src/components/sections/` — One component per page section (Hero, Wealth, Tax, Labor, Imperialism, Ecology, Public, Manifesto, Action)
+- `src/components/sections/` — One component per page section (Hero, Wealth, Tax, Labor, Imperialism, Ecology, Action)
 - `src/components/charts/` — Build-time SVG chart components (BarChart, GiniChart, LaborChart, HistoryChart, DonutChart, TreemapChart, SankeyChart)
 - `src/components/` — Shared UI (Nav, Footer, CitePopover, BackToTop)
 - `src/data/charts.ts` — All chart data constants, types, and helper functions (e.g. `buildMobileData()`)

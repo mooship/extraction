@@ -8,11 +8,6 @@
 	--bg-section-alt: #f4f1ec;
 	--border-subtle: #d6d1c9;
 
-	--bg-inverted: #1c1917;
-	--bg-inverted-surface: #262220;
-	--bg-inverted-elevated: #2e2a28;
-	--border-inverted: #333333;
-
 	--fg: #1c1917;
 	--text-body: #292524;
 	--text-muted: #57534e;
@@ -48,11 +43,6 @@
 		--bg-inset: #1e2840;
 		--bg-section-alt: #111820;
 		--border-subtle: #253045;
-
-		--bg-inverted: var(--bg-surface);
-		--bg-inverted-surface: var(--bg-inset);
-		--bg-inverted-elevated: var(--bg-elevated);
-		--border-inverted: var(--border-subtle);
 
 		--fg: #e8edf5;
 		--text-body: #d1d9e6;
