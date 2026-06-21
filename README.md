@@ -8,7 +8,7 @@ A data-driven, interactive web experience making a visual case against wealth co
 - Scroll-triggered animations revealing statistics and data visualisations
 - Animated counters for key inequality metrics
 - Interactive bar charts, SVG line graphs, donut chart, treemap, and Sankey flow diagram — all hand-built SVG, no charting libraries
-- Sections covering Wealth, Tax Avoidance, Labour & Housing, Global South & Imperialism, Ecology, Public Services, Policy Demands, and Action
+- Sections covering Wealth, Tax Avoidance, Labour & Housing, Global South & Imperialism, Ecology, and Action
 - Fully responsive layout with CSS-based desktop/mobile chart swap
 
 ## Tech Stack
