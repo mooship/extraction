@@ -51,11 +51,6 @@ export function initCounters(): void {
 	);
 
 	for (const box of document.querySelectorAll<HTMLElement>(".stat-box")) {
-		const num = box.querySelector<HTMLElement>(".num");
-		if (num) {
-			num.setAttribute("aria-live", "polite");
-			num.setAttribute("aria-atomic", "true");
-		}
 		observer.observe(box);
 	}
 }
