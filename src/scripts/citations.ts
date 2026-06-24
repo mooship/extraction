@@ -47,8 +47,8 @@ export function initCitations(): void {
 			left = Math.max(8, vw - popW - 8);
 		}
 
-		popover.style.top = `${top}px`;
-		popover.style.left = `${left}px`;
+		popover.style.top = `${top + window.scrollY}px`;
+		popover.style.left = `${left + window.scrollX}px`;
 
 		btn.setAttribute("aria-expanded", "true");
 		active = btn;
