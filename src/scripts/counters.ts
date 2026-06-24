@@ -12,6 +12,8 @@ export function initCounters(): void {
 		const prefix = el.dataset.prefix ?? "";
 		const suffix = el.dataset.suffix ?? "";
 
+		el.classList.add("is-counting");
+
 		if (reducedMotion) {
 			el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
 			return;

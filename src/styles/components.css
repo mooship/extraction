@@ -139,6 +139,15 @@ nav {
 	display: block;
 }
 
+html.js-ready .stat-box .num {
+	opacity: 0;
+}
+
+html.js-ready .stat-box .num.is-counting {
+	opacity: 1;
+	transition: opacity var(--duration-fast) ease-out;
+}
+
 .stat-box .label {
 	font-family: var(--font-ui);
 	font-size: 0.75rem;
@@ -491,7 +500,7 @@ footer {
 }
 
 #cite-popover {
-	position: fixed;
+	position: absolute;
 	z-index: var(--z-popover);
 	max-width: 300px;
 	background: var(--bg-elevated);
