@@ -1,8 +1,20 @@
+/**
+ * Animates each `.stat-box .num` element from 0 to its `data-target` value
+ * (with `data-prefix`/`data-suffix`) once the containing `.stat-box`
+ * scrolls into view. Under `prefers-reduced-motion` the target value is
+ * set immediately with no count-up.
+ */
 export function initCounters(): void {
 	const reducedMotion = window.matchMedia(
 		"(prefers-reduced-motion: reduce)",
 	).matches;
 
+	/**
+	 * Counts `el`'s text content up to `data-target` over 1.5s using an
+	 * ease-out-cubic curve. Decimal precision is inferred from the number
+	 * of digits after the `.` in `data-target` (e.g. "0.89" animates with
+	 * 2 decimal places).
+	 */
 	function animateCounter(el: HTMLElement): void {
 		const targetStr = el.dataset.target ?? "0";
 		const target = Number.parseFloat(targetStr);

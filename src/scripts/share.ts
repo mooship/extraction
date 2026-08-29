@@ -1,5 +1,13 @@
 const SHARE_SVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`;
 
+/**
+ * Appends a share button to each shareable section (see the hardcoded
+ * selector below — keep it in sync with `index.astro`'s section list by
+ * hand, nothing derives it automatically). On click, tries the native
+ * Web Share API first; if unavailable (or the user cancels it), falls
+ * back to copying the section's deep link to the clipboard and shows a
+ * transient "Copied!"/"Copy failed" status in the button.
+ */
 function initShareButtons(): void {
 	const sections = document.querySelectorAll<HTMLElement>(
 		"#wealth, #tax, #labor, #imperialism, #ecology",

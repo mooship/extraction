@@ -1,3 +1,10 @@
+/**
+ * Single source of truth for every chart number on the site. Section
+ * components import the typed consts below and pass them straight into
+ * chart components as props; `mobileData` derives the mobile bar-chart
+ * fallback for each dataset (see `buildMobileData`).
+ */
+
 export type DonutSegment = {
 	label: string;
 	percent: number;
@@ -11,6 +18,7 @@ export type TreemapItem = {
 	color: string;
 };
 
+/** One flow in `SankeyChart`; `sourceY`/`targetY` are SVG y-coordinates, not data values. */
 export type SankeyFlow = {
 	label: string;
 	displayValue: string;
@@ -21,6 +29,7 @@ export type SankeyFlow = {
 	direction: "left" | "right";
 };
 
+/** A single row in `BarChart`; `width` is a 0–100 percentage of the track, `value` the display label. */
 export type BarChartItem = {
 	label: string;
 	width: number;
@@ -203,9 +212,22 @@ export const emissionsData: BarChartItem[] = [
 	{ label: "Bottom 50%", width: 8, value: "8%", color: "#2a2a2a" },
 ];
 
+/** Upper bound used to normalise `historySeriesData.share` to a 0–100 bar width. */
 const HISTORY_SHARE_MAX = 30;
+/** Upper bound used to normalise `donutData.percent` to a 0–100 bar width. */
 const DONUT_MAX_PERCENT = 23;
 
+/**
+ * Derives the mobile `BarChart` fallback data for every desktop chart from
+ * its corresponding dataset above, so the two stay in sync when the
+ * desktop data changes.
+ *
+ * The `sankey` result is the one exception: it's a hardcoded literal, not
+ * derived from `sankeyFlows`, because Sankey flow values don't map onto a
+ * bar width the same simple way the others do. If `sankeyFlows` changes,
+ * this array must be updated by hand or the mobile view will silently show
+ * stale figures — `charts.test.ts` does not catch drift here.
+ */
 function buildMobileData(): {
 	gini: BarChartItem[];
 	labor: BarChartItem[];
@@ -285,6 +307,7 @@ function buildMobileData(): {
 		color: item.color,
 	}));
 
+	// Hardcoded, not derived from sankeyFlows — see buildMobileData's docstring.
 	const sankey: BarChartItem[] = [
 		{
 			label: "Unequal Exchange",
@@ -310,4 +333,5 @@ function buildMobileData(): {
 	return { gini, labor, history, donut, treemap, sankey };
 }
 
+/** Mobile `BarChart` fallback data for every chart on the site — see `buildMobileData`. */
 export const mobileData = buildMobileData();

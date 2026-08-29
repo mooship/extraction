@@ -10,6 +10,8 @@ const xScale = scaleBand()
 	.range([20, 440])
 	.padding(0.35);
 
+// Y-axis is truncated to 0.6-1.0 (not 0-1.0) so the gap between countries
+// is legible — all values in giniDesktopData fall in this range.
 const yScale = scaleLinear().domain([0.6, 1.0]).range([yBase, yTop]);
 
 const bandwidth = xScale.bandwidth();

@@ -1,3 +1,10 @@
+/**
+ * Wires the mobile nav's hamburger `.nav-toggle` button: toggles the
+ * `.nav-open` class and `aria-expanded`/`aria-label`, moves focus into the
+ * menu on open, traps Tab/Shift+Tab between the toggle and the last link
+ * while open, closes on Escape or on any nav link click, and restores
+ * focus to the toggle button on close.
+ */
 export function initNavToggle(): void {
 	const nav = document.querySelector<HTMLElement>("nav");
 	const btn = document.querySelector<HTMLButtonElement>(".nav-toggle");
@@ -62,6 +69,12 @@ export function initNavToggle(): void {
 	}
 }
 
+/**
+ * Highlights the nav link for whichever `section[id]` is currently in the
+ * "active" scroll band, using a `rootMargin` that treats a section as
+ * active once it crosses 20% down from the top of the viewport and until
+ * it's 60% up from the bottom.
+ */
 export function initActiveNav(): void {
 	const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-links a");
 	const sections = document.querySelectorAll<HTMLElement>("section[id]");
@@ -94,6 +107,7 @@ export function initActiveNav(): void {
 	}
 }
 
+/** Entry point registered on `DOMContentLoaded` — runs both nav behaviours. */
 function initNav(): void {
 	initNavToggle();
 	initActiveNav();
