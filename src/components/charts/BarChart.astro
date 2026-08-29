@@ -4,6 +4,11 @@ import type { BarChartItem } from "../../data/charts";
 interface Props {
 	id: string;
 	items: BarChartItem[];
+	/**
+	 * Bars whose `width` (0–100) is at or below this value render their
+	 * value label outside the track instead of inside the fill, since a
+	 * narrow bar has no room to fit the label inline. Default 0 (never).
+	 */
 	outsideValueThreshold?: number;
 }
 

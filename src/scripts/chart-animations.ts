@@ -1,3 +1,14 @@
+/**
+ * Drives the entrance animations for chart markup: `.bar-fill` widths
+ * (any `.chart-box`), staggered `.gini-bar`/`.treemap-rect` scale-ins
+ * (`#gini-svg`, `#treemap-svg`), and the `.donut-segment` stroke-dasharray
+ * sweep (`#tax-donut-svg`). Each element's target value is read from a
+ * `data-*` attribute set by the corresponding chart component, so this
+ * only animates charts that actually populate those attributes.
+ *
+ * No-ops entirely under `prefers-reduced-motion`, leaving charts in their
+ * final (unanimated) state — see `charts.css` for the non-JS baseline.
+ */
 export function initChartAnimations(): void {
 	const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -28,6 +39,11 @@ export function initChartAnimations(): void {
 		barObserver.observe(box);
 	}
 
+	/**
+	 * Builds an observer that, once its target intersects, staggers the
+	 * `scaleY(1)` transition of every `selector` match inside it by
+	 * `delayPerItem` ms per `data-index`, then stops observing.
+	 */
 	function makeStaggerObserver(
 		selector: string,
 		delayPerItem: number,

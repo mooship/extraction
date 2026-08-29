@@ -9,12 +9,17 @@ const r = 100;
 const circumference = 2 * Math.PI * r;
 const labelRadius = 165;
 
+// .sort(null) keeps donutData's own order instead of d3's default
+// largest-first sort, so the legend order matches the data declaration.
 const pieLayout = pie<DonutSegment>()
 	.value((d) => d.percent)
 	.sort(null);
 
 const arcs = pieLayout(donutData);
 
+// Converts each d3 arc's angle range into an SVG stroke-dasharray/offset
+// pair on a plain circle — simpler than building true arc paths, since
+// every segment shares one circle's cx/cy/r.
 const slices = arcs.map((arc, i) => {
 	const segLen =
 		((arc.endAngle - arc.startAngle) / (2 * Math.PI)) * circumference;

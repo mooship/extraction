@@ -5,6 +5,9 @@ import { sankeyFlows } from "../../data/charts";
 const sourceX = 80;
 const targetX = 520;
 
+// "left" flows run South -> North (source at sourceX, target at targetX);
+// "right" flows (Aid) run the opposite way, so source/target x are swapped
+// while sourceY/targetY keep their data meaning in both cases.
 const linkGen = linkHorizontal<(typeof sankeyFlows)[number], [number, number]>()
 	.source((d) =>
 		d.direction === "left" ? [sourceX, d.sourceY] : [targetX, d.sourceY],

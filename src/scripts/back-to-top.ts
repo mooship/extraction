@@ -1,3 +1,7 @@
+/**
+ * Shows the "back to top" button once `#hero` scrolls out of view, and
+ * wires it to smooth-scroll back to the page top on click.
+ */
 export function initBackToTop(): void {
 	const btn = document.querySelector<HTMLButtonElement>(".back-to-top");
 	const hero = document.querySelector<HTMLElement>("#hero");

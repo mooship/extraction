@@ -21,6 +21,11 @@ type RectData = {
 	isMain: boolean;
 };
 
+// Fixed two-column layout, not a general treemap algorithm: the largest
+// item always fills a full-height column on the left (sized by its share
+// of the total), and every other item stacks vertically in the remaining
+// column, each sized by its share of what's left over. Only correct for
+// this dataset's shape (one dominant value plus several smaller ones).
 const rects: RectData[] = [
 	{
 		x: 0,
@@ -39,6 +44,8 @@ let sideY = 0;
 for (let i = 1; i < treemapData.length; i++) {
 	const item = treemapData[i];
 	const rectH = Math.round((item.value / remainingTotal) * h);
+	// The last side rect takes whatever height remains rather than its own
+	// rounded share, so rounding error can't leave a gap below it.
 	const actualH = i === treemapData.length - 1 ? h - sideY : rectH;
 	rects.push({
 		x: mainW + 1,

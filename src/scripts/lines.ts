@@ -1,3 +1,12 @@
+/**
+ * Draws in the labour/capital, history, and Sankey SVG paths using the
+ * classic stroke-dashoffset trick: each path's dash array/offset is set to
+ * its own length (making it appear invisible), then the offset is reset to
+ * 0 once its containing SVG (`#labor-svg`, `#history-svg`, `#sankey-svg`)
+ * scrolls into view, letting the CSS transition "draw" the line. No-ops
+ * entirely under `prefers-reduced-motion`, leaving lines fully drawn via
+ * their static SVG `d`/stroke attributes.
+ */
 export function initLines(): void {
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 		return;
