@@ -1,21 +1,36 @@
 version: 2
 updates:
+  # Astro is the framework the site's CSP and build pipeline depend on --
+  # kept on a faster, separate weekly PR.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "saturday"
+      time: "09:00"
+      timezone: "Africa/Johannesburg"
+    groups:
+      npm-critical:
+        patterns:
+          - "*"
+    allow:
+      - dependency-name: "astro"
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "monthly"
-      day: "saturday"
       time: "09:00"
       timezone: "Africa/Johannesburg"
     groups:
       all-dependencies:
         patterns:
           - "*"
+    ignore:
+      - dependency-name: "astro"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "monthly"
-      day: "saturday"
       time: "09:00"
       timezone: "Africa/Johannesburg"
     groups:
